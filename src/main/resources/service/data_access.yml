@@ -1,0 +1,71 @@
+entities:
+  - name: data_access
+    namespace: laplacian_arch.service_api_arch
+
+    properties:
+      - name: entity_name
+        type: string
+        primary_key: true
+
+      - name: cardinality
+        type: string
+        domain_type_name: cardinality
+        optional: true
+        default_value: |
+          "*"
+
+      - name: multiple
+        type: boolean
+        optional: true
+        default_value: |
+          cardinality.let{ it.contains("*") }
+
+      - name: type
+        type: string
+        optional: true
+        default_value: |
+          "${entityName.upperCamelize()}Entity".let { className ->
+              if (multiple) "List<$className>" else className
+          }
+
+      - name: name
+        type: string
+        primary_key: true
+
+      - name: identifier
+        type: string
+        optional: true
+        domain_type_name: identifier
+        default_value: |
+          name.lowerUnderscorize()
+
+      - name: description
+        type: string
+        optional: true
+        default_value: |
+          name
+
+      - name: script_type
+        type: string
+        domain:
+          choices:
+            - value: jooq-kotlin
+            - value: jooq-java
+            - value: mirage-sql
+
+      - name: script_body
+        type: string
+
+    relationships:
+      - name: entity
+        cardinality: '1'
+        reference_entity_name: entity
+        mappings:
+          - from: entity_name
+            to: name
+
+    queries:
+      - name: contains_jooq_scripts
+        type: Boolean
+        snippet: |
+          any{ it.scriptType.contains("jooq") }

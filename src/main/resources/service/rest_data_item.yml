@@ -1,0 +1,105 @@
+entities:
+  - name: rest_data_item
+    namespace: laplacian_arch.service_api_arch
+
+    properties:
+      - name: name
+        type: string
+
+      - name: identifier
+        type: string
+        optional: true
+        default_value: |
+          name.lowerUnderscorize()
+
+      - name: type
+        type: string
+        optional: true
+        domain_type_name: base_type
+
+      - name: data_type
+        type: string
+        snippet: |
+          (
+              type ?:
+              entity?.className ?:
+              "{" + children.joinToString(",\n"){ it.dataType } + "}"
+          ) + (if (multiple) "[]" else "")
+
+      - name: entity_name
+        type: string
+        optional: true
+
+      - name: description
+        type: string
+        optional: true
+        default_value: |
+          name
+
+      - name: root
+        type: boolean
+        optional: true
+        default_value: |
+          false
+
+      - name: multiple
+        type: boolean
+        optional: true
+        default_value: |
+          false
+
+      - name: required
+        type: boolean
+        optional: true
+        default_value: |
+          false
+
+      - name: default_value
+        type: string
+        optional: true
+
+      - name: example_value
+        type: string
+        optional: true
+        default_value: |
+          defaultValue ?: when (type) {
+            "boolean" -> "false"
+            "number" -> "42"
+            "string" -> "\"hogehoge\""
+            else -> "null"
+          }
+
+    relationships:
+      - name: operation
+        cardinality: '0..1'
+        reference_entity_name: rest_operation
+        inherited: true
+
+      - name: children
+        cardinality: '*'
+        reference_entity_name: rest_data_item
+        aggregate: true
+
+      - name: parent
+        cardinality: '0..1'
+        reference_entity_name: rest_data_item
+        inherited: true
+
+      - name: entity
+        cardinality: '0..1'
+        reference_entity_name: entity
+        mappings:
+          - from: entity_name
+            to: name
+
+      - name: relating_entities
+        cardinality: '*'
+        reference_entity_name: entity
+        snippet: |
+          children.flatMap{ it.relatingEntities }.let {
+              if (entity == null) {
+                  it
+              } else {
+                  it + listOf(entity!!) + entity!!.relatingEntities
+              }
+          }.distinct()

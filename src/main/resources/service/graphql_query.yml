@@ -1,0 +1,62 @@
+entities:
+  - name: graphql_query
+    namespace: laplacian_arch.service_api_arch
+    properties:
+      - name: name
+        type: string
+
+      - name: identifier
+        type: string
+        optional: true
+        default_value: |
+          name.lowerUnderscorize()
+
+      - name: description
+        type: string
+        optional: true
+        default_value: |
+          "$name query."
+
+      - name: query
+        type: string
+
+      - name: multiple
+        type: boolean
+        optional: true
+        default_value: |
+          false
+
+      - name: record_entity_name
+        type: string
+        optional: true
+
+      - name: record_type
+        type: string
+        domain_type_name: base_type
+        optional: true
+        default_value: |
+          recordEntity?.className ?: throw IllegalStateException(
+              "It is needed to define record_type or record_entity_name."
+          )
+
+      - name: return_type
+        type: string
+        optional: true
+        default_value: |
+          recordType + if (multiple) "[]" else ""
+
+    relationships:
+      - name: service
+        cardinality: '1'
+        reference_entity_name: service
+        inherited: true
+
+      - name: record_entity
+        cardinality: '0..1'
+        reference_entity_name: entity
+        mappings:
+          - from: record_entity_name
+            to: name
+
+
+

@@ -1,0 +1,18 @@
+project:
+  group: laplacian-arch
+  type: model
+  name: service-api-arch
+  version: "1.0.0"
+  models:
+  - group: laplacian
+    name: metamodel
+    version: "1.0.0"
+  plugins:
+  - group: laplacian
+    name: metamodel
+    version: "1.0.0"
+  templates:
+  - group: laplacian
+    name: entity
+    subname: json-schema
+    version: "1.0.0"

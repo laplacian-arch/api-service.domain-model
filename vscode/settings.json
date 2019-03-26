@@ -1,0 +1,8 @@
+{
+  "yaml.schemas": {
+    "./schema/service_api_arch.json": [
+      "model/**/*.yml",
+      "model/*.yml"
+    ]
+  }
+}
