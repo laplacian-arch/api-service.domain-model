@@ -11,7 +11,9 @@ import laplacian_arch.service_api_arch.model.ResourceEntry
 import laplacian_arch.service_api_arch.model.RestResource
 
 
-import laplacian_arch.service_api_arch.model.Datasource
+import laplacian_arch.datasource.model.Datasource
+
+import laplacian_arch.datasource.record.DatasourceRecord
 
 
 import laplacian.metamodel.model.Entity

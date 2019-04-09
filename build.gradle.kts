@@ -6,6 +6,7 @@ plugins {
     `java-gradle-plugin`
     kotlin("jvm") version "1.3.10"
     id("laplacian.model.metamodel") version "1.0.0"
+    id("laplacian-arch.model.datasource") version "1.0.0"
 }
 
 repositories {
@@ -19,6 +20,7 @@ repositories {
 
 dependencies {
     model("laplacian:laplacian.model-def.metamodel:1.0.0")
+    model("laplacian-arch:laplacian-arch.model-def.datasource:1.0.0")
     template("laplacian:laplacian.template.entity.kotlin:1.0.0")
     template("laplacian:laplacian.template.entity.json-schema:1.0.0")
     template("laplacian:laplacian.template.entity.diagram:1.0.0")

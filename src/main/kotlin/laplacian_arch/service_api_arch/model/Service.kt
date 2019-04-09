@@ -1,5 +1,7 @@
 package laplacian_arch.service_api_arch.model
 
+import laplacian_arch.datasource.model.Datasource
+
 import laplacian.metamodel.model.Entity
 
 

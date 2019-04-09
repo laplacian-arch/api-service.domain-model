@@ -17,13 +17,6 @@
       "description": "The title of this project",
       "type": "string"
     },
-    "datasources": {
-      "description": "datasource",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/datasource"
-      }
-    },
     "services": {
       "description": "service",
       "type": "array",
@@ -38,13 +31,6 @@
         "$ref": "#/definitions/entities/rest_resource"
       }
     },
-    "data_accesses": {
-      "description": "data_access",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/data_access"
-      }
-    },
     "entities": {
       "description": "エンティティ",
       "type": "array",
@@ -57,6 +43,20 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/entities/value_domain_type"
+      }
+    },
+    "data_accesses": {
+      "description": "data_access",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/data_access"
+      }
+    },
+    "datasources": {
+      "description": "datasource",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/datasource"
       }
     }
   },
@@ -99,92 +99,6 @@
       }
     },
     "entities": {
-      "datasource": {
-        "description": "datasource",
-        "type": "object",
-        "required": [
-          "name",
-          "type",
-          "user"
-        ],
-        "properties": {
-          "name": {
-            "description": "The name of this datasource.",
-            "type": "string"
-          },
-          "type": {
-            "description": "The type of this datasource.",
-            "enum":[
-              "postgres"
-            ],
-            "type": "string"
-          },
-          "identifier": {
-            "allOf": [{
-            "description": "The identifier of this datasource.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/identifier"
-            }]
-          },
-          "description": {
-            "description": "The description of this datasource.",
-            "type": "string"
-          },
-          "hostname": {
-            "description": "The hostname of this datasource.",
-            "type": "string"
-          },
-          "port": {
-            "description": "The port of this datasource.",
-            "type": "number"
-          },
-          "jdbc_url": {
-            "description": "The jdbc_url of this datasource.",
-            "type": "string"
-          },
-          "dbname": {
-            "description": "The dbname of this datasource.",
-            "type": "string"
-          },
-          "user": {
-            "description": "The user of this datasource.",
-            "type": "string"
-          },
-          "password": {
-            "description": "The password of this datasource.",
-            "type": "string"
-          },
-          "container_name": {
-            "description": "The container_name of this datasource.",
-            "type": "string"
-          },
-          "container_image": {
-            "description": "The container_image of this datasource.",
-            "type": "string"
-          },
-          "entity_references": {
-            "description": "entity_references",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/entity_reference"
-            }
-          }
-        }
-      },
-      "entity_reference": {
-        "description": "entity_reference",
-        "type": "object",
-        "required": [
-          "entity_name"
-        ],
-        "properties": {
-          "entity_name": {
-            "description": "The entity_name of this entity_reference.",
-            "type": "string"
-          }
-        }
-      },
       "rest_data_item": {
         "description": "rest_data_item",
         "type": "object",
@@ -519,63 +433,6 @@
             "items": {
               "$ref": "#/definitions/entities/rest_operation"
             }
-          }
-        }
-      },
-      "data_access": {
-        "description": "data_access",
-        "type": "object",
-        "required": [
-          "entity_name",
-          "name",
-          "script_type",
-          "script_body"
-        ],
-        "properties": {
-          "entity_name": {
-            "description": "The entity_name of this data_access.",
-            "type": "string"
-          },
-          "cardinality": {
-            "description": "The cardinality of this data_access.",
-            "type": "string"
-          },
-          "multiple": {
-            "description": "Defines this data_access is multiple or not.",
-            "type": "boolean"
-          },
-          "type": {
-            "description": "The type of this data_access.",
-            "type": "string"
-          },
-          "name": {
-            "description": "The name of this data_access.",
-            "type": "string"
-          },
-          "identifier": {
-            "allOf": [{
-            "description": "The identifier of this data_access.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/identifier"
-            }]
-          },
-          "description": {
-            "description": "The description of this data_access.",
-            "type": "string"
-          },
-          "script_type": {
-            "description": "The script_type of this data_access.",
-            "enum":[
-              "jooq-kotlin",
-              "jooq-java",
-              "mirage-sql"
-            ],
-            "type": "string"
-          },
-          "script_body": {
-            "description": "The script_body of this data_access.",
-            "type": "string"
           }
         }
       },
@@ -943,6 +800,149 @@
           },
           "description": {
             "description": "The description of this value_item.",
+            "type": "string"
+          }
+        }
+      },
+      "data_access": {
+        "description": "data_access",
+        "type": "object",
+        "required": [
+          "entity_name",
+          "name",
+          "script_type",
+          "script_body"
+        ],
+        "properties": {
+          "entity_name": {
+            "description": "The entity_name of this data_access.",
+            "type": "string"
+          },
+          "cardinality": {
+            "description": "The cardinality of this data_access.",
+            "type": "string"
+          },
+          "multiple": {
+            "description": "Defines this data_access is multiple or not.",
+            "type": "boolean"
+          },
+          "type": {
+            "description": "The type of this data_access.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of this data_access.",
+            "type": "string"
+          },
+          "identifier": {
+            "allOf": [{
+            "description": "The identifier of this data_access.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/identifier"
+            }]
+          },
+          "description": {
+            "description": "The description of this data_access.",
+            "type": "string"
+          },
+          "script_type": {
+            "description": "The script_type of this data_access.",
+            "enum":[
+              "jooq-kotlin",
+              "jooq-java",
+              "mirage-sql"
+            ],
+            "type": "string"
+          },
+          "script_body": {
+            "description": "The script_body of this data_access.",
+            "type": "string"
+          }
+        }
+      },
+      "datasource": {
+        "description": "datasource",
+        "type": "object",
+        "required": [
+          "name",
+          "type",
+          "user"
+        ],
+        "properties": {
+          "name": {
+            "description": "The name of this datasource.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of this datasource.",
+            "enum":[
+              "postgres"
+            ],
+            "type": "string"
+          },
+          "identifier": {
+            "allOf": [{
+            "description": "The identifier of this datasource.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/identifier"
+            }]
+          },
+          "description": {
+            "description": "The description of this datasource.",
+            "type": "string"
+          },
+          "hostname": {
+            "description": "The hostname of this datasource.",
+            "type": "string"
+          },
+          "port": {
+            "description": "The port of this datasource.",
+            "type": "number"
+          },
+          "jdbc_url": {
+            "description": "The jdbc_url of this datasource.",
+            "type": "string"
+          },
+          "dbname": {
+            "description": "The dbname of this datasource.",
+            "type": "string"
+          },
+          "user": {
+            "description": "The user of this datasource.",
+            "type": "string"
+          },
+          "password": {
+            "description": "The password of this datasource.",
+            "type": "string"
+          },
+          "container_name": {
+            "description": "The container_name of this datasource.",
+            "type": "string"
+          },
+          "container_image": {
+            "description": "The container_image of this datasource.",
+            "type": "string"
+          },
+          "entity_references": {
+            "description": "entity_references",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/entity_reference"
+            }
+          }
+        }
+      },
+      "entity_reference": {
+        "description": "entity_reference",
+        "type": "object",
+        "required": [
+          "entity_name"
+        ],
+        "properties": {
+          "entity_name": {
+            "description": "The entity_name of this entity_reference.",
             "type": "string"
           }
         }

@@ -4,13 +4,9 @@ import laplacian.gradle.task.generate.ExecutionContext
 import laplacian.gradle.task.generate.ProjectEntryResolver
 import laplacian_arch.service_api_arch.gradle.ServiceApiArchModelEntryResolver
 
-import laplacian_arch.service_api_arch.model.DatasourceList
-
 import laplacian_arch.service_api_arch.model.ServiceList
 
 import laplacian_arch.service_api_arch.model.RestResourceList
-
-import laplacian_arch.service_api_arch.model.DataAccessList
 
 import laplacian.util.*
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -26,10 +22,8 @@ import java.util.stream.Collectors
  */
 class ServiceApiArchTemplateAssertion {
     lateinit var context: ExecutionContext
-    lateinit var datasources: DatasourceList
     lateinit var services: ServiceList
     lateinit var restResources: RestResourceList
-    lateinit var dataAccesses: DataAccessList
 
     /**
      * Reads the model objects from the given yaml files.
@@ -45,10 +39,8 @@ class ServiceApiArchTemplateAssertion {
             ))
         }
         context.build()
-        datasources = context.currentModel.get("datasources") as DatasourceList
         services = context.currentModel.get("services") as ServiceList
         restResources = context.currentModel.get("rest_resources") as RestResourceList
-        dataAccesses = context.currentModel.get("data_accesses") as DataAccessList
         return this
     }
 
