@@ -1,29 +1,26 @@
 package laplacian_arch.service_api_arch.record
 import com.github.jknack.handlebars.Context
+import laplacian.gradle.task.generate.model.Project
 import laplacian_arch.service_api_arch.model.RestResource
-
 import laplacian_arch.service_api_arch.model.RestResourceList
-
-
 import laplacian_arch.service_api_arch.model.RestOperation
-
-
 import laplacian.metamodel.model.Entity
-
 import laplacian.metamodel.record.EntityRecord
-
-
 import laplacian.util.*
-
 /**
  * rest_resource
  */
 data class RestResourceRecord (
     private val __record: Record,
     private val _context: Context,
-
     private val _record: Record = __record.normalizeCamelcase()
 ): RestResource, Record by _record {
+    /**
+     * The laplacian module project definition.
+     */
+    private val project: Project
+        get() = _context.get("project") as Project
+
 
     /**
      * The name of this rest_resource.
@@ -63,14 +60,11 @@ data class RestResourceRecord (
             name
         }
 
-
     /**
      * operations
      */
     override val operations: List<RestOperation>
-        = RestOperationRecord.from(getList("operations"), _context, this)
-
-
+        = RestOperationRecord.from(_record.getList("operations"), _context, this)
 
     companion object {
         /**

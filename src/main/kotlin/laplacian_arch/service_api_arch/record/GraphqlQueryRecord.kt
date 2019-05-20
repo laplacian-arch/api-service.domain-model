@@ -1,32 +1,29 @@
 package laplacian_arch.service_api_arch.record
 import com.github.jknack.handlebars.Context
+import laplacian.gradle.task.generate.model.Project
 import laplacian_arch.service_api_arch.model.GraphqlQuery
-
-
 import laplacian_arch.service_api_arch.model.Service
-
-
 import laplacian.metamodel.model.Entity
-
 import laplacian.metamodel.record.EntityRecord
-
-
 import laplacian.util.*
-
 /**
  * graphql_query
  */
 data class GraphqlQueryRecord (
     private val __record: Record,
     private val _context: Context,
-
     /**
      * the service which aggregates this graphql_query
      */
     override val service: Service,
-
     private val _record: Record = __record.normalizeCamelcase()
 ): GraphqlQuery, Record by _record {
+    /**
+     * The laplacian module project definition.
+     */
+    private val project: Project
+        get() = _context.get("project") as Project
+
 
     /**
      * The name of this graphql_query.
@@ -86,8 +83,6 @@ data class GraphqlQueryRecord (
         get() = getOrThrow("returnType") {
             recordType + if (multiple) "[]" else ""
         }
-
-
 
     /**
      * record_entity

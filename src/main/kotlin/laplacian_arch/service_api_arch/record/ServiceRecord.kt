@@ -1,40 +1,30 @@
 package laplacian_arch.service_api_arch.record
 import com.github.jknack.handlebars.Context
+import laplacian.gradle.task.generate.model.Project
 import laplacian_arch.service_api_arch.model.Service
-
 import laplacian_arch.service_api_arch.model.ServiceList
-
-
 import laplacian_arch.service_api_arch.model.ResourceEntry
-
-
 import laplacian_arch.service_api_arch.model.RestResource
-
-
 import laplacian_arch.datasource.model.Datasource
-
 import laplacian_arch.datasource.record.DatasourceRecord
-
-
 import laplacian.metamodel.model.Entity
-
 import laplacian.metamodel.record.EntityRecord
-
-
 import laplacian_arch.service_api_arch.model.GraphqlQuery
-
-
 import laplacian.util.*
-
 /**
  * service
  */
 data class ServiceRecord (
     private val __record: Record,
     private val _context: Context,
-
     private val _record: Record = __record.normalizeCamelcase()
 ): Service, Record by _record {
+    /**
+     * The laplacian module project definition.
+     */
+    private val project: Project
+        get() = _context.get("project") as Project
+
 
     /**
      * The name of this service.
@@ -126,13 +116,11 @@ data class ServiceRecord (
     override val datasourceName: String
         get() = getOrThrow("datasourceName")
 
-
     /**
      * resource_entries
      */
     override val resourceEntries: List<ResourceEntry>
-        = ResourceEntryRecord.from(getList("resource_entries", emptyList()), _context, this)
-
+        = ResourceEntryRecord.from(_record.getList("resource_entries", emptyList()), _context, this)
 
     /**
      * datasource
@@ -148,13 +136,11 @@ data class ServiceRecord (
             }.joinToString()
         )
 
-
-
     /**
      * graphql_queries
      */
     override val graphqlQueries: List<GraphqlQuery>
-        = GraphqlQueryRecord.from(getList("graphql_queries", emptyList()), _context, this)
+        = GraphqlQueryRecord.from(_record.getList("graphql_queries", emptyList()), _context, this)
 
     companion object {
         /**

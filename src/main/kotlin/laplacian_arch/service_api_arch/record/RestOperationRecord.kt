@@ -1,35 +1,30 @@
 package laplacian_arch.service_api_arch.record
 import com.github.jknack.handlebars.Context
+import laplacian.gradle.task.generate.model.Project
 import laplacian_arch.service_api_arch.model.RestOperation
-
-
 import laplacian_arch.service_api_arch.model.RestResource
-
-
 import laplacian.metamodel.model.Entity
-
 import laplacian.metamodel.record.EntityRecord
-
-
 import laplacian_arch.service_api_arch.model.RestDataItem
-
-
 import laplacian.util.*
-
 /**
  * rest_operation
  */
 data class RestOperationRecord (
     private val __record: Record,
     private val _context: Context,
-
     /**
      * the resource which aggregates this rest_operation
      */
     override val resource: RestResource,
-
     private val _record: Record = __record.normalizeCamelcase()
 ): RestOperation, Record by _record {
+    /**
+     * The laplacian module project definition.
+     */
+    private val project: Project
+        get() = _context.get("project") as Project
+
 
     /**
      * The method of this rest_operation.
@@ -83,47 +78,41 @@ data class RestOperationRecord (
             name
         }
 
-
-
-
-
-
     /**
      * path_parameters
      */
     override val pathParameters: List<RestDataItem>
-        = RestDataItemRecord.from(getList("path_parameters", emptyList()), _context, this)
+        = RestDataItemRecord.from(_record.getList("path_parameters", emptyList()), _context, this)
 
     /**
      * request_headers
      */
     override val requestHeaders: List<RestDataItem>
-        = RestDataItemRecord.from(getList("request_headers", emptyList()), _context, this)
+        = RestDataItemRecord.from(_record.getList("request_headers", emptyList()), _context, this)
 
     /**
      * query_parameters
      */
     override val queryParameters: List<RestDataItem>
-        = RestDataItemRecord.from(getList("query_parameters", emptyList()), _context, this)
+        = RestDataItemRecord.from(_record.getList("query_parameters", emptyList()), _context, this)
 
     /**
      * request_body
      */
     override val requestBody: List<RestDataItem>
-        = RestDataItemRecord.from(getList("request_body", emptyList()), _context, this)
+        = RestDataItemRecord.from(_record.getList("request_body", emptyList()), _context, this)
 
     /**
      * response_headers
      */
     override val responseHeaders: List<RestDataItem>
-        = RestDataItemRecord.from(getList("response_headers", emptyList()), _context, this)
+        = RestDataItemRecord.from(_record.getList("response_headers", emptyList()), _context, this)
 
     /**
      * response_body
      */
     override val responseBody: List<RestDataItem>
-        = RestDataItemRecord.from(getList("response_body", emptyList()), _context, this)
-
+        = RestDataItemRecord.from(_record.getList("response_body", emptyList()), _context, this)
 
     companion object {
         /**

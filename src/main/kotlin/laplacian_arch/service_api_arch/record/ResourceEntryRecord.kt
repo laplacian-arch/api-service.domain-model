@@ -1,38 +1,34 @@
 package laplacian_arch.service_api_arch.record
 import com.github.jknack.handlebars.Context
+import laplacian.gradle.task.generate.model.Project
 import laplacian_arch.service_api_arch.model.ResourceEntry
-
-
 import laplacian_arch.service_api_arch.model.Service
-
-
 import laplacian_arch.service_api_arch.model.RestResource
-
-
 import laplacian.util.*
-
 /**
  * resource_entry
  */
 data class ResourceEntryRecord (
     private val __record: Record,
     private val _context: Context,
-
     /**
      * the service which aggregates this resource_entry
      */
     override val service: Service,
-
     private val _record: Record = __record.normalizeCamelcase()
 ): ResourceEntry, Record by _record {
+    /**
+     * The laplacian module project definition.
+     */
+    private val project: Project
+        get() = _context.get("project") as Project
+
 
     /**
      * The resource_name of this resource_entry.
      */
     override val resourceName: String
         get() = getOrThrow("resourceName")
-
-
 
     /**
      * resource
