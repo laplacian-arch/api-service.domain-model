@@ -2,7 +2,7 @@ project:
   group: laplacian-arch
   name: model.service-api
   type: model
-  namespace: laplacian.arch
+  namespace: laplacian.arch.service.api
   version: '1.0.0'
   description: |
     A model that expresses the logical structure of a service API.

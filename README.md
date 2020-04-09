@@ -14,20 +14,6 @@ The following diagram summarizes the structure of the model:
 ![](./doc/image/model-diagram.svg)
 
 ## Entities
-### [DataAccess](./doc/entities/DataAccess.md)
-
-A *DataAccess* represents an interface through which an client retrieve data from a *DataSource*.
-
-
-### [Datasource](./doc/entities/Datasource.md)
-
-A *DataSource* represents a connection to a data store, such as an RDBMS.
-
-
-### [EntityReference](./doc/entities/EntityReference.md)
-
-entity_reference
-
 ### [GraphqlQuery](./doc/entities/GraphqlQuery.md)
 
 graphql_query
