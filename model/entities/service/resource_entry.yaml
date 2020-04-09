@@ -1,0 +1,21 @@
+entities:
+- name: resource_entry
+  value_object: true
+
+  properties:
+  - name: resource_name
+    type: string
+
+  relationships:
+  - name: service
+    cardinality: '1'
+    reference_entity_name: service
+    inherited: true
+
+  - name: resource
+    cardinality: '1'
+    reference_entity_name: rest_resource
+    mappings:
+    - from: resource_name
+      to: name
+

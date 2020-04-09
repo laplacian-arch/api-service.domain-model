@@ -1,50 +1,67 @@
-# laplacian-arch:model:service-api-arch
+# model.service-api
 
-A model that expresses the logical structure of service APIs running on servers.
+A model that expresses the logical structure of a service API.
 This model consists of REST api model, GraphQL interface model, and datasource usage model.
-REST resource and entities stored in datasources are expressed by 'metamodel' model.
 
 
+<!-- @main-content@ -->
+<!-- @main-content@ -->
 
-## The structure of the *service-api-arch* model
+## Model overview
 
 The following diagram summarizes the structure of the model:
 
 ![](./doc/image/model-diagram.svg)
 
+## Entities
+### [DataAccess](./doc/entities/DataAccess.md)
 
-As shown in above diagram, this model depends on the following external models.
-
-- *metamodel* (laplacian.model.metamodel)
-
-- *datasource* (laplacian-arch.model.datasource)
+A *DataAccess* represents an interface through which an client retrieve data from a *DataSource*.
 
 
+### [Datasource](./doc/entities/Datasource.md)
 
-## Getting started
+A *DataSource* represents a connection to a data store, such as an RDBMS.
 
-Firstly, you need to add the following entry to your `laplacian-module.yml` :
+
+### [EntityReference](./doc/entities/EntityReference.md)
+
+entity_reference
+
+### [GraphqlQuery](./doc/entities/GraphqlQuery.md)
+
+graphql_query
+
+### [RestDataItem](./doc/entities/RestDataItem.md)
+
+rest_data_item
+
+### [RestOperation](./doc/entities/RestOperation.md)
+
+rest_operation
+
+### [RestResource](./doc/entities/RestResource.md)
+
+rest_resource
+
+### [Service](./doc/entities/Service.md)
+
+service
+
+### [ResourceEntry](./doc/entities/ResourceEntry.md)
+
+resource_entry
+
+
+
+## Usage
+
+Add the following entry to your project definition.
 
 ```yaml
 project:
-  group: ${your.project.group}
-  name: ${your.project.name}
-  type: project
-  version: "1.0.0"
   models:
-  ## ↓↓ ADD ↓↓ ##
   - group: laplacian-arch
-    name: service-api-arch
-    version: "1.0.0"
-  ## ↑↑ ADD ↑↑ ##
-```
-
-To reflect the change, you need to type the following command in your console :
-```bash
-./gradlew lM
-```
-
-Then put some template files under the *./template* directory and type the following command to generate files:
-```bash
-./gradlew lG
+    name: model.service-api
+    version: 1.0.0
 ```
