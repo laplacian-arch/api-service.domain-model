@@ -10,7 +10,7 @@ entities:
   - name: service
     cardinality: '1'
     reference_entity_name: service
-    inherited: true
+    reverse_of: resource_entries
 
   - name: resource
     cardinality: '1'
