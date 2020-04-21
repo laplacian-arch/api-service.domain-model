@@ -1,5 +1,5 @@
 <!-- @head-content@ -->
-# laplacian-arch/service-api-schema-model
+# laplacian-arch/service-api.schema-model
 
 A model that expresses the logical structure of a service API.
 This model consists of REST api model, GraphQL interface model, and datasource usage model.
@@ -26,7 +26,7 @@ Add the following entry to your project definition.
 project:
   models:
   - group: laplacian-arch
-    name: service-api-schema-model
+    name: service-api.schema-model
     version: 1.0.0
 ```
 

@@ -63,7 +63,7 @@ file_list() {
 }
 
 #
-# Generate resources for service-api-schema-model project.
+# Generate resources for service-api.schema-model project.
 #
 generate() {
   ${SCRIPT_BASE_DIR}/laplacian-generate.sh \

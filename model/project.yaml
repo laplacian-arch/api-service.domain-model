@@ -1,6 +1,6 @@
 project:
   group: laplacian-arch
-  name: service-api-schema-model
+  name: service-api.schema-model
   type: schema-model
   namespace: laplacian.arch.service.api
   version: '1.0.0'

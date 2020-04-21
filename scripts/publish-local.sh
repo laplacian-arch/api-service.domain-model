@@ -60,7 +60,7 @@ pluginManagement {
         jcenter()
     }
 }
-rootProject.name = "laplacian-arch.service-api-schema-model"
+rootProject.name = "laplacian-arch.service-api.schema-model"
 EOF
 }
 
