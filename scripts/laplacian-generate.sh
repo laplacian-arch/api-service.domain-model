@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 set -e
-SCRIPT_BASE_DIR=$(cd $"${BASH_SOURCE%/*}" && pwd)
-PROJECT_BASE_DIR=$(cd $SCRIPT_BASE_DIR && cd .. && pwd)
+PROJECT_BASE_DIR=$(cd $"${BASH_SOURCE%/*}/../" && pwd)
 
-LF=$'\n'
-
-GRADLE_PROJECT_DIR=$SCRIPT_BASE_DIR/build/laplacian
+SCRIPT_BASE_DIR="$PROJECT_BASE_DIR/scripts"
+GRADLE_PROJECT_DIR=$SCRIPT_BASE_DIR/laplacian
 GRADLE_FILE=$GRADLE_PROJECT_DIR/build.gradle
 SETTINGS_FILE=$GRADLE_PROJECT_DIR/settings.gradle
 GRADLE_RUNTIME_DIR=$GRADLE_PROJECT_DIR/gradle/wrapper
 
+LF=$'\n'
 MODEL_FILES=()
 TEMPLATE_FILES=()
 TARGET_DIR=$PROJECT_BASE_DIR/generated
@@ -69,6 +68,7 @@ main () {
   [ ! -z $VERBOSE ] && set -x
   cd $SCRIPT_BASE_DIR
   [ ! -z $HELP ] && show_usage && exit 0
+  trap clean EXIT
   gradle_file
   settings_file
   install_gradle_runtime
@@ -197,6 +197,10 @@ install_gradle_runtime () {
     curl -Ls -o $GRADLE_RUNTIME_DIR/gradle-wrapper.properties $RAW_HOST/gradle/wrapper/gradle-wrapper.properties
     chmod 755 $GRADLE_PROJECT_DIR/gradlew
   )
+}
+
+clean() {
+  rm -f $GRADLE_FILE $SETTINGS_FILE &> /dev/null || true
 }
 
 main "$@"

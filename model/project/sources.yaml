@@ -14,6 +14,8 @@ project:
   - ".editorconfig"
   - ".gitattributes"
   - ".gitignore"
+  - "model/project/scripts/generate.yaml"
+  - "model/project/scripts/publish-local.yaml"
   - "model/project/sources.yaml"
   - "model/project.yaml"
   - "src/entities/graphql_query.yml"
