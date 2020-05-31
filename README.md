@@ -1,5 +1,5 @@
 <!-- @head-content@ -->
-# laplacian-arch/service-api.schema-model
+# laplacian-arch/service-api.domain-model
 
 A model that expresses the logical structure of a service API.
 This model consists of REST api model, GraphQL interface model, and datasource usage model.
@@ -10,9 +10,15 @@ This model consists of REST api model, GraphQL interface model, and datasource u
 
 <!-- @toc@ -->
 ## Table of contents
+- [Overview](#overview)
+
+  * [Model overview](#model-overview)
+
 - [Usage](#usage)
 
 - [Index](#index)
+
+  * [Entity list](#entity-list)
 
   * [Script List](#script-list)
 
@@ -23,6 +29,16 @@ This model consists of REST api model, GraphQL interface model, and datasource u
 <!-- @toc@ -->
 
 <!-- @main-content@ -->
+## Overview
+
+
+### Model overview
+
+
+The following diagram explains the entities included in this module and the relationship
+between them.
+![](./doc/image/model-diagram.svg)
+
 ## Usage
 
 To apply this Model module, add the following entry to your project definition.
@@ -30,7 +46,7 @@ To apply this Model module, add the following entry to your project definition.
 project:
   models:
   - group: laplacian-arch
-    name: service-api.schema-model
+    name: service-api.domain-model
     version: 1.0.0
 ```
 
@@ -55,12 +71,90 @@ $ ./script/generate
 ## Index
 
 
+### Entity list
+
+
+- [**GraphqlQuery**](<./doc/entities/GraphqlQuery.md>)
+graphql_query
+- [**RestDataItem**](<./doc/entities/RestDataItem.md>)
+rest_data_item
+- [**RestOperation**](<./doc/entities/RestOperation.md>)
+rest_operation
+- [**RestResource**](<./doc/entities/RestResource.md>)
+rest_resource
+- [**Service**](<./doc/entities/Service.md>)
+service
+- [**ResourceEntry**](<./doc/entities/ResourceEntry.md>)
+resource_entry
 ### Script List
 
 
+- [./script/do-each-subproject.sh](<./scripts/do-each-subproject.sh>)
+
+  Executes the command specified by the argument for each subproject.
+
+  Example:
+  ```console
+  $ ./scripts/null -c git status
+  ```
+
+  > Usage: do-each-subproject.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   Displays how to use this command.
+  >   
+  > -v, --verbose
+  >
+  >   Displays more detailed command execution information.
+  >   
+  > -c, --continue-on-error
+  >
+  >   Even if the given command fails in a subproject in the middle, executes it for the remaining subprojects.
+  >   
+- [./script/generate-all.sh](<./scripts/generate-all.sh>)
+
+  Generates resources in the project, including subprojects.
+
+  > Usage: generate-all.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   Displays how to use this command.
+  >   
+  > -v, --verbose
+  >
+  >   Displays more detailed command execution information.
+  >   
+  > -c, --continue-on-error
+  >
+  >   Even if the given command fails in a subproject in the middle, executes it for the remaining subprojects.
+  >   
+- [./script/generate-service-api-domain-model-plugin.sh](<./scripts/generate-service-api-domain-model-plugin.sh>)
+
+  Generates the [laplacian-arch/service-api.domain-model-plugin](<null>) project as a subproject in the following directory.
+  ```
+  subprojects/laplacian-arch.service-api.domain-model-plugin
+  ```
+  If the subproject already exists, the content of the subproject is updated.
+
+  > Usage: generate-service-api-domain-model-plugin.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   Displays how to use this command.
+  >   
+  > -v, --verbose
+  >
+  >   Displays more detailed command execution information.
+  >   
+  > -c, --clean
+  >
+  >   Delete all local resources of the subproject and regenerate them.
+  >   
 - [./script/generate.sh](<./scripts/generate.sh>)
 
-  Generates The resources in each directory of `src/` `model/` `template/` in this project.
+  Generates the resources in each directory of `src/` `model/` `template/` in this project.
   The results are reflected in each directory of `dest/` `doc/` `script/`.
 
   *Generator input files*
@@ -123,6 +217,29 @@ $ ./script/generate
   >   when the contents of the `model/` `template/` directory are updated
   >   during the generation process.
   >    (Default: 10)
+- [./script/git-each-subproject.sh](<./scripts/git-each-subproject.sh>)
+
+  Executes the git sub-command specified by the argument for each subproject.
+
+  Example:
+  ```console
+  $ ./scripts/null -c status
+  ```
+
+  > Usage: git-each-subproject.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   Displays how to use this command.
+  >   
+  > -v, --verbose
+  >
+  >   Displays more detailed command execution information.
+  >   
+  > -c, --continue-on-error
+  >
+  >   Even if the given command fails in a subproject in the middle, executes it for the remaining subprojects.
+  >   
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
   After the resources in the project are generated,
@@ -147,12 +264,23 @@ $ ./script/generate
   >
   >   This option is the same as the option of the same name in [generate.sh](<./scripts/generate.sh>).
   >   
+- [./script/publish-local-service-api-domain-model-plugin.sh](<./scripts/publish-local-service-api-domain-model-plugin.sh>)
+
+  Generates resources for the [laplacian-arch/service-api.domain-model-plugin](<null>) subproject.
+
+  > Usage: publish-local-service-api-domain-model-plugin.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   Displays how to use this command.
+  >   
+  > -v, --verbose
+  >
+  >   Displays more detailed command execution information.
+  >   
 ### Source code list
 
 
-- [model/project/scripts/generate.yaml](<./model/project/scripts/generate.yaml>)
-- [model/project/scripts/publish-local.yaml](<./model/project/scripts/publish-local.yaml>)
-- [model/project/sources.yaml](<./model/project/sources.yaml>)
 - [model/project.yaml](<./model/project.yaml>)
 - [src/entities/graphql_query.yml](<./src/entities/graphql_query.yml>)
 - [src/entities/rest_data_item.yml](<./src/entities/rest_data_item.yml>)

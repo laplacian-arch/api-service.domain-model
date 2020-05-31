@@ -1,5 +1,5 @@
 <!-- @head-content@ -->
-# laplacian-arch/service-api.schema-model
+# laplacian-arch/service-api.domain-model
 
 A model that expresses the logical structure of a service API.
 This model consists of REST api model, GraphQL interface model, and datasource usage model.
@@ -10,9 +10,15 @@ This model consists of REST api model, GraphQL interface model, and datasource u
 
 <!-- @toc@ -->
 ## Table of contents
+- [概要](#概要)
+
+  * [モデル概要](#モデル概要)
+
 - [使用方法](#使用方法)
 
 - [インデックス](#インデックス)
+
+  * [エンティティ一覧](#エンティティ一覧)
 
   * [スクリプト一覧](#スクリプト一覧)
 
@@ -23,6 +29,15 @@ This model consists of REST api model, GraphQL interface model, and datasource u
 <!-- @toc@ -->
 
 <!-- @main-content@ -->
+## 概要
+
+
+### モデル概要
+
+
+以下の図は、このモジュールに含まれる各エンティティの内容とそれらの間の関係を表しています。
+![](./doc/image/model-diagram.svg)
+
 ## 使用方法
 
 この modelモジュールを適用するには、プロジェクト定義に以下のエントリを追加してください。
@@ -30,7 +45,7 @@ This model consists of REST api model, GraphQL interface model, and datasource u
 project:
   models:
   - group: laplacian-arch
-    name: service-api.schema-model
+    name: service-api.domain-model
     version: 1.0.0
 ```
 
@@ -57,9 +72,87 @@ $ ./script/generate
 ## インデックス
 
 
+### エンティティ一覧
+
+
+- [**GraphqlQuery**](<./doc/entities/GraphqlQuery.md>)
+graphql_query
+- [**RestDataItem**](<./doc/entities/RestDataItem.md>)
+rest_data_item
+- [**RestOperation**](<./doc/entities/RestOperation.md>)
+rest_operation
+- [**RestResource**](<./doc/entities/RestResource.md>)
+rest_resource
+- [**Service**](<./doc/entities/Service.md>)
+service
+- [**ResourceEntry**](<./doc/entities/ResourceEntry.md>)
+resource_entry
 ### スクリプト一覧
 
 
+- [./script/do-each-subproject.sh](<./scripts/do-each-subproject.sh>)
+
+  各サブプロジェクトに対して、引数で指定されたコマンドを一括で実行します。
+
+  使用例:
+  ```console
+  $ ./scripts/null -c git status
+  ```
+
+  > Usage: do-each-subproject.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   このコマンドの使用方法を表示します。
+  >   
+  > -v, --verbose
+  >
+  >   より詳細なコマンドの実行情報を表示します。
+  >   
+  > -c, --continue-on-error
+  >
+  >   途中のサブプロジェクトで与えられたコマンドが失敗しても、残りのサブプロジェクトに対してコマンドを実行します。
+  >   
+- [./script/generate-all.sh](<./scripts/generate-all.sh>)
+
+  サブプロジェクトを含むプロジェクト内の資源を自動生成します。
+
+  > Usage: generate-all.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   このコマンドの使用方法を表示します。
+  >   
+  > -v, --verbose
+  >
+  >   より詳細なコマンドの実行情報を表示します。
+  >   
+  > -c, --continue-on-error
+  >
+  >   途中のサブプロジェクトで与えられたコマンドが失敗しても、残りのサブプロジェクトに対してコマンドを実行します。
+  >   
+- [./script/generate-service-api-domain-model-plugin.sh](<./scripts/generate-service-api-domain-model-plugin.sh>)
+
+  [laplacian-arch/service-api.domain-model-plugin](<null>)プロジェクトをサブプロジェクトとして下記のディレクトリに生成します。
+  ```
+  subprojects/laplacian-arch.service-api.domain-model-plugin
+  ```
+  すでにそのサブプロジェクトが存在する場合はその内容を更新します。
+
+  > Usage: generate-service-api-domain-model-plugin.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   このコマンドの使用方法を表示します。
+  >   
+  > -v, --verbose
+  >
+  >   より詳細なコマンドの実行情報を表示します。
+  >   
+  > -c, --clean
+  >
+  >   サブプロジェクトのローカルにある資源を全て削除してから再生成します。
+  >   
 - [./script/generate.sh](<./scripts/generate.sh>)
 
   このプロジェクト内の資源を自動生成します。
@@ -119,6 +212,29 @@ $ ./script/generate
   >   自動生成処理中に`model/` `template/`ディレクトリの内容が更新された場合に、
   >   再帰的に自動生成処理を実行する回数の上限。
   >    (Default: 10)
+- [./script/git-each-subproject.sh](<./scripts/git-each-subproject.sh>)
+
+  各サブプロジェクトに対して、引数で指定されたGitサブコマンドを一括実行します。
+
+  使用例:
+  ```console
+  $ ./scripts/null -c status
+  ```
+
+  > Usage: git-each-subproject.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   このコマンドの使用方法を表示します。
+  >   
+  > -v, --verbose
+  >
+  >   より詳細なコマンドの実行情報を表示します。
+  >   
+  > -c, --continue-on-error
+  >
+  >   途中のサブプロジェクトで与えられたコマンドが失敗しても、残りのサブプロジェクトに対してコマンドを実行します。
+  >   
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
   プロジェクト内の資源を自動生成した後、ディレクトリにある資源をモデルモジュールとしてビルドし、
@@ -142,12 +258,23 @@ $ ./script/generate
   >
   >   自動生成処理を行わずに、ビルドおよびローカルリポジトリへの登録を行います。
   >   
+- [./script/publish-local-service-api-domain-model-plugin.sh](<./scripts/publish-local-service-api-domain-model-plugin.sh>)
+
+  [laplacian-arch/service-api.domain-model-plugin](<null>)サブプロジェクトの資源を自動生成します。
+
+  > Usage: publish-local-service-api-domain-model-plugin.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   このコマンドの使用方法を表示します。
+  >   
+  > -v, --verbose
+  >
+  >   より詳細なコマンドの実行情報を表示します。
+  >   
 ### ソースコード一覧
 
 
-- [model/project/scripts/generate.yaml](<./model/project/scripts/generate.yaml>)
-- [model/project/scripts/publish-local.yaml](<./model/project/scripts/publish-local.yaml>)
-- [model/project/sources.yaml](<./model/project/sources.yaml>)
 - [model/project.yaml](<./model/project.yaml>)
 - [src/entities/graphql_query.yml](<./src/entities/graphql_query.yml>)
 - [src/entities/rest_data_item.yml](<./src/entities/rest_data_item.yml>)

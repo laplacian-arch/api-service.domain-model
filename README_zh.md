@@ -1,5 +1,5 @@
 <!-- @head-content@ -->
-# laplacian-arch/service-api.schema-model
+# laplacian-arch/service-api.domain-model
 
 A model that expresses the logical structure of a service API.
 This model consists of REST api model, GraphQL interface model, and datasource usage model.
@@ -10,9 +10,15 @@ This model consists of REST api model, GraphQL interface model, and datasource u
 
 <!-- @toc@ -->
 ## Table of contents
+- [概述](#概述)
+
+  * [模式概述](#模式概述)
+
 - [如何使用](#如何使用)
 
 - [索引](#索引)
+
+  * [实体清单](#实体清单)
 
   * [命令列表](#命令列表)
 
@@ -23,6 +29,15 @@ This model consists of REST api model, GraphQL interface model, and datasource u
 <!-- @toc@ -->
 
 <!-- @main-content@ -->
+## 概述
+
+
+### 模式概述
+
+
+下面的图表显示了本模块所包含的每个实体的内容以及它们之间的关系。
+![](./doc/image/model-diagram.svg)
+
 ## 如何使用
 
 要应用此model模块，请在项目定义中加入以下条目
@@ -31,7 +46,7 @@ This model consists of REST api model, GraphQL interface model, and datasource u
 project:
   models:
   - group: laplacian-arch
-    name: service-api.schema-model
+    name: service-api.domain-model
     version: 1.0.0
 ```
 
@@ -58,9 +73,87 @@ $ ./script/generate
 ## 索引
 
 
+### 实体清单
+
+
+- [**GraphqlQuery**](<./doc/entities/GraphqlQuery.md>)
+graphql_query
+- [**RestDataItem**](<./doc/entities/RestDataItem.md>)
+rest_data_item
+- [**RestOperation**](<./doc/entities/RestOperation.md>)
+rest_operation
+- [**RestResource**](<./doc/entities/RestResource.md>)
+rest_resource
+- [**Service**](<./doc/entities/Service.md>)
+service
+- [**ResourceEntry**](<./doc/entities/ResourceEntry.md>)
+resource_entry
 ### 命令列表
 
 
+- [./script/do-each-subproject.sh](<./scripts/do-each-subproject.sh>)
+
+  为每个子项目执行参数指定的命令。
+
+  例子:
+  ```console
+  $ ./scripts/null -c git status
+  ```
+
+  > Usage: do-each-subproject.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   显示如何使用此命令。
+  >   
+  > -v, --verbose
+  >
+  >   显示更详细的命令执行信息。
+  >   
+  > -c, --continue-on-error
+  >
+  >   即使给定的命令在中间的一个子项目中失败，对其余的子项目执行该命令。
+  >   
+- [./script/generate-all.sh](<./scripts/generate-all.sh>)
+
+  生成项目中的资源，包括子项目。
+
+  > Usage: generate-all.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   显示如何使用此命令。
+  >   
+  > -v, --verbose
+  >
+  >   显示更详细的命令执行信息。
+  >   
+  > -c, --continue-on-error
+  >
+  >   即使给定的命令在中间的一个子项目中失败，对其余的子项目执行该命令。
+  >   
+- [./script/generate-service-api-domain-model-plugin.sh](<./scripts/generate-service-api-domain-model-plugin.sh>)
+
+  在下面的目录中生成[laplacian-arch/service-api.domain-model-plugin](<null>)项目，作为子项目。
+  ```
+  subprojects/laplacian-arch.service-api.domain-model-plugin
+  ```
+  如果子项目已经存在，则更新子项目的内容。
+
+  > Usage: generate-service-api-domain-model-plugin.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   显示如何使用此命令。
+  >   
+  > -v, --verbose
+  >
+  >   显示更详细的命令执行信息。
+  >   
+  > -c, --clean
+  >
+  >   删除子项目的所有本地资源，并对其进行再生。
+  >   
 - [./script/generate.sh](<./scripts/generate.sh>)
 
   生成本项目中每个`src/` `model/` `template/`目录下的资源。
@@ -120,6 +213,29 @@ $ ./script/generate
   >
   >   当`model/` `template/`目录的内容在生成过程中被更新时，递归执行的次数上限。
   >    (Default: 10)
+- [./script/git-each-subproject.sh](<./scripts/git-each-subproject.sh>)
+
+  执行参数为每个子项目指定的git子命令。
+
+  例子:
+  ```console
+  $ ./scripts/null -c status
+  ```
+
+  > Usage: git-each-subproject.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   显示如何使用此命令。
+  >   
+  > -v, --verbose
+  >
+  >   显示更详细的命令执行信息。
+  >   
+  > -c, --continue-on-error
+  >
+  >   即使给定的命令在中间的一个子项目中失败，对其余的子项目执行该命令。
+  >   
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
   项目中的资源生成后，在`./dest`目录下的资源作为模型模块建立，并在本地资源库中注册。
@@ -142,12 +258,23 @@ $ ./script/generate
   >
   >   这个选项与[generate.sh](<./scripts/generate.sh>)中的同名选项相同。
   >   
+- [./script/publish-local-service-api-domain-model-plugin.sh](<./scripts/publish-local-service-api-domain-model-plugin.sh>)
+
+  为[laplacian-arch/service-api.domain-model-plugin](<null>)子项目生成资源。
+
+  > Usage: publish-local-service-api-domain-model-plugin.sh [OPTION]...
+  >
+  > -h, --help
+  >
+  >   显示如何使用此命令。
+  >   
+  > -v, --verbose
+  >
+  >   显示更详细的命令执行信息。
+  >   
 ### 源码列表
 
 
-- [model/project/scripts/generate.yaml](<./model/project/scripts/generate.yaml>)
-- [model/project/scripts/publish-local.yaml](<./model/project/scripts/publish-local.yaml>)
-- [model/project/sources.yaml](<./model/project/sources.yaml>)
 - [model/project.yaml](<./model/project.yaml>)
 - [src/entities/graphql_query.yml](<./src/entities/graphql_query.yml>)
 - [src/entities/rest_data_item.yml](<./src/entities/rest_data_item.yml>)

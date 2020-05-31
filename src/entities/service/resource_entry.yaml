@@ -1,5 +1,6 @@
 entities:
 - name: resource_entry
+  namespace: laplacian.arch.service.api
   value_object: true
 
   properties:
