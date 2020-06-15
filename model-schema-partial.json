@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Domain model definition for the service-api.domain-model project.",
-  "description": "Domain model definition for the service-api.domain-model project.",
+  "title": "Domain model definition for the api-service.domain-model project.",
+  "description": "Domain model definition for the api-service.domain-model project.",
   "type": "object",
   "required": [],
   "properties": {
@@ -811,6 +811,14 @@
           "is_flag": {
             "description": "Defines this option is is_flag or not.",
             "type": "boolean"
+          },
+          "is_interactive": {
+            "description": "Defines this option is is_interactive or not.",
+            "type": "boolean"
+          },
+          "prompt": {
+            "description": "The prompt of this option.",
+            "type": "string"
           },
           "default_value": {
             "description": "The default_value of this option.",
@@ -2150,16 +2158,16 @@
             "description": "The jdbc_url of this datasource.",
             "type": "string"
           },
-          "dbname": {
-            "description": "The dbname of this datasource.",
+          "db_name": {
+            "description": "The db_name of this datasource.",
             "type": "string"
           },
-          "user": {
-            "description": "The user of this datasource.",
+          "db_user": {
+            "description": "The db_user of this datasource.",
             "type": "string"
           },
-          "password": {
-            "description": "The password of this datasource.",
+          "db_password": {
+            "description": "The db_password of this datasource.",
             "type": "string"
           },
           "container_name": {

@@ -1,5 +1,5 @@
 # **ResourceEntry**
-**namespace:** laplacian.arch.service.api
+**namespace:** laplacian.arch.api.service
 
 resource_entry
 

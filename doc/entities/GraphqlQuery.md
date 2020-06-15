@@ -1,5 +1,5 @@
 # **GraphqlQuery**
-**namespace:** laplacian.arch.service.api
+**namespace:** laplacian.arch.api.service
 
 graphql_query
 

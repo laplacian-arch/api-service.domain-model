@@ -1,5 +1,5 @@
 # **RestResource**
-**namespace:** laplacian.arch.service.api
+**namespace:** laplacian.arch.api.service
 
 rest_resource
 

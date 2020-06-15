@@ -1,8 +1,8 @@
 <!-- @head-content@ -->
-# laplacian-arch/service-api.domain-model
+# laplacian-arch/api-service.domain-model
 
-A model that expresses the logical structure of a service API.
-This model consists of REST api model, GraphQL interface model, and datasource usage model.
+一种表示API服务逻辑结构的领域模型。
+该模型基于REST资源模型、GraphQL接口定义模型和数据源访问模型。
 
 
 *Read this in other languages*: [[English](README.md)] [[日本語](README_ja.md)]
@@ -46,7 +46,7 @@ This model consists of REST api model, GraphQL interface model, and datasource u
 project:
   models:
   - group: laplacian-arch
-    name: service-api.domain-model
+    name: api-service.domain-model
     version: 1.0.0
 ```
 
@@ -91,69 +91,6 @@ resource_entry
 ### 命令列表
 
 
-- [./script/do-each-subproject.sh](<./scripts/do-each-subproject.sh>)
-
-  为每个子项目执行参数指定的命令。
-
-  例子:
-  ```console
-  $ ./scripts/null -c git status
-  ```
-
-  > Usage: do-each-subproject.sh [OPTION]...
-  >
-  > -h, --help
-  >
-  >   显示如何使用此命令。
-  >   
-  > -v, --verbose
-  >
-  >   显示更详细的命令执行信息。
-  >   
-  > -c, --continue-on-error
-  >
-  >   即使给定的命令在中间的一个子项目中失败，对其余的子项目执行该命令。
-  >   
-- [./script/generate-all.sh](<./scripts/generate-all.sh>)
-
-  生成项目中的资源，包括子项目。
-
-  > Usage: generate-all.sh [OPTION]...
-  >
-  > -h, --help
-  >
-  >   显示如何使用此命令。
-  >   
-  > -v, --verbose
-  >
-  >   显示更详细的命令执行信息。
-  >   
-  > -c, --continue-on-error
-  >
-  >   即使给定的命令在中间的一个子项目中失败，对其余的子项目执行该命令。
-  >   
-- [./script/generate-service-api-domain-model-plugin.sh](<./scripts/generate-service-api-domain-model-plugin.sh>)
-
-  在下面的目录中生成[laplacian-arch/service-api.domain-model-plugin](<null>)项目，作为子项目。
-  ```
-  subprojects/laplacian-arch.service-api.domain-model-plugin
-  ```
-  如果子项目已经存在，则更新子项目的内容。
-
-  > Usage: generate-service-api-domain-model-plugin.sh [OPTION]...
-  >
-  > -h, --help
-  >
-  >   显示如何使用此命令。
-  >   
-  > -v, --verbose
-  >
-  >   显示更详细的命令执行信息。
-  >   
-  > -c, --clean
-  >
-  >   删除子项目的所有本地资源，并对其进行再生。
-  >   
 - [./script/generate.sh](<./scripts/generate.sh>)
 
   生成本项目中每个`src/` `model/` `template/`目录下的资源。
@@ -213,28 +150,15 @@ resource_entry
   >
   >   当`model/` `template/`目录的内容在生成过程中被更新时，递归执行的次数上限。
   >    (Default: 10)
-- [./script/git-each-subproject.sh](<./scripts/git-each-subproject.sh>)
-
-  执行参数为每个子项目指定的git子命令。
-
-  例子:
-  ```console
-  $ ./scripts/null -c status
-  ```
-
-  > Usage: git-each-subproject.sh [OPTION]...
+  > , --local-module-repository [VALUE]
   >
-  > -h, --help
-  >
-  >   显示如何使用此命令。
+  >   存储本地构建的模块的存储库路径。
+  >   这个存储库中的模块具有最高优先级。
   >   
-  > -v, --verbose
+  > , --updates-scripts-only
   >
-  >   显示更详细的命令执行信息。
-  >   
-  > -c, --continue-on-error
-  >
-  >   即使给定的命令在中间的一个子项目中失败，对其余的子项目执行该命令。
+  >   仅更新脚本文件。
+  >   这个选项在项目初始生成时用于生成生成器脚本本身。
   >   
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
@@ -258,32 +182,23 @@ resource_entry
   >
   >   这个选项与[generate.sh](<./scripts/generate.sh>)中的同名选项相同。
   >   
-- [./script/publish-local-service-api-domain-model-plugin.sh](<./scripts/publish-local-service-api-domain-model-plugin.sh>)
-
-  为[laplacian-arch/service-api.domain-model-plugin](<null>)子项目生成资源。
-
-  > Usage: publish-local-service-api-domain-model-plugin.sh [OPTION]...
+  > , --local-module-repository [VALUE]
   >
-  > -h, --help
-  >
-  >   显示如何使用此命令。
-  >   
-  > -v, --verbose
-  >
-  >   显示更详细的命令执行信息。
+  >   到本地存储库的路径。
+  >   如果在指定的路径中不存在存储库，将自动创建。
   >   
 ### 源码列表
 
 
 - [model/project.yaml](<./model/project.yaml>)
-- [src/entities/graphql_query.yml](<./src/entities/graphql_query.yml>)
-- [src/entities/rest_data_item.yml](<./src/entities/rest_data_item.yml>)
-- [src/entities/rest_operation.yml](<./src/entities/rest_operation.yml>)
-- [src/entities/rest_resource.yml](<./src/entities/rest_resource.yml>)
-- [src/entities/service/resource_entry.yaml](<./src/entities/service/resource_entry.yaml>)
-- [src/entities/service.yml](<./src/entities/service.yml>)
-- [src/value_domain_types/http_method_for_rest.yaml](<./src/value_domain_types/http_method_for_rest.yaml>)
-- [src/value_domain_types/url_path_with_placeholders.yaml](<./src/value_domain_types/url_path_with_placeholders.yaml>)
+- [src/model/entities/graphql_query.yml](<./src/model/entities/graphql_query.yml>)
+- [src/model/entities/rest_data_item.yml](<./src/model/entities/rest_data_item.yml>)
+- [src/model/entities/rest_operation.yml](<./src/model/entities/rest_operation.yml>)
+- [src/model/entities/rest_resource.yml](<./src/model/entities/rest_resource.yml>)
+- [src/model/entities/service/resource_entry.yaml](<./src/model/entities/service/resource_entry.yaml>)
+- [src/model/entities/service.yml](<./src/model/entities/service.yml>)
+- [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)
+- [src/model/value_domain_types/url_path_with_placeholders.yaml](<./src/model/value_domain_types/url_path_with_placeholders.yaml>)
 
 
 <!-- @main-content@ -->

@@ -1,8 +1,9 @@
 <!-- @head-content@ -->
-# laplacian-arch/service-api.domain-model
+# laplacian-arch/api-service.domain-model
 
-A model that expresses the logical structure of a service API.
-This model consists of REST api model, GraphQL interface model, and datasource usage model.
+A domain model that represents the logical structure of API services.
+This model is based on the REST resource model,
+GraphQL interface definition model, and the data source access model.
 
 
 *Read this in other languages*: [[日本語](README_ja.md)] [[简体中文](README_zh.md)]
@@ -46,7 +47,7 @@ To apply this Model module, add the following entry to your project definition.
 project:
   models:
   - group: laplacian-arch
-    name: service-api.domain-model
+    name: api-service.domain-model
     version: 1.0.0
 ```
 
@@ -89,69 +90,6 @@ resource_entry
 ### Script List
 
 
-- [./script/do-each-subproject.sh](<./scripts/do-each-subproject.sh>)
-
-  Executes the command specified by the argument for each subproject.
-
-  Example:
-  ```console
-  $ ./scripts/null -c git status
-  ```
-
-  > Usage: do-each-subproject.sh [OPTION]...
-  >
-  > -h, --help
-  >
-  >   Displays how to use this command.
-  >   
-  > -v, --verbose
-  >
-  >   Displays more detailed command execution information.
-  >   
-  > -c, --continue-on-error
-  >
-  >   Even if the given command fails in a subproject in the middle, executes it for the remaining subprojects.
-  >   
-- [./script/generate-all.sh](<./scripts/generate-all.sh>)
-
-  Generates resources in the project, including subprojects.
-
-  > Usage: generate-all.sh [OPTION]...
-  >
-  > -h, --help
-  >
-  >   Displays how to use this command.
-  >   
-  > -v, --verbose
-  >
-  >   Displays more detailed command execution information.
-  >   
-  > -c, --continue-on-error
-  >
-  >   Even if the given command fails in a subproject in the middle, executes it for the remaining subprojects.
-  >   
-- [./script/generate-service-api-domain-model-plugin.sh](<./scripts/generate-service-api-domain-model-plugin.sh>)
-
-  Generates the [laplacian-arch/service-api.domain-model-plugin](<null>) project as a subproject in the following directory.
-  ```
-  subprojects/laplacian-arch.service-api.domain-model-plugin
-  ```
-  If the subproject already exists, the content of the subproject is updated.
-
-  > Usage: generate-service-api-domain-model-plugin.sh [OPTION]...
-  >
-  > -h, --help
-  >
-  >   Displays how to use this command.
-  >   
-  > -v, --verbose
-  >
-  >   Displays more detailed command execution information.
-  >   
-  > -c, --clean
-  >
-  >   Delete all local resources of the subproject and regenerate them.
-  >   
 - [./script/generate.sh](<./scripts/generate.sh>)
 
   Generates the resources in each directory of `src/` `model/` `template/` in this project.
@@ -217,28 +155,16 @@ resource_entry
   >   when the contents of the `model/` `template/` directory are updated
   >   during the generation process.
   >    (Default: 10)
-- [./script/git-each-subproject.sh](<./scripts/git-each-subproject.sh>)
-
-  Executes the git sub-command specified by the argument for each subproject.
-
-  Example:
-  ```console
-  $ ./scripts/null -c status
-  ```
-
-  > Usage: git-each-subproject.sh [OPTION]...
+  > , --local-module-repository [VALUE]
   >
-  > -h, --help
-  >
-  >   Displays how to use this command.
+  >   The repository path to store locally built modules.
+  >   The modules in this repository have the highest priority.
   >   
-  > -v, --verbose
+  > , --updates-scripts-only
   >
-  >   Displays more detailed command execution information.
-  >   
-  > -c, --continue-on-error
-  >
-  >   Even if the given command fails in a subproject in the middle, executes it for the remaining subprojects.
+  >   Updates script files only.
+  >   This option is used to generate the generator script itself
+  >   when the project is initially generated.
   >   
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
@@ -264,32 +190,23 @@ resource_entry
   >
   >   This option is the same as the option of the same name in [generate.sh](<./scripts/generate.sh>).
   >   
-- [./script/publish-local-service-api-domain-model-plugin.sh](<./scripts/publish-local-service-api-domain-model-plugin.sh>)
-
-  Generates resources for the [laplacian-arch/service-api.domain-model-plugin](<null>) subproject.
-
-  > Usage: publish-local-service-api-domain-model-plugin.sh [OPTION]...
+  > , --local-module-repository [VALUE]
   >
-  > -h, --help
-  >
-  >   Displays how to use this command.
-  >   
-  > -v, --verbose
-  >
-  >   Displays more detailed command execution information.
+  >   The path to the local repository where the built module will be stored.
+  >   If the repository does not exist in the specified path, it will be created automatically.
   >   
 ### Source code list
 
 
 - [model/project.yaml](<./model/project.yaml>)
-- [src/entities/graphql_query.yml](<./src/entities/graphql_query.yml>)
-- [src/entities/rest_data_item.yml](<./src/entities/rest_data_item.yml>)
-- [src/entities/rest_operation.yml](<./src/entities/rest_operation.yml>)
-- [src/entities/rest_resource.yml](<./src/entities/rest_resource.yml>)
-- [src/entities/service/resource_entry.yaml](<./src/entities/service/resource_entry.yaml>)
-- [src/entities/service.yml](<./src/entities/service.yml>)
-- [src/value_domain_types/http_method_for_rest.yaml](<./src/value_domain_types/http_method_for_rest.yaml>)
-- [src/value_domain_types/url_path_with_placeholders.yaml](<./src/value_domain_types/url_path_with_placeholders.yaml>)
+- [src/model/entities/graphql_query.yml](<./src/model/entities/graphql_query.yml>)
+- [src/model/entities/rest_data_item.yml](<./src/model/entities/rest_data_item.yml>)
+- [src/model/entities/rest_operation.yml](<./src/model/entities/rest_operation.yml>)
+- [src/model/entities/rest_resource.yml](<./src/model/entities/rest_resource.yml>)
+- [src/model/entities/service/resource_entry.yaml](<./src/model/entities/service/resource_entry.yaml>)
+- [src/model/entities/service.yml](<./src/model/entities/service.yml>)
+- [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)
+- [src/model/value_domain_types/url_path_with_placeholders.yaml](<./src/model/value_domain_types/url_path_with_placeholders.yaml>)
 
 
 <!-- @main-content@ -->

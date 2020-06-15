@@ -1,8 +1,9 @@
 <!-- @head-content@ -->
-# laplacian-arch/service-api.domain-model
+# laplacian-arch/api-service.domain-model
 
-A model that expresses the logical structure of a service API.
-This model consists of REST api model, GraphQL interface model, and datasource usage model.
+APIサービスの論理構造を表すドメインモデルです。
+このモデルは、RESTリソース、GraphQLインタフェース定義モデルおよび、
+データソースアクセスモデルによって構成されます。
 
 
 *Read this in other languages*: [[English](README.md)] [[简体中文](README_zh.md)]
@@ -45,7 +46,7 @@ This model consists of REST api model, GraphQL interface model, and datasource u
 project:
   models:
   - group: laplacian-arch
-    name: service-api.domain-model
+    name: api-service.domain-model
     version: 1.0.0
 ```
 
@@ -90,69 +91,6 @@ resource_entry
 ### スクリプト一覧
 
 
-- [./script/do-each-subproject.sh](<./scripts/do-each-subproject.sh>)
-
-  各サブプロジェクトに対して、引数で指定されたコマンドを一括で実行します。
-
-  使用例:
-  ```console
-  $ ./scripts/null -c git status
-  ```
-
-  > Usage: do-each-subproject.sh [OPTION]...
-  >
-  > -h, --help
-  >
-  >   このコマンドの使用方法を表示します。
-  >   
-  > -v, --verbose
-  >
-  >   より詳細なコマンドの実行情報を表示します。
-  >   
-  > -c, --continue-on-error
-  >
-  >   途中のサブプロジェクトで与えられたコマンドが失敗しても、残りのサブプロジェクトに対してコマンドを実行します。
-  >   
-- [./script/generate-all.sh](<./scripts/generate-all.sh>)
-
-  サブプロジェクトを含むプロジェクト内の資源を自動生成します。
-
-  > Usage: generate-all.sh [OPTION]...
-  >
-  > -h, --help
-  >
-  >   このコマンドの使用方法を表示します。
-  >   
-  > -v, --verbose
-  >
-  >   より詳細なコマンドの実行情報を表示します。
-  >   
-  > -c, --continue-on-error
-  >
-  >   途中のサブプロジェクトで与えられたコマンドが失敗しても、残りのサブプロジェクトに対してコマンドを実行します。
-  >   
-- [./script/generate-service-api-domain-model-plugin.sh](<./scripts/generate-service-api-domain-model-plugin.sh>)
-
-  [laplacian-arch/service-api.domain-model-plugin](<null>)プロジェクトをサブプロジェクトとして下記のディレクトリに生成します。
-  ```
-  subprojects/laplacian-arch.service-api.domain-model-plugin
-  ```
-  すでにそのサブプロジェクトが存在する場合はその内容を更新します。
-
-  > Usage: generate-service-api-domain-model-plugin.sh [OPTION]...
-  >
-  > -h, --help
-  >
-  >   このコマンドの使用方法を表示します。
-  >   
-  > -v, --verbose
-  >
-  >   より詳細なコマンドの実行情報を表示します。
-  >   
-  > -c, --clean
-  >
-  >   サブプロジェクトのローカルにある資源を全て削除してから再生成します。
-  >   
 - [./script/generate.sh](<./scripts/generate.sh>)
 
   このプロジェクト内の資源を自動生成します。
@@ -212,28 +150,15 @@ resource_entry
   >   自動生成処理中に`model/` `template/`ディレクトリの内容が更新された場合に、
   >   再帰的に自動生成処理を実行する回数の上限。
   >    (Default: 10)
-- [./script/git-each-subproject.sh](<./scripts/git-each-subproject.sh>)
-
-  各サブプロジェクトに対して、引数で指定されたGitサブコマンドを一括実行します。
-
-  使用例:
-  ```console
-  $ ./scripts/null -c status
-  ```
-
-  > Usage: git-each-subproject.sh [OPTION]...
+  > , --local-module-repository [VALUE]
   >
-  > -h, --help
-  >
-  >   このコマンドの使用方法を表示します。
+  >   ローカルでビルドされたモジュールを格納するリポジトリのパス。
+  >   ここに存在するモジュールが最優先で参照されます。
   >   
-  > -v, --verbose
+  > , --updates-scripts-only
   >
-  >   より詳細なコマンドの実行情報を表示します。
-  >   
-  > -c, --continue-on-error
-  >
-  >   途中のサブプロジェクトで与えられたコマンドが失敗しても、残りのサブプロジェクトに対してコマンドを実行します。
+  >   スクリプトファイルのみを更新の対象とします。
+  >   プロジェクトを初期生成する際、自動生成スクリプト自体を初回作成する場合などに指定します。
   >   
 - [./script/publish-local.sh](<./scripts/publish-local.sh>)
 
@@ -258,32 +183,23 @@ resource_entry
   >
   >   自動生成処理を行わずに、ビルドおよびローカルリポジトリへの登録を行います。
   >   
-- [./script/publish-local-service-api-domain-model-plugin.sh](<./scripts/publish-local-service-api-domain-model-plugin.sh>)
-
-  [laplacian-arch/service-api.domain-model-plugin](<null>)サブプロジェクトの資源を自動生成します。
-
-  > Usage: publish-local-service-api-domain-model-plugin.sh [OPTION]...
+  > , --local-module-repository [VALUE]
   >
-  > -h, --help
-  >
-  >   このコマンドの使用方法を表示します。
-  >   
-  > -v, --verbose
-  >
-  >   より詳細なコマンドの実行情報を表示します。
+  >   ビルドしたモジュールを格納するローカルリポジトリのパス。
+  >   指定したパスにリポジトリが存在しない場合は、自動的に作成されます。
   >   
 ### ソースコード一覧
 
 
 - [model/project.yaml](<./model/project.yaml>)
-- [src/entities/graphql_query.yml](<./src/entities/graphql_query.yml>)
-- [src/entities/rest_data_item.yml](<./src/entities/rest_data_item.yml>)
-- [src/entities/rest_operation.yml](<./src/entities/rest_operation.yml>)
-- [src/entities/rest_resource.yml](<./src/entities/rest_resource.yml>)
-- [src/entities/service/resource_entry.yaml](<./src/entities/service/resource_entry.yaml>)
-- [src/entities/service.yml](<./src/entities/service.yml>)
-- [src/value_domain_types/http_method_for_rest.yaml](<./src/value_domain_types/http_method_for_rest.yaml>)
-- [src/value_domain_types/url_path_with_placeholders.yaml](<./src/value_domain_types/url_path_with_placeholders.yaml>)
+- [src/model/entities/graphql_query.yml](<./src/model/entities/graphql_query.yml>)
+- [src/model/entities/rest_data_item.yml](<./src/model/entities/rest_data_item.yml>)
+- [src/model/entities/rest_operation.yml](<./src/model/entities/rest_operation.yml>)
+- [src/model/entities/rest_resource.yml](<./src/model/entities/rest_resource.yml>)
+- [src/model/entities/service/resource_entry.yaml](<./src/model/entities/service/resource_entry.yaml>)
+- [src/model/entities/service.yml](<./src/model/entities/service.yml>)
+- [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)
+- [src/model/value_domain_types/url_path_with_placeholders.yaml](<./src/model/value_domain_types/url_path_with_placeholders.yaml>)
 
 
 <!-- @main-content@ -->

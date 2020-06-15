@@ -1,30 +1,36 @@
 project:
   group: laplacian-arch
-  name: service-api.domain-model
+  name: api-service.domain-model
   type: domain-model
-  namespace: laplacian.arch.service.api
+  namespace: laplacian.arch.api.service
   version: '1.0.0'
   description:
     en: |
-      A model that expresses the logical structure of a service API.
-      This model consists of REST api model, GraphQL interface model, and datasource usage model.
+      A domain model that represents the logical structure of API services.
+      This model is based on the REST resource model,
+      GraphQL interface definition model, and the data source access model.
     ja: |
-      A model that expresses the logical structure of a service API.
-      This model consists of REST api model, GraphQL interface model, and datasource usage model.
+      APIサービスの論理構造を表すドメインモデルです。
+      このモデルは、RESTリソース、GraphQLインタフェース定義モデルおよび、
+      データソースアクセスモデルによって構成されます。
     zh: |
-      A model that expresses the logical structure of a service API.
-      This model consists of REST api model, GraphQL interface model, and datasource usage model.
+      一种表示API服务逻辑结构的领域模型。
+      该模型基于REST资源模型、GraphQL接口定义模型和数据源访问模型。
   source_repository:
-    url: https://github.com/laplacian-arch/laplacian-arch.service-api.domain-model.git
+    url: https://github.com/laplacian-arch/api-service.domain-model.git
     branch: master
   module_repositories:
     local:
       ../../../mvn-repo
     remote:
     - https://github.com/nabla-squared/mvn-repo
+  plugins:
+  - group: laplacian-arch
+    name: datasource.domain-model-plugin
+    version: '1.0.0'
   models:
   - group: laplacian-arch
     name: datasource.domain-model
     version: '1.0.0'
   model_files:
-  - 'src/'
+  - 'dest/model'

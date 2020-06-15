@@ -1,5 +1,5 @@
 # **RestDataItem**
-**namespace:** laplacian.arch.service.api
+**namespace:** laplacian.arch.api.service
 
 rest_data_item
 
