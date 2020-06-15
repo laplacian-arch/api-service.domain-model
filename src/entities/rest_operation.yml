@@ -1,6 +1,6 @@
 entities:
 - name: rest_operation
-  namespace: laplacian.arch.service.api
+  namespace: laplacian.arch.api.service
   properties:
   - name: method
     type: string

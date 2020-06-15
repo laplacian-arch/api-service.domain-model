@@ -1,6 +1,6 @@
 entities:
 - name: service
-  namespace: laplacian.arch.service.api
+  namespace: laplacian.arch.api.service
   properties:
   - name: name
     type: string

@@ -1,7 +1,6 @@
 entities:
 - name: rest_data_item
-  namespace: laplacian.arch.service.api
-
+  namespace: laplacian.arch.api.service
   properties:
   - name: name
     type: string

@@ -1,6 +1,6 @@
 value_domain_types:
 - name: url_path_with_placeholders
-  namespace: laplacian.arch.service.api
+  namespace: laplacian.arch.api.service
   type: string
   domain:
     pattern: |

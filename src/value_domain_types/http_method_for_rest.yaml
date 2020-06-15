@@ -1,6 +1,6 @@
 value_domain_types:
 - name: http_method_for_rest
-  namespace: laplacian.arch.service.api
+  namespace: laplacian.arch.api.service
   type: string
   domain:
     choices:
