@@ -90,7 +90,7 @@ entities:
     - from: datasource_name
       to: name
 
-  - name: relating_entities
+  - name: entities_used_in_rest_service
     cardinality: '*'
     reference_entity_name: entity
     snippet: |
@@ -98,15 +98,70 @@ entities:
       .flatMap{ it.relatingEntities }
       .distinctBy{ it.fqn }
 
+  - name: relating_entities
+    cardinality: '*'
+    reference_entity_name: entity
+    snippet: |
+      entitiesUsedInRestService + entitiesUsedInGraphql
+
   - name: relating_top_level_entities
     cardinality: '*'
     reference_entity_name: entity
     snippet: |
       relatingEntities
       .filter{ it.topLevel }
+      .distinct()
 
   - name: graphql_queries
     cardinality: '*'
     reference_entity_name: graphql_query
     aggregate: true
 
+  - name: graphql_type_entries
+    cardinality: '*'
+    reference_entity_name: graphql_type_entry
+    aggregate: true
+
+  - name: graphql_types
+    cardinality: '*'
+    reference_entity_name: graphql_type
+    snippet: |
+      graphqlTypeEntries.map{ it.graphqlType }.distinct()
+
+  - name: entities_used_in_graphql
+    cardinality: '*'
+    reference_entity_name: entity
+    snippet: |
+      graphqlTypes.map{ it.entity }.filterNotNull()
+
+  - name: entities_used_in_graphql
+    cardinality: '*'
+    reference_entity_name: entity
+    snippet: |
+      graphqlTypes.map{ it.entity }.filterNotNull()
+
+  - name: top_level_entities_used_in_graphql
+    cardinality: '*'
+    reference_entity_name: entity
+    snippet: |
+      entitiesUsedInGraphql.filter{ it.topLevel }
+
+- name: graphql_type_entry
+  namespace: laplacian.arch.api.service
+
+  properties:
+  - name: type_name
+    type: string
+
+  relationships:
+  - name: service
+    reference_entity_name: service
+    cardinality: '1'
+    reverse_of: graphql_type_entries
+
+  - name: graphql_type
+    reference_entity_name: graphql_type
+    cardinality: '1'
+    mappings:
+    - from: type_name
+      to: name

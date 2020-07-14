@@ -99,14 +99,22 @@ resources
 datasource
 - **Cardinality:** `1`
 
-### relating_entities: `List<Entity>`
-relating_entities
+### entities_used_in_rest_service: `List<Entity>`
+entities_used_in_rest_service
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
   resources
   .flatMap{ it.relatingEntities }
   .distinctBy{ it.fqn }
+  ```
+
+### relating_entities: `List<Entity>`
+relating_entities
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  entitiesUsedInRestService + entitiesUsedInGraphql
   ```
 
 ### relating_top_level_entities: `List<Entity>`
@@ -116,8 +124,37 @@ relating_top_level_entities
   ```kotlin
   relatingEntities
   .filter{ it.topLevel }
+  .distinct()
   ```
 
 ### graphql_queries: `List<GraphqlQuery>`
 graphql_queries
 - **Cardinality:** `*`
+
+### graphql_type_entries: `List<GraphqlTypeEntry>`
+graphql_type_entries
+- **Cardinality:** `*`
+
+### graphql_types: `List<GraphqlType>`
+graphql_types
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypeEntries.map{ it.graphqlType }.distinct()
+  ```
+
+### entities_used_in_graphql: `List<Entity>`
+entities_used_in_graphql
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypes.map{ it.entity }.filterNotNull()
+  ```
+
+### top_level_entities_used_in_graphql: `List<Entity>`
+top_level_entities_used_in_graphql
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  entitiesUsedInGraphql.filter{ it.topLevel }
+  ```

@@ -200,6 +200,14 @@
       }
     }
     ,
+    "graphql_types": {
+      "description": "graphql_type",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/graphql_type"
+      }
+    }
+    ,
     "rest_data_items": {
       "description": "rest_data_item",
       "type": "array",
@@ -2271,6 +2279,27 @@
           }
         }
       },
+      "graphql_type": {
+        "description": "graphql_type",
+        "type": "object",
+        "required": [
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this graphql_type.",
+            "type": "string"
+          },
+          "entity_name": {
+            "description": "The entity_name of this graphql_type.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_type.",
+            "type": "string"
+          }
+        }
+      },
       "rest_data_item": {
         "description": "rest_data_item",
         "type": "object",
@@ -2545,6 +2574,27 @@
             "items": {
               "$ref": "#/definitions/entities/graphql_query"
             }
+          },
+          "graphql_type_entries": {
+            "description": "graphql_type_entries",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/graphql_type_entry"
+            }
+          }
+        }
+      },
+      "graphql_type_entry": {
+        "description": "graphql_type_entry",
+        "type": "object",
+        "required": [
+          "type_name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "type_name": {
+            "description": "The type_name of this graphql_type_entry.",
+            "type": "string"
           }
         }
       },

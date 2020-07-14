@@ -78,6 +78,8 @@ $ ./script/generate
 
 - [**GraphqlQuery**](<./doc/entities/GraphqlQuery.md>)
 graphql_query
+- [**GraphqlType**](<./doc/entities/GraphqlType.md>)
+graphql_type
 - [**RestDataItem**](<./doc/entities/RestDataItem.md>)
 rest_data_item
 - [**RestOperation**](<./doc/entities/RestOperation.md>)
@@ -86,6 +88,8 @@ rest_operation
 rest_resource
 - [**Service**](<./doc/entities/Service.md>)
 service
+- [**GraphqlTypeEntry**](<./doc/entities/GraphqlTypeEntry.md>)
+graphql_type_entry
 - [**ResourceEntry**](<./doc/entities/ResourceEntry.md>)
 resource_entry
 ### スクリプト一覧
@@ -193,6 +197,7 @@ resource_entry
 
 - [model/project.yaml](<./model/project.yaml>)
 - [src/model/entities/graphql_query.yml](<./src/model/entities/graphql_query.yml>)
+- [src/model/entities/graphql_type.yaml](<./src/model/entities/graphql_type.yaml>)
 - [src/model/entities/rest_data_item.yml](<./src/model/entities/rest_data_item.yml>)
 - [src/model/entities/rest_operation.yml](<./src/model/entities/rest_operation.yml>)
 - [src/model/entities/rest_resource.yml](<./src/model/entities/rest_resource.yml>)
