@@ -184,43 +184,11 @@
       }
     }
     ,
-    "data_accesses": {
-      "description": "A *DataAccess* represents an interface through which an client retrieve data from a *DataSource*.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/data_access"
-      }
-    }
-    ,
-    "datasources": {
-      "description": "A *DataSource* represents a connection to a data store, such as an RDBMS.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/datasource"
-      }
-    }
-    ,
     "graphql_types": {
       "description": "graphql_type",
       "type": "array",
       "items": {
         "$ref": "#/definitions/entities/graphql_type"
-      }
-    }
-    ,
-    "rest_data_items": {
-      "description": "rest_data_item",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/rest_data_item"
-      }
-    }
-    ,
-    "rest_resources": {
-      "description": "rest_resource",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/rest_resource"
       }
     }
     ,
@@ -1684,8 +1652,7 @@
         "description": "エンティティ",
         "type": "object",
         "required": [
-          "name",
-          "namespace"
+          "name"
         ],
         "additionalProperties": false,
         "properties": {
@@ -2068,187 +2035,6 @@
           }
         }
       },
-      "data_access": {
-        "description": "A *DataAccess* represents an interface through which an client retrieve data from a *DataSource*.",
-        "type": "object",
-        "required": [
-          "entity_name",
-          "name"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "entity_name": {
-            "description": "The entity_name of this data_access.",
-            "type": "string"
-          },
-          "cardinality": {
-            "description": "The cardinality of this data_access.",
-            "type": "string"
-          },
-          "multiple": {
-            "description": "Defines this data_access is multiple or not.",
-            "type": "boolean"
-          },
-          "type": {
-            "description": "The type of this data_access.",
-            "type": "string"
-          },
-          "name": {
-            "description": "The name of this data_access.",
-            "type": "string"
-          },
-          "identifier": {
-            "allOf": [{
-            "description": "The identifier of this data_access.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/identifier"
-            }]
-          },
-          "description": {
-            "description": "The description of this data_access.",
-            "type": "string"
-          },
-          "script_type": {
-            "description": "The script_type of this data_access.",
-            "enum":[
-              "jooq-kotlin",
-              "jooq-java",
-              "mirage-sql"
-            ],
-            "type": "string"
-          },
-          "script_body": {
-            "description": "The script_body of this data_access.",
-            "type": "string"
-          }
-        }
-      },
-      "datasource": {
-        "description": "A *DataSource* represents a connection to a data store, such as an RDBMS.",
-        "type": "object",
-        "required": [
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this datasource.",
-            "type": "string"
-          },
-          "type": {
-            "description": "The type of this datasource.",
-            "enum":[
-              "postgres"
-            ],
-            "type": "string"
-          },
-          "identifier": {
-            "allOf": [{
-            "description": "The identifier of this datasource.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/identifier"
-            }]
-          },
-          "description": {
-            "description": "The description of this datasource.",
-            "type": "string"
-          },
-          "hostname": {
-            "description": "The hostname of this datasource.",
-            "type": "string"
-          },
-          "port": {
-            "description": "The port of this datasource.",
-            "type": "number"
-          },
-          "jdbc_url": {
-            "description": "The jdbc_url of this datasource.",
-            "type": "string"
-          },
-          "db_name": {
-            "description": "The db_name of this datasource.",
-            "type": "string"
-          },
-          "db_user": {
-            "description": "The db_user of this datasource.",
-            "type": "string"
-          },
-          "db_password": {
-            "description": "The db_password of this datasource.",
-            "type": "string"
-          },
-          "container_name": {
-            "description": "The container_name of this datasource.",
-            "type": "string"
-          },
-          "container_image": {
-            "description": "The container_image of this datasource.",
-            "type": "string"
-          },
-          "entity_references": {
-            "description": "entity_references",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/entity_reference"
-            }
-          }
-        }
-      },
-      "entity_reference": {
-        "description": "entity_reference",
-        "type": "object",
-        "required": [
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "entity_name": {
-            "description": "The entity_name of this entity_reference.",
-            "type": "string"
-          }
-        }
-      },
-      "graphql_query": {
-        "description": "graphql_query",
-        "type": "object",
-        "required": [
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this graphql_query.",
-            "type": "string"
-          },
-          "identifier": {
-            "description": "The identifier of this graphql_query.",
-            "type": "string"
-          },
-          "description": {
-            "description": "The description of this graphql_query.",
-            "type": "string"
-          },
-          "query": {
-            "description": "The query of this graphql_query.",
-            "type": "string"
-          },
-          "multiple": {
-            "description": "Defines this graphql_query is multiple or not.",
-            "type": "boolean"
-          },
-          "record_entity_name": {
-            "description": "The record_entity_name of this graphql_query.",
-            "type": "string"
-          },
-          "record_type": {
-            "description": "The record_type of this graphql_query.",
-            "type": "string"
-          },
-          "return_type": {
-            "description": "The return_type of this graphql_query.",
-            "type": "string"
-          }
-        }
-      },
       "graphql_type": {
         "description": "graphql_type",
         "type": "object",
@@ -2270,193 +2056,6 @@
           }
         }
       },
-      "rest_data_item": {
-        "description": "rest_data_item",
-        "type": "object",
-        "required": [
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this rest_data_item.",
-            "type": "string"
-          },
-          "identifier": {
-            "description": "The identifier of this rest_data_item.",
-            "type": "string"
-          },
-          "type": {
-            "description": "The type of this rest_data_item.",
-            "type": "string"
-          },
-          "entity_name": {
-            "description": "The entity_name of this rest_data_item.",
-            "type": "string"
-          },
-          "description": {
-            "description": "The description of this rest_data_item.",
-            "type": "string"
-          },
-          "root": {
-            "description": "Defines this rest_data_item is root or not.",
-            "type": "boolean"
-          },
-          "multiple": {
-            "description": "Defines this rest_data_item is multiple or not.",
-            "type": "boolean"
-          },
-          "required": {
-            "description": "Defines this rest_data_item is required or not.",
-            "type": "boolean"
-          },
-          "default_value": {
-            "description": "The default_value of this rest_data_item.",
-            "type": "string"
-          },
-          "example_value": {
-            "description": "The example_value of this rest_data_item.",
-            "type": "string"
-          },
-          "children": {
-            "description": "children",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/rest_data_item"
-            }
-          }
-        }
-      },
-      "rest_operation": {
-        "description": "rest_operation",
-        "type": "object",
-        "required": [
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "method": {
-            "allOf": [{
-            "description": "The method of this rest_operation.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/http_method_for_rest"
-            }]
-          },
-          "path": {
-            "allOf": [{
-            "description": "The path of this rest_operation.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/url_path_with_placeholders"
-            }]
-          },
-          "name": {
-            "description": "The name of this rest_operation.",
-            "type": "string"
-          },
-          "identifier": {
-            "description": "The identifier of this rest_operation.",
-            "type": "string"
-          },
-          "namespace": {
-            "allOf": [{
-            "description": "The namespace of this rest_operation.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/namespace"
-            }]
-          },
-          "description": {
-            "description": "The description of this rest_operation.",
-            "type": "string"
-          },
-          "path_parameters": {
-            "description": "path_parameters",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/rest_data_item"
-            }
-          },
-          "request_headers": {
-            "description": "request_headers",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/rest_data_item"
-            }
-          },
-          "query_parameters": {
-            "description": "query_parameters",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/rest_data_item"
-            }
-          },
-          "request_body": {
-            "description": "request_body",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/rest_data_item"
-            }
-          },
-          "response_headers": {
-            "description": "response_headers",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/rest_data_item"
-            }
-          },
-          "response_body": {
-            "description": "response_body",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/rest_data_item"
-            }
-          }
-        }
-      },
-      "rest_resource": {
-        "description": "rest_resource",
-        "type": "object",
-        "required": [
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this rest_resource.",
-            "type": "string"
-          },
-          "identifier": {
-            "allOf": [{
-            "description": "The identifier of this rest_resource.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/identifier"
-            }]
-          },
-          "namespace": {
-            "allOf": [{
-            "description": "The namespace of this rest_resource.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/namespace"
-            }]
-          },
-          "path": {
-            "description": "The path of this rest_resource.",
-            "type": "string"
-          },
-          "description": {
-            "description": "The description of this rest_resource.",
-            "type": "string"
-          },
-          "operations": {
-            "description": "operations",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/rest_operation"
-            }
-          }
-        }
-      },
       "service": {
         "description": "service",
         "type": "object",
@@ -2467,14 +2066,6 @@
           "name": {
             "description": "The name of this service.",
             "type": "string"
-          },
-          "identifier": {
-            "allOf": [{
-            "description": "The identifier of this service.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/identifier"
-            }]
           },
           "version": {
             "description": "The version of this service.",
@@ -2520,22 +2111,11 @@
             "description": "The description of this service.",
             "type": "string"
           },
-          "datasource_name": {
-            "description": "The datasource_name of this service.",
-            "type": "string"
-          },
-          "resource_entries": {
-            "description": "resource_entries",
+          "datasources": {
+            "description": "datasources",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/entities/resource_entry"
-            }
-          },
-          "graphql_queries": {
-            "description": "graphql_queries",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/graphql_query"
+              "$ref": "#/definitions/entities/datasource"
             }
           },
           "graphql_type_entries": {
@@ -2544,6 +2124,63 @@
             "items": {
               "$ref": "#/definitions/entities/graphql_type_entry"
             }
+          }
+        }
+      },
+      "datasource": {
+        "description": "A *DataSource* represents an interface through which a client application access to a data store.\nThis includes the following models.\n- The entity that the datastore exposes to the client\n- Statement issued by the client to the datastore",
+        "type": "object",
+        "required": [
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this datasource.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of this datasource.",
+            "enum":[
+              "postgres",
+              "bigquery"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this datasource.",
+            "type": "string"
+          },
+          "hostname": {
+            "description": "The hostname of this datasource.",
+            "type": "string"
+          },
+          "port": {
+            "description": "The port of this datasource.",
+            "type": "number"
+          },
+          "jdbc_url": {
+            "description": "The jdbc_url of this datasource.",
+            "type": "string"
+          },
+          "db_name": {
+            "description": "The db_name of this datasource.",
+            "type": "string"
+          },
+          "db_user": {
+            "description": "The db_user of this datasource.",
+            "type": "string"
+          },
+          "db_password": {
+            "description": "The db_password of this datasource.",
+            "type": "string"
+          },
+          "container_name": {
+            "description": "The container_name of this datasource.",
+            "type": "string"
+          },
+          "container_image": {
+            "description": "The container_image of this datasource.",
+            "type": "string"
           }
         }
       },
@@ -2557,18 +2194,9 @@
           "type_name": {
             "description": "The type_name of this graphql_type_entry.",
             "type": "string"
-          }
-        }
-      },
-      "resource_entry": {
-        "description": "resource_entry",
-        "type": "object",
-        "required": [
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "resource_name": {
-            "description": "The resource_name of this resource_entry.",
+          },
+          "datasource_name": {
+            "description": "The datasource_name of this graphql_type_entry.",
             "type": "string"
           }
         }

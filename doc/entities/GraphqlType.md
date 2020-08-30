@@ -28,6 +28,6 @@ The description of this graphql_type.
 
 ## Relationships
 
-### entity: `Entity?`
+### entity: `Entity`
 entity
-- **Cardinality:** `0..1`
+- **Cardinality:** `1`

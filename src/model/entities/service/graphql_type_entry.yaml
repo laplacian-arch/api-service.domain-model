@@ -1,0 +1,34 @@
+entities:
+- name: graphql_type_entry
+  namespace: laplacian.arch.api.service
+
+  properties:
+  - name: type_name
+    type: string
+
+  - name: datasource_name
+    type: string
+    optional: true
+    default_value: |
+      "default"
+
+  relationships:
+  - name: service
+    reference_entity_name: service
+    cardinality: '1'
+    reverse_of: graphql_type_entries
+
+  - name: datasource
+    reference_entity_name: datasource
+    cardinality: '1'
+    snippet: |
+      service.datasources.find{ it.name == datasourceName } ?: throw IllegalStateException(
+        "Unknown datasource name: ${datasourceName}"
+      )
+
+  - name: graphql_type
+    reference_entity_name: graphql_type
+    cardinality: '1'
+    mappings:
+    - from: type_name
+      to: name

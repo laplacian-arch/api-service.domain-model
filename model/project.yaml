@@ -24,13 +24,5 @@ project:
       ../../../mvn-repo
     remote:
     - https://github.com/nabla-squared/mvn-repo
-  plugins:
-  - group: laplacian-arch
-    name: datasource.domain-model-plugin
-    version: '1.0.0'
-  models:
-  - group: laplacian-arch
-    name: datasource.domain-model
-    version: '1.0.0'
   model_files:
   - 'dest/model'

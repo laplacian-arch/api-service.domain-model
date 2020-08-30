@@ -12,13 +12,6 @@ service
 ### name: `String`
 The name of this service.
 
-### identifier: `String`
-The identifier of this service.
-- **Default Value:**
-  ```kotlin
-  name.lowerUnderscorize()
-  ```
-
 ### version: `String`
 The version of this service.
 
@@ -40,7 +33,7 @@ The endpoint of this service.
 The host of this service.
 - **Default Value:**
   ```kotlin
-  "identifier.lowerHyphenize()"
+  "name.lowerHyphenize()"
   ```
 
 ### port: `Int`
@@ -61,14 +54,14 @@ The protocol of this service.
 The path of this service.
 - **Default Value:**
   ```kotlin
-  "/${identifier.lowerHyphenize()}"
+  "/${name.lowerHyphenize()}"
   ```
 
 ### namespace: `String`
 The namespace of this service.
 - **Default Value:**
   ```kotlin
-  "${_context.get("project.namespace")}.service.$identifier"
+  "${_context.get("project.namespace")}.service.${name.lowerUnderscorize()}"
   ```
 
 ### description: `String`
@@ -78,58 +71,20 @@ The description of this service.
   name
   ```
 
-### datasource_name: `String`
-The datasource_name of this service.
-
 ## Relationships
 
-### resource_entries: `List<ResourceEntry>`
-resource_entries
+### datasources: `List<Datasource>`
+datasources
 - **Cardinality:** `*`
 
-### resources: `List<RestResource>`
-resources
-- **Cardinality:** `*`
+### default_datasource: `Datasource?`
+default_datasource
+- **Cardinality:** `0..1`
 - **Code:**
   ```kotlin
-  resourceEntries.map{ it.resource }
+  datasources
+  .find{ it.name == "default" }
   ```
-
-### datasource: `Datasource`
-datasource
-- **Cardinality:** `1`
-
-### entities_used_in_rest_service: `List<Entity>`
-entities_used_in_rest_service
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  resources
-  .flatMap{ it.relatingEntities }
-  .distinctBy{ it.fqn }
-  ```
-
-### relating_entities: `List<Entity>`
-relating_entities
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  entitiesUsedInRestService + entitiesUsedInGraphql
-  ```
-
-### relating_top_level_entities: `List<Entity>`
-relating_top_level_entities
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  relatingEntities
-  .filter{ it.topLevel }
-  .distinct()
-  ```
-
-### graphql_queries: `List<GraphqlQuery>`
-graphql_queries
-- **Cardinality:** `*`
 
 ### graphql_type_entries: `List<GraphqlTypeEntry>`
 graphql_type_entries
@@ -148,7 +103,7 @@ entities_used_in_graphql
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypes.map{ it.entity }.filterNotNull()
+  graphqlTypes.map{ it.entity }
   ```
 
 ### top_level_entities_used_in_graphql: `List<Entity>`

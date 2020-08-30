@@ -75,22 +75,17 @@ $ ./script/generate
 ### Entity list
 
 
-- [**GraphqlQuery**](<./doc/entities/GraphqlQuery.md>)
-graphql_query
 - [**GraphqlType**](<./doc/entities/GraphqlType.md>)
 graphql_type
-- [**RestDataItem**](<./doc/entities/RestDataItem.md>)
-rest_data_item
-- [**RestOperation**](<./doc/entities/RestOperation.md>)
-rest_operation
-- [**RestResource**](<./doc/entities/RestResource.md>)
-rest_resource
 - [**Service**](<./doc/entities/Service.md>)
 service
+- [**Datasource**](<./doc/entities/Datasource.md>)
+A *DataSource* represents an interface through which a client application access to a data store.
+This includes the following models.
+- The entity that the datastore exposes to the client
+- Statement issued by the client to the datastore
 - [**GraphqlTypeEntry**](<./doc/entities/GraphqlTypeEntry.md>)
 graphql_type_entry
-- [**ResourceEntry**](<./doc/entities/ResourceEntry.md>)
-resource_entry
 ### Script List
 
 
@@ -203,12 +198,9 @@ resource_entry
 
 
 - [model/project.yaml](<./model/project.yaml>)
-- [src/model/entities/graphql_query.yml](<./src/model/entities/graphql_query.yml>)
 - [src/model/entities/graphql_type.yaml](<./src/model/entities/graphql_type.yaml>)
-- [src/model/entities/rest_data_item.yml](<./src/model/entities/rest_data_item.yml>)
-- [src/model/entities/rest_operation.yml](<./src/model/entities/rest_operation.yml>)
-- [src/model/entities/rest_resource.yml](<./src/model/entities/rest_resource.yml>)
-- [src/model/entities/service/resource_entry.yaml](<./src/model/entities/service/resource_entry.yaml>)
+- [src/model/entities/service/datasource.yaml](<./src/model/entities/service/datasource.yaml>)
+- [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)
 - [src/model/entities/service.yml](<./src/model/entities/service.yml>)
 - [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)
 - [src/model/value_domain_types/url_path_with_placeholders.yaml](<./src/model/value_domain_types/url_path_with_placeholders.yaml>)

@@ -1,0 +1,105 @@
+entities:
+- name: datasource
+  namespace: laplacian.arch.api.service
+  description: |
+    A *DataSource* represents an interface through which a client application access to a data store.
+    This includes the following models.
+    - The entity that the datastore exposes to the client
+    - Statement issued by the client to the datastore
+
+  properties:
+  - name: name
+    type: string
+    optional: true
+    default_value: |
+      "default"
+    primary_key: true
+
+  - name: type
+    type: string
+    domain:
+      choices:
+      - value: postgres
+      - value: bigquery
+
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      name
+
+  - name: hostname
+    type: string
+    optional: true
+    default_value: |
+      containerName
+
+  - name: port
+    type: number
+    optional: true
+    default_value: |
+      5432
+
+  - name: jdbc_url
+    type: string
+    optional: true
+    default_value: |
+      if (type == "postgres") {
+          "jdbc:postgresql://$hostname:$port/$dbName"
+      }
+      else {
+          throw IllegalStateException(
+              "Unknown database type: $type"
+          )
+      }
+
+  - name: db_name
+    type: string
+    optional: true
+    default_value: |
+      name.lowerUnderscorize()
+
+  - name: db_user
+    type: string
+
+  - name: db_password
+    type: string
+    optional: true
+
+  - name: container_name
+    type: string
+    optional: true
+    default_value: |
+      "${name.lowerHyphenize()}"
+
+  - name: container_image
+    type: string
+    optional: true
+    default_value: |
+      when(type) {
+        "postgresql" -> "postgres"
+        else -> "postgres"
+      }
+
+  relationships:
+  - name: service
+    cardinality: '1'
+    reference_entity_name: service
+    reverse_of: datasources
+
+  - name: entities
+    cardinality: '*'
+    reference_entity_name: entity
+    snippet: |
+      service
+      .graphqlTypeEntries
+      .filter{ it.datasource == this }
+      .map{ it.graphqlType.entity }
+      .distinct()
+
+  - name: top_level_entities
+    cardinality: '*'
+    reference_entity_name: entity
+    snippet: |
+      entities.filter{ it.topLevel }
+

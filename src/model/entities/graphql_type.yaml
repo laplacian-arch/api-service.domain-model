@@ -11,7 +11,6 @@ entities:
 
   - name: entity_name
     type: string
-    optional: true
 
   - name: description
     type: string
@@ -21,7 +20,7 @@ entities:
 
   relationships:
   - name: entity
-    cardinality: '0..1'
+    cardinality: '1'
     reference_entity_name: entity
     mappings:
     - from: entity_name
