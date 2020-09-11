@@ -89,7 +89,10 @@ entities:
     cardinality: '*'
     reference_entity_name: entity
     snippet: |
-      graphqlTypes.map{ it.entity }
+      graphqlTypes
+        .map{ if (it is EntityOnDatabase) it.entity else null }
+        .filterNotNull()
+        .distinct()
 
   - name: top_level_entities_used_in_graphql
     cardinality: '*'

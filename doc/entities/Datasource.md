@@ -31,64 +31,6 @@ The description of this datasource.
   name
   ```
 
-### hostname: `String`
-The hostname of this datasource.
-- **Default Value:**
-  ```kotlin
-  containerName
-  ```
-
-### port: `Int`
-The port of this datasource.
-- **Default Value:**
-  ```kotlin
-  5432
-  ```
-
-### jdbc_url: `String`
-The jdbc_url of this datasource.
-- **Default Value:**
-  ```kotlin
-  if (type == "postgres") {
-      "jdbc:postgresql://$hostname:$port/$dbName"
-  }
-  else {
-      throw IllegalStateException(
-          "Unknown database type: $type"
-      )
-  }
-  ```
-
-### db_name: `String`
-The db_name of this datasource.
-- **Default Value:**
-  ```kotlin
-  name.lowerUnderscorize()
-  ```
-
-### db_user: `String`
-The db_user of this datasource.
-
-### db_password: `String`
-The db_password of this datasource.
-
-### container_name: `String`
-The container_name of this datasource.
-- **Default Value:**
-  ```kotlin
-  "${name.lowerHyphenize()}"
-  ```
-
-### container_image: `String`
-The container_image of this datasource.
-- **Default Value:**
-  ```kotlin
-  when(type) {
-    "postgresql" -> "postgres"
-    else -> "postgres"
-  }
-  ```
-
 ## Relationships
 
 ### service: `Service`
@@ -100,11 +42,7 @@ entities
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  service
-  .graphqlTypeEntries
-  .filter{ it.datasource == this }
-  .map{ it.graphqlType.entity }
-  .distinct()
+  service.entitiesUsedInGraphql
   ```
 
 ### top_level_entities: `List<Entity>`

@@ -11,13 +11,10 @@ graphql_type
 
 ### name: `String`
 The name of this graphql_type.
-- **Default Value:**
-  ```kotlin
-  entityName
-  ```
+- **Attributes:** *PK*
 
-### entity_name: `String`
-The entity_name of this graphql_type.
+### resolver_type: `String`
+The resolver_type of this graphql_type.
 
 ### description: `String`
 The description of this graphql_type.
@@ -27,7 +24,3 @@ The description of this graphql_type.
   ```
 
 ## Relationships
-
-### entity: `Entity`
-entity
-- **Cardinality:** `1`

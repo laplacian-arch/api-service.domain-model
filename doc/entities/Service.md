@@ -103,7 +103,10 @@ entities_used_in_graphql
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypes.map{ it.entity }
+  graphqlTypes
+    .map{ if (it is EntityOnDatabase) it.entity else null }
+    .filterNotNull()
+    .distinct()
   ```
 
 ### top_level_entities_used_in_graphql: `List<Entity>`

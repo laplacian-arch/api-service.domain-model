@@ -77,6 +77,8 @@ $ ./script/generate
 
 - [**GraphqlType**](<./doc/entities/GraphqlType.md>)
 graphql_type
+- [**EntityOnDatabase**](<./doc/entities/EntityOnDatabase.md>)
+entity_on_database
 - [**Service**](<./doc/entities/Service.md>)
 service
 - [**Datasource**](<./doc/entities/Datasource.md>)
@@ -198,6 +200,7 @@ graphql_type_entry
 
 
 - [model/project.yaml](<./model/project.yaml>)
+- [src/model/entities/graphql_type/entity_on_database.yaml](<./src/model/entities/graphql_type/entity_on_database.yaml>)
 - [src/model/entities/graphql_type.yaml](<./src/model/entities/graphql_type.yaml>)
 - [src/model/entities/service/datasource.yaml](<./src/model/entities/service/datasource.yaml>)
 - [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)

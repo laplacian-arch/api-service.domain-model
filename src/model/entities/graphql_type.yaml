@@ -5,23 +5,14 @@ entities:
   properties:
   - name: name
     type: string
-    optional: true
-    default_value: |
-      entityName
+    primary_key: true
 
-  - name: entity_name
+  - name: resolver_type
     type: string
+    subtype_key: true
 
   - name: description
     type: string
     optional: true
     default_value: |
       "A Graphql type represents ${name}"
-
-  relationships:
-  - name: entity
-    cardinality: '1'
-    reference_entity_name: entity
-    mappings:
-    - from: entity_name
-      to: name
