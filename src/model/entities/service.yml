@@ -99,3 +99,8 @@ entities:
     reference_entity_name: entity
     snippet: |
       entitiesUsedInGraphql.filter{ it.topLevel }
+
+  - name: http_clients
+    cardinality: '*'
+    reference_entity_name: http_client
+    aggregate: true

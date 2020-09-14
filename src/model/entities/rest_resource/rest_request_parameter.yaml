@@ -1,0 +1,18 @@
+entities:
+- name: rest_request_parameter
+  namespace: laplacian.arch.api.service
+
+  properties:
+  - name: name
+    type: string
+    primary_key: true
+
+  - name: type
+    type: string
+    domain:
+      choices:
+      - value: string
+      - value: number
+      - value: boolean
+      - value: array
+      - value: object

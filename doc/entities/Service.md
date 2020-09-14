@@ -116,3 +116,7 @@ top_level_entities_used_in_graphql
   ```kotlin
   entitiesUsedInGraphql.filter{ it.topLevel }
   ```
+
+### http_clients: `List<HttpClient>`
+http_clients
+- **Cardinality:** `*`

@@ -79,6 +79,14 @@ $ ./script/generate
 graphql_type
 - [**EntityOnDatabase**](<./doc/entities/EntityOnDatabase.md>)
 entity_on_database
+- [**ExternalRestResource**](<./doc/entities/ExternalRestResource.md>)
+external_rest_resource
+- [**RestResource**](<./doc/entities/RestResource.md>)
+rest_resource
+- [**RestOperation**](<./doc/entities/RestOperation.md>)
+rest_operation
+- [**RestRequestParameter**](<./doc/entities/RestRequestParameter.md>)
+rest_request_parameter
 - [**Service**](<./doc/entities/Service.md>)
 service
 - [**Datasource**](<./doc/entities/Datasource.md>)
@@ -88,6 +96,8 @@ This includes the following models.
 - Statement issued by the client to the datastore
 - [**GraphqlTypeEntry**](<./doc/entities/GraphqlTypeEntry.md>)
 graphql_type_entry
+- [**HttpClient**](<./doc/entities/HttpClient.md>)
+http_client
 ### Script List
 
 
@@ -201,9 +211,14 @@ graphql_type_entry
 
 - [model/project.yaml](<./model/project.yaml>)
 - [src/model/entities/graphql_type/entity_on_database.yaml](<./src/model/entities/graphql_type/entity_on_database.yaml>)
+- [src/model/entities/graphql_type/external_rest_resource.yaml](<./src/model/entities/graphql_type/external_rest_resource.yaml>)
 - [src/model/entities/graphql_type.yaml](<./src/model/entities/graphql_type.yaml>)
+- [src/model/entities/rest_resource/rest_operation.yaml](<./src/model/entities/rest_resource/rest_operation.yaml>)
+- [src/model/entities/rest_resource/rest_request_parameter.yaml](<./src/model/entities/rest_resource/rest_request_parameter.yaml>)
+- [src/model/entities/rest_resource.yaml](<./src/model/entities/rest_resource.yaml>)
 - [src/model/entities/service/datasource.yaml](<./src/model/entities/service/datasource.yaml>)
 - [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)
+- [src/model/entities/service/http_client.yaml](<./src/model/entities/service/http_client.yaml>)
 - [src/model/entities/service.yml](<./src/model/entities/service.yml>)
 - [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)
 - [src/model/value_domain_types/url_path_with_placeholders.yaml](<./src/model/value_domain_types/url_path_with_placeholders.yaml>)

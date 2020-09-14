@@ -1,0 +1,25 @@
+entities:
+- name: rest_operation
+  namespace: laplacian.arch.api.service
+
+  properties:
+  - name: method
+    type: string
+    primary_key: true
+    domain_type_name: http_method_for_rest
+
+  - name: path
+    type: string
+    primary_key: true
+    domain_type_name: url_path_with_placeholder
+
+  relationships:
+  - name: path_parameters
+    reference_entity_name: rest_request_parameter
+    cardinality: '*'
+    aggregate: true
+
+  - name: query_parameters
+    reference_entity_name: rest_request_parameter
+    cardinality: '*'
+    aggregate: true

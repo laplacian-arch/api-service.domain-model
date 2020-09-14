@@ -1,0 +1,24 @@
+entities:
+- name: rest_resource
+  namespace: laplacian.arch.api.service
+
+  properties:
+  - name: name
+    type: string
+    primary_key: true
+
+  - name: resource_model_name
+    type: string
+
+  relationships:
+  - name: resource_model
+    reference_entity_name: entity
+    cardinality: '1'
+    mappings:
+    - from: resource_model_name
+      to: name
+
+  - name: operations
+    reference_entity_name: rest_operation
+    cardinality: '1..*'
+    aggregate: true

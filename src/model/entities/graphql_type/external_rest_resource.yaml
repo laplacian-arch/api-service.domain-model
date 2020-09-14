@@ -1,0 +1,19 @@
+entities:
+- name: external_rest_resource
+  namespace: laplacian.arch.api.service
+  subtype_of: graphql_type
+
+  properties:
+  - name: rest_resource_name
+    type: string
+
+  - name: http_client_name
+    type: string
+
+  relationships:
+  - name: rest_resource
+    cardinality: '1'
+    reference_entity_name: rest_resource
+    mappings:
+    - from: rest_resource_name
+      to: name
