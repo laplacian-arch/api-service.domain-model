@@ -80,8 +80,8 @@ $ ./script/generate
 graphql_type
 - [**EntityOnDatabase**](<./doc/entities/EntityOnDatabase.md>)
 entity_on_database
-- [**ExternalRestResource**](<./doc/entities/ExternalRestResource.md>)
-external_rest_resource
+- [**ExternalRestApi**](<./doc/entities/ExternalRestApi.md>)
+external_rest_api
 - [**RestResource**](<./doc/entities/RestResource.md>)
 rest_resource
 - [**RestOperation**](<./doc/entities/RestOperation.md>)

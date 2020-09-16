@@ -200,14 +200,6 @@
       }
     }
     ,
-    "rest_operations": {
-      "description": "rest_operation",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/rest_operation"
-      }
-    }
-    ,
     "rest_request_parameters": {
       "description": "rest_request_parameter",
       "type": "array",
@@ -2106,7 +2098,7 @@
             "description": "The resolver_type of this graphql_type.",
             "enum":[
               "entity_on_database",
-              "external_rest_resource"
+              "external_rest_api"
             ],
             "type": "string"
           },
@@ -2117,7 +2109,7 @@
         },
         "allOf": [
           { "$ref": "#/definitions/entities/entity_on_database" },
-          { "$ref": "#/definitions/entities/external_rest_resource" }
+          { "$ref": "#/definitions/entities/external_rest_api" }
         ]
       },
       "entity_on_database": {
@@ -2136,7 +2128,7 @@
             "description": "The resolver_type of this graphql_type.",
             "enum":[
               "entity_on_database",
-              "external_rest_resource"
+              "external_rest_api"
             ],
             "type": "string"
           },
@@ -2155,10 +2147,10 @@
         }
         }
       },
-      "external_rest_resource": {
-        "description": "external_rest_resource",
+      "external_rest_api": {
+        "description": "external_rest_api",
         "if": { "properties": {
-          "resolver_type": { "const": "external_rest_resource" }
+          "resolver_type": { "const": "external_rest_api" }
         }},
         "then": {
         "additionalProperties": false,
@@ -2171,7 +2163,7 @@
             "description": "The resolver_type of this graphql_type.",
             "enum":[
               "entity_on_database",
-              "external_rest_resource"
+              "external_rest_api"
             ],
             "type": "string"
           },
@@ -2180,11 +2172,15 @@
             "type": "string"
           },
           "rest_resource_name": {
-            "description": "The rest_resource_name of this external_rest_resource.",
+            "description": "The rest_resource_name of this external_rest_api.",
             "type": "string"
           },
           "http_client_name": {
-            "description": "The http_client_name of this external_rest_resource.",
+            "description": "The http_client_name of this external_rest_api.",
+            "type": "string"
+          },
+          "operation_name": {
+            "description": "The operation_name of this external_rest_api.",
             "type": "string"
           }
         }
@@ -2221,7 +2217,8 @@
         "type": "object",
         "required": [
           "method",
-          "path"
+          "path",
+          "name"
         ],
         "additionalProperties": false,
         "properties": {
@@ -2235,6 +2232,10 @@
           },
           "path": {
             "description": "The path of this rest_operation.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of this rest_operation.",
             "type": "string"
           },
           "path_parameters": {

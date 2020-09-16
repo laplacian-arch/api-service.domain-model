@@ -11,10 +11,12 @@ rest_operation
 
 ### method: `String`
 The method of this rest_operation.
-- **Attributes:** *PK*
 
 ### path: `String`
 The path of this rest_operation.
+
+### name: `String`
+The name of this rest_operation.
 - **Attributes:** *PK*
 
 ## Relationships
@@ -26,3 +28,7 @@ path_parameters
 ### query_parameters: `List<RestRequestParameter>`
 query_parameters
 - **Cardinality:** `*`
+
+### rest_resource: `RestResource`
+rest_resource
+- **Cardinality:** `1`

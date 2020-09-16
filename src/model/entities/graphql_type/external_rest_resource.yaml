@@ -1,5 +1,5 @@
 entities:
-- name: external_rest_resource
+- name: external_rest_api
   namespace: laplacian.arch.api.service
   subtype_of: graphql_type
 
@@ -10,6 +10,9 @@ entities:
   - name: http_client_name
     type: string
 
+  - name: operation_name
+    type: string
+
   relationships:
   - name: rest_resource
     cardinality: '1'
@@ -17,3 +20,9 @@ entities:
     mappings:
     - from: rest_resource_name
       to: name
+
+  - name: rest_operation
+    cardinality: '1'
+    reference_entity_name: rest_operation
+    snippet: |
+      restResource.operations.find{ it.name == operationName }!!
