@@ -117,6 +117,30 @@ top_level_entities_used_in_graphql
   entitiesUsedInGraphql.filter{ it.topLevel }
   ```
 
+### graphql_types_backed_by_database_table: `List<EntityOnDatabase>`
+graphql_types_backed_by_database_table
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypes.filter{ it is EntityOnDatabase } as List<EntityOnDatabase>
+  ```
+
+### entitiesBackingGraphqlType: `List<Entity>`
+entitiesBackingGraphqlType
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypesBackedByDatabaseTable.map{ it.entity }.filter{ it.topLevel }
+  ```
+
+### graphqlTypesBackedByExternalRestApi: `List<ExternalRestApi>`
+graphqlTypesBackedByExternalRestApi
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypes.filter{ it is ExternalRestApi } as List<ExternalRestApi>
+  ```
+
 ### http_clients: `List<HttpClient>`
 http_clients
 - **Cardinality:** `*`

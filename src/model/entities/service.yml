@@ -100,6 +100,24 @@ entities:
     snippet: |
       entitiesUsedInGraphql.filter{ it.topLevel }
 
+  - name: graphql_types_backed_by_database_table
+    cardinality: '*'
+    reference_entity_name: entity_on_database
+    snippet: |
+      graphqlTypes.filter{ it is EntityOnDatabase } as List<EntityOnDatabase>
+
+  - name: entitiesBackingGraphqlType
+    cardinality: '*'
+    reference_entity_name: entity
+    snippet: |
+      graphqlTypesBackedByDatabaseTable.map{ it.entity }.filter{ it.topLevel }
+
+  - name: graphqlTypesBackedByExternalRestApi
+    cardinality: '*'
+    reference_entity_name: external_rest_api
+    snippet: |
+      graphqlTypes.filter{ it is ExternalRestApi } as List<ExternalRestApi>
+
   - name: http_clients
     cardinality: '*'
     reference_entity_name: http_client

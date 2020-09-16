@@ -2379,6 +2379,14 @@
           "name": {
             "description": "The name of this http_client.",
             "type": "string"
+          },
+          "base_uri": {
+            "description": "The base_uri of this http_client.",
+            "type": "string"
+          },
+          "api_key": {
+            "description": "The api_key of this http_client.",
+            "type": "string"
           }
         }
       }

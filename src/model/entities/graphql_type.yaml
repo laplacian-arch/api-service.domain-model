@@ -15,4 +15,4 @@ entities:
     type: string
     optional: true
     default_value: |
-      "A Graphql type represents ${name}"
+      "A Graphql type representing ${name}"

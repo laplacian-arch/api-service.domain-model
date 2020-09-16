@@ -6,3 +6,11 @@ entities:
   - name: name
     type: string
     primary_key: true
+
+  - name: base_uri
+    type: string
+    optional: true
+
+  - name: api_key
+    type: string
+    optional: true

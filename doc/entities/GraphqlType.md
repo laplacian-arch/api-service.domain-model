@@ -20,7 +20,7 @@ The resolver_type of this graphql_type.
 The description of this graphql_type.
 - **Default Value:**
   ```kotlin
-  "A Graphql type represents ${name}"
+  "A Graphql type representing ${name}"
   ```
 
 ## Relationships
