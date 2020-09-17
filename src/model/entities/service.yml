@@ -106,17 +106,23 @@ entities:
     snippet: |
       graphqlTypes.filter{ it is EntityOnDatabase } as List<EntityOnDatabase>
 
-  - name: entitiesBackingGraphqlType
+  - name: entities_backing_graphql_type
     cardinality: '*'
     reference_entity_name: entity
     snippet: |
       graphqlTypesBackedByDatabaseTable.map{ it.entity }.filter{ it.topLevel }
 
-  - name: graphqlTypesBackedByExternalRestApi
+  - name: graphql_types_backed_by_external_rest_api
     cardinality: '*'
     reference_entity_name: external_rest_api
     snippet: |
       graphqlTypes.filter{ it is ExternalRestApi } as List<ExternalRestApi>
+
+  - name: rest_resources_backing_graphql_type
+    cardinality: '*'
+    reference_entity_name: rest_resource
+    snippet: |
+      graphqlTypesBackedByExternalRestApi.map{ it.restResource }.distinct()
 
   - name: http_clients
     cardinality: '*'

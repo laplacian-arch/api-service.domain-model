@@ -7,9 +7,6 @@ entities:
   - name: rest_resource_name
     type: string
 
-  - name: http_client_name
-    type: string
-
   - name: operation_name
     type: string
 

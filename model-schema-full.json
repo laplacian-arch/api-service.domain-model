@@ -2175,10 +2175,6 @@
             "description": "The rest_resource_name of this external_rest_api.",
             "type": "string"
           },
-          "http_client_name": {
-            "description": "The http_client_name of this external_rest_api.",
-            "type": "string"
-          },
           "operation_name": {
             "description": "The operation_name of this external_rest_api.",
             "type": "string"
@@ -2191,7 +2187,8 @@
         "type": "object",
         "required": [
           "name",
-          "resource_model_name"
+          "resource_model_name",
+          "http_client_name"
         ],
         "additionalProperties": false,
         "properties": {
@@ -2201,6 +2198,10 @@
           },
           "resource_model_name": {
             "description": "The resource_model_name of this rest_resource.",
+            "type": "string"
+          },
+          "http_client_name": {
+            "description": "The http_client_name of this rest_resource.",
             "type": "string"
           },
           "operations": {

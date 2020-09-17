@@ -10,6 +10,9 @@ entities:
   - name: resource_model_name
     type: string
 
+  - name: http_client_name
+    type: string
+
   relationships:
   - name: resource_model
     reference_entity_name: entity

@@ -12,9 +12,6 @@ external_rest_api
 ### rest_resource_name: `String`
 The rest_resource_name of this external_rest_api.
 
-### http_client_name: `String`
-The http_client_name of this external_rest_api.
-
 ### operation_name: `String`
 The operation_name of this external_rest_api.
 
