@@ -1,0 +1,18 @@
+entities:
+- name: search_engine_client
+  namespace: laplacian.arch.api.service
+
+  properties:
+  - name: name
+    type: string
+    optional: true
+    primary_key: true
+    default_value: |
+      "default"
+
+  - name: type
+    type: string
+    domain:
+      choices:
+      - value: elasticsearch
+      - value: solr

@@ -82,6 +82,8 @@ graphql_type
 entity_on_database
 - [**ExternalRestApi**](<./doc/entities/ExternalRestApi.md>)
 external_rest_api
+- [**IndexedDocument**](<./doc/entities/IndexedDocument.md>)
+indexed_document
 - [**RestResource**](<./doc/entities/RestResource.md>)
 rest_resource
 - [**RestOperation**](<./doc/entities/RestOperation.md>)
@@ -99,6 +101,8 @@ This includes the following models.
 graphql_type_entry
 - [**HttpClient**](<./doc/entities/HttpClient.md>)
 http_client
+- [**SearchEngineClient**](<./doc/entities/SearchEngineClient.md>)
+search_engine_client
 ### 命令列表
 
 
@@ -204,6 +208,7 @@ http_client
 - [model/project.yaml](<./model/project.yaml>)
 - [src/model/entities/graphql_type/entity_on_database.yaml](<./src/model/entities/graphql_type/entity_on_database.yaml>)
 - [src/model/entities/graphql_type/external_rest_resource.yaml](<./src/model/entities/graphql_type/external_rest_resource.yaml>)
+- [src/model/entities/graphql_type/indexed_document.yaml](<./src/model/entities/graphql_type/indexed_document.yaml>)
 - [src/model/entities/graphql_type.yaml](<./src/model/entities/graphql_type.yaml>)
 - [src/model/entities/rest_resource/rest_operation.yaml](<./src/model/entities/rest_resource/rest_operation.yaml>)
 - [src/model/entities/rest_resource/rest_request_parameter.yaml](<./src/model/entities/rest_resource/rest_request_parameter.yaml>)
@@ -211,6 +216,7 @@ http_client
 - [src/model/entities/service/datasource.yaml](<./src/model/entities/service/datasource.yaml>)
 - [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)
 - [src/model/entities/service/http_client.yaml](<./src/model/entities/service/http_client.yaml>)
+- [src/model/entities/service/search_engine_client.yaml](<./src/model/entities/service/search_engine_client.yaml>)
 - [src/model/entities/service.yml](<./src/model/entities/service.yml>)
 - [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)
 - [src/model/value_domain_types/url_path_with_placeholders.yaml](<./src/model/value_domain_types/url_path_with_placeholders.yaml>)

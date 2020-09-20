@@ -1,0 +1,26 @@
+entities:
+- name: indexed_document
+  namespace: laplacian.arch.api.service
+  subtype_of: graphql_type
+
+  properties:
+  - name: index_name
+    type: string
+    primary_key: true
+
+  - name: entity_name
+    type: string
+
+  - name: search_engine_client_name
+    type: string
+    optional: true
+    default_value: |
+      "default"
+
+  relationships:
+  - name: entity
+    cardinality: '1'
+    reference_entity_name: entity
+    mappings:
+    - from: entity_name
+      to: name

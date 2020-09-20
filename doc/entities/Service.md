@@ -122,7 +122,7 @@ graphql_types_backed_by_database_table
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypes.filter{ it is EntityOnDatabase } as List<EntityOnDatabase>
+  graphqlTypes.map{ it as? EntityOnDatabase }.filterNotNull()
   ```
 
 ### entities_backing_graphql_type: `List<Entity>`
@@ -138,7 +138,7 @@ graphql_types_backed_by_external_rest_api
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypes.filter{ it is ExternalRestApi } as List<ExternalRestApi>
+  graphqlTypes.map{ it as? ExternalRestApi }.filterNotNull()
   ```
 
 ### rest_resources_backing_graphql_type: `List<RestResource>`
@@ -149,6 +149,18 @@ rest_resources_backing_graphql_type
   graphqlTypesBackedByExternalRestApi.map{ it.restResource }.distinct()
   ```
 
+### indexed_documents_backing_graphql_type: `List<IndexedDocument>`
+indexed_documents_backing_graphql_type
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypes.map{ it as? IndexedDocument }.filterNotNull()
+  ```
+
 ### http_clients: `List<HttpClient>`
 http_clients
+- **Cardinality:** `*`
+
+### search_engine_clients: `List<SearchEngineClient>`
+search_engine_clients
 - **Cardinality:** `*`

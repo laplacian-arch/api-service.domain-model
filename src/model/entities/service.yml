@@ -104,7 +104,7 @@ entities:
     cardinality: '*'
     reference_entity_name: entity_on_database
     snippet: |
-      graphqlTypes.filter{ it is EntityOnDatabase } as List<EntityOnDatabase>
+      graphqlTypes.map{ it as? EntityOnDatabase }.filterNotNull()
 
   - name: entities_backing_graphql_type
     cardinality: '*'
@@ -116,7 +116,7 @@ entities:
     cardinality: '*'
     reference_entity_name: external_rest_api
     snippet: |
-      graphqlTypes.filter{ it is ExternalRestApi } as List<ExternalRestApi>
+      graphqlTypes.map{ it as? ExternalRestApi }.filterNotNull()
 
   - name: rest_resources_backing_graphql_type
     cardinality: '*'
@@ -124,7 +124,18 @@ entities:
     snippet: |
       graphqlTypesBackedByExternalRestApi.map{ it.restResource }.distinct()
 
+  - name: indexed_documents_backing_graphql_type
+    cardinality: '*'
+    reference_entity_name: indexed_document
+    snippet: |
+      graphqlTypes.map{ it as? IndexedDocument }.filterNotNull()
+
   - name: http_clients
     cardinality: '*'
     reference_entity_name: http_client
+    aggregate: true
+
+  - name: search_engine_clients
+    cardinality: '*'
+    reference_entity_name: search_engine_client
     aggregate: true

@@ -223,6 +223,14 @@
         "$ref": "#/definitions/entities/http_client"
       }
     }
+    ,
+    "search_engine_clients": {
+      "description": "search_engine_client",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/search_engine_client"
+      }
+    }
   },
   "definitions": {
     "value_domain_types": {
@@ -2098,7 +2106,8 @@
             "description": "The resolver_type of this graphql_type.",
             "enum":[
               "entity_on_database",
-              "external_rest_api"
+              "external_rest_api",
+              "indexed_document"
             ],
             "type": "string"
           },
@@ -2109,7 +2118,8 @@
         },
         "allOf": [
           { "$ref": "#/definitions/entities/entity_on_database" },
-          { "$ref": "#/definitions/entities/external_rest_api" }
+          { "$ref": "#/definitions/entities/external_rest_api" },
+          { "$ref": "#/definitions/entities/indexed_document" }
         ]
       },
       "entity_on_database": {
@@ -2128,7 +2138,8 @@
             "description": "The resolver_type of this graphql_type.",
             "enum":[
               "entity_on_database",
-              "external_rest_api"
+              "external_rest_api",
+              "indexed_document"
             ],
             "type": "string"
           },
@@ -2163,7 +2174,8 @@
             "description": "The resolver_type of this graphql_type.",
             "enum":[
               "entity_on_database",
-              "external_rest_api"
+              "external_rest_api",
+              "indexed_document"
             ],
             "type": "string"
           },
@@ -2177,6 +2189,46 @@
           },
           "operation_name": {
             "description": "The operation_name of this external_rest_api.",
+            "type": "string"
+          }
+        }
+        }
+      },
+      "indexed_document": {
+        "description": "indexed_document",
+        "if": { "properties": {
+          "resolver_type": { "const": "indexed_document" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this graphql_type.",
+            "type": "string"
+          },
+          "resolver_type": {
+            "description": "The resolver_type of this graphql_type.",
+            "enum":[
+              "entity_on_database",
+              "external_rest_api",
+              "indexed_document"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_type.",
+            "type": "string"
+          },
+          "index_name": {
+            "description": "The index_name of this indexed_document.",
+            "type": "string"
+          },
+          "entity_name": {
+            "description": "The entity_name of this indexed_document.",
+            "type": "string"
+          },
+          "search_engine_client_name": {
+            "description": "The search_engine_client_name of this indexed_document.",
             "type": "string"
           }
         }
@@ -2358,6 +2410,13 @@
             "items": {
               "$ref": "#/definitions/entities/http_client"
             }
+          },
+          "search_engine_clients": {
+            "description": "search_engine_clients",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/search_engine_client"
+            }
           }
         }
       },
@@ -2419,6 +2478,28 @@
           },
           "api_key": {
             "description": "The api_key of this http_client.",
+            "type": "string"
+          }
+        }
+      },
+      "search_engine_client": {
+        "description": "search_engine_client",
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this search_engine_client.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of this search_engine_client.",
+            "enum":[
+              "elasticsearch",
+              "solr"
+            ],
             "type": "string"
           }
         }
