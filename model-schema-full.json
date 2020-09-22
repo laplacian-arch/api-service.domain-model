@@ -2114,6 +2114,13 @@
           "description": {
             "description": "The description of this graphql_type.",
             "type": "string"
+          },
+          "relationships": {
+            "description": "relationships",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/graphql_type_relationship"
+            }
           }
         },
         "allOf": [
@@ -2121,6 +2128,51 @@
           { "$ref": "#/definitions/entities/external_rest_api" },
           { "$ref": "#/definitions/entities/indexed_document" }
         ]
+      },
+      "graphql_type_relationship": {
+        "description": "graphql_type_relationship",
+        "type": "object",
+        "required": [
+          "name",
+          "referencing_type_name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this graphql_type_relationship.",
+            "type": "string"
+          },
+          "referencing_type_name": {
+            "description": "The referencing_type_name of this graphql_type_relationship.",
+            "type": "string"
+          },
+          "mappings": {
+            "description": "mappings",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/graphql_type_mapping"
+            }
+          }
+        }
+      },
+      "graphql_type_mapping": {
+        "description": "graphql_type_mapping",
+        "type": "object",
+        "required": [
+          "from",
+          "to"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "description": "The from of this graphql_type_mapping.",
+            "type": "string"
+          },
+          "to": {
+            "description": "The to of this graphql_type_mapping.",
+            "type": "string"
+          }
+        }
       },
       "entity_on_database": {
         "description": "entity_on_database",
@@ -2223,8 +2275,8 @@
             "description": "The index_name of this indexed_document.",
             "type": "string"
           },
-          "entity_name": {
-            "description": "The entity_name of this indexed_document.",
+          "document_model_name": {
+            "description": "The document_model_name of this indexed_document.",
             "type": "string"
           },
           "search_engine_client_name": {

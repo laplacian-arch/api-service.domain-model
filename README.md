@@ -77,6 +77,10 @@ $ ./script/generate
 
 - [**GraphqlType**](<./doc/entities/GraphqlType.md>)
 graphql_type
+- [**GraphqlTypeRelationship**](<./doc/entities/GraphqlTypeRelationship.md>)
+graphql_type_relationship
+- [**GraphqlTypeMapping**](<./doc/entities/GraphqlTypeMapping.md>)
+graphql_type_mapping
 - [**EntityOnDatabase**](<./doc/entities/EntityOnDatabase.md>)
 entity_on_database
 - [**ExternalRestApi**](<./doc/entities/ExternalRestApi.md>)

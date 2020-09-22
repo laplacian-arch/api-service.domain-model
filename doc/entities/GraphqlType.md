@@ -24,3 +24,7 @@ The description of this graphql_type.
   ```
 
 ## Relationships
+
+### relationships: `List<GraphqlTypeRelationship>`
+relationships
+- **Cardinality:** `*`

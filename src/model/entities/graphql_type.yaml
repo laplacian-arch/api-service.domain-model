@@ -16,3 +16,62 @@ entities:
     optional: true
     default_value: |
       "A Graphql type representing ${name}"
+
+  relationships:
+  - name: relationships
+    reference_entity_name: graphql_type_relationship
+    cardinality: '*'
+    aggregate: true
+
+- name: graphql_type_relationship
+  namespace: laplacian.arch.api.service.graphql_type
+
+  properties:
+  - name: name
+    type: string
+    primary_key: true
+
+  - name: referencing_type_name
+    type: string
+
+  relationships:
+  - name: referencedType
+    cardinality: '1'
+    reference_entity_name: graphql_type
+    reverse_of: relationships
+
+  - name: referencing_type
+    cardinality: '1'
+    reference_entity_name: graphql_type
+    mappings:
+    - from: referencing_type_name
+      to: name
+
+  - name: mappings
+    cardinality: '1..*'
+    reference_entity_name: graphql_type_mapping
+    aggregate: true
+
+- name: graphql_type_mapping
+  namespace: laplacian.arch.api.service.graphql_type
+
+  properties:
+  - name: from
+    type: string
+    primary_key: true
+
+  - name: to
+    type: string
+    primary_key: true
+
+  relationships:
+  - name: part_of
+    reference_entity_name: graphql_type_relationship
+    cardinality: '1'
+    reverse_of: mappings
+
+  - name: referencing_type
+    reference_entity_name: graphql_type
+    cardinality: '1'
+    snippet: |
+      partOf.referencingType
