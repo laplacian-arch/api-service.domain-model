@@ -110,7 +110,17 @@ entities:
     cardinality: '*'
     reference_entity_name: entity
     snippet: |
-      graphqlTypesBackedByDatabaseTable.map{ it.entity }.filter{ it.topLevel }
+      ( graphqlTypesBackedByDatabaseTable.map{ it.entity } +
+        graphqlTypesBackedByIndexedDocument.map{ it.documentModel }
+      )
+      .distinct()
+
+  - name: top_level_entities_backing_graphql_type
+    cardinality: '*'
+    reference_entity_name: entity
+    snippet: |
+      entitiesBackingGraphqlType
+      .filter{ it.topLevel }
 
   - name: graphql_types_backed_by_external_rest_api
     cardinality: '*'
@@ -124,15 +134,15 @@ entities:
     snippet: |
       graphqlTypesBackedByExternalRestApi.map{ it.restResource }.distinct()
 
-  - name: indexed_documents_backing_graphql_type
+  - name: graphql_types_backed_by_indexed_document
     cardinality: '*'
     reference_entity_name: indexed_document
     snippet: |
       graphqlTypes.map{ it as? IndexedDocument }.filterNotNull()
 
-  - name: http_clients
+  - name: rest_clients
     cardinality: '*'
-    reference_entity_name: http_client
+    reference_entity_name: rest_client
     aggregate: true
 
   - name: search_engine_clients

@@ -102,8 +102,8 @@ This includes the following models.
 - Statement issued by the client to the datastore
 - [**GraphqlTypeEntry**](<./doc/entities/GraphqlTypeEntry.md>)
 graphql_type_entry
-- [**HttpClient**](<./doc/entities/HttpClient.md>)
-http_client
+- [**RestClient**](<./doc/entities/RestClient.md>)
+rest_client
 - [**SearchEngineClient**](<./doc/entities/SearchEngineClient.md>)
 search_engine_client
 ### Script List
@@ -227,7 +227,7 @@ search_engine_client
 - [src/model/entities/rest_resource.yaml](<./src/model/entities/rest_resource.yaml>)
 - [src/model/entities/service/datasource.yaml](<./src/model/entities/service/datasource.yaml>)
 - [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)
-- [src/model/entities/service/http_client.yaml](<./src/model/entities/service/http_client.yaml>)
+- [src/model/entities/service/rest_client.yaml](<./src/model/entities/service/rest_client.yaml>)
 - [src/model/entities/service/search_engine_client.yaml](<./src/model/entities/service/search_engine_client.yaml>)
 - [src/model/entities/service.yml](<./src/model/entities/service.yml>)
 - [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)

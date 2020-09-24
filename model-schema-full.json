@@ -216,11 +216,11 @@
       }
     }
     ,
-    "http_clients": {
-      "description": "http_client",
+    "rest_clients": {
+      "description": "rest_client",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/entities/http_client"
+        "$ref": "#/definitions/entities/rest_client"
       }
     }
     ,
@@ -2206,6 +2206,13 @@
           "datasource_name": {
             "description": "The datasource_name of this entity_on_database.",
             "type": "string"
+          },
+          "relationships": {
+            "description": "relationships",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/graphql_type_relationship"
+            }
           }
         }
         }
@@ -2242,6 +2249,17 @@
           "operation_name": {
             "description": "The operation_name of this external_rest_api.",
             "type": "string"
+          },
+          "rest_client_name": {
+            "description": "The rest_client_name of this external_rest_api.",
+            "type": "string"
+          },
+          "relationships": {
+            "description": "relationships",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/graphql_type_relationship"
+            }
           }
         }
         }
@@ -2282,6 +2300,13 @@
           "search_engine_client_name": {
             "description": "The search_engine_client_name of this indexed_document.",
             "type": "string"
+          },
+          "relationships": {
+            "description": "relationships",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/graphql_type_relationship"
+            }
           }
         }
         }
@@ -2291,8 +2316,7 @@
         "type": "object",
         "required": [
           "name",
-          "resource_model_name",
-          "http_client_name"
+          "resource_model_name"
         ],
         "additionalProperties": false,
         "properties": {
@@ -2302,10 +2326,6 @@
           },
           "resource_model_name": {
             "description": "The resource_model_name of this rest_resource.",
-            "type": "string"
-          },
-          "http_client_name": {
-            "description": "The http_client_name of this rest_resource.",
             "type": "string"
           },
           "operations": {
@@ -2456,11 +2476,11 @@
               "$ref": "#/definitions/entities/graphql_type_entry"
             }
           },
-          "http_clients": {
-            "description": "http_clients",
+          "rest_clients": {
+            "description": "rest_clients",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/entities/http_client"
+              "$ref": "#/definitions/entities/rest_client"
             }
           },
           "search_engine_clients": {
@@ -2512,8 +2532,8 @@
           }
         }
       },
-      "http_client": {
-        "description": "http_client",
+      "rest_client": {
+        "description": "rest_client",
         "type": "object",
         "required": [
           "name"
@@ -2521,15 +2541,7 @@
         "additionalProperties": false,
         "properties": {
           "name": {
-            "description": "The name of this http_client.",
-            "type": "string"
-          },
-          "base_uri": {
-            "description": "The base_uri of this http_client.",
-            "type": "string"
-          },
-          "api_key": {
-            "description": "The api_key of this http_client.",
+            "description": "The name of this rest_client.",
             "type": "string"
           }
         }

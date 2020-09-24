@@ -10,6 +10,9 @@ entities:
   - name: operation_name
     type: string
 
+  - name: rest_client_name
+    type: string
+
   relationships:
   - name: rest_resource
     cardinality: '1'
