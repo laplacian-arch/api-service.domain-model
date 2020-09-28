@@ -2464,6 +2464,10 @@
             "description": "The query_name of this query_to_elasticsearch.",
             "type": "string"
           },
+          "index_name": {
+            "description": "The index_name of this query_to_elasticsearch.",
+            "type": "string"
+          },
           "relationships": {
             "description": "relationships",
             "type": "array",

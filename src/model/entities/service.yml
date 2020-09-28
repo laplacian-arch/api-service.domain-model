@@ -61,6 +61,11 @@ entities:
     default_value: |
       name
 
+  - name: depends_on_elasticsearch
+    type: boolean
+    snippet: |
+      graphqlTypesBackedByIndexedDocument.isNotEmpty()
+
   relationships:
   - name: datasources
     cardinality: '*'
@@ -149,3 +154,4 @@ entities:
     cardinality: '*'
     reference_entity_name: search_engine_client
     aggregate: true
+

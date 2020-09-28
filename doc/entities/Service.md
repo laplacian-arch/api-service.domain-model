@@ -71,6 +71,13 @@ The description of this service.
   name
   ```
 
+### depends_on_elasticsearch: `Boolean`
+Defines this service is depends_on_elasticsearch or not.
+- **Code:**
+  ```kotlin
+  graphqlTypesBackedByIndexedDocument.isNotEmpty()
+  ```
+
 ## Relationships
 
 ### datasources: `List<Datasource>`
