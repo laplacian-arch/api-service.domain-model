@@ -1,0 +1,64 @@
+entities:
+- name: elasticsearch_query
+  namespace: laplacian.arch.api.service
+
+  properties:
+  - name: name
+    type: string
+    primary_key: true
+
+  relationships:
+  - name: aggregates
+    reference_entity_name: elasticsearch_aggregate
+    cardinality: '*'
+    aggregate: true
+
+- name: elasticsearch_aggregate
+  properties:
+  - name: name
+    type: string
+    primary_key: true
+
+  - name: aggregation_type
+    type: string
+    subtype_key: true
+
+  relationships:
+  - name: part_of
+    reference_entity_name: elasticsearch_query
+    cardinality: '1'
+    reverse_of: aggregates
+
+  - name: fields
+    reference_entity_name: aggregates_field
+    cardinality: '*'
+    aggregate: true
+
+- name: aggregates_field
+  properties:
+  - name: name
+    type: string
+
+  relationships:
+  - name: aggregate
+    reference_entity_name: elasticsearch_aggregate
+    cardinality: '1'
+    reverse_of: fields
+
+- name: terms_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: terms
+
+- name: date_histogram_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: date_histogram
+
+  properties:
+  - name: calendar_interval
+    type: string
+    domain:
+      choices:
+      - value: year
+      - value: month
+      - value: day
+

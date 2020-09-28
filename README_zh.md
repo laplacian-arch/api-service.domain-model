@@ -76,6 +76,16 @@ $ ./script/generate
 ### 实体清单
 
 
+- [**ElasticsearchQuery**](<./doc/entities/ElasticsearchQuery.md>)
+elasticsearch_query
+- [**ElasticsearchAggregate**](<./doc/entities/ElasticsearchAggregate.md>)
+elasticsearch_aggregate
+- [**AggregatesField**](<./doc/entities/AggregatesField.md>)
+aggregates_field
+- [**TermsAggregate**](<./doc/entities/TermsAggregate.md>)
+terms_aggregate
+- [**DateHistogramAggregate**](<./doc/entities/DateHistogramAggregate.md>)
+date_histogram_aggregate
 - [**GraphqlType**](<./doc/entities/GraphqlType.md>)
 graphql_type
 - [**GraphqlTypeRelationship**](<./doc/entities/GraphqlTypeRelationship.md>)
@@ -88,6 +98,8 @@ entity_on_database
 external_rest_api
 - [**IndexedDocument**](<./doc/entities/IndexedDocument.md>)
 indexed_document
+- [**QueryToElasticsearch**](<./doc/entities/QueryToElasticsearch.md>)
+query_to_elasticsearch
 - [**RestResource**](<./doc/entities/RestResource.md>)
 rest_resource
 - [**RestOperation**](<./doc/entities/RestOperation.md>)
@@ -210,9 +222,11 @@ search_engine_client
 
 
 - [model/project.yaml](<./model/project.yaml>)
+- [src/model/entities/elasticsearch-query.yaml](<./src/model/entities/elasticsearch-query.yaml>)
 - [src/model/entities/graphql_type/entity_on_database.yaml](<./src/model/entities/graphql_type/entity_on_database.yaml>)
 - [src/model/entities/graphql_type/external_rest_resource.yaml](<./src/model/entities/graphql_type/external_rest_resource.yaml>)
 - [src/model/entities/graphql_type/indexed_document.yaml](<./src/model/entities/graphql_type/indexed_document.yaml>)
+- [src/model/entities/graphql_type/query-to-elastcisearch.yaml](<./src/model/entities/graphql_type/query-to-elastcisearch.yaml>)
 - [src/model/entities/graphql_type.yaml](<./src/model/entities/graphql_type.yaml>)
 - [src/model/entities/rest_resource/rest_operation.yaml](<./src/model/entities/rest_resource/rest_operation.yaml>)
 - [src/model/entities/rest_resource/rest_request_parameter.yaml](<./src/model/entities/rest_resource/rest_request_parameter.yaml>)

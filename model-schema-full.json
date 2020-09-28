@@ -184,6 +184,14 @@
       }
     }
     ,
+    "elasticsearch_queries": {
+      "description": "elasticsearch_query",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/elasticsearch_query"
+      }
+    }
+    ,
     "graphql_types": {
       "description": "graphql_type",
       "type": "array",
@@ -2090,6 +2098,143 @@
           }
         }
       },
+      "elasticsearch_query": {
+        "description": "elasticsearch_query",
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this elasticsearch_query.",
+            "type": "string"
+          },
+          "aggregates": {
+            "description": "aggregates",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/elasticsearch_aggregate"
+            }
+          }
+        }
+      },
+      "elasticsearch_aggregate": {
+        "description": "elasticsearch_aggregate",
+        "type": "object",
+        "required": [
+          "name",
+          "aggregation_type"
+        ],
+        "properties": {
+          "name": {
+            "description": "The name of this elasticsearch_aggregate.",
+            "type": "string"
+          },
+          "aggregation_type": {
+            "description": "The aggregation_type of this elasticsearch_aggregate.",
+            "enum":[
+              "terms_aggregate",
+              "date_histogram_aggregate"
+            ],
+            "type": "string"
+          },
+          "fields": {
+            "description": "fields",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/aggregates_field"
+            }
+          }
+        },
+        "allOf": [
+          { "$ref": "#/definitions/entities/terms_aggregate" },
+          { "$ref": "#/definitions/entities/date_histogram_aggregate" }
+        ]
+      },
+      "aggregates_field": {
+        "description": "aggregates_field",
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this aggregates_field.",
+            "type": "string"
+          }
+        }
+      },
+      "terms_aggregate": {
+        "description": "terms_aggregate",
+        "if": { "properties": {
+          "aggregation_type": { "const": "terms" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this elasticsearch_aggregate.",
+            "type": "string"
+          },
+          "aggregation_type": {
+            "description": "The aggregation_type of this elasticsearch_aggregate.",
+            "enum":[
+              "terms_aggregate",
+              "date_histogram_aggregate"
+            ],
+            "type": "string"
+          },
+          "fields": {
+            "description": "fields",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/aggregates_field"
+            }
+          }
+        }
+        }
+      },
+      "date_histogram_aggregate": {
+        "description": "date_histogram_aggregate",
+        "if": { "properties": {
+          "aggregation_type": { "const": "date_histogram" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this elasticsearch_aggregate.",
+            "type": "string"
+          },
+          "aggregation_type": {
+            "description": "The aggregation_type of this elasticsearch_aggregate.",
+            "enum":[
+              "terms_aggregate",
+              "date_histogram_aggregate"
+            ],
+            "type": "string"
+          },
+          "calendar_interval": {
+            "description": "The calendar_interval of this date_histogram_aggregate.",
+            "enum":[
+              "year",
+              "month",
+              "day"
+            ],
+            "type": "string"
+          },
+          "fields": {
+            "description": "fields",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/aggregates_field"
+            }
+          }
+        }
+        }
+      },
       "graphql_type": {
         "description": "graphql_type",
         "type": "object",
@@ -2107,7 +2252,8 @@
             "enum":[
               "entity_on_database",
               "external_rest_api",
-              "indexed_document"
+              "indexed_document",
+              "query_to_elasticsearch"
             ],
             "type": "string"
           },
@@ -2126,7 +2272,8 @@
         "allOf": [
           { "$ref": "#/definitions/entities/entity_on_database" },
           { "$ref": "#/definitions/entities/external_rest_api" },
-          { "$ref": "#/definitions/entities/indexed_document" }
+          { "$ref": "#/definitions/entities/indexed_document" },
+          { "$ref": "#/definitions/entities/query_to_elasticsearch" }
         ]
       },
       "graphql_type_relationship": {
@@ -2191,7 +2338,8 @@
             "enum":[
               "entity_on_database",
               "external_rest_api",
-              "indexed_document"
+              "indexed_document",
+              "query_to_elasticsearch"
             ],
             "type": "string"
           },
@@ -2234,7 +2382,8 @@
             "enum":[
               "entity_on_database",
               "external_rest_api",
-              "indexed_document"
+              "indexed_document",
+              "query_to_elasticsearch"
             ],
             "type": "string"
           },
@@ -2281,7 +2430,8 @@
             "enum":[
               "entity_on_database",
               "external_rest_api",
-              "indexed_document"
+              "indexed_document",
+              "query_to_elasticsearch"
             ],
             "type": "string"
           },
@@ -2299,6 +2449,46 @@
           },
           "search_engine_client_name": {
             "description": "The search_engine_client_name of this indexed_document.",
+            "type": "string"
+          },
+          "relationships": {
+            "description": "relationships",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/graphql_type_relationship"
+            }
+          }
+        }
+        }
+      },
+      "query_to_elasticsearch": {
+        "description": "query_to_elasticsearch",
+        "if": { "properties": {
+          "resolver_type": { "const": "query_to_elasticsearch" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this graphql_type.",
+            "type": "string"
+          },
+          "resolver_type": {
+            "description": "The resolver_type of this graphql_type.",
+            "enum":[
+              "entity_on_database",
+              "external_rest_api",
+              "indexed_document",
+              "query_to_elasticsearch"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_type.",
+            "type": "string"
+          },
+          "query_name": {
+            "description": "The query_name of this query_to_elasticsearch.",
             "type": "string"
           },
           "relationships": {
