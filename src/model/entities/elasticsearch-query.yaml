@@ -7,17 +7,43 @@ entities:
     type: string
     primary_key: true
 
+  - name: index_name
+    type: string
+
   relationships:
   - name: aggregates
     reference_entity_name: elasticsearch_aggregate
     cardinality: '*'
     aggregate: true
 
+  - name: parameters
+    reference_entity_name: elasticsearch_query_parameter
+    cardinality: '*'
+    aggregate: true
+
+- name: elasticsearch_query_parameter
+  properties:
+  - name: name
+    type: string
+    primary_key: true
+
+  - name: type
+    type: string
+    domain:
+      choices:
+      - value: string
+      - value: number
+      - value: boolean
+      - value: date
+
 - name: elasticsearch_aggregate
   properties:
   - name: name
     type: string
     primary_key: true
+    optional: true
+    default_value: |
+      aggregationType
 
   - name: aggregation_type
     type: string
@@ -26,11 +52,16 @@ entities:
   relationships:
   - name: part_of
     reference_entity_name: elasticsearch_query
-    cardinality: '1'
+    cardinality: '0..1'
     reverse_of: aggregates
 
   - name: fields
     reference_entity_name: aggregates_field
+    cardinality: '*'
+    aggregate: true
+
+  - name: sub_aggregates
+    reference_entity_name: elasticsearch_aggregate
     cardinality: '*'
     aggregate: true
 
@@ -49,6 +80,17 @@ entities:
   subtype_of: elasticsearch_aggregate
   subtype_key_value: terms
 
+- name: date_range_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: date_range
+
+  properties:
+  - name: date_from
+    type: string
+
+  - name: date_to
+    type: string
+
 - name: date_histogram_aggregate
   subtype_of: elasticsearch_aggregate
   subtype_key_value: date_histogram
@@ -61,4 +103,8 @@ entities:
       - value: year
       - value: month
       - value: day
+
+- name: sum_metric
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: sum
 
