@@ -176,6 +176,14 @@ graphql_types_backed_by_indexed_document
   graphqlTypes.map{ it as? IndexedDocument }.filterNotNull()
   ```
 
+### graphql_types_backed_by_elasticsearch_query: `List<QueryToElasticsearch>`
+graphql_types_backed_by_elasticsearch_query
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypes.map{ it as? QueryToElasticsearch }.filterNotNull()
+  ```
+
 ### rest_clients: `List<RestClient>`
 rest_clients
 - **Cardinality:** `*`

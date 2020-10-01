@@ -145,6 +145,12 @@ entities:
     snippet: |
       graphqlTypes.map{ it as? IndexedDocument }.filterNotNull()
 
+  - name: graphql_types_backed_by_elasticsearch_query
+    cardinality: '*'
+    reference_entity_name: query_to_elasticsearch
+    snippet: |
+      graphqlTypes.map{ it as? QueryToElasticsearch }.filterNotNull()
+
   - name: rest_clients
     cardinality: '*'
     reference_entity_name: rest_client
