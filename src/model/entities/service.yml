@@ -152,12 +152,21 @@ entities:
       graphqlTypes.map{ it as? QueryToElasticsearch }.filterNotNull()
 
   - name: rest_clients
-    cardinality: '*'
     reference_entity_name: rest_client
+    cardinality: '*'
     aggregate: true
 
   - name: search_engine_clients
-    cardinality: '*'
     reference_entity_name: search_engine_client
+    cardinality: '*'
     aggregate: true
 
+  - name: elasticsearch_indices
+    reference_entity_name: elasticsearch_index
+    cardinality: '*'
+    snippet: |
+      graphqlTypes.map{
+          (it as? IndexedDocument)?.elasticsearchIndex ?:
+          (it as? QueryToElasticsearch)?.elasticsearchIndex
+      }
+      .filterNotNull()

@@ -184,6 +184,14 @@
       }
     }
     ,
+    "elasticsearch_indexes": {
+      "description": "elasticsearch_index",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/elasticsearch_index"
+      }
+    }
+    ,
     "elasticsearch_queries": {
       "description": "elasticsearch_query",
       "type": "array",
@@ -2083,6 +2091,31 @@
           }
         }
       },
+      "elasticsearch_index": {
+        "description": "elasticsearch_index",
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this elasticsearch_index.",
+            "type": "string"
+          },
+          "document_model_name": {
+            "description": "The document_model_name of this elasticsearch_index.",
+            "type": "string"
+          },
+          "queries": {
+            "description": "queries",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/elasticsearch_query"
+            }
+          }
+        }
+      },
       "elasticsearch_query": {
         "description": "elasticsearch_query",
         "type": "object",
@@ -2152,10 +2185,10 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
-              "terms",
-              "date_range",
-              "date_histogram",
-              "sum"
+              "terms_aggregate",
+              "date_range_aggregate",
+              "date_histogram_aggregate",
+              "sum_metric"
             ],
             "type": "string"
           },
@@ -2209,10 +2242,10 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
-              "terms",
-              "date_range",
-              "date_histogram",
-              "sum"
+              "terms_aggregate",
+              "date_range_aggregate",
+              "date_histogram_aggregate",
+              "sum_metric"
             ],
             "type": "string"
           },
@@ -2248,10 +2281,10 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
-              "terms",
-              "date_range",
-              "date_histogram",
-              "sum"
+              "terms_aggregate",
+              "date_range_aggregate",
+              "date_histogram_aggregate",
+              "sum_metric"
             ],
             "type": "string"
           },
@@ -2295,10 +2328,10 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
-              "terms",
-              "date_range",
-              "date_histogram",
-              "sum"
+              "terms_aggregate",
+              "date_range_aggregate",
+              "date_histogram_aggregate",
+              "sum_metric"
             ],
             "type": "string"
           },
@@ -2343,10 +2376,10 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
-              "terms",
-              "date_range",
-              "date_histogram",
-              "sum"
+              "terms_aggregate",
+              "date_range_aggregate",
+              "date_histogram_aggregate",
+              "sum_metric"
             ],
             "type": "string"
           },
@@ -2573,10 +2606,6 @@
             "description": "The index_name of this indexed_document.",
             "type": "string"
           },
-          "document_model_name": {
-            "description": "The document_model_name of this indexed_document.",
-            "type": "string"
-          },
           "search_engine_client_name": {
             "description": "The search_engine_client_name of this indexed_document.",
             "type": "string"
@@ -2615,6 +2644,10 @@
           },
           "description": {
             "description": "The description of this graphql_type.",
+            "type": "string"
+          },
+          "index_name": {
+            "description": "The index_name of this query_to_elasticsearch.",
             "type": "string"
           },
           "query_name": {

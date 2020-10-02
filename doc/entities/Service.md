@@ -191,3 +191,15 @@ rest_clients
 ### search_engine_clients: `List<SearchEngineClient>`
 search_engine_clients
 - **Cardinality:** `*`
+
+### elasticsearch_indices: `List<ElasticsearchIndex>`
+elasticsearch_indices
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypes.map{
+      (it as? IndexedDocument)?.elasticsearchIndex ?:
+      (it as? QueryToElasticsearch)?.elasticsearchIndex
+  }
+  .filterNotNull()
+  ```

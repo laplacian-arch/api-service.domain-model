@@ -8,9 +8,6 @@ entities:
     type: string
     primary_key: true
 
-  - name: document_model_name
-    type: string
-
   - name: search_engine_client_name
     type: string
     optional: true
@@ -18,9 +15,15 @@ entities:
       "default"
 
   relationships:
+  - name: elasticsearch_index
+    reference_entity_name: elasticsearch_index
+    cardinality: '1'
+    mappings:
+    - from: index_name
+      to: name
+
   - name: document_model
     cardinality: '1'
     reference_entity_name: entity
-    mappings:
-    - from: document_model_name
-      to: name
+    snippet: |
+       elasticsearchIndex.documentModel

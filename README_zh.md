@@ -76,6 +76,8 @@ $ ./script/generate
 ### 实体清单
 
 
+- [**ElasticsearchIndex**](<./doc/entities/ElasticsearchIndex.md>)
+elasticsearch_index
 - [**ElasticsearchQuery**](<./doc/entities/ElasticsearchQuery.md>)
 elasticsearch_query
 - [**ElasticsearchQueryParameter**](<./doc/entities/ElasticsearchQueryParameter.md>)
@@ -228,7 +230,8 @@ search_engine_client
 
 
 - [model/project.yaml](<./model/project.yaml>)
-- [src/model/entities/elasticsearch-query.yaml](<./src/model/entities/elasticsearch-query.yaml>)
+- [src/model/entities/elasticsearch/elasticsearch-index.yaml](<./src/model/entities/elasticsearch/elasticsearch-index.yaml>)
+- [src/model/entities/elasticsearch/elasticsearch-query.yaml](<./src/model/entities/elasticsearch/elasticsearch-query.yaml>)
 - [src/model/entities/graphql_type/entity_on_database.yaml](<./src/model/entities/graphql_type/entity_on_database.yaml>)
 - [src/model/entities/graphql_type/external_rest_resource.yaml](<./src/model/entities/graphql_type/external_rest_resource.yaml>)
 - [src/model/entities/graphql_type/indexed_document.yaml](<./src/model/entities/graphql_type/indexed_document.yaml>)

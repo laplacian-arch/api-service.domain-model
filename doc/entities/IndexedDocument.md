@@ -13,9 +13,6 @@ indexed_document
 The index_name of this indexed_document.
 - **Attributes:** *PK*
 
-### document_model_name: `String`
-The document_model_name of this indexed_document.
-
 ### search_engine_client_name: `String`
 The search_engine_client_name of this indexed_document.
 - **Default Value:**
@@ -25,6 +22,14 @@ The search_engine_client_name of this indexed_document.
 
 ## Relationships
 
+### elasticsearch_index: `ElasticsearchIndex`
+elasticsearch_index
+- **Cardinality:** `1`
+
 ### document_model: `Entity`
 document_model
 - **Cardinality:** `1`
+- **Code:**
+  ```kotlin
+  elasticsearchIndex.documentModel
+  ```

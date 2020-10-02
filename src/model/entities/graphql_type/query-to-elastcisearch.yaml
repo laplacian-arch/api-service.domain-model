@@ -4,13 +4,25 @@ entities:
   subtype_of: graphql_type
 
   properties:
+  - name: index_name
+    type: string
+
   - name: query_name
     type: string
 
   relationships:
+  - name: elasticsearch_index
+    reference_entity_name: elasticsearch_index
+    cardinality: '1'
+    mappings:
+    - from: index_name
+      to: name
+
   - name: query
     reference_entity_name: elasticsearch_query
     cardinality: '1'
     mappings:
+    - from: index_name
+      to: index_name
     - from: query_name
       to: name
