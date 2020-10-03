@@ -202,4 +202,5 @@ elasticsearch_indices
       (it as? QueryToElasticsearch)?.elasticsearchIndex
   }
   .filterNotNull()
+  .distinct()
   ```

@@ -1,5 +1,7 @@
 entities:
 - name: elasticsearch_index
+  namespace: laplacian.arch.api.service.elasticsearch
+
   properties:
   - name: name
     type: string

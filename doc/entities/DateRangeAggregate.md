@@ -1,5 +1,5 @@
 # **DateRangeAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch
 
 date_range_aggregate
 

@@ -1,6 +1,6 @@
 entities:
 - name: elasticsearch_query
-  namespace: laplacian.arch.api.service
+  namespace: laplacian.arch.api.service.elasticsearch
 
   properties:
   - name: name

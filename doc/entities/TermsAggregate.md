@@ -1,5 +1,5 @@
 # **TermsAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch
 
 terms_aggregate
 

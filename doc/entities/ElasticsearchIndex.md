@@ -1,5 +1,5 @@
 # **ElasticsearchIndex**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch
 
 elasticsearch_index
 

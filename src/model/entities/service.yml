@@ -170,3 +170,4 @@ entities:
           (it as? QueryToElasticsearch)?.elasticsearchIndex
       }
       .filterNotNull()
+      .distinct()

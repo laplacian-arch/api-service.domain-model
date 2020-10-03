@@ -1,5 +1,5 @@
 # **AggregatesField**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch
 
 aggregates_field
 

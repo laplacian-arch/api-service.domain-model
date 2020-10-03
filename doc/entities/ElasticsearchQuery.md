@@ -1,5 +1,5 @@
 # **ElasticsearchQuery**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch
 
 elasticsearch_query
 

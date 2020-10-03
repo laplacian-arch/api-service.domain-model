@@ -2212,10 +2212,10 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
-              "terms_aggregate",
-              "date_range_aggregate",
-              "date_histogram_aggregate",
-              "sum_metric"
+              "terms",
+              "date_range",
+              "date_histogram",
+              "sum"
             ],
             "type": "string"
           },
@@ -2270,10 +2270,10 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
-              "terms_aggregate",
-              "date_range_aggregate",
-              "date_histogram_aggregate",
-              "sum_metric"
+              "terms",
+              "date_range",
+              "date_histogram",
+              "sum"
             ],
             "type": "string"
           },
@@ -2309,10 +2309,10 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
-              "terms_aggregate",
-              "date_range_aggregate",
-              "date_histogram_aggregate",
-              "sum_metric"
+              "terms",
+              "date_range",
+              "date_histogram",
+              "sum"
             ],
             "type": "string"
           },
@@ -2356,10 +2356,10 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
-              "terms_aggregate",
-              "date_range_aggregate",
-              "date_histogram_aggregate",
-              "sum_metric"
+              "terms",
+              "date_range",
+              "date_histogram",
+              "sum"
             ],
             "type": "string"
           },
@@ -2404,10 +2404,10 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
-              "terms_aggregate",
-              "date_range_aggregate",
-              "date_histogram_aggregate",
-              "sum_metric"
+              "terms",
+              "date_range",
+              "date_histogram",
+              "sum"
             ],
             "type": "string"
           },
