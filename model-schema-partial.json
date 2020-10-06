@@ -208,6 +208,14 @@
       }
     }
     ,
+    "elasticsearch_aggregates": {
+      "description": "elasticsearch_aggregate",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/elasticsearch_aggregate"
+      }
+    }
+    ,
     "graphql_types": {
       "description": "graphql_type",
       "type": "array",
@@ -456,11 +464,14 @@
         "type": "string"
       },
       "basic_type": {
-        "description": "基本型",
+        "description": "basic scalar type",
         "enum":[
            "string",
            "boolean",
-           "number"
+           "number",
+           "date",
+           "time",
+           "datetime"
         ],
         "type": "string"
       },
@@ -2106,13 +2117,6 @@
           "document_model_name": {
             "description": "The document_model_name of this elasticsearch_index.",
             "type": "string"
-          },
-          "queries": {
-            "description": "queries",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/elasticsearch_query"
-            }
           }
         }
       },
@@ -2120,7 +2124,8 @@
         "description": "elasticsearch_query",
         "type": "object",
         "required": [
-          "name"
+          "name",
+          "index_name"
         ],
         "additionalProperties": false,
         "properties": {
@@ -2164,10 +2169,24 @@
             "description": "The type of this elasticsearch_query_parameter.",
             "enum":[
               "string",
-              "number",
+              "int",
               "boolean",
-              "date"
+              "date",
+              "time",
+              "datetime"
             ],
+            "type": "string"
+          },
+          "required": {
+            "description": "Defines this elasticsearch_query_parameter is required or not.",
+            "type": "boolean"
+          },
+          "default_value": {
+            "description": "The default_value of this elasticsearch_query_parameter.",
+            "type": "string"
+          },
+          "class_name": {
+            "description": "The class_name of this elasticsearch_query_parameter.",
             "type": "string"
           }
         }

@@ -9,6 +9,7 @@ entities:
 
   - name: index_name
     type: string
+    primary_key: true
 
   relationships:
   - name: aggregates
@@ -32,9 +33,42 @@ entities:
     domain:
       choices:
       - value: string
-      - value: number
+      - value: int
       - value: boolean
       - value: date
+      - value: time
+      - value: datetime
+
+  - name: required
+    type: boolean
+    optional: true
+    default_value: |
+      false
+
+  - name: default_value
+    type: string
+    optional: true
+    default_value: |
+      when(type) {
+          "string" -> "\"\""
+          "boolean" -> "false"
+          "int" -> "0"
+          "datetime" -> "LocalDateTime.now()"
+          "time" -> "LocalTime.now()"
+          "date" -> "LocalDate.now()"
+          else -> null
+      }
+
+  - name: class_name
+    type: string
+    optional: true
+    default_value: |
+      when(type) {
+          "date" -> "LocalDate"
+          "time" -> "LocalTime"
+          "datetime" -> "LocalDateTime"
+          else -> type.upperCamelize()
+      }
 
 - name: elasticsearch_aggregate
   properties:
@@ -43,18 +77,13 @@ entities:
     primary_key: true
     optional: true
     default_value: |
-      aggregationType
+      aggregationType + '@' + fields.joinToString("|") { it.name }
 
   - name: aggregation_type
     type: string
     subtype_key: true
 
   relationships:
-  - name: part_of
-    reference_entity_name: elasticsearch_query
-    cardinality: '0..1'
-    reverse_of: aggregates
-
   - name: fields
     reference_entity_name: aggregates_field
     cardinality: '*'

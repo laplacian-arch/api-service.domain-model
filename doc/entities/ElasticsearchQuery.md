@@ -15,6 +15,7 @@ The name of this elasticsearch_query.
 
 ### index_name: `String`
 The index_name of this elasticsearch_query.
+- **Attributes:** *PK*
 
 ## Relationships
 

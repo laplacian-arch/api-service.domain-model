@@ -1,5 +1,5 @@
 # **DateHistogramAggregate**
-**namespace:** laplacian.arch.api.service.elasticsearch
+**namespace:** laplacian.arch.api.service
 
 date_histogram_aggregate
 

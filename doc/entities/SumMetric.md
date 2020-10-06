@@ -1,5 +1,5 @@
 # **SumMetric**
-**namespace:** laplacian.arch.api.service.elasticsearch
+**namespace:** laplacian.arch.api.service
 
 sum_metric
 

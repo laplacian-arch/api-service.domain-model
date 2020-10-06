@@ -75,7 +75,7 @@ The description of this service.
 Defines this service is depends_on_elasticsearch or not.
 - **Code:**
   ```kotlin
-  graphqlTypesBackedByIndexedDocument.isNotEmpty()
+  elasticsearchIndexes.isNotEmpty()
   ```
 
 ## Relationships
@@ -137,9 +137,7 @@ entities_backing_graphql_type
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  ( graphqlTypesBackedByDatabaseTable.map{ it.entity } +
-    graphqlTypesBackedByIndexedDocument.map{ it.documentModel }
-  )
+  graphqlTypesBackedByDatabaseTable.map{ it.entity }
   .distinct()
   ```
 
@@ -192,15 +190,11 @@ rest_clients
 search_engine_clients
 - **Cardinality:** `*`
 
-### elasticsearch_indices: `List<ElasticsearchIndex>`
-elasticsearch_indices
+### elasticsearch_indexes: `List<ElasticsearchIndex>`
+elasticsearch_indexes
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypes.map{
-      (it as? IndexedDocument)?.elasticsearchIndex ?:
-      (it as? QueryToElasticsearch)?.elasticsearchIndex
-  }
-  .filterNotNull()
+  graphqlTypesBackedByIndexedDocument.map{ it.elasticsearchIndex }
   .distinct()
   ```

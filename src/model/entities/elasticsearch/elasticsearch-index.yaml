@@ -21,5 +21,6 @@ entities:
   - name: queries
     reference_entity_name: elasticsearch_query
     cardinality: '*'
-    aggregate: true
-
+    mappings:
+    - from: name
+      to: index_name
