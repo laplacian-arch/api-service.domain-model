@@ -19,6 +19,10 @@ The index_name of this elasticsearch_query.
 
 ## Relationships
 
+### predicate: `ElasticsearchQueryPredicate?`
+predicate
+- **Cardinality:** `0..1`
+
 ### aggregates: `List<ElasticsearchAggregate>`
 aggregates
 - **Cardinality:** `*`

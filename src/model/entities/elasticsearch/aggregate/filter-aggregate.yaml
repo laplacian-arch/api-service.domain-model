@@ -1,0 +1,10 @@
+entities:
+- name: filter_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: filter
+  relationships:
+  - name: predicate
+    reference_entity_name: elasticsearch_query_predicate
+    cardinality: '1'
+    aggregate: true
+

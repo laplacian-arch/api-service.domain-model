@@ -1,0 +1,16 @@
+# **ElasticsearchQueryPredicate**
+**namespace:** laplacian.arch.api.service.elasticsearch
+
+elasticsearch_query_predicate
+
+
+
+---
+
+## Properties
+
+### type: `String`
+The type of this elasticsearch_query_predicate.
+- **Attributes:** *PK*
+
+## Relationships

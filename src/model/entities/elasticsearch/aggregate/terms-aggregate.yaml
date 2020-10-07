@@ -1,0 +1,4 @@
+entities:
+- name: terms_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: terms

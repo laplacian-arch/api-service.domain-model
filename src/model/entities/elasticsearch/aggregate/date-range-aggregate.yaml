@@ -1,0 +1,25 @@
+entities:
+- name: date_range_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: date_range
+
+  relationships:
+  - name: ranges
+    reference_entity_name: aggregate_group_range
+    cardinality: '1..*'
+    aggregate: true
+
+- name: aggregate_group_range
+  properties:
+  - name: key
+    type: string
+    primary_key: true
+
+  - name: from
+    type: string
+    optional: true
+
+  - name: to
+    type: string
+    optional: true
+

@@ -1,0 +1,4 @@
+entities:
+- name: sum_metric
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: sum

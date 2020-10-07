@@ -1,0 +1,35 @@
+entities:
+- name: elasticsearch_aggregate
+  properties:
+  - name: name
+    type: string
+    primary_key: true
+    optional: true
+    default_value: |
+      aggregationType + '@' + fields.joinToString("|") { it.name }
+
+  - name: aggregation_type
+    type: string
+    subtype_key: true
+
+  relationships:
+  - name: fields
+    reference_entity_name: aggregates_field
+    cardinality: '*'
+    aggregate: true
+
+  - name: sub_aggregates
+    reference_entity_name: elasticsearch_aggregate
+    cardinality: '*'
+    aggregate: true
+
+- name: aggregates_field
+  properties:
+  - name: name
+    type: string
+
+  relationships:
+  - name: aggregate
+    reference_entity_name: elasticsearch_aggregate
+    cardinality: '1'
+    reverse_of: fields
