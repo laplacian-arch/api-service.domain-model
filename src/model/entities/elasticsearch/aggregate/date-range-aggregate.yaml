@@ -3,6 +3,11 @@ entities:
   subtype_of: elasticsearch_aggregate
   subtype_key_value: date_range
 
+  properties:
+  - name: format
+    type: string
+    optional: true
+
   relationships:
   - name: ranges
     reference_entity_name: aggregate_group_range

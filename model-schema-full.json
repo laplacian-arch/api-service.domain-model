@@ -2294,6 +2294,10 @@
             ],
             "type": "string"
           },
+          "format": {
+            "description": "The format of this date_range_aggregate.",
+            "type": "string"
+          },
           "fields": {
             "description": "fields",
             "type": "array",
