@@ -1,0 +1,21 @@
+entities:
+- name: sum_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: sum
+
+- name: avg_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: avg
+
+- name: min_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: min
+
+- name: max_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: max
+
+- name: value_count_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: count
+

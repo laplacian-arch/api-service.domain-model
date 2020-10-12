@@ -4,11 +4,58 @@ entities:
   subtype_key_value: date_histogram
 
   properties:
-  - name: calendar_interval
+  - name: format
+    type: string
+    optional: true
+
+  - name: timezone
+    type: string
+    optional: true
+
+  relationships:
+  - name: interval
+    reference_entity_name: date_histogram_interval
+    cardinality: '1'
+    aggregate: true
+
+- name: date_histogram_interval
+
+  properties:
+  - name: type
+    type: string
+    subtype_key: true
+
+- name: date_histogram_calendar_interval
+  subtype_of: date_histogram_interval
+  subtype_key_value: calendar
+
+  properties:
+  - name: unit
     type: string
     domain:
       choices:
-      - value: year
+      - value: minute
+      - value: hour
+      - value: day
+      - value: week
       - value: month
+      - value: quarter
+      - value: year
+
+- name: date_histogram_fixed_interval
+  subtype_of: date_histogram_interval
+  subtype_key_value: fixed
+
+  properties:
+  - name: unit
+    type: string
+    domain:
+      choices:
+      - value: millisecond
+      - value: second
+      - value: minute
+      - value: hour
       - value: day
 
+  - name: value
+    type: number

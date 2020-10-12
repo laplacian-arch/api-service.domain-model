@@ -9,7 +9,14 @@ date_histogram_aggregate
 
 ## Properties
 
-### calendar_interval: `String`
-The calendar_interval of this date_histogram_aggregate.
+### format: `String`
+The format of this date_histogram_aggregate.
+
+### timezone: `String`
+The timezone of this date_histogram_aggregate.
 
 ## Relationships
+
+### interval: `DateHistogramInterval`
+interval
+- **Cardinality:** `1`

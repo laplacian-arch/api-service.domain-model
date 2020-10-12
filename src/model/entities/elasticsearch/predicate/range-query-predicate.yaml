@@ -1,0 +1,23 @@
+entities:
+- name: range_query_predicate
+  namespace: laplacian.arch.api.service.elasticsearch
+  subtype_of: elasticsearch_query_predicate
+  subtype_key_value: range
+
+  properties:
+  - name: field
+    type: string
+
+  - name: from
+    type: string
+
+  - name: to
+    type: string
+
+  - name: include_lower
+    type: boolean
+    optional: true
+
+  - name: include_upper
+    type: boolean
+    optional: true

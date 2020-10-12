@@ -12,19 +12,14 @@ elasticsearch_aggregate
 ### name: `String`
 The name of this elasticsearch_aggregate.
 - **Attributes:** *PK*
-- **Default Value:**
-  ```kotlin
-  aggregationType + '@' + fields.joinToString("|") { it.name }
-  ```
 
 ### aggregation_type: `String`
 The aggregation_type of this elasticsearch_aggregate.
 
-## Relationships
+### field: `String`
+The field of this elasticsearch_aggregate.
 
-### fields: `List<AggregatesField>`
-fields
-- **Cardinality:** `*`
+## Relationships
 
 ### sub_aggregates: `List<ElasticsearchAggregate>`
 sub_aggregates

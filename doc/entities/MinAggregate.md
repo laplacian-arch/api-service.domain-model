@@ -1,7 +1,7 @@
-# **SumMetric**
+# **MinAggregate**
 **namespace:** laplacian.arch.api.service
 
-sum_metric
+min_aggregate
 
 
 

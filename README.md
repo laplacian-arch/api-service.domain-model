@@ -81,20 +81,32 @@ bucket_script_aggregate
 bucket_script_path
 - [**DateHistogramAggregate**](<./doc/entities/DateHistogramAggregate.md>)
 date_histogram_aggregate
+- [**DateHistogramInterval**](<./doc/entities/DateHistogramInterval.md>)
+date_histogram_interval
+- [**DateHistogramCalendarInterval**](<./doc/entities/DateHistogramCalendarInterval.md>)
+date_histogram_calendar_interval
+- [**DateHistogramFixedInterval**](<./doc/entities/DateHistogramFixedInterval.md>)
+date_histogram_fixed_interval
 - [**DateRangeAggregate**](<./doc/entities/DateRangeAggregate.md>)
 date_range_aggregate
 - [**AggregateGroupRange**](<./doc/entities/AggregateGroupRange.md>)
 aggregate_group_range
 - [**FilterAggregate**](<./doc/entities/FilterAggregate.md>)
 filter_aggregate
-- [**SumMetric**](<./doc/entities/SumMetric.md>)
-sum_metric
+- [**SumAggregate**](<./doc/entities/SumAggregate.md>)
+sum_aggregate
+- [**AvgAggregate**](<./doc/entities/AvgAggregate.md>)
+avg_aggregate
+- [**MinAggregate**](<./doc/entities/MinAggregate.md>)
+min_aggregate
+- [**MaxAggregate**](<./doc/entities/MaxAggregate.md>)
+max_aggregate
+- [**ValueCountAggregate**](<./doc/entities/ValueCountAggregate.md>)
+value_count_aggregate
 - [**TermsAggregate**](<./doc/entities/TermsAggregate.md>)
 terms_aggregate
 - [**ElasticsearchAggregate**](<./doc/entities/ElasticsearchAggregate.md>)
 elasticsearch_aggregate
-- [**AggregatesField**](<./doc/entities/AggregatesField.md>)
-aggregates_field
 - [**ElasticsearchIndex**](<./doc/entities/ElasticsearchIndex.md>)
 elasticsearch_index
 - [**ElasticsearchQueryPredicate**](<./doc/entities/ElasticsearchQueryPredicate.md>)
@@ -105,6 +117,10 @@ elasticsearch_query
 elasticsearch_query_parameter
 - [**BoolQueryPredicate**](<./doc/entities/BoolQueryPredicate.md>)
 bool_query_predicate
+- [**ExistsQueryPredicate**](<./doc/entities/ExistsQueryPredicate.md>)
+exists_query_predicate
+- [**RangeQueryPredicate**](<./doc/entities/RangeQueryPredicate.md>)
+range_query_predicate
 - [**TermQueryPredicate**](<./doc/entities/TermQueryPredicate.md>)
 term_query_predicate
 - [**GraphqlType**](<./doc/entities/GraphqlType.md>)
@@ -256,13 +272,15 @@ search_engine_client
 - [src/model/entities/elasticsearch/aggregate/date-histogram-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/date-histogram-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/date-range-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/date-range-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/filter-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/filter-aggregate.yaml>)
-- [src/model/entities/elasticsearch/aggregate/sum-metric.yaml](<./src/model/entities/elasticsearch/aggregate/sum-metric.yaml>)
+- [src/model/entities/elasticsearch/aggregate/metrics-aggregations.yaml](<./src/model/entities/elasticsearch/aggregate/metrics-aggregations.yaml>)
 - [src/model/entities/elasticsearch/aggregate/terms-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/terms-aggregate.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-aggregate.yaml](<./src/model/entities/elasticsearch/elasticsearch-aggregate.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-index.yaml](<./src/model/entities/elasticsearch/elasticsearch-index.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-query-predicate.yaml](<./src/model/entities/elasticsearch/elasticsearch-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-query.yaml](<./src/model/entities/elasticsearch/elasticsearch-query.yaml>)
 - [src/model/entities/elasticsearch/predicate/bool-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/bool-query-predicate.yaml>)
+- [src/model/entities/elasticsearch/predicate/exists-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/exists-query-predicate.yaml>)
+- [src/model/entities/elasticsearch/predicate/range-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/range-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/term-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/term-query-predicate.yaml>)
 - [src/model/entities/graphql_type/entity_on_database.yaml](<./src/model/entities/graphql_type/entity_on_database.yaml>)
 - [src/model/entities/graphql_type/external_rest_resource.yaml](<./src/model/entities/graphql_type/external_rest_resource.yaml>)
