@@ -17,6 +17,13 @@ The name of this elasticsearch_query.
 The index_name of this elasticsearch_query.
 - **Attributes:** *PK*
 
+### description: `String`
+The description of this elasticsearch_query.
+- **Default Value:**
+  ```kotlin
+  "${name}"
+  ```
+
 ## Relationships
 
 ### predicate: `ElasticsearchQueryPredicate?`

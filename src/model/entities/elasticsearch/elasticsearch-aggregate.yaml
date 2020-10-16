@@ -5,6 +5,12 @@ entities:
     type: string
     primary_key: true
 
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      "${name} ${aggregationType} aggregation"
+
   - name: aggregation_type
     type: string
     subtype_key: true

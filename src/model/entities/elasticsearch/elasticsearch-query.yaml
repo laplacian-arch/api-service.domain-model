@@ -11,6 +11,12 @@ entities:
     type: string
     primary_key: true
 
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      "${name}"
+
   relationships:
   - name: predicate
     reference_entity_name: elasticsearch_query_predicate
@@ -44,23 +50,41 @@ entities:
       - value: time
       - value: datetime
 
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      "${name}"
+
   - name: required
     type: boolean
     optional: true
     default_value: |
       false
 
+  - name: multiple
+    type: boolean
+    optional: true
+    default_value: |
+      false
+
+  - name: nullable
+    type: boolean
+    snippet: |
+      !required && !containsKey("default_value")
+
   - name: default_value
     type: string
     optional: true
     default_value: |
-      when(type) {
+      if (multiple) "emptyList()"
+      else when(type) {
           "string" -> "\"\""
           "boolean" -> "false"
           "int" -> "0"
-          "datetime" -> "LocalDateTime.now()"
-          "time" -> "LocalTime.now()"
-          "date" -> "LocalDate.now()"
+          "datetime" -> "LocalDateTime.now().toString()"
+          "time" -> "LocalTime.now().toString()"
+          "date" -> "LocalDate.now().toString()"
           else -> null
       }
 
@@ -69,9 +93,8 @@ entities:
     optional: true
     default_value: |
       when(type) {
-          "date" -> "LocalDate"
-          "time" -> "LocalTime"
-          "datetime" -> "LocalDateTime"
+          "date" -> "String"
+          "time" -> "String"
+          "datetime" -> "String"
           else -> type.upperCamelize()
-      }
-
+      }.let { if (multiple) "List<${it}>" else it }

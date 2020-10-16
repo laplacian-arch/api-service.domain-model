@@ -2169,6 +2169,10 @@
             "description": "The name of this elasticsearch_aggregate.",
             "type": "string"
           },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
+            "type": "string"
+          },
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
@@ -2241,6 +2245,10 @@
             "description": "The name of this elasticsearch_aggregate.",
             "type": "string"
           },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
+            "type": "string"
+          },
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
@@ -2287,7 +2295,9 @@
         "description": "date_histogram_interval",
         "type": "object",
         "required": [
-          "type"
+          "type",
+          "unit",
+          "value"
         ],
         "properties": {
           "type": {
@@ -2296,6 +2306,14 @@
               "calendar",
               "fixed"
             ],
+            "type": "string"
+          },
+          "unit": {
+            "description": "The unit of this date_histogram_interval.",
+            "type": "string"
+          },
+          "value": {
+            "description": "The value of this date_histogram_interval.",
             "type": "string"
           }
         },
@@ -2321,16 +2339,16 @@
             "type": "string"
           },
           "unit": {
+            "description": "The unit of this date_histogram_interval.",
+            "type": "string"
+          },
+          "value": {
+            "description": "The value of this date_histogram_interval.",
+            "type": "string"
+          },
+          "unit": {
             "description": "The unit of this date_histogram_calendar_interval.",
-            "enum":[
-              "minute",
-              "hour",
-              "day",
-              "week",
-              "month",
-              "quarter",
-              "year"
-            ],
+            "pattern": "^\\$\\{[^}]*\\}|minute|hour|day|week|month|quarter|year$",
             "type": "string"
           }
         }
@@ -2353,19 +2371,22 @@
             "type": "string"
           },
           "unit": {
+            "description": "The unit of this date_histogram_interval.",
+            "type": "string"
+          },
+          "value": {
+            "description": "The value of this date_histogram_interval.",
+            "type": "string"
+          },
+          "unit": {
             "description": "The unit of this date_histogram_fixed_interval.",
-            "enum":[
-              "millisecond",
-              "second",
-              "minute",
-              "hour",
-              "day"
-            ],
+            "pattern": "^\\$\\{[^}]*\\}|millisecond|second|minute|hour|day$",
             "type": "string"
           },
           "value": {
             "description": "The value of this date_histogram_fixed_interval.",
-            "type": "number"
+            "pattern": "^\\$\\{[^}]*\\}|[0-9]*$",
+            "type": "string"
           }
         }
         }
@@ -2380,6 +2401,10 @@
         "properties": {
           "name": {
             "description": "The name of this elasticsearch_aggregate.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
             "type": "string"
           },
           "aggregation_type": {
@@ -2457,6 +2482,10 @@
             "description": "The name of this elasticsearch_aggregate.",
             "type": "string"
           },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
+            "type": "string"
+          },
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
@@ -2503,6 +2532,10 @@
             "description": "The name of this elasticsearch_aggregate.",
             "type": "string"
           },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
+            "type": "string"
+          },
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
@@ -2543,6 +2576,10 @@
         "properties": {
           "name": {
             "description": "The name of this elasticsearch_aggregate.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
             "type": "string"
           },
           "aggregation_type": {
@@ -2587,6 +2624,10 @@
             "description": "The name of this elasticsearch_aggregate.",
             "type": "string"
           },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
+            "type": "string"
+          },
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
@@ -2627,6 +2668,10 @@
         "properties": {
           "name": {
             "description": "The name of this elasticsearch_aggregate.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
             "type": "string"
           },
           "aggregation_type": {
@@ -2671,6 +2716,10 @@
             "description": "The name of this elasticsearch_aggregate.",
             "type": "string"
           },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
+            "type": "string"
+          },
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
@@ -2713,6 +2762,10 @@
             "description": "The name of this elasticsearch_aggregate.",
             "type": "string"
           },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
+            "type": "string"
+          },
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
@@ -2753,6 +2806,10 @@
         "properties": {
           "name": {
             "description": "The name of this elasticsearch_aggregate.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
             "type": "string"
           },
           "aggregation_type": {
@@ -2828,7 +2885,8 @@
               "bool",
               "exists",
               "range",
-              "term"
+              "term",
+              "terms"
             ],
             "type": "string"
           }
@@ -2837,7 +2895,8 @@
           { "$ref": "#/definitions/entities/bool_query_predicate" },
           { "$ref": "#/definitions/entities/exists_query_predicate" },
           { "$ref": "#/definitions/entities/range_query_predicate" },
-          { "$ref": "#/definitions/entities/term_query_predicate" }
+          { "$ref": "#/definitions/entities/term_query_predicate" },
+          { "$ref": "#/definitions/entities/terms_query_predicate" }
         ]
       },
       "elasticsearch_query": {
@@ -2855,6 +2914,10 @@
           },
           "index_name": {
             "description": "The index_name of this elasticsearch_query.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this elasticsearch_query.",
             "type": "string"
           },
           "predicate": {
@@ -2902,8 +2965,16 @@
             ],
             "type": "string"
           },
+          "description": {
+            "description": "The description of this elasticsearch_query_parameter.",
+            "type": "string"
+          },
           "required": {
             "description": "Defines this elasticsearch_query_parameter is required or not.",
+            "type": "boolean"
+          },
+          "multiple": {
+            "description": "Defines this elasticsearch_query_parameter is multiple or not.",
             "type": "boolean"
           },
           "default_value": {
@@ -2930,7 +3001,8 @@
               "bool",
               "exists",
               "range",
-              "term"
+              "term",
+              "terms"
             ],
             "type": "string"
           },
@@ -2979,7 +3051,8 @@
               "bool",
               "exists",
               "range",
-              "term"
+              "term",
+              "terms"
             ],
             "type": "string"
           },
@@ -3004,7 +3077,8 @@
               "bool",
               "exists",
               "range",
-              "term"
+              "term",
+              "terms"
             ],
             "type": "string"
           },
@@ -3045,7 +3119,8 @@
               "bool",
               "exists",
               "range",
-              "term"
+              "term",
+              "terms"
             ],
             "type": "string"
           },
@@ -3059,6 +3134,40 @@
           },
           "boost": {
             "description": "The boost of this term_query_predicate.",
+            "type": "number"
+          }
+        }
+        }
+      },
+      "terms_query_predicate": {
+        "description": "terms_query_predicate",
+        "if": { "properties": {
+          "type": { "const": "terms" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "description": "The type of this elasticsearch_query_predicate.",
+            "enum":[
+              "bool",
+              "exists",
+              "range",
+              "term",
+              "terms"
+            ],
+            "type": "string"
+          },
+          "field": {
+            "description": "The field of this terms_query_predicate.",
+            "type": "string"
+          },
+          "value": {
+            "description": "The value of this terms_query_predicate.",
+            "type": "string"
+          },
+          "boost": {
+            "description": "The boost of this terms_query_predicate.",
             "type": "number"
           }
         }

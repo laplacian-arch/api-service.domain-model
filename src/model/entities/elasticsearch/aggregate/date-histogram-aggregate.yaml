@@ -25,6 +25,22 @@ entities:
     type: string
     subtype_key: true
 
+  - name: unit
+    type: string
+
+  - name: value
+    type: string
+
+  - name: variable_unit
+    type: boolean
+    snippet: |
+      unit.contains("\${")
+
+  - name: variable_value
+    type: boolean
+    snippet: |
+      value.contains("\${")
+
 - name: date_histogram_calendar_interval
   subtype_of: date_histogram_interval
   subtype_key_value: calendar
@@ -33,14 +49,8 @@ entities:
   - name: unit
     type: string
     domain:
-      choices:
-      - value: minute
-      - value: hour
-      - value: day
-      - value: week
-      - value: month
-      - value: quarter
-      - value: year
+      pattern: |
+        \$\{[^}]*\}|minute|hour|day|week|month|quarter|year
 
 - name: date_histogram_fixed_interval
   subtype_of: date_histogram_interval
@@ -50,12 +60,11 @@ entities:
   - name: unit
     type: string
     domain:
-      choices:
-      - value: millisecond
-      - value: second
-      - value: minute
-      - value: hour
-      - value: day
+      pattern: |
+        \$\{[^}]*\}|millisecond|second|minute|hour|day
 
   - name: value
-    type: number
+    type: string
+    domain:
+      pattern: |
+        \$\{[^}]*\}|[0-9]*

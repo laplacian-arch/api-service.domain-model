@@ -12,7 +12,7 @@ date_histogram_fixed_interval
 ### unit: `String`
 The unit of this date_histogram_fixed_interval.
 
-### value: `Int`
+### value: `String`
 The value of this date_histogram_fixed_interval.
 
 ## Relationships

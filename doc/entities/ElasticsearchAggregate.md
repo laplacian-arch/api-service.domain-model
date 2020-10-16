@@ -13,6 +13,13 @@ elasticsearch_aggregate
 The name of this elasticsearch_aggregate.
 - **Attributes:** *PK*
 
+### description: `String`
+The description of this elasticsearch_aggregate.
+- **Default Value:**
+  ```kotlin
+  "${name} ${aggregationType} aggregation"
+  ```
+
 ### aggregation_type: `String`
 The aggregation_type of this elasticsearch_aggregate.
 

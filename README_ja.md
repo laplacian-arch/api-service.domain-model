@@ -124,6 +124,8 @@ exists_query_predicate
 range_query_predicate
 - [**TermQueryPredicate**](<./doc/entities/TermQueryPredicate.md>)
 term_query_predicate
+- [**TermsQueryPredicate**](<./doc/entities/TermsQueryPredicate.md>)
+terms_query_predicate
 - [**GraphqlType**](<./doc/entities/GraphqlType.md>)
 graphql_type
 - [**GraphqlTypeRelationship**](<./doc/entities/GraphqlTypeRelationship.md>)
@@ -275,6 +277,7 @@ search_engine_client
 - [src/model/entities/elasticsearch/predicate/exists-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/exists-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/range-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/range-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/term-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/term-query-predicate.yaml>)
+- [src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml>)
 - [src/model/entities/graphql_type/entity_on_database.yaml](<./src/model/entities/graphql_type/entity_on_database.yaml>)
 - [src/model/entities/graphql_type/external_rest_resource.yaml](<./src/model/entities/graphql_type/external_rest_resource.yaml>)
 - [src/model/entities/graphql_type/indexed_document.yaml](<./src/model/entities/graphql_type/indexed_document.yaml>)
