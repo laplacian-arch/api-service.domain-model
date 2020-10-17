@@ -1,0 +1,14 @@
+entities:
+- name: bucket_selector_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: bucket_selector
+
+  properties:
+  - name: script
+    type: string
+
+  relationships:
+  - name: buckets_path
+    reference_entity_name: bucket_script_path
+    cardinality: '1..*'
+    aggregate: true

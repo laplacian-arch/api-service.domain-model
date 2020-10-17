@@ -1,0 +1,30 @@
+entities:
+- name: bucket_sort_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: bucket_sort
+
+  relationships:
+  - name: sorts
+    reference_entity_name: field_sort
+    cardinality: '1..*'
+    aggregate: true
+
+- name: field_sort
+  namespace: laplacian.arch.api.service.elasticsearch
+
+  properties:
+  - name: field
+    type: string
+    primary_key: true
+
+  - name: variable_order
+    type: boolean
+    snippet: |
+      order?.contains("\${") ?: false
+
+  - name: order
+    type: string
+    optional: true
+    domain:
+      pattern: |
+        \$\{[^}]*\}|asc|desc

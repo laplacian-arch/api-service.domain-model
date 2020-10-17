@@ -1,0 +1,22 @@
+entities:
+- name: filters_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: filters
+
+  relationships:
+  - name: filters
+    reference_entity_name: keyed_filter
+    cardinality: '1..*'
+    aggregate: true
+
+- name: keyed_filter
+  properties:
+  - name: key
+    type: string
+    primary_key: true
+
+  relationships:
+  - name: predicate
+    reference_entity_name: elasticsearch_query_predicate
+    cardinality: '1'
+    aggregate: true

@@ -7,6 +7,12 @@ entities:
     type: string
     primary_key: true
 
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      "elasticsearch index schema of ${name}"
+
   - name: document_model_name
     type: string
 

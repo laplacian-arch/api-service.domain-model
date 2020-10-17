@@ -13,6 +13,13 @@ elasticsearch_index
 The name of this elasticsearch_index.
 - **Attributes:** *PK*
 
+### description: `String`
+The description of this elasticsearch_index.
+- **Default Value:**
+  ```kotlin
+  "elasticsearch index schema of ${name}"
+  ```
+
 ### document_model_name: `String`
 The document_model_name of this elasticsearch_index.
 

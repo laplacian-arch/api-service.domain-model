@@ -79,6 +79,12 @@ $ ./script/generate
 bucket_script_aggregate
 - [**BucketScriptPath**](<./doc/entities/BucketScriptPath.md>)
 bucket_script_path
+- [**BucketSelectorAggregate**](<./doc/entities/BucketSelectorAggregate.md>)
+bucket_selector_aggregate
+- [**BucketSortAggregate**](<./doc/entities/BucketSortAggregate.md>)
+bucket_sort_aggregate
+- [**FieldSort**](<./doc/entities/FieldSort.md>)
+field_sort
 - [**DateHistogramAggregate**](<./doc/entities/DateHistogramAggregate.md>)
 date_histogram_aggregate
 - [**DateHistogramInterval**](<./doc/entities/DateHistogramInterval.md>)
@@ -93,6 +99,10 @@ date_range_aggregate
 aggregate_group_range
 - [**FilterAggregate**](<./doc/entities/FilterAggregate.md>)
 filter_aggregate
+- [**FiltersAggregate**](<./doc/entities/FiltersAggregate.md>)
+filters_aggregate
+- [**KeyedFilter**](<./doc/entities/KeyedFilter.md>)
+keyed_filter
 - [**SumAggregate**](<./doc/entities/SumAggregate.md>)
 sum_aggregate
 - [**AvgAggregate**](<./doc/entities/AvgAggregate.md>)
@@ -119,6 +129,10 @@ elasticsearch_query_parameter
 bool_query_predicate
 - [**ExistsQueryPredicate**](<./doc/entities/ExistsQueryPredicate.md>)
 exists_query_predicate
+- [**MatchQueryPredicate**](<./doc/entities/MatchQueryPredicate.md>)
+match_query_predicate
+- [**MultiMatchQueryPredicate**](<./doc/entities/MultiMatchQueryPredicate.md>)
+multi_match_query_predicate
 - [**RangeQueryPredicate**](<./doc/entities/RangeQueryPredicate.md>)
 range_query_predicate
 - [**TermQueryPredicate**](<./doc/entities/TermQueryPredicate.md>)
@@ -271,9 +285,12 @@ search_engine_client
 
 - [model/project.yaml](<./model/project.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml>)
+- [src/model/entities/elasticsearch/aggregate/bucket-selector-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-selector-aggregate.yaml>)
+- [src/model/entities/elasticsearch/aggregate/bucket-sort-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-sort-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/date-histogram-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/date-histogram-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/date-range-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/date-range-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/filter-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/filter-aggregate.yaml>)
+- [src/model/entities/elasticsearch/aggregate/filters-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/filters-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/metrics-aggregations.yaml](<./src/model/entities/elasticsearch/aggregate/metrics-aggregations.yaml>)
 - [src/model/entities/elasticsearch/aggregate/terms-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/terms-aggregate.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-aggregate.yaml](<./src/model/entities/elasticsearch/elasticsearch-aggregate.yaml>)
@@ -282,6 +299,8 @@ search_engine_client
 - [src/model/entities/elasticsearch/elasticsearch-query.yaml](<./src/model/entities/elasticsearch/elasticsearch-query.yaml>)
 - [src/model/entities/elasticsearch/predicate/bool-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/bool-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/exists-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/exists-query-predicate.yaml>)
+- [src/model/entities/elasticsearch/predicate/match-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/match-query-predicate.yaml>)
+- [src/model/entities/elasticsearch/predicate/multi-match-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/multi-match-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/range-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/range-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/term-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/term-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml>)
