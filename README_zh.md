@@ -115,17 +115,24 @@ max_aggregate
 - [**ValueCountAggregate**](<./doc/entities/ValueCountAggregate.md>)
 value_count_aggregate
 - [**TermsAggregate**](<./doc/entities/TermsAggregate.md>)
-terms_aggregate
+A multi-bucket value source based aggregation where buckets are dynamically built
+- one per unique value.
 - [**ElasticsearchAggregate**](<./doc/entities/ElasticsearchAggregate.md>)
 elasticsearch_aggregate
 - [**ElasticsearchIndex**](<./doc/entities/ElasticsearchIndex.md>)
 elasticsearch_index
-- [**ElasticsearchQueryPredicate**](<./doc/entities/ElasticsearchQueryPredicate.md>)
-elasticsearch_query_predicate
-- [**ElasticsearchQuery**](<./doc/entities/ElasticsearchQuery.md>)
-elasticsearch_query
 - [**ElasticsearchQueryParameter**](<./doc/entities/ElasticsearchQueryParameter.md>)
 elasticsearch_query_parameter
+- [**ElasticsearchQueryPredicate**](<./doc/entities/ElasticsearchQueryPredicate.md>)
+elasticsearch_query_predicate
+- [**ElasticsearchQuerySort**](<./doc/entities/ElasticsearchQuerySort.md>)
+elasticsearch_query_sort
+- [**ElasticsearchQueryScoreSort**](<./doc/entities/ElasticsearchQueryScoreSort.md>)
+elasticsearch_query_score_sort
+- [**ElasticsearchQueryFieldSort**](<./doc/entities/ElasticsearchQueryFieldSort.md>)
+elasticsearch_query_field_sort
+- [**ElasticsearchQuery**](<./doc/entities/ElasticsearchQuery.md>)
+elasticsearch_query
 - [**BoolQueryPredicate**](<./doc/entities/BoolQueryPredicate.md>)
 bool_query_predicate
 - [**ExistsQueryPredicate**](<./doc/entities/ExistsQueryPredicate.md>)
@@ -289,7 +296,9 @@ search_engine_client
 - [src/model/entities/elasticsearch/aggregate/terms-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/terms-aggregate.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-aggregate.yaml](<./src/model/entities/elasticsearch/elasticsearch-aggregate.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-index.yaml](<./src/model/entities/elasticsearch/elasticsearch-index.yaml>)
+- [src/model/entities/elasticsearch/elasticsearch-query-parameter.yaml](<./src/model/entities/elasticsearch/elasticsearch-query-parameter.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-query-predicate.yaml](<./src/model/entities/elasticsearch/elasticsearch-query-predicate.yaml>)
+- [src/model/entities/elasticsearch/elasticsearch-query-sort.yaml](<./src/model/entities/elasticsearch/elasticsearch-query-sort.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-query.yaml](<./src/model/entities/elasticsearch/elasticsearch-query.yaml>)
 - [src/model/entities/elasticsearch/predicate/bool-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/bool-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/exists-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/exists-query-predicate.yaml>)
@@ -313,6 +322,8 @@ search_engine_client
 - [src/model/entities/service/search_engine_client.yaml](<./src/model/entities/service/search_engine_client.yaml>)
 - [src/model/entities/service.yml](<./src/model/entities/service.yml>)
 - [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)
+- [src/model/value_domain_types/integer_or_placeholder.yaml](<./src/model/value_domain_types/integer_or_placeholder.yaml>)
+- [src/model/value_domain_types/sort_order_or_placeholder.yaml](<./src/model/value_domain_types/sort_order_or_placeholder.yaml>)
 - [src/model/value_domain_types/url_path_with_placeholders.yaml](<./src/model/value_domain_types/url_path_with_placeholders.yaml>)
 
 

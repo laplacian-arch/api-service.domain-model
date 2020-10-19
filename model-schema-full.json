@@ -240,6 +240,14 @@
       }
     }
     ,
+    "elasticsearch_query_parameters": {
+      "description": "elasticsearch_query_parameter",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/elasticsearch_query_parameter"
+      }
+    }
+    ,
     "elasticsearch_query_predicates": {
       "description": "elasticsearch_query_predicate",
       "type": "array",
@@ -248,19 +256,19 @@
       }
     }
     ,
+    "elasticsearch_query_sorts": {
+      "description": "elasticsearch_query_sort",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/elasticsearch_query_sort"
+      }
+    }
+    ,
     "elasticsearch_queries": {
       "description": "elasticsearch_query",
       "type": "array",
       "items": {
         "$ref": "#/definitions/entities/elasticsearch_query"
-      }
-    }
-    ,
-    "elasticsearch_query_parameters": {
-      "description": "elasticsearch_query_parameter",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/elasticsearch_query_parameter"
       }
     }
     ,
@@ -542,6 +550,16 @@
            "PATCH",
            "DELETE"
         ],
+        "type": "string"
+      },
+      "integer_or_placeholder": {
+        "description": "integer_or_placeholder",
+        "pattern": "^\\$\\{[^}]*\\}|[1-9][0-9]*|0$",
+        "type": "string"
+      },
+      "sort_order_or_placeholder": {
+        "description": "sort_order_or_placeholder",
+        "pattern": "^\\$\\{[^}]*\\}|asc|desc$",
         "type": "string"
       },
       "url_path_with_placeholders": {
@@ -3003,7 +3021,7 @@
         }
       },
       "terms_aggregate": {
-        "description": "terms_aggregate",
+        "description": "A multi-bucket value source based aggregation where buckets are dynamically built\n- one per unique value.",
         "if": { "properties": {
           "aggregation_type": { "const": "terms" }
         }},
@@ -3040,6 +3058,38 @@
           "field": {
             "description": "The field of this elasticsearch_aggregate.",
             "type": "string"
+          },
+          "max_results": {
+            "allOf": [{
+            "description": "The number of term buckets should be returned (default: 10)",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/integer_or_placeholder"
+            }]
+          },
+          "sort_by_count": {
+            "allOf": [{
+            "description": "The sort order ('asc' or 'desc') in which the buckets will be returned",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/sort_order_or_placeholder"
+            }]
+          },
+          "shard_size": {
+            "allOf": [{
+            "description": "The number of term buckets each shard will return to the coordinating node\n(the node that coordinates the search execution)",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/integer_or_placeholder"
+            }]
+          },
+          "min_doc_count": {
+            "allOf": [{
+            "description": "the minimum document count required per term",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/integer_or_placeholder"
+            }]
           },
           "sub_aggregates": {
             "description": "sub_aggregates",
@@ -3137,80 +3187,6 @@
           }
         }
       },
-      "elasticsearch_query_predicate": {
-        "description": "elasticsearch_query_predicate",
-        "type": "object",
-        "required": [
-          "type"
-        ],
-        "properties": {
-          "type": {
-            "description": "The type of this elasticsearch_query_predicate.",
-            "enum":[
-              "bool",
-              "exists",
-              "match_all",
-              "match",
-              "multi_match",
-              "range",
-              "term",
-              "terms"
-            ],
-            "type": "string"
-          }
-        },
-        "allOf": [
-          { "$ref": "#/definitions/entities/bool_query_predicate" },
-          { "$ref": "#/definitions/entities/exists_query_predicate" },
-          { "$ref": "#/definitions/entities/match_all_query_predicate" },
-          { "$ref": "#/definitions/entities/match_query_predicate" },
-          { "$ref": "#/definitions/entities/multi_match_query_predicate" },
-          { "$ref": "#/definitions/entities/range_query_predicate" },
-          { "$ref": "#/definitions/entities/term_query_predicate" },
-          { "$ref": "#/definitions/entities/terms_query_predicate" }
-        ]
-      },
-      "elasticsearch_query": {
-        "description": "elasticsearch_query",
-        "type": "object",
-        "required": [
-          "name",
-          "index_name"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this elasticsearch_query.",
-            "type": "string"
-          },
-          "index_name": {
-            "description": "The index_name of this elasticsearch_query.",
-            "type": "string"
-          },
-          "description": {
-            "description": "The description of this elasticsearch_query.",
-            "type": "string"
-          },
-          "predicate": {
-            "description": "predicate",
-            "$ref": "#/definitions/entities/elasticsearch_query_predicate"
-          },
-          "aggregates": {
-            "description": "aggregates",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/elasticsearch_aggregate"
-            }
-          },
-          "parameters": {
-            "description": "parameters",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/elasticsearch_query_parameter"
-            }
-          }
-        }
-      },
       "elasticsearch_query_parameter": {
         "description": "elasticsearch_query_parameter",
         "type": "object",
@@ -3255,6 +3231,190 @@
           "class_name": {
             "description": "The class_name of this elasticsearch_query_parameter.",
             "type": "string"
+          }
+        }
+      },
+      "elasticsearch_query_predicate": {
+        "description": "elasticsearch_query_predicate",
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "description": "The type of this elasticsearch_query_predicate.",
+            "enum":[
+              "bool",
+              "exists",
+              "match_all",
+              "match",
+              "multi_match",
+              "range",
+              "term",
+              "terms"
+            ],
+            "type": "string"
+          }
+        },
+        "allOf": [
+          { "$ref": "#/definitions/entities/bool_query_predicate" },
+          { "$ref": "#/definitions/entities/exists_query_predicate" },
+          { "$ref": "#/definitions/entities/match_all_query_predicate" },
+          { "$ref": "#/definitions/entities/match_query_predicate" },
+          { "$ref": "#/definitions/entities/multi_match_query_predicate" },
+          { "$ref": "#/definitions/entities/range_query_predicate" },
+          { "$ref": "#/definitions/entities/term_query_predicate" },
+          { "$ref": "#/definitions/entities/terms_query_predicate" }
+        ]
+      },
+      "elasticsearch_query_sort": {
+        "description": "elasticsearch_query_sort",
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "description": "The type of this elasticsearch_query_sort.",
+            "enum":[
+              "score",
+              "field"
+            ],
+            "type": "string"
+          },
+          "order": {
+            "allOf": [{
+            "description": "The order of this elasticsearch_query_sort.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/sort_order_or_placeholder"
+            }]
+          }
+        },
+        "allOf": [
+          { "$ref": "#/definitions/entities/elasticsearch_query_score_sort" },
+          { "$ref": "#/definitions/entities/elasticsearch_query_field_sort" }
+        ]
+      },
+      "elasticsearch_query_score_sort": {
+        "description": "elasticsearch_query_score_sort",
+        "if": { "properties": {
+          "type": { "const": "score" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "description": "The type of this elasticsearch_query_sort.",
+            "enum":[
+              "score",
+              "field"
+            ],
+            "type": "string"
+          },
+          "order": {
+            "allOf": [{
+            "description": "The order of this elasticsearch_query_sort.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/sort_order_or_placeholder"
+            }]
+          }
+        }
+        }
+      },
+      "elasticsearch_query_field_sort": {
+        "description": "elasticsearch_query_field_sort",
+        "if": { "properties": {
+          "type": { "const": "field" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "description": "The type of this elasticsearch_query_sort.",
+            "enum":[
+              "score",
+              "field"
+            ],
+            "type": "string"
+          },
+          "order": {
+            "allOf": [{
+            "description": "The order of this elasticsearch_query_sort.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/sort_order_or_placeholder"
+            }]
+          },
+          "name": {
+            "description": "The name of this elasticsearch_query_field_sort.",
+            "type": "string"
+          }
+        }
+        }
+      },
+      "elasticsearch_query": {
+        "description": "elasticsearch_query",
+        "type": "object",
+        "required": [
+          "name",
+          "index_name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this elasticsearch_query.",
+            "type": "string"
+          },
+          "index_name": {
+            "description": "The index_name of this elasticsearch_query.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this elasticsearch_query.",
+            "type": "string"
+          },
+          "page_size": {
+            "allOf": [{
+            "description": "The size of the page to be returned",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/integer_or_placeholder"
+            }]
+          },
+          "page_number": {
+            "allOf": [{
+            "description": "Zero-based page index.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/integer_or_placeholder"
+            }]
+          },
+          "predicate": {
+            "description": "predicate",
+            "$ref": "#/definitions/entities/elasticsearch_query_predicate"
+          },
+          "sort": {
+            "description": "sort",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/elasticsearch_query_sort"
+            }
+          },
+          "aggregates": {
+            "description": "aggregates",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/elasticsearch_aggregate"
+            }
+          },
+          "parameters": {
+            "description": "parameters",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/elasticsearch_query_parameter"
+            }
           }
         }
       },

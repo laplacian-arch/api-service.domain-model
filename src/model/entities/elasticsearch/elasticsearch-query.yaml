@@ -17,10 +17,45 @@ entities:
     default_value: |
       "${name}"
 
+  - name: page_size
+    description: |
+      The size of the page to be returned
+    type: string
+    optional: true
+    default_value: |
+      "200"
+    domain_type_name:
+      integer_or_placeholder
+
+  - name: variable_page_size
+    type: boolean
+    snippet: |
+      pageSize?.contains("\${") ?: false
+
+  - name: page_number
+    description: |
+      Zero-based page index.
+    type: string
+    optional: true
+    default_value: |
+      "0"
+    domain_type_name:
+      integer_or_placeholder
+
+  - name: variable_page_number
+    type: boolean
+    snippet: |
+      pageNumber?.contains("\${") ?: false
+
   relationships:
   - name: predicate
     reference_entity_name: elasticsearch_query_predicate
     cardinality: '0..1'
+    aggregate: true
+
+  - name: sort
+    reference_entity_name: elasticsearch_query_sort
+    cardinality: '*'
     aggregate: true
 
   - name: aggregates
@@ -32,69 +67,3 @@ entities:
     reference_entity_name: elasticsearch_query_parameter
     cardinality: '*'
     aggregate: true
-
-- name: elasticsearch_query_parameter
-  properties:
-  - name: name
-    type: string
-    primary_key: true
-
-  - name: type
-    type: string
-    domain:
-      choices:
-      - value: string
-      - value: int
-      - value: boolean
-      - value: date
-      - value: time
-      - value: datetime
-
-  - name: description
-    type: string
-    optional: true
-    default_value: |
-      "${name}"
-
-  - name: required
-    type: boolean
-    optional: true
-    default_value: |
-      false
-
-  - name: multiple
-    type: boolean
-    optional: true
-    default_value: |
-      false
-
-  - name: nullable
-    type: boolean
-    snippet: |
-      !required && !containsKey("default_value")
-
-  - name: default_value
-    type: string
-    optional: true
-    default_value: |
-      if (multiple) "emptyList()"
-      else when(type) {
-          "string" -> "\"\""
-          "boolean" -> "false"
-          "int" -> "0"
-          "datetime" -> "LocalDateTime.now().toString()"
-          "time" -> "LocalTime.now().toString()"
-          "date" -> "LocalDate.now().toString()"
-          else -> null
-      }
-
-  - name: class_name
-    type: string
-    optional: true
-    default_value: |
-      when(type) {
-          "date" -> "String"
-          "time" -> "String"
-          "datetime" -> "String"
-          else -> type.upperCamelize()
-      }.let { if (multiple) "List<${it}>" else it }
