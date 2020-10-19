@@ -130,6 +130,8 @@ elasticsearch_query_parameter
 bool_query_predicate
 - [**ExistsQueryPredicate**](<./doc/entities/ExistsQueryPredicate.md>)
 exists_query_predicate
+- [**MatchAllQueryPredicate**](<./doc/entities/MatchAllQueryPredicate.md>)
+match_all_query_predicate
 - [**MatchQueryPredicate**](<./doc/entities/MatchQueryPredicate.md>)
 match_query_predicate
 - [**MultiMatchQueryPredicate**](<./doc/entities/MultiMatchQueryPredicate.md>)
@@ -292,6 +294,7 @@ search_engine_client
 - [src/model/entities/elasticsearch/elasticsearch-query.yaml](<./src/model/entities/elasticsearch/elasticsearch-query.yaml>)
 - [src/model/entities/elasticsearch/predicate/bool-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/bool-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/exists-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/exists-query-predicate.yaml>)
+- [src/model/entities/elasticsearch/predicate/match-all-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/match-all-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/match-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/match-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/multi-match-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/multi-match-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/range-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/range-query-predicate.yaml>)

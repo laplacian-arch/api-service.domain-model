@@ -3119,6 +3119,7 @@
             "enum":[
               "bool",
               "exists",
+              "match_all",
               "match",
               "multi_match",
               "range",
@@ -3131,6 +3132,7 @@
         "allOf": [
           { "$ref": "#/definitions/entities/bool_query_predicate" },
           { "$ref": "#/definitions/entities/exists_query_predicate" },
+          { "$ref": "#/definitions/entities/match_all_query_predicate" },
           { "$ref": "#/definitions/entities/match_query_predicate" },
           { "$ref": "#/definitions/entities/multi_match_query_predicate" },
           { "$ref": "#/definitions/entities/range_query_predicate" },
@@ -3238,6 +3240,7 @@
             "enum":[
               "bool",
               "exists",
+              "match_all",
               "match",
               "multi_match",
               "range",
@@ -3290,6 +3293,7 @@
             "enum":[
               "bool",
               "exists",
+              "match_all",
               "match",
               "multi_match",
               "range",
@@ -3300,6 +3304,31 @@
           },
           "field": {
             "description": "The field of this exists_query_predicate.",
+            "type": "string"
+          }
+        }
+        }
+      },
+      "match_all_query_predicate": {
+        "description": "match_all_query_predicate",
+        "if": { "properties": {
+          "type": { "const": "match_all" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "description": "The type of this elasticsearch_query_predicate.",
+            "enum":[
+              "bool",
+              "exists",
+              "match_all",
+              "match",
+              "multi_match",
+              "range",
+              "term",
+              "terms"
+            ],
             "type": "string"
           }
         }
@@ -3318,6 +3347,7 @@
             "enum":[
               "bool",
               "exists",
+              "match_all",
               "match",
               "multi_match",
               "range",
@@ -3350,6 +3380,7 @@
             "enum":[
               "bool",
               "exists",
+              "match_all",
               "match",
               "multi_match",
               "range",
@@ -3385,6 +3416,7 @@
             "enum":[
               "bool",
               "exists",
+              "match_all",
               "match",
               "multi_match",
               "range",
@@ -3429,6 +3461,7 @@
             "enum":[
               "bool",
               "exists",
+              "match_all",
               "match",
               "multi_match",
               "range",
@@ -3465,6 +3498,7 @@
             "enum":[
               "bool",
               "exists",
+              "match_all",
               "match",
               "multi_match",
               "range",
