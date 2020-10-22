@@ -75,6 +75,8 @@ $ ./script/generate
 ### Entity list
 
 
+- [**ApiCallArgument**](<./doc/entities/ApiCallArgument.md>)
+api_call_argument
 - [**BucketScriptAggregate**](<./doc/entities/BucketScriptAggregate.md>)
 bucket_script_aggregate
 - [**BucketScriptPath**](<./doc/entities/BucketScriptPath.md>)
@@ -120,8 +122,6 @@ A multi-bucket value source based aggregation where buckets are dynamically buil
 elasticsearch_aggregate
 - [**ElasticsearchIndex**](<./doc/entities/ElasticsearchIndex.md>)
 elasticsearch_index
-- [**ElasticsearchQueryParameter**](<./doc/entities/ElasticsearchQueryParameter.md>)
-elasticsearch_query_parameter
 - [**ElasticsearchQueryPredicate**](<./doc/entities/ElasticsearchQueryPredicate.md>)
 elasticsearch_query_predicate
 - [**ElasticsearchQuerySort**](<./doc/entities/ElasticsearchQuerySort.md>)
@@ -156,18 +156,18 @@ graphql_type_relationship
 graphql_type_mapping
 - [**EntityOnDatabase**](<./doc/entities/EntityOnDatabase.md>)
 entity_on_database
-- [**ExternalRestApi**](<./doc/entities/ExternalRestApi.md>)
-external_rest_api
+- [**ExternalRestResource**](<./doc/entities/ExternalRestResource.md>)
+external_rest_resource
 - [**IndexedDocument**](<./doc/entities/IndexedDocument.md>)
 indexed_document
 - [**QueryToElasticsearch**](<./doc/entities/QueryToElasticsearch.md>)
 query_to_elasticsearch
-- [**RestResource**](<./doc/entities/RestResource.md>)
-rest_resource
 - [**RestOperation**](<./doc/entities/RestOperation.md>)
 rest_operation
 - [**RestRequestParameter**](<./doc/entities/RestRequestParameter.md>)
 rest_request_parameter
+- [**RestResource**](<./doc/entities/RestResource.md>)
+rest_resource
 - [**Service**](<./doc/entities/Service.md>)
 service
 - [**Datasource**](<./doc/entities/Datasource.md>)
@@ -293,6 +293,7 @@ search_engine_client
 
 
 - [model/project.yaml](<./model/project.yaml>)
+- [src/model/entities/api-call-argument.yaml](<./src/model/entities/api-call-argument.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-selector-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-selector-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-sort-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-sort-aggregate.yaml>)
@@ -304,7 +305,6 @@ search_engine_client
 - [src/model/entities/elasticsearch/aggregate/terms-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/terms-aggregate.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-aggregate.yaml](<./src/model/entities/elasticsearch/elasticsearch-aggregate.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-index.yaml](<./src/model/entities/elasticsearch/elasticsearch-index.yaml>)
-- [src/model/entities/elasticsearch/elasticsearch-query-parameter.yaml](<./src/model/entities/elasticsearch/elasticsearch-query-parameter.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-query-predicate.yaml](<./src/model/entities/elasticsearch/elasticsearch-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-query-sort.yaml](<./src/model/entities/elasticsearch/elasticsearch-query-sort.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-query.yaml](<./src/model/entities/elasticsearch/elasticsearch-query.yaml>)
@@ -323,7 +323,7 @@ search_engine_client
 - [src/model/entities/graphql_type.yaml](<./src/model/entities/graphql_type.yaml>)
 - [src/model/entities/rest_resource/rest_operation.yaml](<./src/model/entities/rest_resource/rest_operation.yaml>)
 - [src/model/entities/rest_resource/rest_request_parameter.yaml](<./src/model/entities/rest_resource/rest_request_parameter.yaml>)
-- [src/model/entities/rest_resource.yaml](<./src/model/entities/rest_resource.yaml>)
+- [src/model/entities/rest_resource/rest_resource.yaml](<./src/model/entities/rest_resource/rest_resource.yaml>)
 - [src/model/entities/service/datasource.yaml](<./src/model/entities/service/datasource.yaml>)
 - [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)
 - [src/model/entities/service/rest_client.yaml](<./src/model/entities/service/rest_client.yaml>)

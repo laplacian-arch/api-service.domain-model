@@ -19,7 +19,25 @@ The path of this rest_operation.
 The name of this rest_operation.
 - **Attributes:** *PK*
 
+### description: `String`
+The description of this rest_operation.
+- **Default Value:**
+  ```kotlin
+  "${method} ${path}"
+  ```
+
+### response_model_name: `String`
+The response_model_name of this rest_operation.
+- **Default Value:**
+  ```kotlin
+  restResource.resourceModelName!!
+  ```
+
 ## Relationships
+
+### arguments: `List<ApiCallArgument>`
+arguments
+- **Cardinality:** `*`
 
 ### path_parameters: `List<RestRequestParameter>`
 path_parameters
@@ -28,6 +46,14 @@ path_parameters
 ### query_parameters: `List<RestRequestParameter>`
 query_parameters
 - **Cardinality:** `*`
+
+### http_headers: `List<RestRequestParameter>`
+http_headers
+- **Cardinality:** `*`
+
+### response_model: `Entity`
+response_model
+- **Cardinality:** `1`
 
 ### rest_resource: `RestResource`
 rest_resource

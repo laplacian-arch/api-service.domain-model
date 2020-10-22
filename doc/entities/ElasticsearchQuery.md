@@ -68,6 +68,6 @@ sort
 aggregates
 - **Cardinality:** `*`
 
-### parameters: `List<ElasticsearchQueryParameter>`
+### parameters: `List<ApiCallArgument>`
 parameters
 - **Cardinality:** `*`

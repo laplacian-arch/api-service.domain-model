@@ -125,17 +125,17 @@ entities:
       entitiesBackingGraphqlType
       .filter{ it.topLevel }
 
-  - name: graphql_types_backed_by_external_rest_api
+  - name: graphql_types_backed_by_external_rest_resource
     cardinality: '*'
-    reference_entity_name: external_rest_api
+    reference_entity_name: external_rest_resource
     snippet: |
-      graphqlTypes.map{ it as? ExternalRestApi }.filterNotNull()
+      graphqlTypes.map{ it as? ExternalRestResource }.filterNotNull()
 
   - name: rest_resources_backing_graphql_type
     cardinality: '*'
     reference_entity_name: rest_resource
     snippet: |
-      graphqlTypesBackedByExternalRestApi.map{ it.restResource }.distinct()
+      graphqlTypesBackedByExternalRestResource.map{ it.restResource }.distinct()
 
   - name: graphql_types_backed_by_indexed_document
     cardinality: '*'

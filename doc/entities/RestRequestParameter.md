@@ -16,4 +16,21 @@ The name of this rest_request_parameter.
 ### type: `String`
 The type of this rest_request_parameter.
 
+### multiple: `Boolean`
+Defines this rest_request_parameter is multiple or not.
+- **Default Value:**
+  ```kotlin
+  false
+  ```
+
+### value: `String`
+The value of this rest_request_parameter.
+
+### variable: `Boolean`
+Defines this rest_request_parameter is variable or not.
+- **Code:**
+  ```kotlin
+  value.contains("\${")
+  ```
+
 ## Relationships

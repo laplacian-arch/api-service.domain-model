@@ -15,7 +15,24 @@ entities:
     type: string
     primary_key: true
 
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      "${method} ${path}"
+
+  - name: response_model_name
+    type: string
+    optional: true
+    default_value: |
+      restResource.resourceModelName!!
+
   relationships:
+  - name: arguments
+    reference_entity_name: api_call_argument
+    cardinality: '*'
+    aggregate: true
+
   - name: path_parameters
     reference_entity_name: rest_request_parameter
     cardinality: '*'
@@ -25,6 +42,18 @@ entities:
     reference_entity_name: rest_request_parameter
     cardinality: '*'
     aggregate: true
+
+  - name: http_headers
+    reference_entity_name: rest_request_parameter
+    cardinality: '*'
+    aggregate: true
+
+  - name: response_model
+    reference_entity_name: entity
+    cardinality: '1'
+    mappings:
+    - from: response_model_name
+      to: name
 
   - name: rest_resource
     reference_entity_name: rest_resource

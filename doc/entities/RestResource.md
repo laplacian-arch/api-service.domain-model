@@ -13,14 +13,17 @@ rest_resource
 The name of this rest_resource.
 - **Attributes:** *PK*
 
+### description: `String`
+The description of this rest_resource.
+- **Default Value:**
+  ```kotlin
+  "${name}"
+  ```
+
 ### resource_model_name: `String`
 The resource_model_name of this rest_resource.
 
 ## Relationships
-
-### resource_model: `Entity`
-resource_model
-- **Cardinality:** `1`
 
 ### operations: `List<RestOperation>`
 operations

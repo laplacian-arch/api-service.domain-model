@@ -150,12 +150,12 @@ top_level_entities_backing_graphql_type
   .filter{ it.topLevel }
   ```
 
-### graphql_types_backed_by_external_rest_api: `List<ExternalRestApi>`
-graphql_types_backed_by_external_rest_api
+### graphql_types_backed_by_external_rest_resource: `List<ExternalRestResource>`
+graphql_types_backed_by_external_rest_resource
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypes.map{ it as? ExternalRestApi }.filterNotNull()
+  graphqlTypes.map{ it as? ExternalRestResource }.filterNotNull()
   ```
 
 ### rest_resources_backing_graphql_type: `List<RestResource>`
@@ -163,7 +163,7 @@ rest_resources_backing_graphql_type
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypesBackedByExternalRestApi.map{ it.restResource }.distinct()
+  graphqlTypesBackedByExternalRestResource.map{ it.restResource }.distinct()
   ```
 
 ### graphql_types_backed_by_indexed_document: `List<IndexedDocument>`

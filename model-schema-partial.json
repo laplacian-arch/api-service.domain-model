@@ -184,6 +184,14 @@
       }
     }
     ,
+    "api_call_arguments": {
+      "description": "api_call_argument",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/api_call_argument"
+      }
+    }
+    ,
     "bucket_script_paths": {
       "description": "bucket_script_path",
       "type": "array",
@@ -240,14 +248,6 @@
       }
     }
     ,
-    "elasticsearch_query_parameters": {
-      "description": "elasticsearch_query_parameter",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/elasticsearch_query_parameter"
-      }
-    }
-    ,
     "elasticsearch_query_predicates": {
       "description": "elasticsearch_query_predicate",
       "type": "array",
@@ -280,19 +280,19 @@
       }
     }
     ,
-    "rest_resources": {
-      "description": "rest_resource",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/rest_resource"
-      }
-    }
-    ,
     "rest_request_parameters": {
       "description": "rest_request_parameter",
       "type": "array",
       "items": {
         "$ref": "#/definitions/entities/rest_request_parameter"
+      }
+    }
+    ,
+    "rest_resources": {
+      "description": "rest_resource",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/rest_resource"
       }
     }
     ,
@@ -525,6 +525,9 @@
            "string",
            "boolean",
            "number",
+           "int",
+           "float",
+           "double",
            "date",
            "time",
            "datetime"
@@ -2168,6 +2171,49 @@
           }
         }
       },
+      "api_call_argument": {
+        "description": "api_call_argument",
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this api_call_argument.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of this api_call_argument.",
+            "enum":[
+              "string",
+              "int",
+              "float",
+              "boolean",
+              "date",
+              "time",
+              "datetime"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this api_call_argument.",
+            "type": "string"
+          },
+          "required": {
+            "description": "Defines this api_call_argument is required or not.",
+            "type": "boolean"
+          },
+          "multiple": {
+            "description": "Defines this api_call_argument is multiple or not.",
+            "type": "boolean"
+          },
+          "default_value": {
+            "description": "The default_value of this api_call_argument.",
+            "type": "string"
+          }
+        }
+      },
       "bucket_script_aggregate": {
         "description": "bucket_script_aggregate",
         "if": { "properties": {
@@ -3157,52 +3203,6 @@
           }
         }
       },
-      "elasticsearch_query_parameter": {
-        "description": "elasticsearch_query_parameter",
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this elasticsearch_query_parameter.",
-            "type": "string"
-          },
-          "type": {
-            "description": "The type of this elasticsearch_query_parameter.",
-            "enum":[
-              "string",
-              "int",
-              "boolean",
-              "date",
-              "time",
-              "datetime"
-            ],
-            "type": "string"
-          },
-          "description": {
-            "description": "The description of this elasticsearch_query_parameter.",
-            "type": "string"
-          },
-          "required": {
-            "description": "Defines this elasticsearch_query_parameter is required or not.",
-            "type": "boolean"
-          },
-          "multiple": {
-            "description": "Defines this elasticsearch_query_parameter is multiple or not.",
-            "type": "boolean"
-          },
-          "default_value": {
-            "description": "The default_value of this elasticsearch_query_parameter.",
-            "type": "string"
-          },
-          "class_name": {
-            "description": "The class_name of this elasticsearch_query_parameter.",
-            "type": "string"
-          }
-        }
-      },
       "elasticsearch_query_predicate": {
         "description": "elasticsearch_query_predicate",
         "type": "object",
@@ -3382,7 +3382,7 @@
             "description": "parameters",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/entities/elasticsearch_query_parameter"
+              "$ref": "#/definitions/entities/api_call_argument"
             }
           }
         }
@@ -3697,7 +3697,7 @@
             "description": "The resolver_type of this graphql_type.",
             "enum":[
               "entity_on_database",
-              "external_rest_api",
+              "external_rest_resource",
               "indexed_document",
               "query_to_elasticsearch"
             ],
@@ -3717,7 +3717,7 @@
         },
         "allOf": [
           { "$ref": "#/definitions/entities/entity_on_database" },
-          { "$ref": "#/definitions/entities/external_rest_api" },
+          { "$ref": "#/definitions/entities/external_rest_resource" },
           { "$ref": "#/definitions/entities/indexed_document" },
           { "$ref": "#/definitions/entities/query_to_elasticsearch" }
         ]
@@ -3782,7 +3782,7 @@
             "description": "The resolver_type of this graphql_type.",
             "enum":[
               "entity_on_database",
-              "external_rest_api",
+              "external_rest_resource",
               "indexed_document",
               "query_to_elasticsearch"
             ],
@@ -3810,10 +3810,10 @@
         }
         }
       },
-      "external_rest_api": {
-        "description": "external_rest_api",
+      "external_rest_resource": {
+        "description": "external_rest_resource",
         "if": { "properties": {
-          "resolver_type": { "const": "external_rest_api" }
+          "resolver_type": { "const": "external_rest_resource" }
         }},
         "then": {
         "additionalProperties": false,
@@ -3826,7 +3826,7 @@
             "description": "The resolver_type of this graphql_type.",
             "enum":[
               "entity_on_database",
-              "external_rest_api",
+              "external_rest_resource",
               "indexed_document",
               "query_to_elasticsearch"
             ],
@@ -3837,15 +3837,11 @@
             "type": "string"
           },
           "rest_resource_name": {
-            "description": "The rest_resource_name of this external_rest_api.",
-            "type": "string"
-          },
-          "operation_name": {
-            "description": "The operation_name of this external_rest_api.",
+            "description": "The rest_resource_name of this external_rest_resource.",
             "type": "string"
           },
           "rest_client_name": {
-            "description": "The rest_client_name of this external_rest_api.",
+            "description": "The rest_client_name of this external_rest_resource.",
             "type": "string"
           },
           "relationships": {
@@ -3874,7 +3870,7 @@
             "description": "The resolver_type of this graphql_type.",
             "enum":[
               "entity_on_database",
-              "external_rest_api",
+              "external_rest_resource",
               "indexed_document",
               "query_to_elasticsearch"
             ],
@@ -3918,7 +3914,7 @@
             "description": "The resolver_type of this graphql_type.",
             "enum":[
               "entity_on_database",
-              "external_rest_api",
+              "external_rest_resource",
               "indexed_document",
               "query_to_elasticsearch"
             ],
@@ -3946,31 +3942,6 @@
         }
         }
       },
-      "rest_resource": {
-        "description": "rest_resource",
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this rest_resource.",
-            "type": "string"
-          },
-          "resource_model_name": {
-            "description": "The resource_model_name of this rest_resource.",
-            "type": "string"
-          },
-          "operations": {
-            "description": "operations",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/rest_operation"
-            }
-          }
-        }
-      },
       "rest_operation": {
         "description": "rest_operation",
         "type": "object",
@@ -3995,6 +3966,21 @@
             "description": "The name of this rest_operation.",
             "type": "string"
           },
+          "description": {
+            "description": "The description of this rest_operation.",
+            "type": "string"
+          },
+          "response_model_name": {
+            "description": "The response_model_name of this rest_operation.",
+            "type": "string"
+          },
+          "arguments": {
+            "description": "arguments",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/api_call_argument"
+            }
+          },
           "path_parameters": {
             "description": "path_parameters",
             "type": "array",
@@ -4004,6 +3990,13 @@
           },
           "query_parameters": {
             "description": "query_parameters",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/rest_request_parameter"
+            }
+          },
+          "http_headers": {
+            "description": "http_headers",
             "type": "array",
             "items": {
               "$ref": "#/definitions/entities/rest_request_parameter"
@@ -4029,10 +4022,46 @@
               "string",
               "number",
               "boolean",
-              "array",
               "object"
             ],
             "type": "string"
+          },
+          "multiple": {
+            "description": "Defines this rest_request_parameter is multiple or not.",
+            "type": "boolean"
+          },
+          "value": {
+            "description": "The value of this rest_request_parameter.",
+            "type": "string"
+          }
+        }
+      },
+      "rest_resource": {
+        "description": "rest_resource",
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this rest_resource.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this rest_resource.",
+            "type": "string"
+          },
+          "resource_model_name": {
+            "description": "The resource_model_name of this rest_resource.",
+            "type": "string"
+          },
+          "operations": {
+            "description": "operations",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/rest_operation"
+            }
           }
         }
       },

@@ -64,6 +64,6 @@ entities:
     aggregate: true
 
   - name: parameters
-    reference_entity_name: elasticsearch_query_parameter
+    reference_entity_name: api_call_argument
     cardinality: '*'
     aggregate: true
