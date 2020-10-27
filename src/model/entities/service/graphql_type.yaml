@@ -1,0 +1,25 @@
+entities:
+- name: graphql_type
+  namespace: laplacian.arch.api.service.graphql
+
+  properties:
+  - name: name
+    type: string
+    primary_key: true
+
+  - name: resolver_type
+    type: string
+    subtype_key: true
+
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      "A Graphql type representing ${name}"
+
+  relationships:
+  - name: relationships
+    reference_entity_name: graphql_type_relationship
+    cardinality: '*'
+    aggregate: true
+

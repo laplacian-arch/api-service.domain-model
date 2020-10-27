@@ -143,12 +143,6 @@ entities:
     snippet: |
       graphqlTypes.map{ it as? IndexedDocument }.filterNotNull()
 
-  - name: graphql_types_backed_by_elasticsearch_query
-    cardinality: '*'
-    reference_entity_name: query_to_elasticsearch
-    snippet: |
-      graphqlTypes.map{ it as? QueryToElasticsearch }.filterNotNull()
-
   - name: rest_clients
     reference_entity_name: rest_client
     cardinality: '*'
@@ -165,3 +159,9 @@ entities:
     snippet: |
       graphqlTypesBackedByIndexedDocument.map{ it.elasticsearchIndex }
       .distinct()
+
+  - name: graphql_type_relationships
+    reference_entity_name: graphql_type_relationship
+    cardinality: '*'
+    snippet: |
+      graphqlTypes.map{ it.relationships }.flatten().distinct()

@@ -1,5 +1,5 @@
 # **ExternalRestResource**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.graphql
 
 external_rest_resource
 

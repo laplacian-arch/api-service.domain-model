@@ -1,0 +1,79 @@
+entities:
+- name: graphql_type_relationship
+  namespace: laplacian.arch.api.service.graphql
+
+  properties:
+  - name: name
+    type: string
+
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      "$name"
+
+  - name: type
+    type: string
+    subtype_key: true
+
+  - name: referencing_graphql_type_name
+    type: string
+
+  - name: multiple
+    type: boolean
+    optional: true
+    default_value: |
+      true
+
+  - name: nullable
+    type: boolean
+    optional: true
+    default_value: |
+      false
+
+  relationships:
+  - name: referenced_graphql_type
+    reference_entity_name: graphql_type
+    cardinality: '1'
+    reverse_of: relationships
+
+  - name: referencing_graphql_type
+    reference_entity_name: graphql_type
+    cardinality: '1'
+    mappings:
+    - from: referencing_graphql_type_name
+      to: name
+
+- name: graphql_indexed_document_relationship
+  namespace: laplacian.arch.api.service.graphql
+  subtype_of: graphql_type_relationship
+  subtype_key_value: indexed_document
+
+  properties:
+  - name: field_type_name
+    type: string
+    snippet: |
+      "${referencingGraphqlTypeName.upperCamelize()}Document"
+
+  - name: resolver_name
+    type: string
+    snippet: |
+      "${referencedGraphqlType.name.upperCamelize()}DocumentResolver"
+
+  relationships:
+  - name: field_mappings
+    cardinality: '1..*'
+    reference_entity_name: graphql_type_relationship_field_mapping
+    aggregate: true
+
+- name: graphql_type_relationship_field_mapping
+  namespace: laplacian.arch.api.service.graphql_type
+
+  properties:
+  - name: from
+    type: string
+    primary_key: true
+
+  - name: to
+    type: string
+    primary_key: true

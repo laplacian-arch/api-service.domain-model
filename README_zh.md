@@ -149,20 +149,12 @@ range_query_predicate
 term_query_predicate
 - [**TermsQueryPredicate**](<./doc/entities/TermsQueryPredicate.md>)
 terms_query_predicate
-- [**GraphqlType**](<./doc/entities/GraphqlType.md>)
-graphql_type
-- [**GraphqlTypeRelationship**](<./doc/entities/GraphqlTypeRelationship.md>)
-graphql_type_relationship
-- [**GraphqlTypeMapping**](<./doc/entities/GraphqlTypeMapping.md>)
-graphql_type_mapping
 - [**EntityOnDatabase**](<./doc/entities/EntityOnDatabase.md>)
 entity_on_database
 - [**ExternalRestResource**](<./doc/entities/ExternalRestResource.md>)
 external_rest_resource
 - [**IndexedDocument**](<./doc/entities/IndexedDocument.md>)
 indexed_document
-- [**QueryToElasticsearch**](<./doc/entities/QueryToElasticsearch.md>)
-query_to_elasticsearch
 - [**RestOperation**](<./doc/entities/RestOperation.md>)
 rest_operation
 - [**RestRequestParameter**](<./doc/entities/RestRequestParameter.md>)
@@ -176,8 +168,16 @@ A *DataSource* represents an interface through which a client application access
 This includes the following models.
 - The entity that the datastore exposes to the client
 - Statement issued by the client to the datastore
+- [**GraphqlType**](<./doc/entities/GraphqlType.md>)
+graphql_type
 - [**GraphqlTypeEntry**](<./doc/entities/GraphqlTypeEntry.md>)
 graphql_type_entry
+- [**GraphqlTypeRelationship**](<./doc/entities/GraphqlTypeRelationship.md>)
+graphql_type_relationship
+- [**GraphqlIndexedDocumentRelationship**](<./doc/entities/GraphqlIndexedDocumentRelationship.md>)
+graphql_indexed_document_relationship
+- [**GraphqlTypeRelationshipFieldMapping**](<./doc/entities/GraphqlTypeRelationshipFieldMapping.md>)
+graphql_type_relationship_field_mapping
 - [**RestClient**](<./doc/entities/RestClient.md>)
 rest_client
 - [**SearchEngineClient**](<./doc/entities/SearchEngineClient.md>)
@@ -311,13 +311,13 @@ search_engine_client
 - [src/model/entities/graphql_type/entity_on_database.yaml](<./src/model/entities/graphql_type/entity_on_database.yaml>)
 - [src/model/entities/graphql_type/external_rest_resource.yaml](<./src/model/entities/graphql_type/external_rest_resource.yaml>)
 - [src/model/entities/graphql_type/indexed_document.yaml](<./src/model/entities/graphql_type/indexed_document.yaml>)
-- [src/model/entities/graphql_type/query-to-elastcisearch.yaml](<./src/model/entities/graphql_type/query-to-elastcisearch.yaml>)
-- [src/model/entities/graphql_type.yaml](<./src/model/entities/graphql_type.yaml>)
 - [src/model/entities/rest_resource/rest_operation.yaml](<./src/model/entities/rest_resource/rest_operation.yaml>)
 - [src/model/entities/rest_resource/rest_request_parameter.yaml](<./src/model/entities/rest_resource/rest_request_parameter.yaml>)
 - [src/model/entities/rest_resource/rest_resource.yaml](<./src/model/entities/rest_resource/rest_resource.yaml>)
 - [src/model/entities/service/datasource.yaml](<./src/model/entities/service/datasource.yaml>)
 - [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)
+- [src/model/entities/service/graphql_type_relationship.yaml](<./src/model/entities/service/graphql_type_relationship.yaml>)
+- [src/model/entities/service/graphql_type.yaml](<./src/model/entities/service/graphql_type.yaml>)
 - [src/model/entities/service/rest_client.yaml](<./src/model/entities/service/rest_client.yaml>)
 - [src/model/entities/service/search_engine_client.yaml](<./src/model/entities/service/search_engine_client.yaml>)
 - [src/model/entities/service.yml](<./src/model/entities/service.yml>)

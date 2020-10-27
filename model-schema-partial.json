@@ -272,14 +272,6 @@
       }
     }
     ,
-    "graphql_types": {
-      "description": "graphql_type",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/graphql_type"
-      }
-    }
-    ,
     "rest_request_parameters": {
       "description": "rest_request_parameter",
       "type": "array",
@@ -301,6 +293,22 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/entities/service"
+      }
+    }
+    ,
+    "graphql_types": {
+      "description": "graphql_type",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/graphql_type"
+      }
+    }
+    ,
+    "graphql_type_relationship_field_mappings": {
+      "description": "graphql_type_relationship_field_mapping",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/graphql_type_relationship_field_mapping"
       }
     }
     ,
@@ -3682,90 +3690,6 @@
         }
         }
       },
-      "graphql_type": {
-        "description": "graphql_type",
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "description": "The name of this graphql_type.",
-            "type": "string"
-          },
-          "resolver_type": {
-            "description": "The resolver_type of this graphql_type.",
-            "enum":[
-              "entity_on_database",
-              "external_rest_resource",
-              "indexed_document",
-              "query_to_elasticsearch"
-            ],
-            "type": "string"
-          },
-          "description": {
-            "description": "The description of this graphql_type.",
-            "type": "string"
-          },
-          "relationships": {
-            "description": "relationships",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/graphql_type_relationship"
-            }
-          }
-        },
-        "allOf": [
-          { "$ref": "#/definitions/entities/entity_on_database" },
-          { "$ref": "#/definitions/entities/external_rest_resource" },
-          { "$ref": "#/definitions/entities/indexed_document" },
-          { "$ref": "#/definitions/entities/query_to_elasticsearch" }
-        ]
-      },
-      "graphql_type_relationship": {
-        "description": "graphql_type_relationship",
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this graphql_type_relationship.",
-            "type": "string"
-          },
-          "referencing_type_name": {
-            "description": "The referencing_type_name of this graphql_type_relationship.",
-            "type": "string"
-          },
-          "mappings": {
-            "description": "mappings",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/graphql_type_mapping"
-            }
-          }
-        }
-      },
-      "graphql_type_mapping": {
-        "description": "graphql_type_mapping",
-        "type": "object",
-        "required": [
-          "from",
-          "to"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "from": {
-            "description": "The from of this graphql_type_mapping.",
-            "type": "string"
-          },
-          "to": {
-            "description": "The to of this graphql_type_mapping.",
-            "type": "string"
-          }
-        }
-      },
       "entity_on_database": {
         "description": "entity_on_database",
         "if": { "properties": {
@@ -3783,8 +3707,7 @@
             "enum":[
               "entity_on_database",
               "external_rest_resource",
-              "indexed_document",
-              "query_to_elasticsearch"
+              "indexed_document"
             ],
             "type": "string"
           },
@@ -3827,8 +3750,7 @@
             "enum":[
               "entity_on_database",
               "external_rest_resource",
-              "indexed_document",
-              "query_to_elasticsearch"
+              "indexed_document"
             ],
             "type": "string"
           },
@@ -3871,8 +3793,7 @@
             "enum":[
               "entity_on_database",
               "external_rest_resource",
-              "indexed_document",
-              "query_to_elasticsearch"
+              "indexed_document"
             ],
             "type": "string"
           },
@@ -3888,48 +3809,8 @@
             "description": "The search_engine_client_name of this indexed_document.",
             "type": "string"
           },
-          "relationships": {
-            "description": "relationships",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/graphql_type_relationship"
-            }
-          }
-        }
-        }
-      },
-      "query_to_elasticsearch": {
-        "description": "query_to_elasticsearch",
-        "if": { "properties": {
-          "resolver_type": { "const": "query_to_elasticsearch" }
-        }},
-        "then": {
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this graphql_type.",
-            "type": "string"
-          },
-          "resolver_type": {
-            "description": "The resolver_type of this graphql_type.",
-            "enum":[
-              "entity_on_database",
-              "external_rest_resource",
-              "indexed_document",
-              "query_to_elasticsearch"
-            ],
-            "type": "string"
-          },
-          "description": {
-            "description": "The description of this graphql_type.",
-            "type": "string"
-          },
-          "index_name": {
-            "description": "The index_name of this query_to_elasticsearch.",
-            "type": "string"
-          },
-          "query_name": {
-            "description": "The query_name of this query_to_elasticsearch.",
+          "default_searcher_name": {
+            "description": "The default_searcher_name of this indexed_document.",
             "type": "string"
           },
           "relationships": {
@@ -4175,6 +4056,44 @@
           }
         }
       },
+      "graphql_type": {
+        "description": "graphql_type",
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "description": "The name of this graphql_type.",
+            "type": "string"
+          },
+          "resolver_type": {
+            "description": "The resolver_type of this graphql_type.",
+            "enum":[
+              "entity_on_database",
+              "external_rest_resource",
+              "indexed_document"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_type.",
+            "type": "string"
+          },
+          "relationships": {
+            "description": "relationships",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/graphql_type_relationship"
+            }
+          }
+        },
+        "allOf": [
+          { "$ref": "#/definitions/entities/entity_on_database" },
+          { "$ref": "#/definitions/entities/external_rest_resource" },
+          { "$ref": "#/definitions/entities/indexed_document" }
+        ]
+      },
       "graphql_type_entry": {
         "description": "graphql_type_entry",
         "type": "object",
@@ -4184,6 +4103,108 @@
         "properties": {
           "name": {
             "description": "The name of this graphql_type_entry.",
+            "type": "string"
+          }
+        }
+      },
+      "graphql_type_relationship": {
+        "description": "graphql_type_relationship",
+        "type": "object",
+        "required": [
+        ],
+        "properties": {
+          "name": {
+            "description": "The name of this graphql_type_relationship.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_type_relationship.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of this graphql_type_relationship.",
+            "enum":[
+              "indexed_document"
+            ],
+            "type": "string"
+          },
+          "referencing_graphql_type_name": {
+            "description": "The referencing_graphql_type_name of this graphql_type_relationship.",
+            "type": "string"
+          },
+          "multiple": {
+            "description": "Defines this graphql_type_relationship is multiple or not.",
+            "type": "boolean"
+          },
+          "nullable": {
+            "description": "Defines this graphql_type_relationship is nullable or not.",
+            "type": "boolean"
+          }
+        },
+        "allOf": [
+          { "$ref": "#/definitions/entities/graphql_indexed_document_relationship" }
+        ]
+      },
+      "graphql_indexed_document_relationship": {
+        "description": "graphql_indexed_document_relationship",
+        "if": { "properties": {
+          "type": { "const": "indexed_document" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this graphql_type_relationship.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_type_relationship.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of this graphql_type_relationship.",
+            "enum":[
+              "indexed_document"
+            ],
+            "type": "string"
+          },
+          "referencing_graphql_type_name": {
+            "description": "The referencing_graphql_type_name of this graphql_type_relationship.",
+            "type": "string"
+          },
+          "multiple": {
+            "description": "Defines this graphql_type_relationship is multiple or not.",
+            "type": "boolean"
+          },
+          "nullable": {
+            "description": "Defines this graphql_type_relationship is nullable or not.",
+            "type": "boolean"
+          },
+          "field_mappings": {
+            "description": "field_mappings",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/graphql_type_relationship_field_mapping"
+            }
+          }
+        }
+        }
+      },
+      "graphql_type_relationship_field_mapping": {
+        "description": "graphql_type_relationship_field_mapping",
+        "type": "object",
+        "required": [
+          "from",
+          "to"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "description": "The from of this graphql_type_relationship_field_mapping.",
+            "type": "string"
+          },
+          "to": {
+            "description": "The to of this graphql_type_relationship_field_mapping.",
             "type": "string"
           }
         }

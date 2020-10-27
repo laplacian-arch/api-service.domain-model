@@ -1,6 +1,6 @@
 entities:
 - name: external_rest_resource
-  namespace: laplacian.arch.api.service
+  namespace: laplacian.arch.api.service.graphql
   subtype_of: graphql_type
 
   properties:

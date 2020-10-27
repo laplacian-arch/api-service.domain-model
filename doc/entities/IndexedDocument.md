@@ -1,5 +1,5 @@
 # **IndexedDocument**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.graphql
 
 indexed_document
 
@@ -18,6 +18,13 @@ The search_engine_client_name of this indexed_document.
 - **Default Value:**
   ```kotlin
   "default"
+  ```
+
+### default_searcher_name: `String`
+The default_searcher_name of this indexed_document.
+- **Default Value:**
+  ```kotlin
+  name.pluralize().lowerCamelize()
   ```
 
 ## Relationships

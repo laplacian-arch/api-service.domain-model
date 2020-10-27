@@ -1,6 +1,6 @@
 entities:
 - name: indexed_document
-  namespace: laplacian.arch.api.service
+  namespace: laplacian.arch.api.service.graphql
   subtype_of: graphql_type
 
   properties:
@@ -13,6 +13,12 @@ entities:
     optional: true
     default_value: |
       "default"
+
+  - name: default_searcher_name
+    type: string
+    optional: true
+    default_value: |
+      name.pluralize().lowerCamelize()
 
   relationships:
   - name: elasticsearch_index

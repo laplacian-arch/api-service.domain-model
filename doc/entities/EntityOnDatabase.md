@@ -1,5 +1,5 @@
 # **EntityOnDatabase**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.graphql
 
 entity_on_database
 

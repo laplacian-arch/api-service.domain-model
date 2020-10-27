@@ -1,5 +1,5 @@
 # **GraphqlTypeRelationship**
-**namespace:** laplacian.arch.api.service.graphql_type
+**namespace:** laplacian.arch.api.service.graphql
 
 graphql_type_relationship
 
@@ -11,21 +11,40 @@ graphql_type_relationship
 
 ### name: `String`
 The name of this graphql_type_relationship.
-- **Attributes:** *PK*
 
-### referencing_type_name: `String`
-The referencing_type_name of this graphql_type_relationship.
+### description: `String`
+The description of this graphql_type_relationship.
+- **Default Value:**
+  ```kotlin
+  "$name"
+  ```
+
+### type: `String`
+The type of this graphql_type_relationship.
+
+### referencing_graphql_type_name: `String`
+The referencing_graphql_type_name of this graphql_type_relationship.
+
+### multiple: `Boolean`
+Defines this graphql_type_relationship is multiple or not.
+- **Default Value:**
+  ```kotlin
+  true
+  ```
+
+### nullable: `Boolean`
+Defines this graphql_type_relationship is nullable or not.
+- **Default Value:**
+  ```kotlin
+  false
+  ```
 
 ## Relationships
 
-### referencedType: `GraphqlType`
-referencedType
+### referenced_graphql_type: `GraphqlType`
+referenced_graphql_type
 - **Cardinality:** `1`
 
-### referencing_type: `GraphqlType`
-referencing_type
+### referencing_graphql_type: `GraphqlType`
+referencing_graphql_type
 - **Cardinality:** `1`
-
-### mappings: `List<GraphqlTypeMapping>`
-mappings
-- **Cardinality:** `1..*`
