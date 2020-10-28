@@ -327,6 +327,30 @@
         "$ref": "#/definitions/entities/search_engine_client"
       }
     }
+    ,
+    "service_configurations": {
+      "description": "service_configuration",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/service_configuration"
+      }
+    }
+    ,
+    "service_configuration_categories": {
+      "description": "service_configuration_category",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/service_configuration_category"
+      }
+    }
+    ,
+    "configuration_bindings": {
+      "description": "configuration_binding",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/configuration_binding"
+      }
+    }
   },
   "definitions": {
     "value_domain_types": {
@@ -3956,7 +3980,8 @@
         "description": "rest_resource",
         "type": "object",
         "required": [
-          "name"
+          "name",
+          "base_url"
         ],
         "additionalProperties": false,
         "properties": {
@@ -3972,11 +3997,22 @@
             "description": "The resource_model_name of this rest_resource.",
             "type": "string"
           },
+          "base_url": {
+            "description": "The base_url of this rest_resource.",
+            "type": "string"
+          },
           "operations": {
             "description": "operations",
             "type": "array",
             "items": {
               "$ref": "#/definitions/entities/rest_operation"
+            }
+          },
+          "configurations": {
+            "description": "configurations",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/configuration_binding"
             }
           }
         }
@@ -3996,34 +4032,6 @@
           },
           "version": {
             "description": "The version of this service.",
-            "type": "string"
-          },
-          "api_version": {
-            "description": "The api_version of this service.",
-            "type": "string"
-          },
-          "endpoint": {
-            "description": "The endpoint of this service.",
-            "type": "string"
-          },
-          "host": {
-            "description": "The host of this service.",
-            "type": "string"
-          },
-          "port": {
-            "description": "The port of this service.",
-            "type": "number"
-          },
-          "protocol": {
-            "description": "The protocol of this service.",
-            "enum":[
-              "http",
-              "https"
-            ],
-            "type": "string"
-          },
-          "path": {
-            "description": "The path of this service.",
             "type": "string"
           },
           "namespace": {
@@ -4064,6 +4072,13 @@
             "type": "array",
             "items": {
               "$ref": "#/definitions/entities/search_engine_client"
+            }
+          },
+          "configuration_categories": {
+            "description": "configuration_categories",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/service_configuration_category"
             }
           }
         }
@@ -4284,6 +4299,86 @@
               "elasticsearch",
               "solr"
             ],
+            "type": "string"
+          }
+        }
+      },
+      "service_configuration": {
+        "description": "service_configuration",
+        "type": "object",
+        "required": [
+          "name",
+          "category",
+          "type"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this service_configuration.",
+            "pattern": "^[a-z][-a-z0-9]*$",
+            "type": "string"
+          },
+          "category": {
+            "description": "The category of this service_configuration.",
+            "pattern": "^[a-z][-a-z0-9]*(\\.[a-z][-a-z0-9]*)*$",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of this service_configuration.",
+            "enum":[
+              "string",
+              "int",
+              "float",
+              "boolean"
+            ],
+            "type": "string"
+          },
+          "default_value": {
+            "description": "The default_value of this service_configuration.",
+            "type": "string"
+          },
+          "environment_variable_name": {
+            "description": "The environment_variable_name of this service_configuration.",
+            "type": "string"
+          }
+        }
+      },
+      "service_configuration_category": {
+        "description": "service_configuration_category",
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this service_configuration_category.",
+            "type": "string"
+          }
+        }
+      },
+      "configuration_binding": {
+        "description": "configuration_binding",
+        "type": "object",
+        "required": [
+          "name",
+          "category"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this configuration_binding.",
+            "pattern": "^[a-z][-a-z0-9]*$",
+            "type": "string"
+          },
+          "category": {
+            "description": "The category of this configuration_binding.",
+            "pattern": "^[a-z][-a-z0-9]*(\\.[a-z][-a-z0-9]*)*$",
+            "type": "string"
+          },
+          "variable_name": {
+            "description": "The variable_name of this configuration_binding.",
+            "pattern": "^[a-z][a-zA-Z0-9]*$",
             "type": "string"
           }
         }

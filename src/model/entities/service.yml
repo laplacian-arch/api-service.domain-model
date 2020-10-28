@@ -4,49 +4,10 @@ entities:
   properties:
   - name: name
     type: string
+    primary_key: true
 
   - name: version
     type: string
-
-  - name: api_version
-    type: string
-    optional: true
-    default_value: |
-      "v1"
-
-  - name: endpoint
-    type: string
-    optional: true
-    default_value: |
-      "${protocol}://${host}:${port}${path}/${apiVersion}"
-
-  - name: host
-    type: string
-    optional: true
-    default_value: |
-      "name.lowerHyphenize()"
-
-  - name: port
-    type: number
-    optional: true
-    default_value: |
-      8080
-
-  - name: protocol
-    type: string
-    domain:
-      choices:
-      - value: http
-      - value: https
-    optional: true
-    default_value: |
-      "http"
-
-  - name: path
-    type: string
-    optional: true
-    default_value: |
-      "/${name.lowerHyphenize()}"
 
   - name: namespace
     type: string
@@ -165,3 +126,8 @@ entities:
     cardinality: '*'
     snippet: |
       graphqlTypes.map{ it.relationships }.flatten().distinct()
+
+  - name: configuration_categories
+    reference_entity_name: service_configuration_category
+    cardinality: '*'
+    aggregate: true

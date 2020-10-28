@@ -17,8 +17,16 @@ entities:
     type: string
     optional: true
 
+  - name: base_url
+    type: string
+
   relationships:
   - name: operations
     reference_entity_name: rest_operation
     cardinality: '1..*'
+    aggregate: true
+
+  - name: configurations
+    reference_entity_name: configuration_binding
+    cardinality: '*'
     aggregate: true

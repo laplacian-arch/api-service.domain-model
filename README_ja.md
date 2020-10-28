@@ -182,6 +182,12 @@ graphql_type_relationship_field_mapping
 rest_client
 - [**SearchEngineClient**](<./doc/entities/SearchEngineClient.md>)
 search_engine_client
+- [**ServiceConfiguration**](<./doc/entities/ServiceConfiguration.md>)
+service_configuration
+- [**ServiceConfigurationCategory**](<./doc/entities/ServiceConfigurationCategory.md>)
+service_configuration_category
+- [**ConfigurationBinding**](<./doc/entities/ConfigurationBinding.md>)
+configuration_binding
 ### スクリプト一覧
 
 
@@ -321,6 +327,7 @@ search_engine_client
 - [src/model/entities/service/graphql_type.yaml](<./src/model/entities/service/graphql_type.yaml>)
 - [src/model/entities/service/rest_client.yaml](<./src/model/entities/service/rest_client.yaml>)
 - [src/model/entities/service/search_engine_client.yaml](<./src/model/entities/service/search_engine_client.yaml>)
+- [src/model/entities/service/service_configuration.yaml](<./src/model/entities/service/service_configuration.yaml>)
 - [src/model/entities/service.yml](<./src/model/entities/service.yml>)
 - [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)
 - [src/model/value_domain_types/integer_or_placeholder.yaml](<./src/model/value_domain_types/integer_or_placeholder.yaml>)

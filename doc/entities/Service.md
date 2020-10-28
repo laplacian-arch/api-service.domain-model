@@ -11,51 +11,10 @@ service
 
 ### name: `String`
 The name of this service.
+- **Attributes:** *PK*
 
 ### version: `String`
 The version of this service.
-
-### api_version: `String`
-The api_version of this service.
-- **Default Value:**
-  ```kotlin
-  "v1"
-  ```
-
-### endpoint: `String`
-The endpoint of this service.
-- **Default Value:**
-  ```kotlin
-  "${protocol}://${host}:${port}${path}/${apiVersion}"
-  ```
-
-### host: `String`
-The host of this service.
-- **Default Value:**
-  ```kotlin
-  "name.lowerHyphenize()"
-  ```
-
-### port: `Int`
-The port of this service.
-- **Default Value:**
-  ```kotlin
-  8080
-  ```
-
-### protocol: `String`
-The protocol of this service.
-- **Default Value:**
-  ```kotlin
-  "http"
-  ```
-
-### path: `String`
-The path of this service.
-- **Default Value:**
-  ```kotlin
-  "/${name.lowerHyphenize()}"
-  ```
 
 ### namespace: `String`
 The namespace of this service.
@@ -198,3 +157,7 @@ graphql_type_relationships
   ```kotlin
   graphqlTypes.map{ it.relationships }.flatten().distinct()
   ```
+
+### configuration_categories: `List<ServiceConfigurationCategory>`
+configuration_categories
+- **Cardinality:** `*`

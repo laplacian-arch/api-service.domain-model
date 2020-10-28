@@ -23,8 +23,15 @@ The description of this rest_resource.
 ### resource_model_name: `String`
 The resource_model_name of this rest_resource.
 
+### base_url: `String`
+The base_url of this rest_resource.
+
 ## Relationships
 
 ### operations: `List<RestOperation>`
 operations
 - **Cardinality:** `1..*`
+
+### configurations: `List<ConfigurationBinding>`
+configurations
+- **Cardinality:** `*`
