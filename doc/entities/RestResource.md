@@ -26,6 +26,13 @@ The resource_model_name of this rest_resource.
 ### base_url: `String`
 The base_url of this rest_resource.
 
+### enable_cache: `Boolean`
+Defines this rest_resource is enable_cache or not.
+- **Default Value:**
+  ```kotlin
+  false
+  ```
+
 ## Relationships
 
 ### operations: `List<RestOperation>`

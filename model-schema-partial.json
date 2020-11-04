@@ -3879,6 +3879,10 @@
             "description": "The response_model_name of this rest_operation.",
             "type": "string"
           },
+          "enable_cache": {
+            "description": "Defines this rest_operation is enable_cache or not.",
+            "type": "boolean"
+          },
           "arguments": {
             "description": "arguments",
             "type": "array",
@@ -3964,6 +3968,10 @@
           "base_url": {
             "description": "The base_url of this rest_resource.",
             "type": "string"
+          },
+          "enable_cache": {
+            "description": "Defines this rest_resource is enable_cache or not.",
+            "type": "boolean"
           },
           "operations": {
             "description": "operations",

@@ -37,6 +37,13 @@ Defines this service is depends_on_elasticsearch or not.
   elasticsearchIndexes.isNotEmpty()
   ```
 
+### depends_on_cache: `Boolean`
+Defines this service is depends_on_cache or not.
+- **Code:**
+  ```kotlin
+  restResourcesBackingGraphqlType.any{ it.enableCache || it.operations.any{ it.enableCache }}
+  ```
+
 ## Relationships
 
 ### datasources: `List<Datasource>`

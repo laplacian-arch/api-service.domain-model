@@ -27,6 +27,12 @@ entities:
     default_value: |
       restResource.resourceModelName!!
 
+  - name: enable_cache
+    type: boolean
+    optional: true
+    default_value: |
+      restResource.enableCache
+
   relationships:
   - name: arguments
     reference_entity_name: api_call_argument

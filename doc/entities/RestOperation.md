@@ -33,6 +33,13 @@ The response_model_name of this rest_operation.
   restResource.resourceModelName!!
   ```
 
+### enable_cache: `Boolean`
+Defines this rest_operation is enable_cache or not.
+- **Default Value:**
+  ```kotlin
+  restResource.enableCache
+  ```
+
 ## Relationships
 
 ### arguments: `List<ApiCallArgument>`

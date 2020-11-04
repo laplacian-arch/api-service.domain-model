@@ -20,6 +20,12 @@ entities:
   - name: base_url
     type: string
 
+  - name: enable_cache
+    type: boolean
+    optional: true
+    default_value: |
+      false
+
   relationships:
   - name: operations
     reference_entity_name: rest_operation

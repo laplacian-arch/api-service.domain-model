@@ -27,6 +27,11 @@ entities:
     snippet: |
       elasticsearchIndexes.isNotEmpty()
 
+  - name: depends_on_cache
+    type: boolean
+    snippet: |
+      restResourcesBackingGraphqlType.any{ it.enableCache || it.operations.any{ it.enableCache }}
+
   relationships:
   - name: datasources
     cardinality: '*'
