@@ -144,8 +144,8 @@ graphql_types_backed_by_indexed_document
 rest_clients
 - **Cardinality:** `*`
 
-### search_engine_clients: `List<SearchEngineClient>`
-search_engine_clients
+### elastic_search_clients: `List<ElasticSearchClient>`
+elastic_search_clients
 - **Cardinality:** `*`
 
 ### elasticsearch_indexes: `List<ElasticsearchIndex>`

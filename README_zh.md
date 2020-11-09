@@ -168,6 +168,8 @@ A *DataSource* represents an interface through which a client application access
 This includes the following models.
 - The entity that the datastore exposes to the client
 - Statement issued by the client to the datastore
+- [**ElasticSearchClient**](<./doc/entities/ElasticSearchClient.md>)
+elastic_search_client
 - [**GraphqlType**](<./doc/entities/GraphqlType.md>)
 graphql_type
 - [**GraphqlTypeEntry**](<./doc/entities/GraphqlTypeEntry.md>)
@@ -180,8 +182,6 @@ graphql_indexed_document_relationship
 graphql_type_relationship_field_mapping
 - [**RestClient**](<./doc/entities/RestClient.md>)
 rest_client
-- [**SearchEngineClient**](<./doc/entities/SearchEngineClient.md>)
-search_engine_client
 - [**ServiceConfiguration**](<./doc/entities/ServiceConfiguration.md>)
 service_configuration
 - [**ServiceConfigurationCategory**](<./doc/entities/ServiceConfigurationCategory.md>)
@@ -321,15 +321,16 @@ configuration_binding
 - [src/model/entities/rest_resource/rest_request_parameter.yaml](<./src/model/entities/rest_resource/rest_request_parameter.yaml>)
 - [src/model/entities/rest_resource/rest_resource.yaml](<./src/model/entities/rest_resource/rest_resource.yaml>)
 - [src/model/entities/service/datasource.yaml](<./src/model/entities/service/datasource.yaml>)
+- [src/model/entities/service/elastic-search-client.yaml](<./src/model/entities/service/elastic-search-client.yaml>)
 - [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)
 - [src/model/entities/service/graphql_type_relationship.yaml](<./src/model/entities/service/graphql_type_relationship.yaml>)
 - [src/model/entities/service/graphql_type.yaml](<./src/model/entities/service/graphql_type.yaml>)
 - [src/model/entities/service/rest_client.yaml](<./src/model/entities/service/rest_client.yaml>)
-- [src/model/entities/service/search_engine_client.yaml](<./src/model/entities/service/search_engine_client.yaml>)
 - [src/model/entities/service/service_configuration.yaml](<./src/model/entities/service/service_configuration.yaml>)
 - [src/model/entities/service.yml](<./src/model/entities/service.yml>)
 - [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)
 - [src/model/value_domain_types/integer_or_placeholder.yaml](<./src/model/value_domain_types/integer_or_placeholder.yaml>)
+- [src/model/value_domain_types/service_configuration_name.yaml](<./src/model/value_domain_types/service_configuration_name.yaml>)
 - [src/model/value_domain_types/sort_order_or_placeholder.yaml](<./src/model/value_domain_types/sort_order_or_placeholder.yaml>)
 - [src/model/value_domain_types/url_path_with_placeholders.yaml](<./src/model/value_domain_types/url_path_with_placeholders.yaml>)
 

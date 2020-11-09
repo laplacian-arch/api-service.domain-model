@@ -6,16 +6,12 @@ entities:
   - name: name
     type: string
     primary_key: true
-    domain:
-      pattern: |
-        [a-z][-a-z0-9]*
+    domain_type_name: service_configuration_name
 
   - name: category
     type: string
     primary_key: true
-    domain:
-      pattern: |
-        [a-z][-a-z0-9]*(\.[a-z][-a-z0-9]*)*
+    domain_type_name: service_configuration_category
 
   - name: type
     type: string

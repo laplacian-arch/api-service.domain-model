@@ -114,8 +114,8 @@ entities:
     cardinality: '*'
     aggregate: true
 
-  - name: search_engine_clients
-    reference_entity_name: search_engine_client
+  - name: elastic_search_clients
+    reference_entity_name: elastic_search_client
     cardinality: '*'
     aggregate: true
 
