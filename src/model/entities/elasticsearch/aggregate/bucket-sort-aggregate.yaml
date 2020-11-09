@@ -9,6 +9,31 @@ entities:
     cardinality: '1..*'
     aggregate: true
 
+  properties:
+  - name: from
+    description: |
+      Zero-based from index.
+    type: string
+    optional: true
+    domain_type_name: integer_or_placeholder
+
+  - name: variable_from
+    type: boolean
+    snippet: |
+      from?.contains("\${") ?: false
+
+  - name: bucket_size
+    description: |
+      The size of the bucket_sort to be returned.
+    type: string
+    optional: true
+    domain_type_name: integer_or_placeholder
+
+  - name: variable_bucket_size
+    type: boolean
+    snippet: |
+      bucketSize?.contains("\${") ?: false
+
 - name: field_sort
   namespace: laplacian.arch.api.service.elasticsearch
 
