@@ -30,7 +30,12 @@ entities:
   - name: depends_on_cache
     type: boolean
     snippet: |
-      restResourcesBackingGraphqlType.any{ it.enableCache || it.operations.any{ it.enableCache }}
+      restResourcesBackingGraphqlType.any{ it.cachePolicy != null || it.operations.any{ it.cachePolicy != null }}
+
+  - name: depends_on_redis_cache
+    type: boolean
+    snippet: |
+      restResourcesBackingGraphqlType.any{ it.cachePolicy?.storeType == "redis" ?: false || it.operations.any{ it.cachePolicy?.storeType == "redis" ?: false }}
 
   relationships:
   - name: datasources
@@ -81,7 +86,8 @@ entities:
     cardinality: '*'
     reference_entity_name: entity
     snippet: |
-      graphqlTypesBackedByDatabaseTable.map{ it.entity }
+      graphqlTypesBackedByDatabaseTable
+      .map{ it.entity }
       .distinct()
 
   - name: top_level_entities_backing_graphql_type
@@ -101,7 +107,9 @@ entities:
     cardinality: '*'
     reference_entity_name: rest_resource
     snippet: |
-      graphqlTypesBackedByExternalRestResource.map{ it.restResource }.distinct()
+      graphqlTypesBackedByExternalRestResource
+      .map{ it.restResource }
+      .distinct()
 
   - name: graphql_types_backed_by_indexed_document
     cardinality: '*'
@@ -136,3 +144,14 @@ entities:
     reference_entity_name: service_configuration_category
     cardinality: '*'
     aggregate: true
+
+  - name: cache_policies
+    reference_entity_name: cache_policy
+    cardinality: '*'
+    snippet: |
+      (
+          restResourcesBackingGraphqlType.map{ it.cachePolicy } +
+          restResourcesBackingGraphqlType.flatMap{ it.operations.map{ it.cachePolicy }}
+      )
+      .filterNotNull()
+      .distinct()

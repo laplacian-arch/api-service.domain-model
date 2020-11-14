@@ -1,0 +1,15 @@
+entities:
+- name: duration
+  namespace: laplacian.arch.api.service
+  properties:
+  - name: amount
+    type: number
+
+  - name: unit
+    type: string
+    domain:
+      choices:
+      - value: day
+      - value: hour
+      - value: second
+      - value: millisecond

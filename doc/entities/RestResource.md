@@ -26,12 +26,8 @@ The resource_model_name of this rest_resource.
 ### base_url: `String`
 The base_url of this rest_resource.
 
-### enable_cache: `Boolean`
-Defines this rest_resource is enable_cache or not.
-- **Default Value:**
-  ```kotlin
-  false
-  ```
+### cache_policy_name: `String`
+The cache_policy_name of this rest_resource.
 
 ## Relationships
 
@@ -42,3 +38,7 @@ operations
 ### configurations: `List<ConfigurationBinding>`
 configurations
 - **Cardinality:** `*`
+
+### cache_policy: `CachePolicy?`
+cache_policy
+- **Cardinality:** `0..1`

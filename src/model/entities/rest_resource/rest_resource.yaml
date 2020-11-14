@@ -20,11 +20,9 @@ entities:
   - name: base_url
     type: string
 
-  - name: enable_cache
-    type: boolean
+  - name: cache_policy_name
+    type: string
     optional: true
-    default_value: |
-      false
 
   relationships:
   - name: operations
@@ -36,3 +34,11 @@ entities:
     reference_entity_name: configuration_binding
     cardinality: '*'
     aggregate: true
+
+  - name: cache_policy
+    reference_entity_name: cache_policy
+    cardinality: '0..1'
+    mappings:
+    - from: cache_policy_name
+      to: name
+

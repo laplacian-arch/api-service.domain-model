@@ -192,6 +192,14 @@
       }
     }
     ,
+    "durations": {
+      "description": "duration",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/duration"
+      }
+    }
+    ,
     "bucket_script_paths": {
       "description": "bucket_script_path",
       "type": "array",
@@ -229,6 +237,14 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/entities/keyed_filter"
+      }
+    }
+    ,
+    "cache_policies": {
+      "description": "cache_policy",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/cache_policy"
       }
     }
     ,
@@ -2280,6 +2296,31 @@
           }
         }
       },
+      "duration": {
+        "description": "duration",
+        "type": "object",
+        "required": [
+          "amount",
+          "unit"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "description": "The amount of this duration.",
+            "type": "number"
+          },
+          "unit": {
+            "description": "The unit of this duration.",
+            "enum":[
+              "day",
+              "hour",
+              "second",
+              "millisecond"
+            ],
+            "type": "string"
+          }
+        }
+      },
       "bucket_script_aggregate": {
         "description": "bucket_script_aggregate",
         "if": { "properties": {
@@ -2457,6 +2498,22 @@
           "field": {
             "description": "The field of this elasticsearch_aggregate.",
             "type": "string"
+          },
+          "from": {
+            "allOf": [{
+            "description": "Zero-based from index.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/integer_or_placeholder"
+            }]
+          },
+          "bucket_size": {
+            "allOf": [{
+            "description": "The size of the bucket_sort to be returned.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/integer_or_placeholder"
+            }]
           },
           "sub_aggregates": {
             "description": "sub_aggregates",
@@ -3186,6 +3243,102 @@
             "items": {
               "$ref": "#/definitions/entities/elasticsearch_aggregate"
             }
+          }
+        }
+        }
+      },
+      "cache_policy": {
+        "description": "cache_policy",
+        "type": "object",
+        "required": [
+          "name",
+          "store_type"
+        ],
+        "properties": {
+          "name": {
+            "description": "The name of this cache_policy.",
+            "type": "string"
+          },
+          "store_type": {
+            "description": "The store_type of this cache_policy.",
+            "enum":[
+              "heap",
+              "redis"
+            ],
+            "type": "string"
+          },
+          "ignore_error": {
+            "description": "Defines this cache_policy is ignore_error or not.",
+            "type": "boolean"
+          },
+          "expiration_time": {
+            "description": "expiration_time",
+            "$ref": "#/definitions/entities/duration"
+          }
+        },
+        "allOf": [
+          { "$ref": "#/definitions/entities/heap_memory_cache_policy" },
+          { "$ref": "#/definitions/entities/redis_cache_policy" }
+        ]
+      },
+      "heap_memory_cache_policy": {
+        "description": "heap_memory_cache_policy",
+        "if": { "properties": {
+          "store_type": { "const": "heap" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this cache_policy.",
+            "type": "string"
+          },
+          "store_type": {
+            "description": "The store_type of this cache_policy.",
+            "enum":[
+              "heap",
+              "redis"
+            ],
+            "type": "string"
+          },
+          "ignore_error": {
+            "description": "Defines this cache_policy is ignore_error or not.",
+            "type": "boolean"
+          },
+          "expiration_time": {
+            "description": "expiration_time",
+            "$ref": "#/definitions/entities/duration"
+          }
+        }
+        }
+      },
+      "redis_cache_policy": {
+        "description": "redis_cache_policy",
+        "if": { "properties": {
+          "store_type": { "const": "redis" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this cache_policy.",
+            "type": "string"
+          },
+          "store_type": {
+            "description": "The store_type of this cache_policy.",
+            "enum":[
+              "heap",
+              "redis"
+            ],
+            "type": "string"
+          },
+          "ignore_error": {
+            "description": "Defines this cache_policy is ignore_error or not.",
+            "type": "boolean"
+          },
+          "expiration_time": {
+            "description": "expiration_time",
+            "$ref": "#/definitions/entities/duration"
           }
         }
         }
@@ -3922,9 +4075,9 @@
             "description": "The response_model_name of this rest_operation.",
             "type": "string"
           },
-          "enable_cache": {
-            "description": "Defines this rest_operation is enable_cache or not.",
-            "type": "boolean"
+          "cache_policy_name": {
+            "description": "The cache_policy_name of this rest_operation.",
+            "type": "string"
           },
           "arguments": {
             "description": "arguments",
@@ -4015,9 +4168,9 @@
             "description": "The base_url of this rest_resource.",
             "type": "string"
           },
-          "enable_cache": {
-            "description": "Defines this rest_resource is enable_cache or not.",
-            "type": "boolean"
+          "cache_policy_name": {
+            "description": "The cache_policy_name of this rest_resource.",
+            "type": "string"
           },
           "operations": {
             "description": "operations",

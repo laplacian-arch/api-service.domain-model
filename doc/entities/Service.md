@@ -41,7 +41,14 @@ Defines this service is depends_on_elasticsearch or not.
 Defines this service is depends_on_cache or not.
 - **Code:**
   ```kotlin
-  restResourcesBackingGraphqlType.any{ it.enableCache || it.operations.any{ it.enableCache }}
+  restResourcesBackingGraphqlType.any{ it.cachePolicy != null || it.operations.any{ it.cachePolicy != null }}
+  ```
+
+### depends_on_redis_cache: `Boolean`
+Defines this service is depends_on_redis_cache or not.
+- **Code:**
+  ```kotlin
+  restResourcesBackingGraphqlType.any{ it.cachePolicy?.storeType == "redis" ?: false || it.operations.any{ it.cachePolicy?.storeType == "redis" ?: false }}
   ```
 
 ## Relationships
@@ -103,7 +110,8 @@ entities_backing_graphql_type
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypesBackedByDatabaseTable.map{ it.entity }
+  graphqlTypesBackedByDatabaseTable
+  .map{ it.entity }
   .distinct()
   ```
 
@@ -129,7 +137,9 @@ rest_resources_backing_graphql_type
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypesBackedByExternalRestResource.map{ it.restResource }.distinct()
+  graphqlTypesBackedByExternalRestResource
+  .map{ it.restResource }
+  .distinct()
   ```
 
 ### graphql_types_backed_by_indexed_document: `List<IndexedDocument>`
@@ -168,3 +178,16 @@ graphql_type_relationships
 ### configuration_categories: `List<ServiceConfigurationCategory>`
 configuration_categories
 - **Cardinality:** `*`
+
+### cache_policies: `List<CachePolicy>`
+cache_policies
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  (
+      restResourcesBackingGraphqlType.map{ it.cachePolicy } +
+      restResourcesBackingGraphqlType.flatMap{ it.operations.map{ it.cachePolicy }}
+  )
+  .filterNotNull()
+  .distinct()
+  ```

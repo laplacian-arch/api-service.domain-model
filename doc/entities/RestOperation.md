@@ -33,12 +33,8 @@ The response_model_name of this rest_operation.
   restResource.resourceModelName!!
   ```
 
-### enable_cache: `Boolean`
-Defines this rest_operation is enable_cache or not.
-- **Default Value:**
-  ```kotlin
-  restResource.enableCache
-  ```
+### cache_policy_name: `String`
+The cache_policy_name of this rest_operation.
 
 ## Relationships
 
@@ -65,3 +61,15 @@ response_model
 ### rest_resource: `RestResource`
 rest_resource
 - **Cardinality:** `1`
+
+### cache_policy: `CachePolicy?`
+cache_policy
+- **Cardinality:** `0..1`
+
+### effective_cache_policy: `CachePolicy?`
+effective_cache_policy
+- **Cardinality:** `0..1`
+- **Code:**
+  ```kotlin
+  cachePolicy ?: restResource.cachePolicy
+  ```
