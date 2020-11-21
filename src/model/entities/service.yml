@@ -30,12 +30,17 @@ entities:
   - name: depends_on_cache
     type: boolean
     snippet: |
-      restResourcesBackingGraphqlType.any{ it.cachePolicy != null || it.operations.any{ it.cachePolicy != null }}
+      restResourcesBackingGraphqlType.any {
+          it.cachePolicy != null || it.operations.any{ it.cachePolicy != null }
+      }
 
   - name: depends_on_redis_cache
     type: boolean
     snippet: |
-      restResourcesBackingGraphqlType.any{ it.cachePolicy?.storeType == "redis" ?: false || it.operations.any{ it.cachePolicy?.storeType == "redis" ?: false }}
+      restResourcesBackingGraphqlType.any {
+          it.cachePolicy?.storeType == "redis" ?: false ||
+          it.operations.any{ it.cachePolicy?.storeType == "redis" ?: false }
+      }
 
   relationships:
   - name: datasources

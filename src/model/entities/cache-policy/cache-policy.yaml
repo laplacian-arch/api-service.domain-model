@@ -27,3 +27,9 @@ entities:
     reference_entity_name: duration
     cardinality: '0..1'
     aggregate: true
+
+  - name: configurations
+    reference_entity_name: configuration_binding
+    cardinality: '*'
+    aggregate: true
+

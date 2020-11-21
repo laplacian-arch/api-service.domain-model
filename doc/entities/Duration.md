@@ -9,7 +9,7 @@ duration
 
 ## Properties
 
-### amount: `Int`
+### amount: `String`
 The amount of this duration.
 
 ### unit: `String`

@@ -21,3 +21,7 @@ entities:
   - name: include_upper
     type: boolean
     optional: true
+
+  - name: timezone
+    type: string
+    optional: true

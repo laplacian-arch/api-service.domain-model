@@ -24,4 +24,7 @@ Defines this range_query_predicate is include_lower or not.
 ### include_upper: `Boolean`
 Defines this range_query_predicate is include_upper or not.
 
+### timezone: `String`
+The timezone of this range_query_predicate.
+
 ## Relationships

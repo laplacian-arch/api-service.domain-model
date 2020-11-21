@@ -1,9 +1,11 @@
 entities:
 - name: duration
   namespace: laplacian.arch.api.service
+
   properties:
   - name: amount
-    type: number
+    type: string
+    domain_type_name: integer_or_placeholder
 
   - name: unit
     type: string

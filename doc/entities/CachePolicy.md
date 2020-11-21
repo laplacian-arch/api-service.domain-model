@@ -35,3 +35,7 @@ The key of this cache_policy.
 ### expiration_time: `Duration?`
 expiration_time
 - **Cardinality:** `0..1`
+
+### configurations: `List<ConfigurationBinding>`
+configurations
+- **Cardinality:** `*`

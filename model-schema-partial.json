@@ -2280,8 +2280,12 @@
         "additionalProperties": false,
         "properties": {
           "amount": {
+            "allOf": [{
             "description": "The amount of this duration.",
-            "type": "number"
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/integer_or_placeholder"
+            }]
           },
           "unit": {
             "description": "The unit of this duration.",
@@ -3242,6 +3246,13 @@
           "expiration_time": {
             "description": "expiration_time",
             "$ref": "#/definitions/entities/duration"
+          },
+          "configurations": {
+            "description": "configurations",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/configuration_binding"
+            }
           }
         },
         "allOf": [
@@ -3276,6 +3287,13 @@
           "expiration_time": {
             "description": "expiration_time",
             "$ref": "#/definitions/entities/duration"
+          },
+          "configurations": {
+            "description": "configurations",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/configuration_binding"
+            }
           }
         }
         }
@@ -3307,6 +3325,13 @@
           "expiration_time": {
             "description": "expiration_time",
             "$ref": "#/definitions/entities/duration"
+          },
+          "configurations": {
+            "description": "configurations",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/configuration_binding"
+            }
           }
         }
         }
@@ -3796,6 +3821,10 @@
           "include_upper": {
             "description": "Defines this range_query_predicate is include_upper or not.",
             "type": "boolean"
+          },
+          "timezone": {
+            "description": "The timezone of this range_query_predicate.",
+            "type": "string"
           }
         }
         }
