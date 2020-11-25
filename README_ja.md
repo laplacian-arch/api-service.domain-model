@@ -78,6 +78,12 @@ $ ./script/generate
 
 - [**ApiCallArgument**](<./doc/entities/ApiCallArgument.md>)
 api_call_argument
+- [**CachePolicy**](<./doc/entities/CachePolicy.md>)
+cache_policy
+- [**HeapMemoryCachePolicy**](<./doc/entities/HeapMemoryCachePolicy.md>)
+heap_memory_cache_policy
+- [**RedisCachePolicy**](<./doc/entities/RedisCachePolicy.md>)
+redis_cache_policy
 - [**Duration**](<./doc/entities/Duration.md>)
 duration
 - [**BucketScriptAggregate**](<./doc/entities/BucketScriptAggregate.md>)
@@ -121,12 +127,6 @@ value_count_aggregate
 - [**TermsAggregate**](<./doc/entities/TermsAggregate.md>)
 A multi-bucket value source based aggregation where buckets are dynamically built
 - one per unique value.
-- [**CachePolicy**](<./doc/entities/CachePolicy.md>)
-cache_policy
-- [**HeapMemoryCachePolicy**](<./doc/entities/HeapMemoryCachePolicy.md>)
-heap_memory_cache_policy
-- [**RedisCachePolicy**](<./doc/entities/RedisCachePolicy.md>)
-redis_cache_policy
 - [**ElasticsearchAggregate**](<./doc/entities/ElasticsearchAggregate.md>)
 elasticsearch_aggregate
 - [**ElasticsearchIndex**](<./doc/entities/ElasticsearchIndex.md>)
@@ -151,6 +151,8 @@ match_all_query_predicate
 match_query_predicate
 - [**MultiMatchQueryPredicate**](<./doc/entities/MultiMatchQueryPredicate.md>)
 multi_match_query_predicate
+- [**QueryStringPredicate**](<./doc/entities/QueryStringPredicate.md>)
+query_string_predicate
 - [**RangeQueryPredicate**](<./doc/entities/RangeQueryPredicate.md>)
 range_query_predicate
 - [**TermQueryPredicate**](<./doc/entities/TermQueryPredicate.md>)
@@ -301,6 +303,9 @@ configuration_binding
 
 - [model/project.yaml](<./model/project.yaml>)
 - [src/model/entities/api-call-argument.yaml](<./src/model/entities/api-call-argument.yaml>)
+- [src/model/entities/cache-policy/cache-policy.yaml](<./src/model/entities/cache-policy/cache-policy.yaml>)
+- [src/model/entities/cache-policy/heap-memory-cache-configuration.yaml](<./src/model/entities/cache-policy/heap-memory-cache-configuration.yaml>)
+- [src/model/entities/cache-policy/redis-cache-configuration.yaml](<./src/model/entities/cache-policy/redis-cache-configuration.yaml>)
 - [src/model/entities/duration.yaml](<./src/model/entities/duration.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-selector-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-selector-aggregate.yaml>)
@@ -311,9 +316,6 @@ configuration_binding
 - [src/model/entities/elasticsearch/aggregate/filters-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/filters-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/metrics-aggregations.yaml](<./src/model/entities/elasticsearch/aggregate/metrics-aggregations.yaml>)
 - [src/model/entities/elasticsearch/aggregate/terms-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/terms-aggregate.yaml>)
-- [src/model/entities/elasticsearch/cache-policy/cache-policy.yaml](<./src/model/entities/elasticsearch/cache-policy/cache-policy.yaml>)
-- [src/model/entities/elasticsearch/cache-policy/heap-memory-cache-configuration.yaml](<./src/model/entities/elasticsearch/cache-policy/heap-memory-cache-configuration.yaml>)
-- [src/model/entities/elasticsearch/cache-policy/redis-cache-configuration.yaml](<./src/model/entities/elasticsearch/cache-policy/redis-cache-configuration.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-aggregate.yaml](<./src/model/entities/elasticsearch/elasticsearch-aggregate.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-index.yaml](<./src/model/entities/elasticsearch/elasticsearch-index.yaml>)
 - [src/model/entities/elasticsearch/elasticsearch-query-predicate.yaml](<./src/model/entities/elasticsearch/elasticsearch-query-predicate.yaml>)
@@ -324,6 +326,7 @@ configuration_binding
 - [src/model/entities/elasticsearch/predicate/match-all-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/match-all-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/match-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/match-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/multi-match-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/multi-match-query-predicate.yaml>)
+- [src/model/entities/elasticsearch/predicate/query-string-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/query-string-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/range-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/range-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/term-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/term-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml>)

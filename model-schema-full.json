@@ -192,6 +192,14 @@
       }
     }
     ,
+    "cache_policies": {
+      "description": "cache_policy",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/cache_policy"
+      }
+    }
+    ,
     "durations": {
       "description": "duration",
       "type": "array",
@@ -237,14 +245,6 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/entities/keyed_filter"
-      }
-    }
-    ,
-    "cache_policies": {
-      "description": "cache_policy",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/cache_policy"
       }
     }
     ,
@@ -2296,6 +2296,123 @@
           }
         }
       },
+      "cache_policy": {
+        "description": "cache_policy",
+        "type": "object",
+        "required": [
+          "name",
+          "store_type"
+        ],
+        "properties": {
+          "name": {
+            "description": "The name of this cache_policy.",
+            "type": "string"
+          },
+          "store_type": {
+            "description": "The store_type of this cache_policy.",
+            "enum":[
+              "heap",
+              "redis"
+            ],
+            "type": "string"
+          },
+          "ignore_error": {
+            "description": "Defines this cache_policy is ignore_error or not.",
+            "type": "boolean"
+          },
+          "expiration_time": {
+            "description": "expiration_time",
+            "$ref": "#/definitions/entities/duration"
+          },
+          "configurations": {
+            "description": "configurations",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/configuration_binding"
+            }
+          }
+        },
+        "allOf": [
+          { "$ref": "#/definitions/entities/heap_memory_cache_policy" },
+          { "$ref": "#/definitions/entities/redis_cache_policy" }
+        ]
+      },
+      "heap_memory_cache_policy": {
+        "description": "heap_memory_cache_policy",
+        "if": { "properties": {
+          "store_type": { "const": "heap" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this cache_policy.",
+            "type": "string"
+          },
+          "store_type": {
+            "description": "The store_type of this cache_policy.",
+            "enum":[
+              "heap",
+              "redis"
+            ],
+            "type": "string"
+          },
+          "ignore_error": {
+            "description": "Defines this cache_policy is ignore_error or not.",
+            "type": "boolean"
+          },
+          "expiration_time": {
+            "description": "expiration_time",
+            "$ref": "#/definitions/entities/duration"
+          },
+          "configurations": {
+            "description": "configurations",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/configuration_binding"
+            }
+          }
+        }
+        }
+      },
+      "redis_cache_policy": {
+        "description": "redis_cache_policy",
+        "if": { "properties": {
+          "store_type": { "const": "redis" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this cache_policy.",
+            "type": "string"
+          },
+          "store_type": {
+            "description": "The store_type of this cache_policy.",
+            "enum":[
+              "heap",
+              "redis"
+            ],
+            "type": "string"
+          },
+          "ignore_error": {
+            "description": "Defines this cache_policy is ignore_error or not.",
+            "type": "boolean"
+          },
+          "expiration_time": {
+            "description": "expiration_time",
+            "$ref": "#/definitions/entities/duration"
+          },
+          "configurations": {
+            "description": "configurations",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/configuration_binding"
+            }
+          }
+        }
+        }
+      },
       "duration": {
         "description": "duration",
         "type": "object",
@@ -3251,123 +3368,6 @@
         }
         }
       },
-      "cache_policy": {
-        "description": "cache_policy",
-        "type": "object",
-        "required": [
-          "name",
-          "store_type"
-        ],
-        "properties": {
-          "name": {
-            "description": "The name of this cache_policy.",
-            "type": "string"
-          },
-          "store_type": {
-            "description": "The store_type of this cache_policy.",
-            "enum":[
-              "heap",
-              "redis"
-            ],
-            "type": "string"
-          },
-          "ignore_error": {
-            "description": "Defines this cache_policy is ignore_error or not.",
-            "type": "boolean"
-          },
-          "expiration_time": {
-            "description": "expiration_time",
-            "$ref": "#/definitions/entities/duration"
-          },
-          "configurations": {
-            "description": "configurations",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/configuration_binding"
-            }
-          }
-        },
-        "allOf": [
-          { "$ref": "#/definitions/entities/heap_memory_cache_policy" },
-          { "$ref": "#/definitions/entities/redis_cache_policy" }
-        ]
-      },
-      "heap_memory_cache_policy": {
-        "description": "heap_memory_cache_policy",
-        "if": { "properties": {
-          "store_type": { "const": "heap" }
-        }},
-        "then": {
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this cache_policy.",
-            "type": "string"
-          },
-          "store_type": {
-            "description": "The store_type of this cache_policy.",
-            "enum":[
-              "heap",
-              "redis"
-            ],
-            "type": "string"
-          },
-          "ignore_error": {
-            "description": "Defines this cache_policy is ignore_error or not.",
-            "type": "boolean"
-          },
-          "expiration_time": {
-            "description": "expiration_time",
-            "$ref": "#/definitions/entities/duration"
-          },
-          "configurations": {
-            "description": "configurations",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/configuration_binding"
-            }
-          }
-        }
-        }
-      },
-      "redis_cache_policy": {
-        "description": "redis_cache_policy",
-        "if": { "properties": {
-          "store_type": { "const": "redis" }
-        }},
-        "then": {
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this cache_policy.",
-            "type": "string"
-          },
-          "store_type": {
-            "description": "The store_type of this cache_policy.",
-            "enum":[
-              "heap",
-              "redis"
-            ],
-            "type": "string"
-          },
-          "ignore_error": {
-            "description": "Defines this cache_policy is ignore_error or not.",
-            "type": "boolean"
-          },
-          "expiration_time": {
-            "description": "expiration_time",
-            "$ref": "#/definitions/entities/duration"
-          },
-          "configurations": {
-            "description": "configurations",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/configuration_binding"
-            }
-          }
-        }
-        }
-      },
       "elasticsearch_aggregate": {
         "description": "elasticsearch_aggregate",
         "type": "object",
@@ -3469,6 +3469,7 @@
               "match_all",
               "match",
               "multi_match",
+              "query_string",
               "range",
               "term",
               "terms"
@@ -3482,6 +3483,7 @@
           { "$ref": "#/definitions/entities/match_all_query_predicate" },
           { "$ref": "#/definitions/entities/match_query_predicate" },
           { "$ref": "#/definitions/entities/multi_match_query_predicate" },
+          { "$ref": "#/definitions/entities/query_string_predicate" },
           { "$ref": "#/definitions/entities/range_query_predicate" },
           { "$ref": "#/definitions/entities/term_query_predicate" },
           { "$ref": "#/definitions/entities/terms_query_predicate" }
@@ -3654,6 +3656,7 @@
               "match_all",
               "match",
               "multi_match",
+              "query_string",
               "range",
               "term",
               "terms"
@@ -3707,6 +3710,7 @@
               "match_all",
               "match",
               "multi_match",
+              "query_string",
               "range",
               "term",
               "terms"
@@ -3736,6 +3740,7 @@
               "match_all",
               "match",
               "multi_match",
+              "query_string",
               "range",
               "term",
               "terms"
@@ -3761,6 +3766,7 @@
               "match_all",
               "match",
               "multi_match",
+              "query_string",
               "range",
               "term",
               "terms"
@@ -3794,6 +3800,7 @@
               "match_all",
               "match",
               "multi_match",
+              "query_string",
               "range",
               "term",
               "terms"
@@ -3814,6 +3821,127 @@
         }
         }
       },
+      "query_string_predicate": {
+        "description": "query_string_predicate",
+        "if": { "properties": {
+          "type": { "const": "query_string" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "description": "The type of this elasticsearch_query_predicate.",
+            "enum":[
+              "bool",
+              "exists",
+              "match_all",
+              "match",
+              "multi_match",
+              "query_string",
+              "range",
+              "term",
+              "terms"
+            ],
+            "type": "string"
+          },
+          "query": {
+            "description": "The query of this query_string_predicate.",
+            "type": "string"
+          },
+          "default_field": {
+            "description": "The default_field of this query_string_predicate.",
+            "type": "string"
+          },
+          "allow_leading_wildcard": {
+            "description": "Defines this query_string_predicate is allow_leading_wildcard or not.",
+            "type": "boolean"
+          },
+          "analyze_wildcard": {
+            "description": "Defines this query_string_predicate is analyze_wildcard or not.",
+            "type": "boolean"
+          },
+          "analyzer": {
+            "description": "The analyzer of this query_string_predicate.",
+            "type": "string"
+          },
+          "auto_generate_synonyms_phrase_query": {
+            "description": "Defines this query_string_predicate is auto_generate_synonyms_phrase_query or not.",
+            "type": "boolean"
+          },
+          "boost": {
+            "description": "The boost of this query_string_predicate.",
+            "type": "float"
+          },
+          "default_operator": {
+            "description": "The default_operator of this query_string_predicate.",
+            "enum":[
+              "OR",
+              "AND"
+            ],
+            "type": "string"
+          },
+          "enable_position_increments": {
+            "description": "Defines this query_string_predicate is enable_position_increments or not.",
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+            "description": "The fields of this query_string_predicate.",
+            "type": "string"
+            }
+          },
+          "fuzziness": {
+            "description": "The fuzziness of this query_string_predicate.",
+            "type": "string"
+          },
+          "fuzzy_max_expansion": {
+            "description": "The fuzzy_max_expansion of this query_string_predicate.",
+            "type": "int"
+          },
+          "fuzzy_prefix_length": {
+            "description": "The fuzzy_prefix_length of this query_string_predicate.",
+            "type": "int"
+          },
+          "fuzzy_transpositions": {
+            "description": "Defines this query_string_predicate is fuzzy_transpositions or not.",
+            "type": "boolean"
+          },
+          "lenient": {
+            "description": "Defines this query_string_predicate is lenient or not.",
+            "type": "boolean"
+          },
+          "max_determinized_states": {
+            "description": "The max_determinized_states of this query_string_predicate.",
+            "type": "int"
+          },
+          "minimum_should_match": {
+            "description": "The minimum_should_match of this query_string_predicate.",
+            "type": "string"
+          },
+          "quote_analyzer": {
+            "description": "The quote_analyzer of this query_string_predicate.",
+            "type": "string"
+          },
+          "phrase_slop": {
+            "description": "The phrase_slop of this query_string_predicate.",
+            "type": "int"
+          },
+          "quote_field_suffix": {
+            "description": "The quote_field_suffix of this query_string_predicate.",
+            "type": "string"
+          },
+          "rewrite": {
+            "description": "The rewrite of this query_string_predicate.",
+            "type": "string"
+          },
+          "time_zone": {
+            "description": "The time_zone of this query_string_predicate.",
+            "type": "string"
+          }
+        }
+        }
+      },
       "range_query_predicate": {
         "description": "range_query_predicate",
         "if": { "properties": {
@@ -3830,6 +3958,7 @@
               "match_all",
               "match",
               "multi_match",
+              "query_string",
               "range",
               "term",
               "terms"
@@ -3879,6 +4008,7 @@
               "match_all",
               "match",
               "multi_match",
+              "query_string",
               "range",
               "term",
               "terms"
@@ -3916,6 +4046,7 @@
               "match_all",
               "match",
               "multi_match",
+              "query_string",
               "range",
               "term",
               "terms"

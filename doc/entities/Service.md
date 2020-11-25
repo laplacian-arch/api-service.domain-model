@@ -41,14 +41,19 @@ Defines this service is depends_on_elasticsearch or not.
 Defines this service is depends_on_cache or not.
 - **Code:**
   ```kotlin
-  restResourcesBackingGraphqlType.any{ it.cachePolicy != null || it.operations.any{ it.cachePolicy != null }}
+  restResourcesBackingGraphqlType.any {
+      it.cachePolicy != null || it.operations.any{ it.cachePolicy != null }
+  }
   ```
 
 ### depends_on_redis_cache: `Boolean`
 Defines this service is depends_on_redis_cache or not.
 - **Code:**
   ```kotlin
-  restResourcesBackingGraphqlType.any{ it.cachePolicy?.storeType == "redis" ?: false || it.operations.any{ it.cachePolicy?.storeType == "redis" ?: false }}
+  restResourcesBackingGraphqlType.any {
+      it.cachePolicy?.storeType == "redis" ?: false ||
+      it.operations.any{ it.cachePolicy?.storeType == "redis" ?: false }
+  }
   ```
 
 ## Relationships
