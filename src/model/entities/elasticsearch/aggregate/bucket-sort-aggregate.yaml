@@ -42,14 +42,14 @@ entities:
     type: string
     primary_key: true
 
-  - name: variable_order
-    type: boolean
-    snippet: |
-      order?.contains("\${") ?: false
-
   - name: order
     type: string
     optional: true
     domain:
       pattern: |
         \$\{[^}]*\}|asc|desc
+
+  - name: variable_order
+    type: boolean
+    snippet: |
+      order?.contains("\${") ?: false

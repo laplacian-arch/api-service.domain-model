@@ -7,19 +7,19 @@ entities:
   subtype_key_value: terms
 
   properties:
-  - name: max_results
+  - name: max_buckets
     description: |
       The number of term buckets should be returned (default: 10)
     type: string
     optional: true
     domain_type_name: integer_or_placeholder
 
-  - name: variable_max_results
+  - name: variable_max_buckets
     type: boolean
     snippet: |
-      maxResults?.contains("\${") ?: false
+      maxBuckets?.contains("\${") ?: false
 
-  - name: sortByCount
+  - name: sort_by_count
     description: |
       The sort order ('asc' or 'desc') in which the buckets will be returned
     type: string
