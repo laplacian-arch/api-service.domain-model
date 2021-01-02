@@ -84,6 +84,15 @@ cache_policy
 heap_memory_cache_policy
 - [**RedisCachePolicy**](<./doc/entities/RedisCachePolicy.md>)
 redis_cache_policy
+- [**Datasource**](<./doc/entities/Datasource.md>)
+A *DataSource* represents an interface through which a client application access to a data store.
+This includes the following models.
+- The entity that the datastore exposes to the client
+- Statement issued by the client to the datastore
+- [**DatasourceEntry**](<./doc/entities/DatasourceEntry.md>)
+datasource_entry
+- [**OracleDatasource**](<./doc/entities/OracleDatasource.md>)
+oracle_datasource
 - [**Duration**](<./doc/entities/Duration.md>)
 duration
 - [**BucketScriptAggregate**](<./doc/entities/BucketScriptAggregate.md>)
@@ -165,6 +174,12 @@ entity_on_database
 external_rest_resource
 - [**IndexedDocument**](<./doc/entities/IndexedDocument.md>)
 indexed_document
+- [**RdbmsTable**](<./doc/entities/RdbmsTable.md>)
+rdbms_table
+- [**MybatisMapper**](<./doc/entities/MybatisMapper.md>)
+mybatis_mapper
+- [**MybatisMapperEntry**](<./doc/entities/MybatisMapperEntry.md>)
+mybatis_mapper_entry
 - [**RestOperation**](<./doc/entities/RestOperation.md>)
 rest_operation
 - [**RestRequestParameter**](<./doc/entities/RestRequestParameter.md>)
@@ -173,11 +188,6 @@ rest_request_parameter
 rest_resource
 - [**Service**](<./doc/entities/Service.md>)
 service
-- [**Datasource**](<./doc/entities/Datasource.md>)
-A *DataSource* represents an interface through which a client application access to a data store.
-This includes the following models.
-- The entity that the datastore exposes to the client
-- Statement issued by the client to the datastore
 - [**ElasticSearchClient**](<./doc/entities/ElasticSearchClient.md>)
 elastic_search_client
 - [**GraphqlType**](<./doc/entities/GraphqlType.md>)
@@ -306,6 +316,9 @@ configuration_binding
 - [src/model/entities/cache-policy/cache-policy.yaml](<./src/model/entities/cache-policy/cache-policy.yaml>)
 - [src/model/entities/cache-policy/heap-memory-cache-configuration.yaml](<./src/model/entities/cache-policy/heap-memory-cache-configuration.yaml>)
 - [src/model/entities/cache-policy/redis-cache-configuration.yaml](<./src/model/entities/cache-policy/redis-cache-configuration.yaml>)
+- [src/model/entities/datasource/datasource_entry.yaml](<./src/model/entities/datasource/datasource_entry.yaml>)
+- [src/model/entities/datasource/datasource.yaml](<./src/model/entities/datasource/datasource.yaml>)
+- [src/model/entities/datasource/oracle_jdbc_datasource.yaml](<./src/model/entities/datasource/oracle_jdbc_datasource.yaml>)
 - [src/model/entities/duration.yaml](<./src/model/entities/duration.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-selector-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-selector-aggregate.yaml>)
@@ -333,10 +346,12 @@ configuration_binding
 - [src/model/entities/graphql_type/entity_on_database.yaml](<./src/model/entities/graphql_type/entity_on_database.yaml>)
 - [src/model/entities/graphql_type/external_rest_resource.yaml](<./src/model/entities/graphql_type/external_rest_resource.yaml>)
 - [src/model/entities/graphql_type/indexed_document.yaml](<./src/model/entities/graphql_type/indexed_document.yaml>)
+- [src/model/entities/graphql_type/rdbms_table.yaml](<./src/model/entities/graphql_type/rdbms_table.yaml>)
+- [src/model/entities/mybatis/mybatis_mapper_entry.yaml](<./src/model/entities/mybatis/mybatis_mapper_entry.yaml>)
+- [src/model/entities/mybatis/mybatis_mapper.yaml](<./src/model/entities/mybatis/mybatis_mapper.yaml>)
 - [src/model/entities/rest_resource/rest_operation.yaml](<./src/model/entities/rest_resource/rest_operation.yaml>)
 - [src/model/entities/rest_resource/rest_request_parameter.yaml](<./src/model/entities/rest_resource/rest_request_parameter.yaml>)
 - [src/model/entities/rest_resource/rest_resource.yaml](<./src/model/entities/rest_resource/rest_resource.yaml>)
-- [src/model/entities/service/datasource.yaml](<./src/model/entities/service/datasource.yaml>)
 - [src/model/entities/service/elastic-search-client.yaml](<./src/model/entities/service/elastic-search-client.yaml>)
 - [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)
 - [src/model/entities/service/graphql_type_relationship.yaml](<./src/model/entities/service/graphql_type_relationship.yaml>)

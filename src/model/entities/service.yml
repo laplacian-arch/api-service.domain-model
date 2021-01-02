@@ -42,18 +42,27 @@ entities:
           it.operations.any{ it.cachePolicy?.storeType == "redis" ?: false }
       }
 
+  - name: depends_on_mybatis
+    type: boolean
+    snippet: |
+      graphqlTypesBackedByRdbmsTable.any { it.mybatisMappers.isNotEmpty() }
+
+  - name: depends_on_oracle_jdbc_driver
+    type: boolean
+    snippet: |
+      datasources.any { it.type == "oracle_jdbc" }
+
   relationships:
+  - name: datasource_entries
+    cardinality: '*'
+    reference_entity_name: datasource_entry
+    aggregate: true
+
   - name: datasources
     cardinality: '*'
     reference_entity_name: datasource
-    aggregate: true
-
-  - name: default_datasource
-    cardinality: '0..1'
-    reference_entity_name: datasource
     snippet: |
-      datasources
-      .find{ it.name == "default" }
+      datasourceEntries.map{ it.datasource }
 
   - name: graphql_type_entries
     cardinality: '*'
@@ -121,6 +130,12 @@ entities:
     reference_entity_name: indexed_document
     snippet: |
       graphqlTypes.map{ it as? IndexedDocument }.filterNotNull()
+
+  - name: graphql_types_backed_by_rdbms_table
+    cardinality: '*'
+    reference_entity_name: rdbms_table
+    snippet: |
+      graphqlTypes.map{ it as? RdbmsTable }.filterNotNull()
 
   - name: rest_clients
     reference_entity_name: rest_client

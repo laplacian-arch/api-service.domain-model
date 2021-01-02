@@ -200,6 +200,22 @@
       }
     }
     ,
+    "datasources": {
+      "description": "A *DataSource* represents an interface through which a client application access to a data store.\nThis includes the following models.\n- The entity that the datastore exposes to the client\n- Statement issued by the client to the datastore",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/datasource"
+      }
+    }
+    ,
+    "datasource_entries": {
+      "description": "datasource_entry",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/datasource_entry"
+      }
+    }
+    ,
     "durations": {
       "description": "duration",
       "type": "array",
@@ -285,6 +301,14 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/entities/elasticsearch_query"
+      }
+    }
+    ,
+    "mybatis_mappers": {
+      "description": "mybatis_mapper",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/mybatis_mapper"
       }
     }
     ,
@@ -2388,6 +2412,121 @@
         }
         }
       },
+      "datasource": {
+        "description": "A *DataSource* represents an interface through which a client application access to a data store.\nThis includes the following models.\n- The entity that the datastore exposes to the client\n- Statement issued by the client to the datastore",
+        "type": "object",
+        "required": [
+        ],
+        "properties": {
+          "type": {
+            "description": "The type of this datasource.",
+            "enum":[
+              "oracle_jdbc"
+            ],
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of this datasource.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this datasource.",
+            "type": "string"
+          },
+          "configurations": {
+            "description": "configurations",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/configuration_binding"
+            }
+          }
+        },
+        "allOf": [
+          { "$ref": "#/definitions/entities/oracle_datasource" }
+        ]
+      },
+      "datasource_entry": {
+        "description": "datasource_entry",
+        "type": "object",
+        "required": [
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this datasource_entry.",
+            "type": "string"
+          }
+        }
+      },
+      "oracle_datasource": {
+        "description": "oracle_datasource",
+        "if": { "properties": {
+          "type": { "const": "oracle_jdbc" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "description": "The type of this datasource.",
+            "enum":[
+              "oracle_jdbc"
+            ],
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of this datasource.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this datasource.",
+            "type": "string"
+          },
+          "url": {
+            "description": "The url of this oracle_datasource.",
+            "type": "string"
+          },
+          "username": {
+            "description": "The username of this oracle_datasource.",
+            "type": "string"
+          },
+          "password": {
+            "description": "The password of this oracle_datasource.",
+            "type": "string"
+          },
+          "driver_class_name": {
+            "description": "The driver_class_name of this oracle_datasource.",
+            "type": "string"
+          },
+          "minimum_idle_connections": {
+            "description": "The minimum_idle_connections of this oracle_datasource.",
+            "type": "number"
+          },
+          "maximum_connections": {
+            "description": "The maximum_connections of this oracle_datasource.",
+            "type": "number"
+          },
+          "idle_connection_timeout": {
+            "description": "The idle_connection_timeout of this oracle_datasource.",
+            "type": "number"
+          },
+          "maximum_connection_lifetime": {
+            "description": "The maximum_connection_lifetime of this oracle_datasource.",
+            "type": "number"
+          },
+          "connection_timeout": {
+            "description": "The connection_timeout of this oracle_datasource.",
+            "type": "number"
+          },
+          "configurations": {
+            "description": "configurations",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/configuration_binding"
+            }
+          }
+        }
+        }
+      },
       "duration": {
         "description": "duration",
         "type": "object",
@@ -3294,7 +3433,7 @@
             "description": "The field of this elasticsearch_aggregate.",
             "type": "string"
           },
-          "max_results": {
+          "max_buckets": {
             "allOf": [{
             "description": "The number of term buckets should be returned (default: 10)",
             "type": "string"
@@ -3859,6 +3998,12 @@
           },
           "fuzziness": {
             "description": "The fuzziness of this query_string_predicate.",
+            "enum":[
+              "AUTO",
+              "ONE",
+              "TWO",
+              "ZERO"
+            ],
             "type": "string"
           },
           "fuzzy_max_expansion": {
@@ -4051,7 +4196,8 @@
             "enum":[
               "entity_on_database",
               "external_rest_resource",
-              "indexed_document"
+              "indexed_document",
+              "rdbms_table"
             ],
             "type": "string"
           },
@@ -4094,7 +4240,8 @@
             "enum":[
               "entity_on_database",
               "external_rest_resource",
-              "indexed_document"
+              "indexed_document",
+              "rdbms_table"
             ],
             "type": "string"
           },
@@ -4137,7 +4284,8 @@
             "enum":[
               "entity_on_database",
               "external_rest_resource",
-              "indexed_document"
+              "indexed_document",
+              "rdbms_table"
             ],
             "type": "string"
           },
@@ -4165,6 +4313,137 @@
             }
           }
         }
+        }
+      },
+      "rdbms_table": {
+        "description": "rdbms_table",
+        "if": { "properties": {
+          "resolver_type": { "const": "rdbms_table" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this graphql_type.",
+            "type": "string"
+          },
+          "resolver_type": {
+            "description": "The resolver_type of this graphql_type.",
+            "enum":[
+              "entity_on_database",
+              "external_rest_resource",
+              "indexed_document",
+              "rdbms_table"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_type.",
+            "type": "string"
+          },
+          "data_model_name": {
+            "description": "The data_model_name of this rdbms_table.",
+            "type": "string"
+          },
+          "table_name": {
+            "description": "The table_name of this rdbms_table.",
+            "type": "string"
+          },
+          "datasource_name": {
+            "description": "The datasource_name of this rdbms_table.",
+            "type": "string"
+          },
+          "relationships": {
+            "description": "relationships",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/graphql_type_relationship"
+            }
+          },
+          "mybatis_mapper_entries": {
+            "description": "mybatis_mapper_entries",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/mybatis_mapper_entry"
+            }
+          }
+        }
+        }
+      },
+      "mybatis_mapper": {
+        "description": "mybatis_mapper",
+        "type": "object",
+        "required": [
+          "group_id",
+          "id"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "group_id": {
+            "allOf": [{
+            "description": "The group_id of this mybatis_mapper.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/namespace"
+            }]
+          },
+          "id": {
+            "allOf": [{
+            "description": "The id of this mybatis_mapper.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/identifier"
+            }]
+          },
+          "result_model_name": {
+            "description": "The result_model_name of this mybatis_mapper.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of this mybatis_mapper.",
+            "enum":[
+              "select",
+              "insert",
+              "update",
+              "delete",
+              "fragment"
+            ],
+            "type": "string"
+          },
+          "statement": {
+            "description": "The statement of this mybatis_mapper.",
+            "type": "string"
+          },
+          "parameters": {
+            "description": "parameters",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/api_call_argument"
+            }
+          }
+        }
+      },
+      "mybatis_mapper_entry": {
+        "description": "mybatis_mapper_entry",
+        "type": "object",
+        "required": [
+          "group_id",
+          "id"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "group_id": {
+            "description": "The group_id of this mybatis_mapper_entry.",
+            "type": "string"
+          },
+          "id": {
+            "description": "The id of this mybatis_mapper_entry.",
+            "type": "string"
+          },
+          "context_entity_name": {
+            "description": "The context_entity_name of this mybatis_mapper_entry.",
+            "type": "string"
+          }
         }
       },
       "rest_operation": {
@@ -4337,11 +4616,11 @@
             "description": "The description of this service.",
             "type": "string"
           },
-          "datasources": {
-            "description": "datasources",
+          "datasource_entries": {
+            "description": "datasource_entries",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/entities/datasource"
+              "$ref": "#/definitions/entities/datasource_entry"
             }
           },
           "graphql_type_entries": {
@@ -4371,31 +4650,6 @@
             "items": {
               "$ref": "#/definitions/entities/service_configuration_category"
             }
-          }
-        }
-      },
-      "datasource": {
-        "description": "A *DataSource* represents an interface through which a client application access to a data store.\nThis includes the following models.\n- The entity that the datastore exposes to the client\n- Statement issued by the client to the datastore",
-        "type": "object",
-        "required": [
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "description": "The name of this datasource.",
-            "type": "string"
-          },
-          "type": {
-            "description": "The type of this datasource.",
-            "enum":[
-              "postgres",
-              "bigquery"
-            ],
-            "type": "string"
-          },
-          "description": {
-            "description": "The description of this datasource.",
-            "type": "string"
           }
         }
       },
@@ -4480,7 +4734,8 @@
             "enum":[
               "entity_on_database",
               "external_rest_resource",
-              "indexed_document"
+              "indexed_document",
+              "rdbms_table"
             ],
             "type": "string"
           },
@@ -4499,7 +4754,8 @@
         "allOf": [
           { "$ref": "#/definitions/entities/entity_on_database" },
           { "$ref": "#/definitions/entities/external_rest_resource" },
-          { "$ref": "#/definitions/entities/indexed_document" }
+          { "$ref": "#/definitions/entities/indexed_document" },
+          { "$ref": "#/definitions/entities/rdbms_table" }
         ]
       },
       "graphql_type_entry": {

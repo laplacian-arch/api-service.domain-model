@@ -2,6 +2,7 @@ entities:
 - name: entity_on_database
   namespace: laplacian.arch.api.service.graphql
   subtype_of: graphql_type
+  deprecated: true
 
   properties:
   - name: entity_name
@@ -20,3 +21,4 @@ entities:
     mappings:
     - from: entity_name
       to: name
+

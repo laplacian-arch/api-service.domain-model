@@ -11,6 +11,10 @@ external_rest_resource
 
 ### rest_resource_name: `String`
 The rest_resource_name of this external_rest_resource.
+- **Default Value:**
+  ```kotlin
+  name
+  ```
 
 ### rest_client_name: `String`
 The rest_client_name of this external_rest_resource.
