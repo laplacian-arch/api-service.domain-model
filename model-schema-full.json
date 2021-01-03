@@ -224,6 +224,14 @@
       }
     }
     ,
+    "date_histogram_extended_boundses": {
+      "description": "date_histogram_extended_bounds",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/date_histogram_extended_bounds"
+      }
+    }
+    ,
     "date_histogram_intervals": {
       "description": "date_histogram_interval",
       "type": "array",
@@ -261,6 +269,14 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/entities/elasticsearch_index"
+      }
+    }
+    ,
+    "elasticsearch_index_sorts": {
+      "description": "elasticsearch_index_sort",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/elasticsearch_index_sort"
       }
     }
     ,
@@ -2442,6 +2458,60 @@
           }
         }
       },
+      "avg_bucket_aggregate": {
+        "description": "avg_bucket_aggregate",
+        "if": { "properties": {
+          "aggregation_type": { "const": "avg_bucket" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The name of this elasticsearch_aggregate.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this elasticsearch_aggregate.",
+            "type": "string"
+          },
+          "aggregation_type": {
+            "description": "The aggregation_type of this elasticsearch_aggregate.",
+            "enum":[
+              "avg_bucket",
+              "bucket_script",
+              "bucket_selector",
+              "bucket_sort",
+              "date_histogram",
+              "date_range",
+              "filter",
+              "filters",
+              "sum",
+              "avg",
+              "min",
+              "max",
+              "count",
+              "terms"
+            ],
+            "type": "string"
+          },
+          "field": {
+            "description": "The field of this elasticsearch_aggregate.",
+            "type": "string"
+          },
+          "buckets_path": {
+            "description": "The buckets_path of this avg_bucket_aggregate.",
+            "type": "string"
+          },
+          "sub_aggregates": {
+            "description": "sub_aggregates",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/elasticsearch_aggregate"
+            }
+          }
+        }
+        }
+      },
       "bucket_script_aggregate": {
         "description": "bucket_script_aggregate",
         "if": { "properties": {
@@ -2461,6 +2531,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -2540,6 +2611,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -2600,6 +2672,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -2691,6 +2764,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -2719,6 +2793,14 @@
             "description": "The timezone of this date_histogram_aggregate.",
             "type": "string"
           },
+          "min_doc_count": {
+            "allOf": [{
+            "description": "the minimum document count required per bucket",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/integer_or_placeholder"
+            }]
+          },
           "sub_aggregates": {
             "description": "sub_aggregates",
             "type": "array",
@@ -2729,8 +2811,29 @@
           "interval": {
             "description": "interval",
             "$ref": "#/definitions/entities/date_histogram_interval"
+          },
+          "extended_bounds": {
+            "description": "extended_bounds",
+            "$ref": "#/definitions/entities/date_histogram_extended_bounds"
           }
         }
+        }
+      },
+      "date_histogram_extended_bounds": {
+        "description": "date_histogram_extended_bounds",
+        "type": "object",
+        "required": [
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "min": {
+            "description": "The min of this date_histogram_extended_bounds.",
+            "type": "string"
+          },
+          "max": {
+            "description": "The max of this date_histogram_extended_bounds.",
+            "type": "string"
+          }
         }
       },
       "date_histogram_interval": {
@@ -2852,6 +2955,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -2934,6 +3038,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -2987,6 +3092,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -3061,6 +3167,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -3110,6 +3217,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -3159,6 +3267,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -3208,6 +3317,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -3257,6 +3367,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -3306,6 +3417,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -3326,7 +3438,7 @@
             "description": "The field of this elasticsearch_aggregate.",
             "type": "string"
           },
-          "max_results": {
+          "max_buckets": {
             "allOf": [{
             "description": "The number of term buckets should be returned (default: 10)",
             "type": "string"
@@ -3387,6 +3499,7 @@
           "aggregation_type": {
             "description": "The aggregation_type of this elasticsearch_aggregate.",
             "enum":[
+              "avg_bucket",
               "bucket_script",
               "bucket_selector",
               "bucket_sort",
@@ -3416,6 +3529,7 @@
           }
         },
         "allOf": [
+          { "$ref": "#/definitions/entities/avg_bucket_aggregate" },
           { "$ref": "#/definitions/entities/bucket_script_aggregate" },
           { "$ref": "#/definitions/entities/bucket_selector_aggregate" },
           { "$ref": "#/definitions/entities/bucket_sort_aggregate" },
@@ -3451,6 +3565,39 @@
           "document_model_name": {
             "description": "The document_model_name of this elasticsearch_index.",
             "type": "string"
+          },
+          "default_sorts": {
+            "description": "default_sorts",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/elasticsearch_index_sort"
+            }
+          }
+        }
+      },
+      "elasticsearch_index_sort": {
+        "description": "elasticsearch_index_sort",
+        "type": "object",
+        "required": [
+          "field"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "description": "The field of this elasticsearch_index_sort.",
+            "type": "string"
+          },
+          "order": {
+            "description": "The order of this elasticsearch_index_sort.",
+            "enum":[
+              "asc",
+              "desc"
+            ],
+            "type": "string"
+          },
+          "is_numeric": {
+            "description": "Defines this elasticsearch_index_sort is is_numeric or not.",
+            "type": "boolean"
           }
         }
       },
@@ -3893,6 +4040,12 @@
           },
           "fuzziness": {
             "description": "The fuzziness of this query_string_predicate.",
+            "enum":[
+              "AUTO",
+              "ONE",
+              "TWO",
+              "ZERO"
+            ],
             "type": "string"
           },
           "fuzzy_max_expansion": {
@@ -4331,6 +4484,10 @@
           "cache_policy_name": {
             "description": "The cache_policy_name of this rest_resource.",
             "type": "string"
+          },
+          "enable_automatic_cookie_handling": {
+            "description": "Defines this rest_resource is enable_automatic_cookie_handling or not.",
+            "type": "boolean"
           },
           "operations": {
             "description": "operations",

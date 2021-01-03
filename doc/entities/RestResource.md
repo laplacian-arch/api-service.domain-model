@@ -29,6 +29,13 @@ The base_url of this rest_resource.
 ### cache_policy_name: `String`
 The cache_policy_name of this rest_resource.
 
+### enable_automatic_cookie_handling: `Boolean`
+Defines this rest_resource is enable_automatic_cookie_handling or not.
+- **Default Value:**
+  ```kotlin
+  false
+  ```
+
 ## Relationships
 
 ### operations: `List<RestOperation>`

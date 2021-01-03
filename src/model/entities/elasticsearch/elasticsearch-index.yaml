@@ -30,3 +30,30 @@ entities:
     mappings:
     - from: name
       to: index_name
+
+  - name: default_sorts
+    reference_entity_name: elasticsearch_index_sort
+    cardinality: '*'
+    aggregate: true
+
+- name: elasticsearch_index_sort
+  namespace: laplacian.arch.api.service.elasticsearch
+
+  properties:
+  - name: field
+    type: string
+    primary_key: true
+
+  - name: order
+    type: string
+    optional: true
+    domain:
+      choices:
+      - value: asc
+      - value: desc
+    default_value: |
+      "asc"
+
+  - name: is_numeric
+    type: boolean
+    optional: true

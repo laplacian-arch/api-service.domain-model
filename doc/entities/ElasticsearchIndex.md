@@ -32,3 +32,7 @@ document_model
 ### queries: `List<ElasticsearchQuery>`
 queries
 - **Cardinality:** `*`
+
+### default_sorts: `List<ElasticsearchIndexSort>`
+default_sorts
+- **Cardinality:** `*`

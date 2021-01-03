@@ -24,6 +24,12 @@ entities:
     type: string
     optional: true
 
+  - name: enable_automatic_cookie_handling
+    type: boolean
+    optional: true
+    default_value: |
+      false
+
   relationships:
   - name: operations
     reference_entity_name: rest_operation

@@ -86,6 +86,8 @@ heap_memory_cache_policy
 redis_cache_policy
 - [**Duration**](<./doc/entities/Duration.md>)
 duration
+- [**AvgBucketAggregate**](<./doc/entities/AvgBucketAggregate.md>)
+avg_bucket_aggregate
 - [**BucketScriptAggregate**](<./doc/entities/BucketScriptAggregate.md>)
 bucket_script_aggregate
 - [**BucketScriptPath**](<./doc/entities/BucketScriptPath.md>)
@@ -98,6 +100,8 @@ bucket_sort_aggregate
 field_sort
 - [**DateHistogramAggregate**](<./doc/entities/DateHistogramAggregate.md>)
 date_histogram_aggregate
+- [**DateHistogramExtendedBounds**](<./doc/entities/DateHistogramExtendedBounds.md>)
+date_histogram_extended_bounds
 - [**DateHistogramInterval**](<./doc/entities/DateHistogramInterval.md>)
 date_histogram_interval
 - [**DateHistogramCalendarInterval**](<./doc/entities/DateHistogramCalendarInterval.md>)
@@ -131,6 +135,8 @@ A multi-bucket value source based aggregation where buckets are dynamically buil
 elasticsearch_aggregate
 - [**ElasticsearchIndex**](<./doc/entities/ElasticsearchIndex.md>)
 elasticsearch_index
+- [**ElasticsearchIndexSort**](<./doc/entities/ElasticsearchIndexSort.md>)
+elasticsearch_index_sort
 - [**ElasticsearchQueryPredicate**](<./doc/entities/ElasticsearchQueryPredicate.md>)
 elasticsearch_query_predicate
 - [**ElasticsearchQuerySort**](<./doc/entities/ElasticsearchQuerySort.md>)
@@ -307,6 +313,7 @@ configuration_binding
 - [src/model/entities/cache-policy/heap-memory-cache-configuration.yaml](<./src/model/entities/cache-policy/heap-memory-cache-configuration.yaml>)
 - [src/model/entities/cache-policy/redis-cache-configuration.yaml](<./src/model/entities/cache-policy/redis-cache-configuration.yaml>)
 - [src/model/entities/duration.yaml](<./src/model/entities/duration.yaml>)
+- [src/model/entities/elasticsearch/aggregate/avg-bucket-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/avg-bucket-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-selector-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-selector-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-sort-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-sort-aggregate.yaml>)

@@ -1,0 +1,8 @@
+entities:
+- name: avg_bucket_aggregate
+  subtype_of: elasticsearch_aggregate
+  subtype_key_value: avg_bucket
+
+  properties:
+  - name: buckets_path
+    type: string

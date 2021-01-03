@@ -12,11 +12,38 @@ entities:
     type: string
     optional: true
 
+  - name: min_doc_count
+    description: |
+      the minimum document count required per bucket
+    type: string
+    optional: true
+    domain_type_name: integer_or_placeholder
+
+  - name: variable_min_doc_count
+    type: boolean
+    snippet: |
+      minDocCount?.contains("\${") ?: false
+
   relationships:
   - name: interval
     reference_entity_name: date_histogram_interval
     cardinality: '1'
     aggregate: true
+
+  - name: extended_bounds
+    reference_entity_name: date_histogram_extended_bounds
+    cardinality: '0..1'
+    aggregate: true
+
+- name: date_histogram_extended_bounds
+  properties:
+  - name: min
+    type: string
+    optional: true
+
+  - name: max
+    type: string
+    optional: true
 
 - name: date_histogram_interval
 
