@@ -1,0 +1,16 @@
+entities:
+- name: datasource_entry
+  namespace: laplacian.arch.api.service.datasource
+
+  properties:
+  - name: name
+    type: string
+
+  relationships:
+  - name: datasource
+    reference_entity_name: datasource
+    cardinality: '1'
+    mappings:
+    - from: name
+      to: name
+

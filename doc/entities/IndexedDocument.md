@@ -11,7 +11,10 @@ indexed_document
 
 ### index_name: `String`
 The index_name of this indexed_document.
-- **Attributes:** *PK*
+- **Default Value:**
+  ```kotlin
+  name
+  ```
 
 ### search_engine_client_name: `String`
 The search_engine_client_name of this indexed_document.

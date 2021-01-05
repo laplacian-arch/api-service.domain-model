@@ -1,0 +1,40 @@
+entities:
+- name: mybatis_mapper_entry
+  namespace: laplacian.arch.api.service.mybatis
+
+  properties:
+  - name: group_id
+    type: string
+    primary_key: true
+    default_value:
+      graphqlType.dataModel.name
+
+  - name: id
+    type: string
+    primary_key: true
+
+  - name: context_entity_name
+    type: string
+    optional: true
+
+  relationships:
+  - name: mapper
+    reference_entity_name: mybatis_mapper
+    cardinality: '1'
+    mappings:
+    - from: group_id
+      to: group_id
+    - from: id
+      to: id
+
+  - name: context_entity
+    reference_entity_name: entity
+    cardinality: '0..1'
+    mappings:
+    - from: context_entity_name
+      to: name
+
+  - name: graphql_type
+    reference_entity_name: rdbms_table
+    cardinality: '1'
+    reverse_of: mybatis_mapper_entries

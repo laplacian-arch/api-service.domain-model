@@ -6,7 +6,9 @@ entities:
   properties:
   - name: index_name
     type: string
-    primary_key: true
+    optional: true
+    default_value: |
+      name
 
   - name: search_engine_client_name
     type: string

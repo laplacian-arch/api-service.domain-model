@@ -6,6 +6,9 @@ entities:
   properties:
   - name: rest_resource_name
     type: string
+    optional: true
+    default_value: |
+      name
 
   - name: rest_client_name
     type: string

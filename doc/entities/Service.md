@@ -56,19 +56,32 @@ Defines this service is depends_on_redis_cache or not.
   }
   ```
 
+### depends_on_mybatis: `Boolean`
+Defines this service is depends_on_mybatis or not.
+- **Code:**
+  ```kotlin
+  graphqlTypesBackedByRdbmsTable.any { it.mybatisMappers.isNotEmpty() }
+  ```
+
+### depends_on_oracle_jdbc_driver: `Boolean`
+Defines this service is depends_on_oracle_jdbc_driver or not.
+- **Code:**
+  ```kotlin
+  datasources.any { it.type == "oracle_jdbc" }
+  ```
+
 ## Relationships
+
+### datasource_entries: `List<DatasourceEntry>`
+datasource_entries
+- **Cardinality:** `*`
 
 ### datasources: `List<Datasource>`
 datasources
 - **Cardinality:** `*`
-
-### default_datasource: `Datasource?`
-default_datasource
-- **Cardinality:** `0..1`
 - **Code:**
   ```kotlin
-  datasources
-  .find{ it.name == "default" }
+  datasourceEntries.map{ it.datasource }
   ```
 
 ### graphql_type_entries: `List<GraphqlTypeEntry>`
@@ -153,6 +166,14 @@ graphql_types_backed_by_indexed_document
 - **Code:**
   ```kotlin
   graphqlTypes.map{ it as? IndexedDocument }.filterNotNull()
+  ```
+
+### graphql_types_backed_by_rdbms_table: `List<RdbmsTable>`
+graphql_types_backed_by_rdbms_table
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypes.map{ it as? RdbmsTable }.filterNotNull()
   ```
 
 ### rest_clients: `List<RestClient>`
