@@ -14,6 +14,7 @@ entities:
 
   - name: graphql_type
     reference_entity_name: graphql_type
+    reference_entity_namespace: laplacian.arch.api.service.graphql
     cardinality: '1'
     mappings:
     - from: name

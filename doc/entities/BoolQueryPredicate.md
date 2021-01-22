@@ -1,7 +1,7 @@
 # **BoolQueryPredicate**
-**namespace:** laplacian.arch.api.service.elasticsearch
+**namespace:** laplacian.arch.api.service.elasticsearch.query
 
-bool_query_predicate
+An entity describing a bool_query_predicate.
 
 
 
@@ -12,17 +12,17 @@ bool_query_predicate
 ## Relationships
 
 ### must: `List<ElasticsearchQueryPredicate>`
-must
+The must of this bool_query_predicate.
 - **Cardinality:** `*`
 
 ### must_not: `List<ElasticsearchQueryPredicate>`
-must_not
+The must_not of this bool_query_predicate.
 - **Cardinality:** `*`
 
 ### should: `List<ElasticsearchQueryPredicate>`
-should
+The should of this bool_query_predicate.
 - **Cardinality:** `*`
 
 ### filter: `List<ElasticsearchQueryPredicate>`
-filter
+The filter of this bool_query_predicate.
 - **Cardinality:** `*`

@@ -1,7 +1,7 @@
 # **ElasticSearchClient**
 **namespace:** laplacian.arch.api.service
 
-elastic_search_client
+An entity describing a elastic_search_client.
 
 
 
@@ -64,7 +64,7 @@ The configuration_name_of_max_in_memory_size of this elastic_search_client.
 ## Relationships
 
 ### configurations: `List<ServiceConfiguration>`
-configurations
+The configurations of this elastic_search_client.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
@@ -79,21 +79,21 @@ configurations
   ```
 
 ### endpoints: `ServiceConfiguration`
-endpoints
+The endpoints of this elastic_search_client.
 - **Cardinality:** `1`
 
 ### path_prefix: `ServiceConfiguration?`
-path_prefix
+The path_prefix of this elastic_search_client.
 - **Cardinality:** `0..1`
 
 ### connect_timeout: `ServiceConfiguration?`
-connect_timeout
+The connect_timeout of this elastic_search_client.
 - **Cardinality:** `0..1`
 
 ### socket_timeout: `ServiceConfiguration?`
-socket_timeout
+The socket_timeout of this elastic_search_client.
 - **Cardinality:** `0..1`
 
 ### max_in_memory_size: `ServiceConfiguration?`
-max_in_memory_size
+The max_in_memory_size of this elastic_search_client.
 - **Cardinality:** `0..1`

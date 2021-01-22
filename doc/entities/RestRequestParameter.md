@@ -1,7 +1,7 @@
 # **RestRequestParameter**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.rest
 
-rest_request_parameter
+An entity describing a rest_request_parameter.
 
 
 

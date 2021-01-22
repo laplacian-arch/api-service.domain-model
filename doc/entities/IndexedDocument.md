@@ -1,7 +1,7 @@
 # **IndexedDocument**
 **namespace:** laplacian.arch.api.service.graphql
 
-indexed_document
+An entity describing a indexed_document.
 
 
 
@@ -33,11 +33,11 @@ The default_searcher_name of this indexed_document.
 ## Relationships
 
 ### elasticsearch_index: `ElasticsearchIndex`
-elasticsearch_index
+The elasticsearch_index of this indexed_document.
 - **Cardinality:** `1`
 
 ### document_model: `Entity`
-document_model
+The document_model of this indexed_document.
 - **Cardinality:** `1`
 - **Code:**
   ```kotlin

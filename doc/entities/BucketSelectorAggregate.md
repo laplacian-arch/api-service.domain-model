@@ -1,7 +1,7 @@
 # **BucketSelectorAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-bucket_selector_aggregate
+An entity describing a bucket_selector_aggregate.
 
 
 
@@ -15,5 +15,5 @@ The script of this bucket_selector_aggregate.
 ## Relationships
 
 ### buckets_path: `List<BucketScriptPath>`
-buckets_path
+The buckets_path of this bucket_selector_aggregate.
 - **Cardinality:** `1..*`

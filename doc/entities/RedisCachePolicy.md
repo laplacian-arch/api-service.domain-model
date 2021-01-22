@@ -1,7 +1,7 @@
 # **RedisCachePolicy**
 **namespace:** laplacian.arch.api.service.cache
 
-redis_cache_policy
+An entity describing a redis_cache_policy.
 
 
 

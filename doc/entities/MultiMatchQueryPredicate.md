@@ -1,7 +1,7 @@
 # **MultiMatchQueryPredicate**
-**namespace:** laplacian.arch.api.service.elasticsearch
+**namespace:** laplacian.arch.api.service.elasticsearch.query
 
-multi_match_query_predicate
+An entity describing a multi_match_query_predicate.
 
 
 

@@ -1,6 +1,6 @@
 entities:
 - name: elasticsearch_query_predicate
-  namespace: laplacian.arch.api.service.elasticsearch
+  namespace: laplacian.arch.api.service.elasticsearch.query
 
   properties:
   - name: type

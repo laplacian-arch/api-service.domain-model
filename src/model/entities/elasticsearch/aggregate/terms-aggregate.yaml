@@ -1,9 +1,10 @@
 entities:
 - name: terms_aggregate
+  namespace: laplacian.arch.api.service.elasticsearch.aggregate
   description: |
     A multi-bucket value source based aggregation where buckets are dynamically built
     - one per unique value.
-  subtype_of: elasticsearch_aggregate
+  supertype_name: elasticsearch_aggregate
   subtype_key_value: terms
 
   properties:

@@ -1,7 +1,7 @@
 # **FiltersAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-filters_aggregate
+An entity describing a filters_aggregate.
 
 
 
@@ -12,5 +12,5 @@ filters_aggregate
 ## Relationships
 
 ### filters: `List<KeyedFilter>`
-filters
+The filters of this filters_aggregate.
 - **Cardinality:** `1..*`

@@ -25,11 +25,13 @@ entities:
   relationships:
   - name: expiration_time
     reference_entity_name: duration
+    reference_entity_namespace: laplacian.arch.api.service
     cardinality: '0..1'
     aggregate: true
 
   - name: configurations
     reference_entity_name: configuration_binding
+    reference_entity_namespace: laplacian.arch.api.service
     cardinality: '*'
     aggregate: true
 

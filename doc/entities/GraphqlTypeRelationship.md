@@ -1,7 +1,7 @@
 # **GraphqlTypeRelationship**
 **namespace:** laplacian.arch.api.service.graphql
 
-graphql_type_relationship
+An entity describing a graphql_type_relationship.
 
 
 
@@ -42,9 +42,9 @@ Defines this graphql_type_relationship is nullable or not.
 ## Relationships
 
 ### referenced_graphql_type: `GraphqlType`
-referenced_graphql_type
+The referenced_graphql_type of this graphql_type_relationship.
 - **Cardinality:** `1`
 
 ### referencing_graphql_type: `GraphqlType`
-referencing_graphql_type
+The referencing_graphql_type of this graphql_type_relationship.
 - **Cardinality:** `1`

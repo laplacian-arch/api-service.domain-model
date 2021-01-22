@@ -1,7 +1,7 @@
 # **RestOperation**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.rest
 
-rest_operation
+An entity describing a rest_operation.
 
 
 
@@ -39,35 +39,35 @@ The cache_policy_name of this rest_operation.
 ## Relationships
 
 ### arguments: `List<ApiCallArgument>`
-arguments
+The arguments of this rest_operation.
 - **Cardinality:** `*`
 
 ### path_parameters: `List<RestRequestParameter>`
-path_parameters
+The path_parameters of this rest_operation.
 - **Cardinality:** `*`
 
 ### query_parameters: `List<RestRequestParameter>`
-query_parameters
+The query_parameters of this rest_operation.
 - **Cardinality:** `*`
 
 ### http_headers: `List<RestRequestParameter>`
-http_headers
+The http_headers of this rest_operation.
 - **Cardinality:** `*`
 
 ### response_model: `Entity`
-response_model
+The response_model of this rest_operation.
 - **Cardinality:** `1`
 
 ### rest_resource: `RestResource`
-rest_resource
+The rest_resource of this rest_operation.
 - **Cardinality:** `1`
 
 ### cache_policy: `CachePolicy?`
-cache_policy
+The cache_policy of this rest_operation.
 - **Cardinality:** `0..1`
 
 ### effective_cache_policy: `CachePolicy?`
-effective_cache_policy
+The effective_cache_policy of this rest_operation.
 - **Cardinality:** `0..1`
 - **Code:**
   ```kotlin

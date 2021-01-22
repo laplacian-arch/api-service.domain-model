@@ -1,7 +1,7 @@
 # **Duration**
 **namespace:** laplacian.arch.api.service
 
-duration
+An entity describing a duration.
 
 
 

@@ -46,7 +46,7 @@ entities:
 
 - name: graphql_indexed_document_relationship
   namespace: laplacian.arch.api.service.graphql
-  subtype_of: graphql_type_relationship
+  supertype_name: graphql_type_relationship
   subtype_key_value: indexed_document
 
   properties:
@@ -67,7 +67,7 @@ entities:
     aggregate: true
 
 - name: graphql_type_relationship_field_mapping
-  namespace: laplacian.arch.api.service.graphql_type
+  namespace: laplacian.arch.api.service.graphql
 
   properties:
   - name: from

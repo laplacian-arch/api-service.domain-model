@@ -1,7 +1,7 @@
 # **ElasticsearchQueryScoreSort**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.query
 
-elasticsearch_query_score_sort
+An entity describing a elasticsearch_query_score_sort.
 
 
 

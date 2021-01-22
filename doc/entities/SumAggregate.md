@@ -1,7 +1,7 @@
 # **SumAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-sum_aggregate
+An entity describing a sum_aggregate.
 
 
 

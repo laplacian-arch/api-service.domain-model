@@ -1,7 +1,7 @@
 # **OracleDatasource**
 **namespace:** laplacian.arch.api.service.datasource
 
-oracle_datasource
+An entity describing a oracle_datasource.
 
 
 

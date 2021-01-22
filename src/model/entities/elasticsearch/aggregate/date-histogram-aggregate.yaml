@@ -1,6 +1,8 @@
 entities:
 - name: date_histogram_aggregate
-  subtype_of: elasticsearch_aggregate
+  namespace: laplacian.arch.api.service.elasticsearch.aggregate
+  supertype_name: elasticsearch_aggregate
+  supertype_namespace: laplacian.arch.api.service.elasticsearch.aggregate
   subtype_key_value: date_histogram
 
   properties:
@@ -36,6 +38,7 @@ entities:
     aggregate: true
 
 - name: date_histogram_extended_bounds
+  namespace: laplacian.arch.api.service.elasticsearch.aggregate
   properties:
   - name: min
     type: string
@@ -46,7 +49,7 @@ entities:
     optional: true
 
 - name: date_histogram_interval
-
+  namespace: laplacian.arch.api.service.elasticsearch.aggregate
   properties:
   - name: type
     type: string
@@ -69,7 +72,9 @@ entities:
       value.contains("\${")
 
 - name: date_histogram_calendar_interval
-  subtype_of: date_histogram_interval
+  namespace: laplacian.arch.api.service.elasticsearch.aggregate
+  supertype_name: date_histogram_interval
+  supertype_namespace: laplacian.arch.api.service.elasticsearch.aggregate
   subtype_key_value: calendar
 
   properties:
@@ -80,7 +85,9 @@ entities:
         \$\{[^}]*\}|minute|hour|day|week|month|quarter|year
 
 - name: date_histogram_fixed_interval
-  subtype_of: date_histogram_interval
+  namespace: laplacian.arch.api.service.elasticsearch.aggregate
+  supertype_name: date_histogram_interval
+  supertype_namespace: laplacian.arch.api.service.elasticsearch.aggregate
   subtype_key_value: fixed
 
   properties:

@@ -1,7 +1,7 @@
 # **Service**
 **namespace:** laplacian.arch.api.service
 
-service
+An entity describing a service.
 
 
 
@@ -73,11 +73,11 @@ Defines this service is depends_on_oracle_jdbc_driver or not.
 ## Relationships
 
 ### datasource_entries: `List<DatasourceEntry>`
-datasource_entries
+The datasource_entries of this service.
 - **Cardinality:** `*`
 
 ### datasources: `List<Datasource>`
-datasources
+The datasources of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
@@ -85,65 +85,19 @@ datasources
   ```
 
 ### graphql_type_entries: `List<GraphqlTypeEntry>`
-graphql_type_entries
+The graphql_type_entries of this service.
 - **Cardinality:** `*`
 
 ### graphql_types: `List<GraphqlType>`
-graphql_types
+The graphql_types of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
   graphqlTypeEntries.map{ it.graphqlType }.distinct()
   ```
 
-### entities_used_in_graphql: `List<Entity>`
-entities_used_in_graphql
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  graphqlTypes
-    .map{ if (it is EntityOnDatabase) it.entity else null }
-    .filterNotNull()
-    .distinct()
-  ```
-
-### top_level_entities_used_in_graphql: `List<Entity>`
-top_level_entities_used_in_graphql
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  entitiesUsedInGraphql.filter{ it.topLevel }
-  ```
-
-### graphql_types_backed_by_database_table: `List<EntityOnDatabase>`
-graphql_types_backed_by_database_table
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  graphqlTypes.map{ it as? EntityOnDatabase }.filterNotNull()
-  ```
-
-### entities_backing_graphql_type: `List<Entity>`
-entities_backing_graphql_type
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  graphqlTypesBackedByDatabaseTable
-  .map{ it.entity }
-  .distinct()
-  ```
-
-### top_level_entities_backing_graphql_type: `List<Entity>`
-top_level_entities_backing_graphql_type
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  entitiesBackingGraphqlType
-  .filter{ it.topLevel }
-  ```
-
 ### graphql_types_backed_by_external_rest_resource: `List<ExternalRestResource>`
-graphql_types_backed_by_external_rest_resource
+The graphql_types_backed_by_external_rest_resource of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
@@ -151,7 +105,7 @@ graphql_types_backed_by_external_rest_resource
   ```
 
 ### rest_resources_backing_graphql_type: `List<RestResource>`
-rest_resources_backing_graphql_type
+The rest_resources_backing_graphql_type of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
@@ -161,7 +115,7 @@ rest_resources_backing_graphql_type
   ```
 
 ### graphql_types_backed_by_indexed_document: `List<IndexedDocument>`
-graphql_types_backed_by_indexed_document
+The graphql_types_backed_by_indexed_document of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
@@ -169,23 +123,27 @@ graphql_types_backed_by_indexed_document
   ```
 
 ### graphql_types_backed_by_rdbms_table: `List<RdbmsTable>`
-graphql_types_backed_by_rdbms_table
+The graphql_types_backed_by_rdbms_table of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
   graphqlTypes.map{ it as? RdbmsTable }.filterNotNull()
   ```
 
-### rest_clients: `List<RestClient>`
-rest_clients
+### graphql_types_backed_by_static_data: `List<StaticData>`
+The graphql_types_backed_by_static_data of this service.
 - **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypes.map{ it as? StaticData }.filterNotNull()
+  ```
 
 ### elastic_search_clients: `List<ElasticSearchClient>`
-elastic_search_clients
+The elastic_search_clients of this service.
 - **Cardinality:** `*`
 
 ### elasticsearch_indexes: `List<ElasticsearchIndex>`
-elasticsearch_indexes
+The elasticsearch_indexes of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
@@ -194,7 +152,7 @@ elasticsearch_indexes
   ```
 
 ### graphql_type_relationships: `List<GraphqlTypeRelationship>`
-graphql_type_relationships
+The graphql_type_relationships of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
@@ -202,11 +160,11 @@ graphql_type_relationships
   ```
 
 ### configuration_categories: `List<ServiceConfigurationCategory>`
-configuration_categories
+The configuration_categories of this service.
 - **Cardinality:** `*`
 
 ### cache_policies: `List<CachePolicy>`
-cache_policies
+The cache_policies of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin

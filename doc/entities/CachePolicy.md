@@ -1,7 +1,7 @@
 # **CachePolicy**
 **namespace:** laplacian.arch.api.service.cache
 
-cache_policy
+An entity describing a cache_policy.
 
 
 
@@ -33,9 +33,9 @@ The key of this cache_policy.
 ## Relationships
 
 ### expiration_time: `Duration?`
-expiration_time
+The expiration_time of this cache_policy.
 - **Cardinality:** `0..1`
 
 ### configurations: `List<ConfigurationBinding>`
-configurations
+The configurations of this cache_policy.
 - **Cardinality:** `*`

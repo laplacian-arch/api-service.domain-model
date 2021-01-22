@@ -1,7 +1,7 @@
 # **MybatisMapper**
-**namespace:** laplacian.arch.api.service.mybatis
+**namespace:** laplacian.arch.api.service.rdb.mybatis
 
-mybatis_mapper
+An entity describing a mybatis_mapper.
 
 
 
@@ -29,9 +29,9 @@ The statement of this mybatis_mapper.
 ## Relationships
 
 ### parameters: `List<ApiCallArgument>`
-parameters
+The parameters of this mybatis_mapper.
 - **Cardinality:** `*`
 
 ### result_model: `Entity?`
-result_model
+The result_model of this mybatis_mapper.
 - **Cardinality:** `0..1`

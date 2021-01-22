@@ -1,0 +1,78 @@
+entities:
+- name: static_data
+  namespace: laplacian.arch.api.service.graphql
+  supertype_name: graphql_type
+
+  properties:
+  - name: data_model_name
+    type: string
+    optional: true
+    default_value: |
+      name
+
+  - name: default_query_name
+    type: string
+    optional: true
+    default_value: |
+      "all"
+
+  relationships:
+  - name: data_model
+    cardinality: '1'
+    reference_entity_name: entity
+    reference_entity_namespace: laplacian.metamodel
+    mappings:
+    - from: data_model_name
+      to: name
+
+  - name: queries
+    cardinality: '*'
+    reference_entity_name: query
+    reference_entity_namespace: laplacian.arch.api.service.graphql.static_data
+    aggregate: true
+
+- name: query
+  namespace: laplacian.arch.api.service.graphql.static_data
+
+  properties:
+  - name: name
+    type: string
+    primary_key: true
+
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      name
+
+  - name: result_model_name
+    type: string
+    optional: true
+    default_value: |
+      graphqlType.dataModel.name
+
+  - name: result_model_namespace
+    type: string
+    optional: true
+    default_value: |
+      graphqlType.dataModel.namespace
+
+  - name: snippet
+    type: string
+
+  relationships:
+  - name: graphql_type
+    cardinality: '1'
+    reference_entity_name: static_data
+    reference_entity_namespace: laplacian.arch.api.service.graphql
+    reverse_of: queries
+
+  - name: result_model
+    cardinality: '1'
+    reference_entity_name: entity
+    reference_entity_namespace: laplacian.metamodel
+    mappings:
+    - from: result_model_name
+      to: name
+    - from: result_model_namespace
+      to: namespace

@@ -1,7 +1,7 @@
 # **MaxAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-max_aggregate
+An entity describing a max_aggregate.
 
 
 

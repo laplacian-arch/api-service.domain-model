@@ -1,7 +1,7 @@
 # **GraphqlType**
 **namespace:** laplacian.arch.api.service.graphql
 
-graphql_type
+An entity describing a graphql_type.
 
 
 
@@ -26,5 +26,5 @@ The description of this graphql_type.
 ## Relationships
 
 ### relationships: `List<GraphqlTypeRelationship>`
-relationships
+The relationships of this graphql_type.
 - **Cardinality:** `*`

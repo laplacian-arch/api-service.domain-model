@@ -30,5 +30,5 @@ The description of this datasource.
 ## Relationships
 
 ### configurations: `List<ConfigurationBinding>`
-configurations
+The configurations of this datasource.
 - **Cardinality:** `*`

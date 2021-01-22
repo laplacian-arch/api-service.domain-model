@@ -1,7 +1,7 @@
 # **BucketScriptPath**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-bucket_script_path
+An entity describing a bucket_script_path.
 
 
 

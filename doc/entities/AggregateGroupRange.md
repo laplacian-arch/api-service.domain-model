@@ -1,7 +1,7 @@
 # **AggregateGroupRange**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-aggregate_group_range
+An entity describing a aggregate_group_range.
 
 
 

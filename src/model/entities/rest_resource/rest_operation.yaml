@@ -1,6 +1,6 @@
 entities:
 - name: rest_operation
-  namespace: laplacian.arch.api.service
+  namespace: laplacian.arch.api.service.rest
 
   properties:
   - name: method
@@ -34,6 +34,7 @@ entities:
   relationships:
   - name: arguments
     reference_entity_name: api_call_argument
+    reference_entity_namespace: laplacian.arch.api.service
     cardinality: '*'
     aggregate: true
 
@@ -54,6 +55,7 @@ entities:
 
   - name: response_model
     reference_entity_name: entity
+    reference_entity_namespace: laplacian.metamodel
     cardinality: '1'
     mappings:
     - from: response_model_name
@@ -66,6 +68,7 @@ entities:
 
   - name: cache_policy
     reference_entity_name: cache_policy
+    reference_entity_namespace: laplacian.arch.api.service.cache
     cardinality: '0..1'
     mappings:
     - from: cache_policy_name
@@ -73,6 +76,7 @@ entities:
 
   - name: effective_cache_policy
     reference_entity_name: cache_policy
+    reference_entity_namespace: laplacian.arch.api.service.cache
     cardinality: '0..1'
     snippet: |
       cachePolicy ?: restResource.cachePolicy

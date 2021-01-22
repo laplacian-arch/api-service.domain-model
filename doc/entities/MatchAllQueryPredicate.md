@@ -1,7 +1,7 @@
 # **MatchAllQueryPredicate**
-**namespace:** laplacian.arch.api.service.elasticsearch
+**namespace:** laplacian.arch.api.service.elasticsearch.query
 
-match_all_query_predicate
+An entity describing a match_all_query_predicate.
 
 
 

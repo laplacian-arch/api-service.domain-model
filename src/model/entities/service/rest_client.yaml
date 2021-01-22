@@ -1,8 +1,0 @@
-entities:
-- name: rest_client
-  namespace: laplacian.arch.api.service
-
-  properties:
-  - name: name
-    type: string
-    primary_key: true

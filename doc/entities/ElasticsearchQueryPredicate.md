@@ -1,7 +1,7 @@
 # **ElasticsearchQueryPredicate**
-**namespace:** laplacian.arch.api.service.elasticsearch
+**namespace:** laplacian.arch.api.service.elasticsearch.query
 
-elasticsearch_query_predicate
+An entity describing a elasticsearch_query_predicate.
 
 
 

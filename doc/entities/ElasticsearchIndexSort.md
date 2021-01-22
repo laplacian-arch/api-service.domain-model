@@ -1,7 +1,7 @@
 # **ElasticsearchIndexSort**
 **namespace:** laplacian.arch.api.service.elasticsearch
 
-elasticsearch_index_sort
+An entity describing a elasticsearch_index_sort.
 
 
 

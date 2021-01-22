@@ -1,7 +1,7 @@
 # **ElasticsearchQueryFieldSort**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.query
 
-elasticsearch_query_field_sort
+An entity describing a elasticsearch_query_field_sort.
 
 
 

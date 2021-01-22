@@ -1,7 +1,7 @@
 # **FieldSort**
-**namespace:** laplacian.arch.api.service.elasticsearch
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-field_sort
+An entity describing a field_sort.
 
 
 

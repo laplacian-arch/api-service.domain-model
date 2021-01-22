@@ -1,7 +1,7 @@
 # **ServiceConfigurationCategory**
 **namespace:** laplacian.arch.api.service
 
-service_configuration_category
+An entity describing a service_configuration_category.
 
 
 
@@ -16,5 +16,5 @@ The name of this service_configuration_category.
 ## Relationships
 
 ### configurations: `List<ServiceConfiguration>`
-configurations
+The configurations of this service_configuration_category.
 - **Cardinality:** `*`

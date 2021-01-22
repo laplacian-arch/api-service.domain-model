@@ -1,7 +1,7 @@
 # **GraphqlIndexedDocumentRelationship**
 **namespace:** laplacian.arch.api.service.graphql
 
-graphql_indexed_document_relationship
+An entity describing a graphql_indexed_document_relationship.
 
 
 
@@ -26,5 +26,5 @@ The resolver_name of this graphql_indexed_document_relationship.
 ## Relationships
 
 ### field_mappings: `List<GraphqlTypeRelationshipFieldMapping>`
-field_mappings
+The field_mappings of this graphql_indexed_document_relationship.
 - **Cardinality:** `1..*`

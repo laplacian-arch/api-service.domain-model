@@ -1,7 +1,7 @@
 # **GraphqlTypeEntry**
 **namespace:** laplacian.arch.api.service
 
-graphql_type_entry
+An entity describing a graphql_type_entry.
 
 
 
@@ -15,9 +15,9 @@ The name of this graphql_type_entry.
 ## Relationships
 
 ### service: `Service`
-service
+The service of this graphql_type_entry.
 - **Cardinality:** `1`
 
 ### graphql_type: `GraphqlType`
-graphql_type
+The graphql_type of this graphql_type_entry.
 - **Cardinality:** `1`

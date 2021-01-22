@@ -1,7 +1,7 @@
 # **ElasticsearchAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-elasticsearch_aggregate
+An entity describing a elasticsearch_aggregate.
 
 
 
@@ -29,5 +29,5 @@ The field of this elasticsearch_aggregate.
 ## Relationships
 
 ### sub_aggregates: `List<ElasticsearchAggregate>`
-sub_aggregates
+The sub_aggregates of this elasticsearch_aggregate.
 - **Cardinality:** `*`

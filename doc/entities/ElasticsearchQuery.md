@@ -1,7 +1,7 @@
 # **ElasticsearchQuery**
 **namespace:** laplacian.arch.api.service.elasticsearch
 
-elasticsearch_query
+An entity describing a elasticsearch_query.
 
 
 
@@ -57,17 +57,17 @@ Defines this elasticsearch_query is variable_page_number or not.
 ## Relationships
 
 ### predicate: `ElasticsearchQueryPredicate?`
-predicate
+The predicate of this elasticsearch_query.
 - **Cardinality:** `0..1`
 
 ### sort: `List<ElasticsearchQuerySort>`
-sort
+The sort of this elasticsearch_query.
 - **Cardinality:** `*`
 
 ### aggregates: `List<ElasticsearchAggregate>`
-aggregates
+The aggregates of this elasticsearch_query.
 - **Cardinality:** `*`
 
 ### parameters: `List<ApiCallArgument>`
-parameters
+The parameters of this elasticsearch_query.
 - **Cardinality:** `*`

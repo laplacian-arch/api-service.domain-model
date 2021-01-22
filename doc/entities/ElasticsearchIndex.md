@@ -1,7 +1,7 @@
 # **ElasticsearchIndex**
 **namespace:** laplacian.arch.api.service.elasticsearch
 
-elasticsearch_index
+An entity describing a elasticsearch_index.
 
 
 
@@ -26,13 +26,13 @@ The document_model_name of this elasticsearch_index.
 ## Relationships
 
 ### document_model: `Entity`
-document_model
+The document_model of this elasticsearch_index.
 - **Cardinality:** `1`
 
 ### queries: `List<ElasticsearchQuery>`
-queries
+The queries of this elasticsearch_index.
 - **Cardinality:** `*`
 
 ### default_sorts: `List<ElasticsearchIndexSort>`
-default_sorts
+The default_sorts of this elasticsearch_index.
 - **Cardinality:** `*`

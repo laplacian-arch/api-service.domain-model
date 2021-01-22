@@ -1,7 +1,7 @@
 # **KeyedFilter**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-keyed_filter
+An entity describing a keyed_filter.
 
 
 
@@ -16,5 +16,5 @@ The key of this keyed_filter.
 ## Relationships
 
 ### predicate: `ElasticsearchQueryPredicate`
-predicate
+The predicate of this keyed_filter.
 - **Cardinality:** `1`

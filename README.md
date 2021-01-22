@@ -76,143 +76,143 @@ $ ./script/generate
 
 
 - [**ApiCallArgument**](<./doc/entities/ApiCallArgument.md>)
-api_call_argument
+An entity describing a api_call_argument.
 - [**CachePolicy**](<./doc/entities/CachePolicy.md>)
-cache_policy
+An entity describing a cache_policy.
 - [**HeapMemoryCachePolicy**](<./doc/entities/HeapMemoryCachePolicy.md>)
-heap_memory_cache_policy
+An entity describing a heap_memory_cache_policy.
 - [**RedisCachePolicy**](<./doc/entities/RedisCachePolicy.md>)
-redis_cache_policy
+An entity describing a redis_cache_policy.
 - [**Datasource**](<./doc/entities/Datasource.md>)
 A *DataSource* represents an interface through which a client application access to a data store.
 This includes the following models.
 - The entity that the datastore exposes to the client
 - Statement issued by the client to the datastore
 - [**DatasourceEntry**](<./doc/entities/DatasourceEntry.md>)
-datasource_entry
+An entity describing a datasource_entry.
 - [**OracleDatasource**](<./doc/entities/OracleDatasource.md>)
-oracle_datasource
+An entity describing a oracle_datasource.
 - [**Duration**](<./doc/entities/Duration.md>)
-duration
+An entity describing a duration.
 - [**AvgBucketAggregate**](<./doc/entities/AvgBucketAggregate.md>)
-avg_bucket_aggregate
+An entity describing a avg_bucket_aggregate.
 - [**BucketScriptAggregate**](<./doc/entities/BucketScriptAggregate.md>)
-bucket_script_aggregate
+An entity describing a bucket_script_aggregate.
 - [**BucketScriptPath**](<./doc/entities/BucketScriptPath.md>)
-bucket_script_path
+An entity describing a bucket_script_path.
 - [**BucketSelectorAggregate**](<./doc/entities/BucketSelectorAggregate.md>)
-bucket_selector_aggregate
+An entity describing a bucket_selector_aggregate.
 - [**BucketSortAggregate**](<./doc/entities/BucketSortAggregate.md>)
-bucket_sort_aggregate
+An entity describing a bucket_sort_aggregate.
 - [**FieldSort**](<./doc/entities/FieldSort.md>)
-field_sort
+An entity describing a field_sort.
 - [**DateHistogramAggregate**](<./doc/entities/DateHistogramAggregate.md>)
-date_histogram_aggregate
+An entity describing a date_histogram_aggregate.
 - [**DateHistogramExtendedBounds**](<./doc/entities/DateHistogramExtendedBounds.md>)
-date_histogram_extended_bounds
+An entity describing a date_histogram_extended_bounds.
 - [**DateHistogramInterval**](<./doc/entities/DateHistogramInterval.md>)
-date_histogram_interval
+An entity describing a date_histogram_interval.
 - [**DateHistogramCalendarInterval**](<./doc/entities/DateHistogramCalendarInterval.md>)
-date_histogram_calendar_interval
+An entity describing a date_histogram_calendar_interval.
 - [**DateHistogramFixedInterval**](<./doc/entities/DateHistogramFixedInterval.md>)
-date_histogram_fixed_interval
+An entity describing a date_histogram_fixed_interval.
 - [**DateRangeAggregate**](<./doc/entities/DateRangeAggregate.md>)
-date_range_aggregate
+An entity describing a date_range_aggregate.
 - [**AggregateGroupRange**](<./doc/entities/AggregateGroupRange.md>)
-aggregate_group_range
+An entity describing a aggregate_group_range.
 - [**FilterAggregate**](<./doc/entities/FilterAggregate.md>)
-filter_aggregate
+An entity describing a filter_aggregate.
 - [**FiltersAggregate**](<./doc/entities/FiltersAggregate.md>)
-filters_aggregate
+An entity describing a filters_aggregate.
 - [**KeyedFilter**](<./doc/entities/KeyedFilter.md>)
-keyed_filter
+An entity describing a keyed_filter.
 - [**SumAggregate**](<./doc/entities/SumAggregate.md>)
-sum_aggregate
+An entity describing a sum_aggregate.
 - [**AvgAggregate**](<./doc/entities/AvgAggregate.md>)
-avg_aggregate
+An entity describing a avg_aggregate.
 - [**MinAggregate**](<./doc/entities/MinAggregate.md>)
-min_aggregate
+An entity describing a min_aggregate.
 - [**MaxAggregate**](<./doc/entities/MaxAggregate.md>)
-max_aggregate
+An entity describing a max_aggregate.
 - [**ValueCountAggregate**](<./doc/entities/ValueCountAggregate.md>)
-value_count_aggregate
+An entity describing a value_count_aggregate.
 - [**TermsAggregate**](<./doc/entities/TermsAggregate.md>)
 A multi-bucket value source based aggregation where buckets are dynamically built
 - one per unique value.
 - [**ElasticsearchAggregate**](<./doc/entities/ElasticsearchAggregate.md>)
-elasticsearch_aggregate
+An entity describing a elasticsearch_aggregate.
 - [**ElasticsearchIndex**](<./doc/entities/ElasticsearchIndex.md>)
-elasticsearch_index
+An entity describing a elasticsearch_index.
 - [**ElasticsearchIndexSort**](<./doc/entities/ElasticsearchIndexSort.md>)
-elasticsearch_index_sort
+An entity describing a elasticsearch_index_sort.
 - [**ElasticsearchQueryPredicate**](<./doc/entities/ElasticsearchQueryPredicate.md>)
-elasticsearch_query_predicate
+An entity describing a elasticsearch_query_predicate.
 - [**ElasticsearchQuerySort**](<./doc/entities/ElasticsearchQuerySort.md>)
-elasticsearch_query_sort
+An entity describing a elasticsearch_query_sort.
 - [**ElasticsearchQueryScoreSort**](<./doc/entities/ElasticsearchQueryScoreSort.md>)
-elasticsearch_query_score_sort
+An entity describing a elasticsearch_query_score_sort.
 - [**ElasticsearchQueryFieldSort**](<./doc/entities/ElasticsearchQueryFieldSort.md>)
-elasticsearch_query_field_sort
+An entity describing a elasticsearch_query_field_sort.
 - [**ElasticsearchQuery**](<./doc/entities/ElasticsearchQuery.md>)
-elasticsearch_query
+An entity describing a elasticsearch_query.
 - [**BoolQueryPredicate**](<./doc/entities/BoolQueryPredicate.md>)
-bool_query_predicate
+An entity describing a bool_query_predicate.
 - [**ExistsQueryPredicate**](<./doc/entities/ExistsQueryPredicate.md>)
-exists_query_predicate
+An entity describing a exists_query_predicate.
 - [**MatchAllQueryPredicate**](<./doc/entities/MatchAllQueryPredicate.md>)
-match_all_query_predicate
+An entity describing a match_all_query_predicate.
 - [**MatchQueryPredicate**](<./doc/entities/MatchQueryPredicate.md>)
-match_query_predicate
+An entity describing a match_query_predicate.
 - [**MultiMatchQueryPredicate**](<./doc/entities/MultiMatchQueryPredicate.md>)
-multi_match_query_predicate
+An entity describing a multi_match_query_predicate.
 - [**QueryStringPredicate**](<./doc/entities/QueryStringPredicate.md>)
-query_string_predicate
+An entity describing a query_string_predicate.
 - [**RangeQueryPredicate**](<./doc/entities/RangeQueryPredicate.md>)
-range_query_predicate
+An entity describing a range_query_predicate.
 - [**TermQueryPredicate**](<./doc/entities/TermQueryPredicate.md>)
-term_query_predicate
+An entity describing a term_query_predicate.
 - [**TermsQueryPredicate**](<./doc/entities/TermsQueryPredicate.md>)
-terms_query_predicate
-- [**EntityOnDatabase**](<./doc/entities/EntityOnDatabase.md>)
-entity_on_database
+An entity describing a terms_query_predicate.
 - [**ExternalRestResource**](<./doc/entities/ExternalRestResource.md>)
-external_rest_resource
+An entity describing a external_rest_resource.
 - [**IndexedDocument**](<./doc/entities/IndexedDocument.md>)
-indexed_document
+An entity describing a indexed_document.
 - [**RdbmsTable**](<./doc/entities/RdbmsTable.md>)
-rdbms_table
+An entity describing a rdbms_table.
+- [**StaticData**](<./doc/entities/StaticData.md>)
+An entity describing a static_data.
+- [**Query**](<./doc/entities/Query.md>)
+An entity describing a query.
 - [**MybatisMapper**](<./doc/entities/MybatisMapper.md>)
-mybatis_mapper
+An entity describing a mybatis_mapper.
 - [**MybatisMapperEntry**](<./doc/entities/MybatisMapperEntry.md>)
-mybatis_mapper_entry
+An entity describing a mybatis_mapper_entry.
 - [**RestOperation**](<./doc/entities/RestOperation.md>)
-rest_operation
+An entity describing a rest_operation.
 - [**RestRequestParameter**](<./doc/entities/RestRequestParameter.md>)
-rest_request_parameter
+An entity describing a rest_request_parameter.
 - [**RestResource**](<./doc/entities/RestResource.md>)
-rest_resource
+An entity describing a rest_resource.
 - [**Service**](<./doc/entities/Service.md>)
-service
+An entity describing a service.
 - [**ElasticSearchClient**](<./doc/entities/ElasticSearchClient.md>)
-elastic_search_client
+An entity describing a elastic_search_client.
 - [**GraphqlType**](<./doc/entities/GraphqlType.md>)
-graphql_type
+An entity describing a graphql_type.
 - [**GraphqlTypeEntry**](<./doc/entities/GraphqlTypeEntry.md>)
-graphql_type_entry
+An entity describing a graphql_type_entry.
 - [**GraphqlTypeRelationship**](<./doc/entities/GraphqlTypeRelationship.md>)
-graphql_type_relationship
+An entity describing a graphql_type_relationship.
 - [**GraphqlIndexedDocumentRelationship**](<./doc/entities/GraphqlIndexedDocumentRelationship.md>)
-graphql_indexed_document_relationship
+An entity describing a graphql_indexed_document_relationship.
 - [**GraphqlTypeRelationshipFieldMapping**](<./doc/entities/GraphqlTypeRelationshipFieldMapping.md>)
-graphql_type_relationship_field_mapping
-- [**RestClient**](<./doc/entities/RestClient.md>)
-rest_client
+An entity describing a graphql_type_relationship_field_mapping.
 - [**ServiceConfiguration**](<./doc/entities/ServiceConfiguration.md>)
-service_configuration
+An entity describing a service_configuration.
 - [**ServiceConfigurationCategory**](<./doc/entities/ServiceConfigurationCategory.md>)
-service_configuration_category
+An entity describing a service_configuration_category.
 - [**ConfigurationBinding**](<./doc/entities/ConfigurationBinding.md>)
-configuration_binding
+An entity describing a configuration_binding.
 ### Script List
 
 
@@ -357,10 +357,10 @@ configuration_binding
 - [src/model/entities/elasticsearch/predicate/range-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/range-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/term-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/term-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml>)
-- [src/model/entities/graphql_type/entity_on_database.yaml](<./src/model/entities/graphql_type/entity_on_database.yaml>)
 - [src/model/entities/graphql_type/external_rest_resource.yaml](<./src/model/entities/graphql_type/external_rest_resource.yaml>)
 - [src/model/entities/graphql_type/indexed_document.yaml](<./src/model/entities/graphql_type/indexed_document.yaml>)
 - [src/model/entities/graphql_type/rdbms_table.yaml](<./src/model/entities/graphql_type/rdbms_table.yaml>)
+- [src/model/entities/graphql_type/static_data.yaml](<./src/model/entities/graphql_type/static_data.yaml>)
 - [src/model/entities/mybatis/mybatis_mapper_entry.yaml](<./src/model/entities/mybatis/mybatis_mapper_entry.yaml>)
 - [src/model/entities/mybatis/mybatis_mapper.yaml](<./src/model/entities/mybatis/mybatis_mapper.yaml>)
 - [src/model/entities/rest_resource/rest_operation.yaml](<./src/model/entities/rest_resource/rest_operation.yaml>)
@@ -370,7 +370,6 @@ configuration_binding
 - [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)
 - [src/model/entities/service/graphql_type_relationship.yaml](<./src/model/entities/service/graphql_type_relationship.yaml>)
 - [src/model/entities/service/graphql_type.yaml](<./src/model/entities/service/graphql_type.yaml>)
-- [src/model/entities/service/rest_client.yaml](<./src/model/entities/service/rest_client.yaml>)
 - [src/model/entities/service/service_configuration.yaml](<./src/model/entities/service/service_configuration.yaml>)
 - [src/model/entities/service.yml](<./src/model/entities/service.yml>)
 - [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)

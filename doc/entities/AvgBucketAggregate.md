@@ -1,7 +1,7 @@
 # **AvgBucketAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-avg_bucket_aggregate
+An entity describing a avg_bucket_aggregate.
 
 
 

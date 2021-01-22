@@ -26,5 +26,6 @@ entities:
   relationships:
   - name: configurations
     reference_entity_name: configuration_binding
+    reference_entity_namespace: laplacian.arch.api.service
     cardinality: '*'
     aggregate: true

@@ -1,7 +1,7 @@
 # **MinAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-min_aggregate
+An entity describing a min_aggregate.
 
 
 

@@ -1,7 +1,7 @@
 # **ExistsQueryPredicate**
-**namespace:** laplacian.arch.api.service.elasticsearch
+**namespace:** laplacian.arch.api.service.elasticsearch.query
 
-exists_query_predicate
+An entity describing a exists_query_predicate.
 
 
 

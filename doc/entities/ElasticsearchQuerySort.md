@@ -1,7 +1,7 @@
 # **ElasticsearchQuerySort**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.query
 
-elasticsearch_query_sort
+An entity describing a elasticsearch_query_sort.
 
 
 

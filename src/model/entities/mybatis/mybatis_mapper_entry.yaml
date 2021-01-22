@@ -1,6 +1,6 @@
 entities:
 - name: mybatis_mapper_entry
-  namespace: laplacian.arch.api.service.mybatis
+  namespace: laplacian.arch.api.service.rdb.mybatis
 
   properties:
   - name: group_id
@@ -29,6 +29,7 @@ entities:
 
   - name: context_entity
     reference_entity_name: entity
+    reference_entity_namespace: laplacian.metamodel
     cardinality: '0..1'
     mappings:
     - from: context_entity_name
@@ -36,5 +37,6 @@ entities:
 
   - name: graphql_type
     reference_entity_name: rdbms_table
+    reference_entity_namespace: laplacian.arch.api.service.graphql
     cardinality: '1'
     reverse_of: mybatis_mapper_entries

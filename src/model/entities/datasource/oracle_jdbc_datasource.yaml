@@ -1,7 +1,8 @@
 entities:
 - name: oracle_datasource
   namespace: laplacian.arch.api.service.datasource
-  subtype_of: datasource
+  supertype_name: datasource
+  supertype_namespace: laplacian.arch.api.service.datasource
   subtype_key_value: oracle_jdbc
 
   properties:

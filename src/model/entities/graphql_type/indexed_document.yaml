@@ -1,7 +1,7 @@
 entities:
 - name: indexed_document
   namespace: laplacian.arch.api.service.graphql
-  subtype_of: graphql_type
+  supertype_name: graphql_type
 
   properties:
   - name: index_name
@@ -25,6 +25,7 @@ entities:
   relationships:
   - name: elasticsearch_index
     reference_entity_name: elasticsearch_index
+    reference_entity_namespace: laplacian.arch.api.service.elasticsearch
     cardinality: '1'
     mappings:
     - from: index_name
@@ -33,5 +34,6 @@ entities:
   - name: document_model
     cardinality: '1'
     reference_entity_name: entity
+    reference_entity_namespace: laplacian.metamodel
     snippet: |
        elasticsearchIndex.documentModel

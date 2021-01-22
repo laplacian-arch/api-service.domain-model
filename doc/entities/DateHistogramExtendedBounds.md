@@ -1,7 +1,7 @@
 # **DateHistogramExtendedBounds**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-date_histogram_extended_bounds
+An entity describing a date_histogram_extended_bounds.
 
 
 

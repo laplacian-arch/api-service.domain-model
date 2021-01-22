@@ -1,6 +1,6 @@
 entities:
 - name: mybatis_mapper
-  namespace: laplacian.arch.api.service.mybatis
+  namespace: laplacian.arch.api.service.rdb.mybatis
 
   properties:
   - name: group_id
@@ -33,11 +33,13 @@ entities:
   relationships:
   - name: parameters
     reference_entity_name: api_call_argument
+    reference_entity_namespace: laplacian.arch.api.service
     cardinality: '*'
     aggregate: true
 
   - name: result_model
     reference_entity_name: entity
+    reference_entity_namespace: laplacian.metamodel
     cardinality: '0..1'
     mappings:
     - from: result_model_name

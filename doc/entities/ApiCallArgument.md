@@ -1,7 +1,7 @@
 # **ApiCallArgument**
 **namespace:** laplacian.arch.api.service
 
-api_call_argument
+An entity describing a api_call_argument.
 
 
 

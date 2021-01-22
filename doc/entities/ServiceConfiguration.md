@@ -1,7 +1,7 @@
 # **ServiceConfiguration**
 **namespace:** laplacian.arch.api.service
 
-service_configuration
+An entity describing a service_configuration.
 
 
 

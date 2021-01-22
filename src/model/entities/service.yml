@@ -56,11 +56,13 @@ entities:
   - name: datasource_entries
     cardinality: '*'
     reference_entity_name: datasource_entry
+    reference_entity_namespace: laplacian.arch.api.service.datasource
     aggregate: true
 
   - name: datasources
     cardinality: '*'
     reference_entity_name: datasource
+    reference_entity_namespace: laplacian.arch.api.service.datasource
     snippet: |
       datasourceEntries.map{ it.datasource }
 
@@ -72,54 +74,21 @@ entities:
   - name: graphql_types
     cardinality: '*'
     reference_entity_name: graphql_type
+    reference_entity_namespace: laplacian.arch.api.service.graphql
     snippet: |
       graphqlTypeEntries.map{ it.graphqlType }.distinct()
-
-  - name: entities_used_in_graphql
-    cardinality: '*'
-    reference_entity_name: entity
-    snippet: |
-      graphqlTypes
-        .map{ if (it is EntityOnDatabase) it.entity else null }
-        .filterNotNull()
-        .distinct()
-
-  - name: top_level_entities_used_in_graphql
-    cardinality: '*'
-    reference_entity_name: entity
-    snippet: |
-      entitiesUsedInGraphql.filter{ it.topLevel }
-
-  - name: graphql_types_backed_by_database_table
-    cardinality: '*'
-    reference_entity_name: entity_on_database
-    snippet: |
-      graphqlTypes.map{ it as? EntityOnDatabase }.filterNotNull()
-
-  - name: entities_backing_graphql_type
-    cardinality: '*'
-    reference_entity_name: entity
-    snippet: |
-      graphqlTypesBackedByDatabaseTable
-      .map{ it.entity }
-      .distinct()
-
-  - name: top_level_entities_backing_graphql_type
-    cardinality: '*'
-    reference_entity_name: entity
-    snippet: |
-      entitiesBackingGraphqlType
-      .filter{ it.topLevel }
 
   - name: graphql_types_backed_by_external_rest_resource
     cardinality: '*'
     reference_entity_name: external_rest_resource
+    reference_entity_namespace: laplacian.arch.api.service.graphql
     snippet: |
       graphqlTypes.map{ it as? ExternalRestResource }.filterNotNull()
 
   - name: rest_resources_backing_graphql_type
     cardinality: '*'
     reference_entity_name: rest_resource
+    reference_entity_namespace: laplacian.arch.api.service.rest
     snippet: |
       graphqlTypesBackedByExternalRestResource
       .map{ it.restResource }
@@ -128,19 +97,23 @@ entities:
   - name: graphql_types_backed_by_indexed_document
     cardinality: '*'
     reference_entity_name: indexed_document
+    reference_entity_namespace: laplacian.arch.api.service.graphql
     snippet: |
       graphqlTypes.map{ it as? IndexedDocument }.filterNotNull()
 
   - name: graphql_types_backed_by_rdbms_table
     cardinality: '*'
     reference_entity_name: rdbms_table
+    reference_entity_namespace: laplacian.arch.api.service.graphql
     snippet: |
       graphqlTypes.map{ it as? RdbmsTable }.filterNotNull()
 
-  - name: rest_clients
-    reference_entity_name: rest_client
+  - name: graphql_types_backed_by_static_data
     cardinality: '*'
-    aggregate: true
+    reference_entity_name: static_data
+    reference_entity_namespace: laplacian.arch.api.service.graphql
+    snippet: |
+      graphqlTypes.map{ it as? StaticData }.filterNotNull()
 
   - name: elastic_search_clients
     reference_entity_name: elastic_search_client
@@ -149,6 +122,7 @@ entities:
 
   - name: elasticsearch_indexes
     reference_entity_name: elasticsearch_index
+    reference_entity_namespace: laplacian.arch.api.service.elasticsearch
     cardinality: '*'
     snippet: |
       graphqlTypesBackedByIndexedDocument.map{ it.elasticsearchIndex }
@@ -156,6 +130,7 @@ entities:
 
   - name: graphql_type_relationships
     reference_entity_name: graphql_type_relationship
+    reference_entity_namespace: laplacian.arch.api.service.graphql
     cardinality: '*'
     snippet: |
       graphqlTypes.map{ it.relationships }.flatten().distinct()
@@ -167,6 +142,7 @@ entities:
 
   - name: cache_policies
     reference_entity_name: cache_policy
+    reference_entity_namespace: laplacian.arch.api.service.cache
     cardinality: '*'
     snippet: |
       (

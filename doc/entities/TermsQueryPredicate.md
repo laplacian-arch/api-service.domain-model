@@ -1,7 +1,7 @@
 # **TermsQueryPredicate**
-**namespace:** laplacian.arch.api.service.elasticsearch
+**namespace:** laplacian.arch.api.service.elasticsearch.query
 
-terms_query_predicate
+An entity describing a terms_query_predicate.
 
 
 

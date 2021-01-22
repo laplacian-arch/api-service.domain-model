@@ -1,7 +1,7 @@
 # **DateHistogramAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-date_histogram_aggregate
+An entity describing a date_histogram_aggregate.
 
 
 
@@ -29,9 +29,9 @@ Defines this date_histogram_aggregate is variable_min_doc_count or not.
 ## Relationships
 
 ### interval: `DateHistogramInterval`
-interval
+The interval of this date_histogram_aggregate.
 - **Cardinality:** `1`
 
 ### extended_bounds: `DateHistogramExtendedBounds?`
-extended_bounds
+The extended_bounds of this date_histogram_aggregate.
 - **Cardinality:** `0..1`

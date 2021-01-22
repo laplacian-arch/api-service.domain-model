@@ -1,7 +1,7 @@
 # **RestResource**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.rest
 
-rest_resource
+An entity describing a rest_resource.
 
 
 
@@ -39,13 +39,13 @@ Defines this rest_resource is enable_automatic_cookie_handling or not.
 ## Relationships
 
 ### operations: `List<RestOperation>`
-operations
+The operations of this rest_resource.
 - **Cardinality:** `1..*`
 
 ### configurations: `List<ConfigurationBinding>`
-configurations
+The configurations of this rest_resource.
 - **Cardinality:** `*`
 
 ### cache_policy: `CachePolicy?`
-cache_policy
+The cache_policy of this rest_resource.
 - **Cardinality:** `0..1`

@@ -1,7 +1,7 @@
 # **DateHistogramInterval**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-date_histogram_interval
+An entity describing a date_histogram_interval.
 
 
 

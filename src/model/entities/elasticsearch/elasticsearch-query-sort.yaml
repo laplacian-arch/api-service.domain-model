@@ -1,5 +1,6 @@
 entities:
 - name: elasticsearch_query_sort
+  namespace: laplacian.arch.api.service.elasticsearch.query
 
   properties:
   - name: type
@@ -20,11 +21,15 @@ entities:
       order?.contains("\${") ?: false
 
 - name: elasticsearch_query_score_sort
-  subtype_of: elasticsearch_query_sort
+  namespace: laplacian.arch.api.service.elasticsearch.query
+  supertype_name: elasticsearch_query_sort
+  supertype_namespace: laplacian.arch.api.service.elasticsearch.query
   subtype_key_value: score
 
 - name: elasticsearch_query_field_sort
-  subtype_of: elasticsearch_query_sort
+  namespace: laplacian.arch.api.service.elasticsearch.query
+  supertype_name: elasticsearch_query_sort
+  supertype_namespace: laplacian.arch.api.service.elasticsearch.query
   subtype_key_value: field
 
   properties:

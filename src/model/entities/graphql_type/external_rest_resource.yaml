@@ -1,7 +1,8 @@
 entities:
 - name: external_rest_resource
   namespace: laplacian.arch.api.service.graphql
-  subtype_of: graphql_type
+  supertype_name: graphql_type
+  supertype_namespace: laplacian.arch.api.service.graphql
 
   properties:
   - name: rest_resource_name
@@ -10,20 +11,11 @@ entities:
     default_value: |
       name
 
-  - name: rest_client_name
-    type: string
-
   relationships:
   - name: rest_resource
     cardinality: '1'
     reference_entity_name: rest_resource
+    reference_entity_namespace: laplacian.arch.api.service.rest
     mappings:
     - from: rest_resource_name
-      to: name
-
-  - name: rest_client
-    cardinality: '1'
-    reference_entity_name: rest_client
-    mappings:
-    - from: rest_client_name
       to: name

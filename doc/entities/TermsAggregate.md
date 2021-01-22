@@ -1,5 +1,5 @@
 # **TermsAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
 A multi-bucket value source based aggregation where buckets are dynamically built
 - one per unique value.

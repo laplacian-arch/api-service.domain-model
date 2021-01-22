@@ -1,7 +1,7 @@
 # **RangeQueryPredicate**
-**namespace:** laplacian.arch.api.service.elasticsearch
+**namespace:** laplacian.arch.api.service.elasticsearch.query
 
-range_query_predicate
+An entity describing a range_query_predicate.
 
 
 

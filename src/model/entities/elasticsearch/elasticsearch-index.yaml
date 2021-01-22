@@ -19,6 +19,7 @@ entities:
   relationships:
   - name: document_model
     reference_entity_name: entity
+    reference_entity_namespace: laplacian.metamodel
     cardinality: '1'
     mappings:
     - from: document_model_name

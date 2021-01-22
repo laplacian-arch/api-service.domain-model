@@ -1,6 +1,6 @@
 entities:
 - name: rest_resource
-  namespace: laplacian.arch.api.service
+  namespace: laplacian.arch.api.service.rest
 
   properties:
   - name: name
@@ -38,11 +38,13 @@ entities:
 
   - name: configurations
     reference_entity_name: configuration_binding
+    reference_entity_namespace: laplacian.arch.api.service
     cardinality: '*'
     aggregate: true
 
   - name: cache_policy
     reference_entity_name: cache_policy
+    reference_entity_namespace: laplacian.arch.api.service.cache
     cardinality: '0..1'
     mappings:
     - from: cache_policy_name

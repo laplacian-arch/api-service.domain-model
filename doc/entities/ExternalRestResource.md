@@ -1,7 +1,7 @@
 # **ExternalRestResource**
 **namespace:** laplacian.arch.api.service.graphql
 
-external_rest_resource
+An entity describing a external_rest_resource.
 
 
 
@@ -16,15 +16,8 @@ The rest_resource_name of this external_rest_resource.
   name
   ```
 
-### rest_client_name: `String`
-The rest_client_name of this external_rest_resource.
-
 ## Relationships
 
 ### rest_resource: `RestResource`
-rest_resource
-- **Cardinality:** `1`
-
-### rest_client: `RestClient`
-rest_client
+The rest_resource of this external_rest_resource.
 - **Cardinality:** `1`

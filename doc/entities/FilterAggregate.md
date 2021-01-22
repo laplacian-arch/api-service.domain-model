@@ -1,7 +1,7 @@
 # **FilterAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-filter_aggregate
+An entity describing a filter_aggregate.
 
 
 
@@ -12,5 +12,5 @@ filter_aggregate
 ## Relationships
 
 ### predicate: `ElasticsearchQueryPredicate`
-predicate
+The predicate of this filter_aggregate.
 - **Cardinality:** `1`

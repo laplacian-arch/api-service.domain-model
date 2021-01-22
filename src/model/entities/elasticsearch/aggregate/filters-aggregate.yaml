@@ -1,6 +1,7 @@
 entities:
 - name: filters_aggregate
-  subtype_of: elasticsearch_aggregate
+  namespace: laplacian.arch.api.service.elasticsearch.aggregate
+  supertype_name: elasticsearch_aggregate
   subtype_key_value: filters
 
   relationships:
@@ -10,6 +11,7 @@ entities:
     aggregate: true
 
 - name: keyed_filter
+  namespace: laplacian.arch.api.service.elasticsearch.aggregate
   properties:
   - name: key
     type: string
@@ -18,5 +20,6 @@ entities:
   relationships:
   - name: predicate
     reference_entity_name: elasticsearch_query_predicate
+    reference_entity_namespace: laplacian.arch.api.service.elasticsearch.query
     cardinality: '1'
     aggregate: true

@@ -1,5 +1,6 @@
 entities:
 - name: redis_cache_policy
   namespace: laplacian.arch.api.service.cache
-  subtype_of: cache_policy
+  supertype_name: cache_policy
+  supertype_namespace: laplacian.arch.api.service.cache
   subtype_key_value: redis

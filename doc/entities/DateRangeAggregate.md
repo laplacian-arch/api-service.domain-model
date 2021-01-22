@@ -1,7 +1,7 @@
 # **DateRangeAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-date_range_aggregate
+An entity describing a date_range_aggregate.
 
 
 
@@ -15,5 +15,5 @@ The format of this date_range_aggregate.
 ## Relationships
 
 ### ranges: `List<AggregateGroupRange>`
-ranges
+The ranges of this date_range_aggregate.
 - **Cardinality:** `1..*`

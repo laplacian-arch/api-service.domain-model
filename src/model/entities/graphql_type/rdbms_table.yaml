@@ -1,7 +1,7 @@
 entities:
 - name: rdbms_table
   namespace: laplacian.arch.api.service.graphql
-  subtype_of: graphql_type
+  supertype_name: graphql_type
 
   properties:
   - name: data_model_name
@@ -26,6 +26,7 @@ entities:
   - name: data_model
     cardinality: '1'
     reference_entity_name: entity
+    reference_entity_namespace: laplacian.metamodel
     mappings:
     - from: data_model_name
       to: name
@@ -33,10 +34,12 @@ entities:
   - name: mybatis_mapper_entries
     cardinality: '*'
     reference_entity_name: mybatis_mapper_entry
+    reference_entity_namespace: laplacian.arch.api.service.rdb.mybatis
     aggregate: true
 
   - name: mybatis_mappers
     cardinality: '*'
     reference_entity_name: mybatis_mapper
+    reference_entity_namespace: laplacian.arch.api.service.rdb.mybatis
     snippet: |
       mybatisMapperEntries.map{ it.mapper }

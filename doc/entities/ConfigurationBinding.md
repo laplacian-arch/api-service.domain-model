@@ -1,7 +1,7 @@
 # **ConfigurationBinding**
 **namespace:** laplacian.arch.api.service
 
-configuration_binding
+An entity describing a configuration_binding.
 
 
 
@@ -27,5 +27,5 @@ The variable_name of this configuration_binding.
 ## Relationships
 
 ### definition: `ServiceConfiguration`
-definition
+The definition of this configuration_binding.
 - **Cardinality:** `1`

@@ -1,7 +1,7 @@
 # **BucketSortAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-bucket_sort_aggregate
+An entity describing a bucket_sort_aggregate.
 
 
 
@@ -34,5 +34,5 @@ Defines this bucket_sort_aggregate is variable_bucket_size or not.
 ## Relationships
 
 ### sorts: `List<FieldSort>`
-sorts
+The sorts of this bucket_sort_aggregate.
 - **Cardinality:** `1..*`

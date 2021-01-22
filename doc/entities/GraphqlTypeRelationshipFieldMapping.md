@@ -1,7 +1,7 @@
 # **GraphqlTypeRelationshipFieldMapping**
-**namespace:** laplacian.arch.api.service.graphql_type
+**namespace:** laplacian.arch.api.service.graphql
 
-graphql_type_relationship_field_mapping
+An entity describing a graphql_type_relationship_field_mapping.
 
 
 

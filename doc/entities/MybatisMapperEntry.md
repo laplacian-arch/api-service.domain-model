@@ -1,7 +1,7 @@
 # **MybatisMapperEntry**
-**namespace:** laplacian.arch.api.service.mybatis
+**namespace:** laplacian.arch.api.service.rdb.mybatis
 
-mybatis_mapper_entry
+An entity describing a mybatis_mapper_entry.
 
 
 
@@ -27,13 +27,13 @@ The context_entity_name of this mybatis_mapper_entry.
 ## Relationships
 
 ### mapper: `MybatisMapper`
-mapper
+The mapper of this mybatis_mapper_entry.
 - **Cardinality:** `1`
 
 ### context_entity: `Entity?`
-context_entity
+The context_entity of this mybatis_mapper_entry.
 - **Cardinality:** `0..1`
 
 ### graphql_type: `RdbmsTable`
-graphql_type
+The graphql_type of this mybatis_mapper_entry.
 - **Cardinality:** `1`

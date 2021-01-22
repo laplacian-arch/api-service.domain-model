@@ -1,7 +1,7 @@
 # **ValueCountAggregate**
-**namespace:** laplacian.arch.api.service
+**namespace:** laplacian.arch.api.service.elasticsearch.aggregate
 
-value_count_aggregate
+An entity describing a value_count_aggregate.
 
 
 

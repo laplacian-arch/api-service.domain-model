@@ -1,7 +1,7 @@
 # **RdbmsTable**
 **namespace:** laplacian.arch.api.service.graphql
 
-rdbms_table
+An entity describing a rdbms_table.
 
 
 
@@ -33,15 +33,15 @@ The datasource_name of this rdbms_table.
 ## Relationships
 
 ### data_model: `Entity`
-data_model
+The data_model of this rdbms_table.
 - **Cardinality:** `1`
 
 ### mybatis_mapper_entries: `List<MybatisMapperEntry>`
-mybatis_mapper_entries
+The mybatis_mapper_entries of this rdbms_table.
 - **Cardinality:** `*`
 
 ### mybatis_mappers: `List<MybatisMapper>`
-mybatis_mappers
+The mybatis_mappers of this rdbms_table.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin

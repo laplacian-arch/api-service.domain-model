@@ -1,7 +1,7 @@
 # **HeapMemoryCachePolicy**
 **namespace:** laplacian.arch.api.service.cache
 
-heap_memory_cache_policy
+An entity describing a heap_memory_cache_policy.
 
 
 
