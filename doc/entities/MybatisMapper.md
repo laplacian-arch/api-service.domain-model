@@ -9,13 +9,16 @@ An entity describing a mybatis_mapper.
 
 ## Properties
 
-### group_id: `String`
-The group_id of this mybatis_mapper.
+### name: `String`
+The name of this mybatis_mapper.
 - **Attributes:** *PK*
 
-### id: `String`
-The id of this mybatis_mapper.
-- **Attributes:** *PK*
+### description: `String`
+The description of this mybatis_mapper.
+- **Default Value:**
+  ```kotlin
+  "${type}: ${name}"
+  ```
 
 ### result_model_name: `String`
 The result_model_name of this mybatis_mapper.
@@ -27,6 +30,10 @@ The type of this mybatis_mapper.
 The statement of this mybatis_mapper.
 
 ## Relationships
+
+### graphql_type: `RdbmsTable`
+The graphql_type of this mybatis_mapper.
+- **Cardinality:** `1`
 
 ### parameters: `List<ApiCallArgument>`
 The parameters of this mybatis_mapper.

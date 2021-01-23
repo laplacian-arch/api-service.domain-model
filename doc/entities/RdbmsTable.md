@@ -36,14 +36,6 @@ The datasource_name of this rdbms_table.
 The data_model of this rdbms_table.
 - **Cardinality:** `1`
 
-### mybatis_mapper_entries: `List<MybatisMapperEntry>`
-The mybatis_mapper_entries of this rdbms_table.
-- **Cardinality:** `*`
-
 ### mybatis_mappers: `List<MybatisMapper>`
 The mybatis_mappers of this rdbms_table.
 - **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  mybatisMapperEntries.map{ it.mapper }
-  ```

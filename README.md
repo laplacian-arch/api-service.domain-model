@@ -185,8 +185,6 @@ An entity describing a static_data.
 An entity describing a query.
 - [**MybatisMapper**](<./doc/entities/MybatisMapper.md>)
 An entity describing a mybatis_mapper.
-- [**MybatisMapperEntry**](<./doc/entities/MybatisMapperEntry.md>)
-An entity describing a mybatis_mapper_entry.
 - [**RestOperation**](<./doc/entities/RestOperation.md>)
 An entity describing a rest_operation.
 - [**RestRequestParameter**](<./doc/entities/RestRequestParameter.md>)
@@ -361,7 +359,6 @@ An entity describing a configuration_binding.
 - [src/model/entities/graphql_type/indexed_document.yaml](<./src/model/entities/graphql_type/indexed_document.yaml>)
 - [src/model/entities/graphql_type/rdbms_table.yaml](<./src/model/entities/graphql_type/rdbms_table.yaml>)
 - [src/model/entities/graphql_type/static_data.yaml](<./src/model/entities/graphql_type/static_data.yaml>)
-- [src/model/entities/mybatis/mybatis_mapper_entry.yaml](<./src/model/entities/mybatis/mybatis_mapper_entry.yaml>)
 - [src/model/entities/mybatis/mybatis_mapper.yaml](<./src/model/entities/mybatis/mybatis_mapper.yaml>)
 - [src/model/entities/rest_resource/rest_operation.yaml](<./src/model/entities/rest_resource/rest_operation.yaml>)
 - [src/model/entities/rest_resource/rest_request_parameter.yaml](<./src/model/entities/rest_resource/rest_request_parameter.yaml>)

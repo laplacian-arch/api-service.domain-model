@@ -127,7 +127,7 @@ The graphql_types_backed_by_rdbms_table of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypes.map{ it as? RdbmsTable }.filterNotNull()
+  graphqlTypes.filterIsInstance<RdbmsTable>()
   ```
 
 ### graphql_types_backed_by_static_data: `List<StaticData>`
@@ -135,7 +135,7 @@ The graphql_types_backed_by_static_data of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypes.map{ it as? StaticData }.filterNotNull()
+  graphqlTypes.filterIsInstance<StaticData>()
   ```
 
 ### elastic_search_clients: `List<ElasticSearchClient>`

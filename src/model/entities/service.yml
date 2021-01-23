@@ -106,14 +106,14 @@ entities:
     reference_entity_name: rdbms_table
     reference_entity_namespace: laplacian.arch.api.service.graphql
     snippet: |
-      graphqlTypes.map{ it as? RdbmsTable }.filterNotNull()
+      graphqlTypes.filterIsInstance<RdbmsTable>()
 
   - name: graphql_types_backed_by_static_data
     cardinality: '*'
     reference_entity_name: static_data
     reference_entity_namespace: laplacian.arch.api.service.graphql
     snippet: |
-      graphqlTypes.map{ it as? StaticData }.filterNotNull()
+      graphqlTypes.filterIsInstance<StaticData>()
 
   - name: elastic_search_clients
     reference_entity_name: elastic_search_client

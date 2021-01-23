@@ -321,14 +321,6 @@
       }
     }
     ,
-    "mybatis_mappers": {
-      "description": "An entity describing a mybatis_mapper.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/laplacian.arch.api.service.rdb.mybatis.MybatisMapper"
-      }
-    }
-    ,
     "rest_request_parameters": {
       "description": "An entity describing a rest_request_parameter.",
       "type": "array",
@@ -4534,11 +4526,11 @@
               "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.GraphqlTypeRelationship"
             }
           },
-          "mybatis_mapper_entries": {
-            "description": "The mybatis_mapper_entries of this rdbms_table.",
+          "mybatis_mappers": {
+            "description": "The mybatis_mappers of this rdbms_table.",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/entities/laplacian.arch.api.service.rdb.mybatis.MybatisMapperEntry"
+              "$ref": "#/definitions/entities/laplacian.arch.api.service.rdb.mybatis.MybatisMapper"
             }
           }
         }
@@ -4631,27 +4623,22 @@
         "description": "An entity describing a mybatis_mapper.",
         "type": "object",
         "required": [
-          "group_id",
-          "id"
+          "name"
         ],
         "additionalProperties": false,
         "properties": {
           "_class_": { "const": "mybatis_mapper" },
-          "group_id": {
+          "name": {
             "allOf": [{
-            "description": "The group_id of this mybatis_mapper.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/namespace"
-            }]
-          },
-          "id": {
-            "allOf": [{
-            "description": "The id of this mybatis_mapper.",
+            "description": "The name of this mybatis_mapper.",
             "type": "string"
             }, {
             "$ref": "#/definitions/value_domain_types/identifier"
             }]
+          },
+          "description": {
+            "description": "The description of this mybatis_mapper.",
+            "type": "string"
           },
           "result_model_name": {
             "description": "The result_model_name of this mybatis_mapper.",
@@ -4678,30 +4665,6 @@
             "items": {
               "$ref": "#/definitions/entities/laplacian.arch.api.service.ApiCallArgument"
             }
-          }
-        }
-      },
-      "laplacian.arch.api.service.rdb.mybatis.MybatisMapperEntry": {
-        "description": "An entity describing a mybatis_mapper_entry.",
-        "type": "object",
-        "required": [
-          "group_id",
-          "id"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "_class_": { "const": "mybatis_mapper_entry" },
-          "group_id": {
-            "description": "The group_id of this mybatis_mapper_entry.",
-            "type": "string"
-          },
-          "id": {
-            "description": "The id of this mybatis_mapper_entry.",
-            "type": "string"
-          },
-          "context_entity_name": {
-            "description": "The context_entity_name of this mybatis_mapper_entry.",
-            "type": "string"
           }
         }
       },
@@ -5304,9 +5267,6 @@
         }, {
         "if": { "properties": { "_class_": { "const": "elasticsearch_query" } }},
           "then": { "$ref": "#/definitions/entities/laplacian.arch.api.service.elasticsearch.ElasticsearchQuery" }
-        }, {
-        "if": { "properties": { "_class_": { "const": "mybatis_mapper" } }},
-          "then": { "$ref": "#/definitions/entities/laplacian.arch.api.service.rdb.mybatis.MybatisMapper" }
         }, {
         "if": { "properties": { "_class_": { "const": "rest_request_parameter" } }},
           "then": { "$ref": "#/definitions/entities/laplacian.arch.api.service.rest.RestRequestParameter" }
