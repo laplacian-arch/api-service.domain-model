@@ -18,6 +18,12 @@ entities:
     type: string
     optional: true
 
+  - name: result_class_name
+    type: string
+    snippet: |
+      if (resultModel != null) "${resultModel!!.className}Result"
+      else "${graphqlType.name.upperCamelize()}Record"
+
   - name: type
     type: string
     domain:

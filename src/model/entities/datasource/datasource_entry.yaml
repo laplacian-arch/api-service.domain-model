@@ -13,4 +13,3 @@ entities:
     mappings:
     - from: name
       to: name
-

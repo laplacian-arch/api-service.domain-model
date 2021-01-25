@@ -47,7 +47,12 @@ entities:
     snippet: |
       graphqlTypesBackedByRdbmsTable.any { it.mybatisMappers.isNotEmpty() }
 
-  - name: depends_on_oracle_jdbc_driver
+  - name: depends_on_postgres_jdbc
+    type: boolean
+    snippet: |
+      datasources.any { it.type == "postgres_jdbc" }
+
+  - name: depends_on_oracle_jdbc
     type: boolean
     snippet: |
       datasources.any { it.type == "oracle_jdbc" }

@@ -63,8 +63,15 @@ Defines this service is depends_on_mybatis or not.
   graphqlTypesBackedByRdbmsTable.any { it.mybatisMappers.isNotEmpty() }
   ```
 
-### depends_on_oracle_jdbc_driver: `Boolean`
-Defines this service is depends_on_oracle_jdbc_driver or not.
+### depends_on_postgres_jdbc: `Boolean`
+Defines this service is depends_on_postgres_jdbc or not.
+- **Code:**
+  ```kotlin
+  datasources.any { it.type == "postgres_jdbc" }
+  ```
+
+### depends_on_oracle_jdbc: `Boolean`
+Defines this service is depends_on_oracle_jdbc or not.
 - **Code:**
   ```kotlin
   datasources.any { it.type == "oracle_jdbc" }

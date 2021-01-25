@@ -90,8 +90,8 @@ This includes the following models.
 - Statement issued by the client to the datastore
 - [**DatasourceEntry**](<./doc/entities/DatasourceEntry.md>)
 An entity describing a datasource_entry.
-- [**OracleDatasource**](<./doc/entities/OracleDatasource.md>)
-An entity describing a oracle_datasource.
+- [**PostgresJdbcDatasource**](<./doc/entities/PostgresJdbcDatasource.md>)
+An entity describing a postgres_jdbc_datasource.
 - [**Duration**](<./doc/entities/Duration.md>)
 An entity describing a duration.
 - [**AvgBucketAggregate**](<./doc/entities/AvgBucketAggregate.md>)
@@ -329,7 +329,7 @@ An entity describing a configuration_binding.
 - [src/model/entities/cache-policy/redis-cache-configuration.yaml](<./src/model/entities/cache-policy/redis-cache-configuration.yaml>)
 - [src/model/entities/datasource/datasource_entry.yaml](<./src/model/entities/datasource/datasource_entry.yaml>)
 - [src/model/entities/datasource/datasource.yaml](<./src/model/entities/datasource/datasource.yaml>)
-- [src/model/entities/datasource/oracle_jdbc_datasource.yaml](<./src/model/entities/datasource/oracle_jdbc_datasource.yaml>)
+- [src/model/entities/datasource/postgres-jdbc-datasource.yaml](<./src/model/entities/datasource/postgres-jdbc-datasource.yaml>)
 - [src/model/entities/duration.yaml](<./src/model/entities/duration.yaml>)
 - [src/model/entities/elasticsearch/aggregate/avg-bucket-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/avg-bucket-aggregate.yaml>)
 - [src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/bucket-script-aggregate.yaml>)

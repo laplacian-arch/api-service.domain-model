@@ -13,9 +13,6 @@ This includes the following models.
 
 ## Properties
 
-### type: `String`
-The type of this datasource.
-
 ### name: `String`
 The name of this datasource.
 - **Attributes:** *PK*
@@ -27,8 +24,7 @@ The description of this datasource.
   name
   ```
 
-## Relationships
+### type: `String`
+The type of this datasource.
 
-### configurations: `List<ConfigurationBinding>`
-The configurations of this datasource.
-- **Cardinality:** `*`
+## Relationships

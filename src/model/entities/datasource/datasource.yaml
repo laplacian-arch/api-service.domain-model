@@ -8,10 +8,6 @@ entities:
     - Statement issued by the client to the datastore
 
   properties:
-  - name: type
-    type: string
-    subtype_key: true
-
   - name: name
     type: string
     optional: true
@@ -23,9 +19,6 @@ entities:
     default_value: |
       name
 
-  relationships:
-  - name: configurations
-    reference_entity_name: configuration_binding
-    reference_entity_namespace: laplacian.arch.api.service
-    cardinality: '*'
-    aggregate: true
+  - name: type
+    type: string
+    subtype_key: true

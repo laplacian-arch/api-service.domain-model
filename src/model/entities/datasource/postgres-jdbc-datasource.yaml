@@ -1,0 +1,12 @@
+entities:
+- name: postgres_jdbc_datasource
+  namespace: laplacian.arch.api.service.datasource
+  supertype_name: datasource
+  supertype_namespace: laplacian.arch.api.service.datasource
+  subtype_key_value: postgres_jdbc
+
+  properties:
+  - name: driver_class_name
+    type: string
+    snippet: |
+      "org.postgresql.Driver"

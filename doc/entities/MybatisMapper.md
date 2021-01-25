@@ -23,6 +23,14 @@ The description of this mybatis_mapper.
 ### result_model_name: `String`
 The result_model_name of this mybatis_mapper.
 
+### result_class_name: `String`
+The result_class_name of this mybatis_mapper.
+- **Code:**
+  ```kotlin
+  if (resultModel != null) "${resultModel!!.className}Result"
+  else "${graphqlType.name.upperCamelize()}Record"
+  ```
+
 ### type: `String`
 The type of this mybatis_mapper.
 
