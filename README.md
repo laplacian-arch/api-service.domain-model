@@ -173,18 +173,24 @@ An entity describing a range_query_predicate.
 An entity describing a term_query_predicate.
 - [**TermsQueryPredicate**](<./doc/entities/TermsQueryPredicate.md>)
 An entity describing a terms_query_predicate.
-- [**ExternalRestResource**](<./doc/entities/ExternalRestResource.md>)
-An entity describing a external_rest_resource.
-- [**IndexedDocument**](<./doc/entities/IndexedDocument.md>)
-An entity describing a indexed_document.
-- [**RdbmsTable**](<./doc/entities/RdbmsTable.md>)
-An entity describing a rdbms_table.
-- [**StaticData**](<./doc/entities/StaticData.md>)
-An entity describing a static_data.
-- [**Query**](<./doc/entities/Query.md>)
-An entity describing a query.
-- [**MybatisMapper**](<./doc/entities/MybatisMapper.md>)
-An entity describing a mybatis_mapper.
+- [**GraphqlFieldFetcher**](<./doc/entities/GraphqlFieldFetcher.md>)
+An entity describing a graphql_field_fetcher.
+- [**StaticDataFetcher**](<./doc/entities/StaticDataFetcher.md>)
+An entity describing a static_data_fetcher.
+- [**GraphqlCompositeField**](<./doc/entities/GraphqlCompositeField.md>)
+An entity describing a graphql_composite_field.
+- [**GraphqlField**](<./doc/entities/GraphqlField.md>)
+An entity describing a graphql_field.
+- [**GraphqlScalarField**](<./doc/entities/GraphqlScalarField.md>)
+An entity describing a graphql_scalar_field.
+- [**GraphqlTypeReference**](<./doc/entities/GraphqlTypeReference.md>)
+An entity describing a graphql_type_reference.
+- [**GraphqlType**](<./doc/entities/GraphqlType.md>)
+An entity describing a graphql_type.
+- [**MybatisFetcher**](<./doc/entities/MybatisFetcher.md>)
+An entity describing a mybatis_fetcher.
+- [**RestApiFetcher**](<./doc/entities/RestApiFetcher.md>)
+An entity describing a rest_api_fetcher.
 - [**RestOperation**](<./doc/entities/RestOperation.md>)
 An entity describing a rest_operation.
 - [**RestRequestParameter**](<./doc/entities/RestRequestParameter.md>)
@@ -195,16 +201,8 @@ An entity describing a rest_resource.
 An entity describing a service.
 - [**ElasticSearchClient**](<./doc/entities/ElasticSearchClient.md>)
 An entity describing a elastic_search_client.
-- [**GraphqlType**](<./doc/entities/GraphqlType.md>)
-An entity describing a graphql_type.
 - [**GraphqlTypeEntry**](<./doc/entities/GraphqlTypeEntry.md>)
 An entity describing a graphql_type_entry.
-- [**GraphqlTypeRelationship**](<./doc/entities/GraphqlTypeRelationship.md>)
-An entity describing a graphql_type_relationship.
-- [**GraphqlIndexedDocumentRelationship**](<./doc/entities/GraphqlIndexedDocumentRelationship.md>)
-An entity describing a graphql_indexed_document_relationship.
-- [**GraphqlTypeRelationshipFieldMapping**](<./doc/entities/GraphqlTypeRelationshipFieldMapping.md>)
-An entity describing a graphql_type_relationship_field_mapping.
 - [**ServiceConfiguration**](<./doc/entities/ServiceConfiguration.md>)
 An entity describing a service_configuration.
 - [**ServiceConfigurationCategory**](<./doc/entities/ServiceConfigurationCategory.md>)
@@ -326,7 +324,7 @@ An entity describing a configuration_binding.
 - [src/model/entities/api-call-argument.yaml](<./src/model/entities/api-call-argument.yaml>)
 - [src/model/entities/cache-policy/cache-policy.yaml](<./src/model/entities/cache-policy/cache-policy.yaml>)
 - [src/model/entities/cache-policy/heap-memory-cache-configuration.yaml](<./src/model/entities/cache-policy/heap-memory-cache-configuration.yaml>)
-- [src/model/entities/cache-policy/redis-cache-configuration.yaml](<./src/model/entities/cache-policy/redis-cache-configuration.yaml>)
+- [src/model/entities/cache-policy/redis-cache-policy.yaml](<./src/model/entities/cache-policy/redis-cache-policy.yaml>)
 - [src/model/entities/datasource/datasource_entry.yaml](<./src/model/entities/datasource/datasource_entry.yaml>)
 - [src/model/entities/datasource/datasource.yaml](<./src/model/entities/datasource/datasource.yaml>)
 - [src/model/entities/datasource/postgres-jdbc-datasource.yaml](<./src/model/entities/datasource/postgres-jdbc-datasource.yaml>)
@@ -355,18 +353,20 @@ An entity describing a configuration_binding.
 - [src/model/entities/elasticsearch/predicate/range-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/range-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/term-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/term-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml>)
-- [src/model/entities/graphql_type/external_rest_resource.yaml](<./src/model/entities/graphql_type/external_rest_resource.yaml>)
-- [src/model/entities/graphql_type/indexed_document.yaml](<./src/model/entities/graphql_type/indexed_document.yaml>)
-- [src/model/entities/graphql_type/rdbms_table.yaml](<./src/model/entities/graphql_type/rdbms_table.yaml>)
-- [src/model/entities/graphql_type/static_data.yaml](<./src/model/entities/graphql_type/static_data.yaml>)
-- [src/model/entities/mybatis/mybatis_mapper.yaml](<./src/model/entities/mybatis/mybatis_mapper.yaml>)
-- [src/model/entities/rest_resource/rest_operation.yaml](<./src/model/entities/rest_resource/rest_operation.yaml>)
-- [src/model/entities/rest_resource/rest_request_parameter.yaml](<./src/model/entities/rest_resource/rest_request_parameter.yaml>)
-- [src/model/entities/rest_resource/rest_resource.yaml](<./src/model/entities/rest_resource/rest_resource.yaml>)
+- [src/model/entities/graphql-type/graphql-field-fetcher/graphql-field-fetcher.yaml](<./src/model/entities/graphql-type/graphql-field-fetcher/graphql-field-fetcher.yaml>)
+- [src/model/entities/graphql-type/graphql-field-fetcher/static-data-fetcher.yaml](<./src/model/entities/graphql-type/graphql-field-fetcher/static-data-fetcher.yaml>)
+- [src/model/entities/graphql-type/graphql-field/graphql-composite-field.yaml](<./src/model/entities/graphql-type/graphql-field/graphql-composite-field.yaml>)
+- [src/model/entities/graphql-type/graphql-field/graphql-field.yaml](<./src/model/entities/graphql-type/graphql-field/graphql-field.yaml>)
+- [src/model/entities/graphql-type/graphql-field/graphql-scalar-field.yaml](<./src/model/entities/graphql-type/graphql-field/graphql-scalar-field.yaml>)
+- [src/model/entities/graphql-type/graphql-field/graphql-type-reference.yaml](<./src/model/entities/graphql-type/graphql-field/graphql-type-reference.yaml>)
+- [src/model/entities/graphql-type/graphql-type.yaml](<./src/model/entities/graphql-type/graphql-type.yaml>)
+- [src/model/entities/mybatis/mybatis-fetcher.yaml](<./src/model/entities/mybatis/mybatis-fetcher.yaml>)
+- [src/model/entities/rest_resource/rest-api-fetcher.yaml](<./src/model/entities/rest_resource/rest-api-fetcher.yaml>)
+- [src/model/entities/rest_resource/rest-operation.yaml](<./src/model/entities/rest_resource/rest-operation.yaml>)
+- [src/model/entities/rest_resource/rest-request-parameter.yaml](<./src/model/entities/rest_resource/rest-request-parameter.yaml>)
+- [src/model/entities/rest_resource/rest-resource.yaml](<./src/model/entities/rest_resource/rest-resource.yaml>)
 - [src/model/entities/service/elastic-search-client.yaml](<./src/model/entities/service/elastic-search-client.yaml>)
 - [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)
-- [src/model/entities/service/graphql_type_relationship.yaml](<./src/model/entities/service/graphql_type_relationship.yaml>)
-- [src/model/entities/service/graphql_type.yaml](<./src/model/entities/service/graphql_type.yaml>)
 - [src/model/entities/service/service_configuration.yaml](<./src/model/entities/service/service_configuration.yaml>)
 - [src/model/entities/service.yml](<./src/model/entities/service.yml>)
 - [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)

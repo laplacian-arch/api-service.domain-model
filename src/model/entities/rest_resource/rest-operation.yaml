@@ -27,10 +27,6 @@ entities:
     default_value: |
       restResource.resourceModelName!!
 
-  - name: cache_policy_name
-    type: string
-    optional: true
-
   relationships:
   - name: arguments
     reference_entity_name: api_call_argument
@@ -65,18 +61,3 @@ entities:
     reference_entity_name: rest_resource
     cardinality: '1'
     reverse_of: operations
-
-  - name: cache_policy
-    reference_entity_name: cache_policy
-    reference_entity_namespace: laplacian.arch.api.service.cache
-    cardinality: '0..1'
-    mappings:
-    - from: cache_policy_name
-      to: name
-
-  - name: effective_cache_policy
-    reference_entity_name: cache_policy
-    reference_entity_namespace: laplacian.arch.api.service.cache
-    cardinality: '0..1'
-    snippet: |
-      cachePolicy ?: restResource.cachePolicy

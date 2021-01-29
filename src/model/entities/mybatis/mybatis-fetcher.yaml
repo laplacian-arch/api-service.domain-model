@@ -1,0 +1,39 @@
+entities:
+- name: mybatis_fetcher
+  namespace: laplacian.arch.api.service.mybatis
+  supertype_name: graphql_field_fetcher
+  supertype_namespace: laplacian.arch.api.service.graphql
+  subtype_key_value: mybatis
+
+  properties:
+  - name: name
+    type: string
+    domain_type_name: identifier
+    primary_key: true
+
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      "${type}: ${name}"
+
+  - name: statement_type
+    type: string
+    domain:
+      choices:
+      - value: select
+      - value: insert
+      - value: update
+      - value: delete
+      - value: fragment
+
+  - name: statement
+    type: string
+
+  relationships:
+  - name: parameters
+    reference_entity_name: api_call_argument
+    reference_entity_namespace: laplacian.arch.api.service
+    cardinality: '*'
+    aggregate: true
+

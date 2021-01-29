@@ -20,10 +20,6 @@ entities:
   - name: base_url
     type: string
 
-  - name: cache_policy_name
-    type: string
-    optional: true
-
   - name: enable_automatic_cookie_handling
     type: boolean
     optional: true
@@ -41,12 +37,3 @@ entities:
     reference_entity_namespace: laplacian.arch.api.service
     cardinality: '*'
     aggregate: true
-
-  - name: cache_policy
-    reference_entity_name: cache_policy
-    reference_entity_namespace: laplacian.arch.api.service.cache
-    cardinality: '0..1'
-    mappings:
-    - from: cache_policy_name
-      to: name
-

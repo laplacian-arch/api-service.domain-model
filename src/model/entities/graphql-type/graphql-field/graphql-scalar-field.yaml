@@ -1,0 +1,16 @@
+entities:
+- name: graphql_scalar_field
+  namespace: laplacian.arch.api.service.graphql
+  supertype_name: graphql_field
+  supertype_namespace: laplacian.arch.api.service.graphql
+  subtype_key_value: scalar
+
+  properties:
+  - name: value_type
+    type: string
+    domain:
+      choices:
+      - value: String
+      - value: Int
+      - value: Float
+

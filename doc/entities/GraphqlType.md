@@ -13,9 +13,6 @@ An entity describing a graphql_type.
 The name of this graphql_type.
 - **Attributes:** *PK*
 
-### resolver_type: `String`
-The resolver_type of this graphql_type.
-
 ### description: `String`
 The description of this graphql_type.
 - **Default Value:**
@@ -23,8 +20,18 @@ The description of this graphql_type.
   "A Graphql type representing ${name}"
   ```
 
+### data_model_name: `String`
+The data_model_name of this graphql_type.
+
+### data_model_namespace: `String`
+The data_model_namespace of this graphql_type.
+
 ## Relationships
 
-### relationships: `List<GraphqlTypeRelationship>`
-The relationships of this graphql_type.
+### data_model: `Entity?`
+The data_model of this graphql_type.
+- **Cardinality:** `0..1`
+
+### fields: `List<GraphqlField>`
+The fields of this graphql_type.
 - **Cardinality:** `*`

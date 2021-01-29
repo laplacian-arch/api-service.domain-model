@@ -30,22 +30,17 @@ entities:
   - name: depends_on_cache
     type: boolean
     snippet: |
-      restResourcesBackingGraphqlType.any {
-          it.cachePolicy != null || it.operations.any{ it.cachePolicy != null }
-      }
+      cachePolicies.isNotEmpty()
 
   - name: depends_on_redis_cache
     type: boolean
     snippet: |
-      restResourcesBackingGraphqlType.any {
-          it.cachePolicy?.storeType == "redis" ?: false ||
-          it.operations.any{ it.cachePolicy?.storeType == "redis" ?: false }
-      }
+      redisCachePolicies.isNotEmpty()
 
   - name: depends_on_mybatis
     type: boolean
     snippet: |
-      graphqlTypesBackedByRdbmsTable.any { it.mybatisMappers.isNotEmpty() }
+      mybatisFetchers.isNotEmpty()
 
   - name: depends_on_postgres_jdbc
     type: boolean
@@ -83,76 +78,51 @@ entities:
     snippet: |
       graphqlTypeEntries.map{ it.graphqlType }.distinct()
 
-  - name: graphql_types_backed_by_external_rest_resource
-    cardinality: '*'
-    reference_entity_name: external_rest_resource
-    reference_entity_namespace: laplacian.arch.api.service.graphql
-    snippet: |
-      graphqlTypes.map{ it as? ExternalRestResource }.filterNotNull()
-
-  - name: rest_resources_backing_graphql_type
-    cardinality: '*'
-    reference_entity_name: rest_resource
-    reference_entity_namespace: laplacian.arch.api.service.rest
-    snippet: |
-      graphqlTypesBackedByExternalRestResource
-      .map{ it.restResource }
-      .distinct()
-
-  - name: graphql_types_backed_by_indexed_document
-    cardinality: '*'
-    reference_entity_name: indexed_document
-    reference_entity_namespace: laplacian.arch.api.service.graphql
-    snippet: |
-      graphqlTypes.map{ it as? IndexedDocument }.filterNotNull()
-
-  - name: graphql_types_backed_by_rdbms_table
-    cardinality: '*'
-    reference_entity_name: rdbms_table
-    reference_entity_namespace: laplacian.arch.api.service.graphql
-    snippet: |
-      graphqlTypes.filterIsInstance<RdbmsTable>()
-
-  - name: graphql_types_backed_by_static_data
-    cardinality: '*'
-    reference_entity_name: static_data
-    reference_entity_namespace: laplacian.arch.api.service.graphql
-    snippet: |
-      graphqlTypes.filterIsInstance<StaticData>()
-
-  - name: elastic_search_clients
-    reference_entity_name: elastic_search_client
-    cardinality: '*'
-    aggregate: true
-
   - name: elasticsearch_indexes
     reference_entity_name: elasticsearch_index
     reference_entity_namespace: laplacian.arch.api.service.elasticsearch
     cardinality: '*'
     snippet: |
-      graphqlTypesBackedByIndexedDocument.map{ it.elasticsearchIndex }
-      .distinct()
-
-  - name: graphql_type_relationships
-    reference_entity_name: graphql_type_relationship
-    reference_entity_namespace: laplacian.arch.api.service.graphql
-    cardinality: '*'
-    snippet: |
-      graphqlTypes.map{ it.relationships }.flatten().distinct()
+      listOf<ElasticsearchIndex>()
 
   - name: configuration_categories
     reference_entity_name: service_configuration_category
     cardinality: '*'
     aggregate: true
 
+  - name: graphql_fields
+    reference_entity_name: graphql_field
+    reference_entity_namespace: laplacian.arch.api.service.graphql
+    cardinality: '*'
+    snippet: |
+      graphqlTypes
+      .flatMap{ it.fields ?: emptyList() }
+
+  - name: graphql_field_fetchers
+    reference_entity_name: graphql_field_fetcher
+    reference_entity_namespace: laplacian.arch.api.service.graphql
+    cardinality: '*'
+    snippet: |
+      graphqlFields.map{ it.fetcher }.filterNotNull()
+
+  - name: mybatis_fetchers
+    reference_entity_name: mybatis_fetcher
+    reference_entity_namespace: laplacian.arch.api.service.mybatis
+    cardinality: '*'
+    snippet: |
+      graphqlFieldFetchers.filterIsInstance<MybatisFetcher>()
+
   - name: cache_policies
     reference_entity_name: cache_policy
     reference_entity_namespace: laplacian.arch.api.service.cache
     cardinality: '*'
     snippet: |
-      (
-          restResourcesBackingGraphqlType.map{ it.cachePolicy } +
-          restResourcesBackingGraphqlType.flatMap{ it.operations.map{ it.cachePolicy }}
-      )
-      .filterNotNull()
-      .distinct()
+      graphqlFieldFetchers.map{ it.cachePolicy }.filterNotNull()
+
+  - name: redis_cache_policies
+    reference_entity_name: redis_cache_policy
+    reference_entity_namespace: laplacian.arch.api.service.cache
+    cardinality: '*'
+    snippet: |
+      cachePolicies.filterIsInstance<RedisCachePolicy>()
+

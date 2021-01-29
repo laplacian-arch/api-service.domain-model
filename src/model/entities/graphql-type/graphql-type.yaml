@@ -1,38 +1,38 @@
 entities:
-- name: rdbms_table
+- name: graphql_type
   namespace: laplacian.arch.api.service.graphql
-  supertype_name: graphql_type
 
   properties:
+  - name: name
+    type: string
+    primary_key: true
+
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      "A Graphql type representing ${name}"
+
   - name: data_model_name
     type: string
     optional: true
-    default_value: |
-      name
 
-  - name: table_name
+  - name: data_model_namespace
     type: string
     optional: true
-    default_value: |
-      name.lowerUnderscorize()
-
-  - name: datasource_name
-    type: string
-    optional: true
-    default_value: |
-      "default"
 
   relationships:
   - name: data_model
-    cardinality: '1'
     reference_entity_name: entity
     reference_entity_namespace: laplacian.metamodel
+    cardinality: '0..1'
     mappings:
     - from: data_model_name
       to: name
+    - from: data_model_namespace
+      to: namespace
 
-  - name: mybatis_mappers
+  - name: fields
+    reference_entity_name: graphql_field
     cardinality: '*'
-    reference_entity_name: mybatis_mapper
-    reference_entity_namespace: laplacian.arch.api.service.rdb.mybatis
     aggregate: true

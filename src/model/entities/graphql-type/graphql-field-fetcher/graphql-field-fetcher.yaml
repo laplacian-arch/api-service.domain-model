@@ -1,0 +1,26 @@
+entities:
+- name: graphql_field_fetcher
+  namespace: laplacian.arch.api.service.graphql
+
+  properties:
+  - name: type
+    type: string
+    subtype_key: true
+
+  - name: filter
+    type: string
+    optional: true
+
+  - name: cache_policy_name
+    type: string
+    optional: true
+
+  relationships:
+  - name: cache_policy
+    reference_entity_name: cache_policy
+    reference_entity_namespace: laplacian.arch.api.service.cache
+    cardinality: '0..1'
+    mappings:
+    - from: cache_policy_name
+      to: name
+

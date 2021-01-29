@@ -41,26 +41,21 @@ Defines this service is depends_on_elasticsearch or not.
 Defines this service is depends_on_cache or not.
 - **Code:**
   ```kotlin
-  restResourcesBackingGraphqlType.any {
-      it.cachePolicy != null || it.operations.any{ it.cachePolicy != null }
-  }
+  cachePolicies.isNotEmpty()
   ```
 
 ### depends_on_redis_cache: `Boolean`
 Defines this service is depends_on_redis_cache or not.
 - **Code:**
   ```kotlin
-  restResourcesBackingGraphqlType.any {
-      it.cachePolicy?.storeType == "redis" ?: false ||
-      it.operations.any{ it.cachePolicy?.storeType == "redis" ?: false }
-  }
+  redisCachePolicies.isNotEmpty()
   ```
 
 ### depends_on_mybatis: `Boolean`
 Defines this service is depends_on_mybatis or not.
 - **Code:**
   ```kotlin
-  graphqlTypesBackedByRdbmsTable.any { it.mybatisMappers.isNotEmpty() }
+  mybatisFetchers.isNotEmpty()
   ```
 
 ### depends_on_postgres_jdbc: `Boolean`
@@ -103,82 +98,55 @@ The graphql_types of this service.
   graphqlTypeEntries.map{ it.graphqlType }.distinct()
   ```
 
-### graphql_types_backed_by_external_rest_resource: `List<ExternalRestResource>`
-The graphql_types_backed_by_external_rest_resource of this service.
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  graphqlTypes.map{ it as? ExternalRestResource }.filterNotNull()
-  ```
-
-### rest_resources_backing_graphql_type: `List<RestResource>`
-The rest_resources_backing_graphql_type of this service.
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  graphqlTypesBackedByExternalRestResource
-  .map{ it.restResource }
-  .distinct()
-  ```
-
-### graphql_types_backed_by_indexed_document: `List<IndexedDocument>`
-The graphql_types_backed_by_indexed_document of this service.
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  graphqlTypes.map{ it as? IndexedDocument }.filterNotNull()
-  ```
-
-### graphql_types_backed_by_rdbms_table: `List<RdbmsTable>`
-The graphql_types_backed_by_rdbms_table of this service.
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  graphqlTypes.filterIsInstance<RdbmsTable>()
-  ```
-
-### graphql_types_backed_by_static_data: `List<StaticData>`
-The graphql_types_backed_by_static_data of this service.
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  graphqlTypes.filterIsInstance<StaticData>()
-  ```
-
-### elastic_search_clients: `List<ElasticSearchClient>`
-The elastic_search_clients of this service.
-- **Cardinality:** `*`
-
 ### elasticsearch_indexes: `List<ElasticsearchIndex>`
 The elasticsearch_indexes of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  graphqlTypesBackedByIndexedDocument.map{ it.elasticsearchIndex }
-  .distinct()
-  ```
-
-### graphql_type_relationships: `List<GraphqlTypeRelationship>`
-The graphql_type_relationships of this service.
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  graphqlTypes.map{ it.relationships }.flatten().distinct()
+  listOf<ElasticsearchIndex>()
   ```
 
 ### configuration_categories: `List<ServiceConfigurationCategory>`
 The configuration_categories of this service.
 - **Cardinality:** `*`
 
+### graphql_fields: `List<GraphqlField>`
+The graphql_fields of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypes
+  .flatMap{ it.fields ?: emptyList() }
+  ```
+
+### graphql_field_fetchers: `List<GraphqlFieldFetcher>`
+The graphql_field_fetchers of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlFields.map{ it.fetcher }.filterNotNull()
+  ```
+
+### mybatis_fetchers: `List<MybatisFetcher>`
+The mybatis_fetchers of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlFieldFetchers.filterIsInstance<MybatisFetcher>()
+  ```
+
 ### cache_policies: `List<CachePolicy>`
 The cache_policies of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  (
-      restResourcesBackingGraphqlType.map{ it.cachePolicy } +
-      restResourcesBackingGraphqlType.flatMap{ it.operations.map{ it.cachePolicy }}
-  )
-  .filterNotNull()
-  .distinct()
+  graphqlFieldFetchers.map{ it.cachePolicy }.filterNotNull()
+  ```
+
+### redis_cache_policies: `List<RedisCachePolicy>`
+The redis_cache_policies of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  cachePolicies.filterIsInstance<RedisCachePolicy>()
   ```

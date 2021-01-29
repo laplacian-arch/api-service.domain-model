@@ -1,0 +1,45 @@
+entities:
+- name: graphql_field
+  namespace: laplacian.arch.api.service.graphql
+
+  properties:
+  - name: name
+    type: string
+    primary_key: true
+
+  - name: field_type
+    type: string
+    subtype_key: true
+
+  - name: multiple
+    type: boolean
+    optional: true
+    default_value: |
+      false
+
+  - name: optional
+    type: boolean
+    optional: true
+    default_value: |
+      false
+
+  - name: root
+    description: |
+      Specifies whether this field is located on the root query object.
+    type: boolean
+    optional: true
+    default_value: |
+      false
+
+  relationships:
+  - name: graphql_type
+    reference_entity_name: graphql_type
+    reference_entity_namespace: laplacian.arch.api.service.graphql
+    cardinality: '1'
+    reverse_of: fields
+
+  - name: fetcher
+    reference_entity_name: graphql_field_fetcher
+    reference_entity_namespace: laplacian.arch.api.service.graphql
+    cardinality: '0..1'
+    aggregate: true

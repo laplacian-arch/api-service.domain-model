@@ -33,9 +33,6 @@ The response_model_name of this rest_operation.
   restResource.resourceModelName!!
   ```
 
-### cache_policy_name: `String`
-The cache_policy_name of this rest_operation.
-
 ## Relationships
 
 ### arguments: `List<ApiCallArgument>`
@@ -61,15 +58,3 @@ The response_model of this rest_operation.
 ### rest_resource: `RestResource`
 The rest_resource of this rest_operation.
 - **Cardinality:** `1`
-
-### cache_policy: `CachePolicy?`
-The cache_policy of this rest_operation.
-- **Cardinality:** `0..1`
-
-### effective_cache_policy: `CachePolicy?`
-The effective_cache_policy of this rest_operation.
-- **Cardinality:** `0..1`
-- **Code:**
-  ```kotlin
-  cachePolicy ?: restResource.cachePolicy
-  ```

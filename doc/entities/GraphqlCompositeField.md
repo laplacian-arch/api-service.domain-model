@@ -1,0 +1,22 @@
+# **GraphqlCompositeField**
+**namespace:** laplacian.arch.api.service.graphql
+
+An entity describing a graphql_composite_field.
+
+
+
+---
+
+## Properties
+
+### data_model_name: `String`
+The data_model_name of this graphql_composite_field.
+
+### data_model_namespace: `String`
+The data_model_namespace of this graphql_composite_field.
+
+## Relationships
+
+### data_model: `Entity`
+The data_model of this graphql_composite_field.
+- **Cardinality:** `1`

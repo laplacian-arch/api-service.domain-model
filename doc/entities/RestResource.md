@@ -26,9 +26,6 @@ The resource_model_name of this rest_resource.
 ### base_url: `String`
 The base_url of this rest_resource.
 
-### cache_policy_name: `String`
-The cache_policy_name of this rest_resource.
-
 ### enable_automatic_cookie_handling: `Boolean`
 Defines this rest_resource is enable_automatic_cookie_handling or not.
 - **Default Value:**
@@ -45,7 +42,3 @@ The operations of this rest_resource.
 ### configurations: `List<ConfigurationBinding>`
 The configurations of this rest_resource.
 - **Cardinality:** `*`
-
-### cache_policy: `CachePolicy?`
-The cache_policy of this rest_resource.
-- **Cardinality:** `0..1`

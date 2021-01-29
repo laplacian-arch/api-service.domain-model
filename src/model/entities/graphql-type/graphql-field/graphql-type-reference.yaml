@@ -1,0 +1,19 @@
+entities:
+- name: graphql_type_reference
+  namespace: laplacian.arch.api.service.graphql
+  supertype_name: graphql_field
+  supertype_namespace: laplacian.arch.api.service.graphql
+  subtype_key_value: graphql_type
+
+  properties:
+  - name: referencing_graphql_type_name
+    type: string
+
+  relationships:
+  - name: referencing_graphql_type
+    reference_entity_name: graphql_type
+    reference_entity_namespace: laplacian.arch.api.service.graphql
+    cardinality: '1'
+    mappings:
+    - from: referencing_graphql_type_name
+      to: name
