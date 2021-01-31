@@ -19,6 +19,13 @@ The graphql_type_group of this graphql_type_reference.
   graphqlType.group
   ```
 
+### record_type: `String`
+The record_type of this graphql_type_reference.
+- **Code:**
+  ```kotlin
+  graphqlTypeName.upperCamelize()
+  ```
+
 ## Relationships
 
 ### referencing_graphql_type: `GraphqlType`

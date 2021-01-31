@@ -4475,16 +4475,17 @@
             "description": "Defines this graphql_field is optional or not.",
             "type": "boolean"
           },
-          "root_query_field": {
-            "description": "Specifies whether this field is located on the root query object.",
-            "type": "boolean"
+          "operation_type": {
+            "description": "The operation_type of this graphql_field.",
+            "enum":[
+              "query",
+              "mutation",
+              "subscription"
+            ],
+            "type": "string"
           },
-          "root_mutation_field": {
-            "description": "Specifies whether this field is located on the root modification object.",
-            "type": "boolean"
-          },
-          "root_subscription_field": {
-            "description": "Specifies whether this field is located on the root subscription object.",
+          "root_field": {
+            "description": "Specifies whether this field is shown in the root query object.",
             "type": "boolean"
           },
           "data_model_name": {
@@ -4498,6 +4499,13 @@
           "fetcher": {
             "description": "The fetcher of this graphql_field.",
             "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.GraphqlFieldFetcher"
+          },
+          "arguments": {
+            "description": "The arguments of this graphql_field.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/laplacian.arch.api.service.ApiCallArgument"
+            }
           }
         }
         }
@@ -4531,21 +4539,29 @@
             "description": "Defines this graphql_field is optional or not.",
             "type": "boolean"
           },
-          "root_query_field": {
-            "description": "Specifies whether this field is located on the root query object.",
-            "type": "boolean"
+          "operation_type": {
+            "description": "The operation_type of this graphql_field.",
+            "enum":[
+              "query",
+              "mutation",
+              "subscription"
+            ],
+            "type": "string"
           },
-          "root_mutation_field": {
-            "description": "Specifies whether this field is located on the root modification object.",
-            "type": "boolean"
-          },
-          "root_subscription_field": {
-            "description": "Specifies whether this field is located on the root subscription object.",
+          "root_field": {
+            "description": "Specifies whether this field is shown in the root query object.",
             "type": "boolean"
           },
           "fetcher": {
             "description": "The fetcher of this graphql_field.",
             "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.GraphqlFieldFetcher"
+          },
+          "arguments": {
+            "description": "The arguments of this graphql_field.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/laplacian.arch.api.service.ApiCallArgument"
+            }
           }
         },
         "allOf": [
@@ -4584,30 +4600,38 @@
             "description": "Defines this graphql_field is optional or not.",
             "type": "boolean"
           },
-          "root_query_field": {
-            "description": "Specifies whether this field is located on the root query object.",
-            "type": "boolean"
+          "operation_type": {
+            "description": "The operation_type of this graphql_field.",
+            "enum":[
+              "query",
+              "mutation",
+              "subscription"
+            ],
+            "type": "string"
           },
-          "root_mutation_field": {
-            "description": "Specifies whether this field is located on the root modification object.",
-            "type": "boolean"
-          },
-          "root_subscription_field": {
-            "description": "Specifies whether this field is located on the root subscription object.",
+          "root_field": {
+            "description": "Specifies whether this field is shown in the root query object.",
             "type": "boolean"
           },
           "value_type": {
             "description": "The value_type of this graphql_scalar_field.",
             "enum":[
-              "String",
-              "Int",
-              "Float"
+              "string",
+              "int",
+              "float"
             ],
             "type": "string"
           },
           "fetcher": {
             "description": "The fetcher of this graphql_field.",
             "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.GraphqlFieldFetcher"
+          },
+          "arguments": {
+            "description": "The arguments of this graphql_field.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/laplacian.arch.api.service.ApiCallArgument"
+            }
           }
         }
         }
@@ -4642,16 +4666,17 @@
             "description": "Defines this graphql_field is optional or not.",
             "type": "boolean"
           },
-          "root_query_field": {
-            "description": "Specifies whether this field is located on the root query object.",
-            "type": "boolean"
+          "operation_type": {
+            "description": "The operation_type of this graphql_field.",
+            "enum":[
+              "query",
+              "mutation",
+              "subscription"
+            ],
+            "type": "string"
           },
-          "root_mutation_field": {
-            "description": "Specifies whether this field is located on the root modification object.",
-            "type": "boolean"
-          },
-          "root_subscription_field": {
-            "description": "Specifies whether this field is located on the root subscription object.",
+          "root_field": {
+            "description": "Specifies whether this field is shown in the root query object.",
             "type": "boolean"
           },
           "graphql_type_name": {
@@ -4665,6 +4690,13 @@
           "fetcher": {
             "description": "The fetcher of this graphql_field.",
             "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.GraphqlFieldFetcher"
+          },
+          "arguments": {
+            "description": "The arguments of this graphql_field.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/entities/laplacian.arch.api.service.ApiCallArgument"
+            }
           }
         }
         }
@@ -4760,13 +4792,6 @@
           "statement": {
             "description": "The statement of this mybatis_fetcher.",
             "type": "string"
-          },
-          "parameters": {
-            "description": "The parameters of this mybatis_fetcher.",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/entities/laplacian.arch.api.service.ApiCallArgument"
-            }
           }
         }
         }

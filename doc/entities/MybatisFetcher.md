@@ -27,7 +27,3 @@ The statement_type of this mybatis_fetcher.
 The statement of this mybatis_fetcher.
 
 ## Relationships
-
-### parameters: `List<ApiCallArgument>`
-The parameters of this mybatis_fetcher.
-- **Cardinality:** `*`

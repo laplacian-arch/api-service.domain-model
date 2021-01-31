@@ -12,6 +12,11 @@ entities:
   - name: data_model_namespace
     type: string
 
+  - name: record_type
+    type: string
+    snippet: |
+      dataModelName.upperCamelize()
+
   relationships:
   - name: data_model
     reference_entity_name: entity

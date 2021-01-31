@@ -15,6 +15,11 @@ entities:
     default_value: |
       graphqlType.group
 
+  - name: record_type
+    type: string
+    snippet: |
+      graphqlTypeName.upperCamelize()
+
   relationships:
   - name: referencing_graphql_type
     reference_entity_name: graphql_type

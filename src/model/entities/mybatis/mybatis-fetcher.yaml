@@ -30,10 +30,3 @@ entities:
   - name: statement
     type: string
 
-  relationships:
-  - name: parameters
-    reference_entity_name: api_call_argument
-    reference_entity_namespace: laplacian.arch.api.service
-    cardinality: '*'
-    aggregate: true
-

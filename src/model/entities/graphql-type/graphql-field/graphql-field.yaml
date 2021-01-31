@@ -23,25 +23,28 @@ entities:
     default_value: |
       false
 
-  - name: root_query_field
-    description: |
-      Specifies whether this field is located on the root query object.
-    type: boolean
+  - name: operation_type
+    type: string
     optional: true
-    default_value: |
-      false
+    domain:
+      choices:
+      - value: query
+      - value: mutation
+      - value: subscription
 
-  - name: root_mutation_field
-    description: |
-      Specifies whether this field is located on the root modification object.
-    type: boolean
-    optional: true
-    default_value: |
-      false
+  - name: record_type
+    type: string
+    snippet: |
+      "Any"
 
-  - name: root_subscription_field
+  - name: return_type
+    type: string
+    snippet: |
+      if (multiple) "List<${recordType}>" else recordType
+
+  - name: root_field
     description: |
-      Specifies whether this field is located on the root subscription object.
+      Specifies whether this field is shown in the root query object.
     type: boolean
     optional: true
     default_value: |
@@ -59,3 +62,10 @@ entities:
     reference_entity_namespace: laplacian.arch.api.service.graphql
     cardinality: '0..1'
     aggregate: true
+
+  - name: arguments
+    reference_entity_name: api_call_argument
+    reference_entity_namespace: laplacian.arch.api.service
+    cardinality: '*'
+    aggregate: true
+

@@ -10,7 +10,17 @@ entities:
     type: string
     domain:
       choices:
-      - value: String
-      - value: Int
-      - value: Float
+      - value: string
+      - value: int
+      - value: float
+
+  - name: record_type
+    type: string
+    snippet: |
+      when (valueType) {
+          "string" -> "String"
+          "int" -> "Int"
+          "float" -> "Float"
+          else -> "Any"
+      }
 

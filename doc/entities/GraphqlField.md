@@ -30,24 +30,25 @@ Defines this graphql_field is optional or not.
   false
   ```
 
-### root_query_field: `Boolean`
-Specifies whether this field is located on the root query object.
+### operation_type: `String`
+The operation_type of this graphql_field.
 
-- **Default Value:**
+### record_type: `String`
+The record_type of this graphql_field.
+- **Code:**
   ```kotlin
-  false
+  "Any"
   ```
 
-### root_mutation_field: `Boolean`
-Specifies whether this field is located on the root modification object.
-
-- **Default Value:**
+### return_type: `String`
+The return_type of this graphql_field.
+- **Code:**
   ```kotlin
-  false
+  if (multiple) "List<${recordType}>" else recordType
   ```
 
-### root_subscription_field: `Boolean`
-Specifies whether this field is located on the root subscription object.
+### root_field: `Boolean`
+Specifies whether this field is shown in the root query object.
 
 - **Default Value:**
   ```kotlin
@@ -63,3 +64,7 @@ The graphql_type of this graphql_field.
 ### fetcher: `GraphqlFieldFetcher?`
 The fetcher of this graphql_field.
 - **Cardinality:** `0..1`
+
+### arguments: `List<ApiCallArgument>`
+The arguments of this graphql_field.
+- **Cardinality:** `*`
