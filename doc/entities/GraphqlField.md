@@ -30,8 +30,24 @@ Defines this graphql_field is optional or not.
   false
   ```
 
-### root: `Boolean`
+### root_query_field: `Boolean`
 Specifies whether this field is located on the root query object.
+
+- **Default Value:**
+  ```kotlin
+  false
+  ```
+
+### root_mutation_field: `Boolean`
+Specifies whether this field is located on the root modification object.
+
+- **Default Value:**
+  ```kotlin
+  false
+  ```
+
+### root_subscription_field: `Boolean`
+Specifies whether this field is located on the root subscription object.
 
 - **Default Value:**
   ```kotlin

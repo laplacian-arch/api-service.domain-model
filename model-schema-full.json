@@ -321,14 +321,6 @@
       }
     }
     ,
-    "graphql_field_fetchers": {
-      "description": "An entity describing a graphql_field_fetcher.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.GraphqlFieldFetcher"
-      }
-    }
-    ,
     "graphql_types": {
       "description": "An entity describing a graphql_type.",
       "type": "array",
@@ -4387,6 +4379,7 @@
           "type": {
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
+              "graphql_field_link",
               "static_data",
               "mybatis",
               "rest_api"
@@ -4403,10 +4396,61 @@
           }
         },
         "allOf": [
+          { "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.GraphqlFieldLink" },
           { "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.StaticDataFetcher" },
           { "$ref": "#/definitions/entities/laplacian.arch.api.service.mybatis.MybatisFetcher" },
           { "$ref": "#/definitions/entities/laplacian.arch.api.service.rest.RestApiFetcher" }
         ]
+      },
+      "laplacian.arch.api.service.graphql.GraphqlFieldLink": {
+        "description": "An entity describing a graphql_field_link.",
+        "if": { "properties": {
+          "type": { "const": "graphql_field_link" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "_class_": { "const": "graphql_field_link" },
+          "type": {
+            "description": "The type of this graphql_field_fetcher.",
+            "enum":[
+              "graphql_field_link",
+              "static_data",
+              "mybatis",
+              "rest_api"
+            ],
+            "type": "string"
+          },
+          "filter": {
+            "description": "The filter of this graphql_field_fetcher.",
+            "type": "string"
+          },
+          "cache_policy_name": {
+            "description": "The cache_policy_name of this graphql_field_fetcher.",
+            "type": "string"
+          },
+          "type_name": {
+            "allOf": [{
+            "description": "The type_name of this graphql_field_link.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/identifier"
+            }]
+          },
+          "group": {
+            "description": "The group of this graphql_field_link.",
+            "type": "string"
+          },
+          "field_name": {
+            "allOf": [{
+            "description": "The field_name of this graphql_field_link.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/identifier"
+            }]
+          }
+        }
+        }
       },
       "laplacian.arch.api.service.graphql.StaticDataFetcher": {
         "description": "An entity describing a static_data_fetcher.",
@@ -4420,6 +4464,7 @@
           "type": {
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
+              "graphql_field_link",
               "static_data",
               "mybatis",
               "rest_api"
@@ -4467,8 +4512,16 @@
             "description": "Defines this graphql_field is optional or not.",
             "type": "boolean"
           },
-          "root": {
+          "root_query_field": {
             "description": "Specifies whether this field is located on the root query object.",
+            "type": "boolean"
+          },
+          "root_mutation_field": {
+            "description": "Specifies whether this field is located on the root modification object.",
+            "type": "boolean"
+          },
+          "root_subscription_field": {
+            "description": "Specifies whether this field is located on the root subscription object.",
             "type": "boolean"
           },
           "data_model_name": {
@@ -4516,8 +4569,16 @@
             "description": "Defines this graphql_field is optional or not.",
             "type": "boolean"
           },
-          "root": {
+          "root_query_field": {
             "description": "Specifies whether this field is located on the root query object.",
+            "type": "boolean"
+          },
+          "root_mutation_field": {
+            "description": "Specifies whether this field is located on the root modification object.",
+            "type": "boolean"
+          },
+          "root_subscription_field": {
+            "description": "Specifies whether this field is located on the root subscription object.",
             "type": "boolean"
           },
           "fetcher": {
@@ -4561,8 +4622,16 @@
             "description": "Defines this graphql_field is optional or not.",
             "type": "boolean"
           },
-          "root": {
+          "root_query_field": {
             "description": "Specifies whether this field is located on the root query object.",
+            "type": "boolean"
+          },
+          "root_mutation_field": {
+            "description": "Specifies whether this field is located on the root modification object.",
+            "type": "boolean"
+          },
+          "root_subscription_field": {
+            "description": "Specifies whether this field is located on the root subscription object.",
             "type": "boolean"
           },
           "value_type": {
@@ -4611,12 +4680,24 @@
             "description": "Defines this graphql_field is optional or not.",
             "type": "boolean"
           },
-          "root": {
+          "root_query_field": {
             "description": "Specifies whether this field is located on the root query object.",
             "type": "boolean"
           },
-          "referencing_graphql_type_name": {
-            "description": "The referencing_graphql_type_name of this graphql_type_reference.",
+          "root_mutation_field": {
+            "description": "Specifies whether this field is located on the root modification object.",
+            "type": "boolean"
+          },
+          "root_subscription_field": {
+            "description": "Specifies whether this field is located on the root subscription object.",
+            "type": "boolean"
+          },
+          "graphql_type_name": {
+            "description": "The graphql_type_name of this graphql_type_reference.",
+            "type": "string"
+          },
+          "graphql_type_group": {
+            "description": "The graphql_type_group of this graphql_type_reference.",
             "type": "string"
           },
           "fetcher": {
@@ -4637,6 +4718,10 @@
           "_class_": { "const": "graphql_type" },
           "name": {
             "description": "The name of this graphql_type.",
+            "type": "string"
+          },
+          "group": {
+            "description": "The group of this graphql_type.",
             "type": "string"
           },
           "description": {
@@ -4672,6 +4757,7 @@
           "type": {
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
+              "graphql_field_link",
               "static_data",
               "mybatis",
               "rest_api"
@@ -4735,6 +4821,7 @@
           "type": {
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
+              "graphql_field_link",
               "static_data",
               "mybatis",
               "rest_api"
@@ -5038,6 +5125,10 @@
           "name": {
             "description": "The name of this graphql_type_entry.",
             "type": "string"
+          },
+          "group": {
+            "description": "The group of this graphql_type_entry.",
+            "type": "string"
           }
         }
       },
@@ -5207,9 +5298,6 @@
         }, {
         "if": { "properties": { "_class_": { "const": "elasticsearch_query" } }},
           "then": { "$ref": "#/definitions/entities/laplacian.arch.api.service.elasticsearch.ElasticsearchQuery" }
-        }, {
-        "if": { "properties": { "_class_": { "const": "graphql_field_fetcher" } }},
-          "then": { "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.GraphqlFieldFetcher" }
         }, {
         "if": { "properties": { "_class_": { "const": "graphql_type" } }},
           "then": { "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.GraphqlType" }

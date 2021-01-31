@@ -30,6 +30,13 @@ The description of this service.
   name
   ```
 
+### graphql_type_groups: `List<String>`
+The graphql_type_groups of this service.
+- **Code:**
+  ```kotlin
+  graphqlTypes.map{ it.group }.filterNotNull().distinct()
+  ```
+
 ### depends_on_elasticsearch: `Boolean`
 Defines this service is depends_on_elasticsearch or not.
 - **Code:**

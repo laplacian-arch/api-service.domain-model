@@ -13,6 +13,10 @@ An entity describing a graphql_type.
 The name of this graphql_type.
 - **Attributes:** *PK*
 
+### group: `String`
+The group of this graphql_type.
+- **Attributes:** *PK*
+
 ### description: `String`
 The description of this graphql_type.
 - **Default Value:**

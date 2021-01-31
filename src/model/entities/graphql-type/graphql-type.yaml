@@ -7,6 +7,11 @@ entities:
     type: string
     primary_key: true
 
+  - name: group
+    type: string
+    optional: true
+    primary_key: true
+
   - name: description
     type: string
     optional: true

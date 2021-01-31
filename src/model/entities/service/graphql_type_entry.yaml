@@ -5,6 +5,12 @@ entities:
   properties:
   - name: name
     type: string
+  - name: group
+    type: string
+    optional: true
+    default_value: |
+      "root"
+
 
   relationships:
   - name: service
@@ -19,3 +25,5 @@ entities:
     mappings:
     - from: name
       to: name
+    - from: group
+      to: group

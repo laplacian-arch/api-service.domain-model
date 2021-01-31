@@ -6,8 +6,14 @@ entities:
   subtype_key_value: graphql_type
 
   properties:
-  - name: referencing_graphql_type_name
+  - name: graphql_type_name
     type: string
+
+  - name: graphql_type_group
+    type: string
+    optional: true
+    default_value: |
+      graphqlType.group
 
   relationships:
   - name: referencing_graphql_type
@@ -15,5 +21,7 @@ entities:
     reference_entity_namespace: laplacian.arch.api.service.graphql
     cardinality: '1'
     mappings:
-    - from: referencing_graphql_type_name
+    - from: graphql_type_name
       to: name
+    - from: graphql_type_group
+      to: group

@@ -23,9 +23,25 @@ entities:
     default_value: |
       false
 
-  - name: root
+  - name: root_query_field
     description: |
       Specifies whether this field is located on the root query object.
+    type: boolean
+    optional: true
+    default_value: |
+      false
+
+  - name: root_mutation_field
+    description: |
+      Specifies whether this field is located on the root modification object.
+    type: boolean
+    optional: true
+    default_value: |
+      false
+
+  - name: root_subscription_field
+    description: |
+      Specifies whether this field is located on the root subscription object.
     type: boolean
     optional: true
     default_value: |

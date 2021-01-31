@@ -9,8 +9,15 @@ An entity describing a graphql_type_reference.
 
 ## Properties
 
-### referencing_graphql_type_name: `String`
-The referencing_graphql_type_name of this graphql_type_reference.
+### graphql_type_name: `String`
+The graphql_type_name of this graphql_type_reference.
+
+### graphql_type_group: `String`
+The graphql_type_group of this graphql_type_reference.
+- **Default Value:**
+  ```kotlin
+  graphqlType.group
+  ```
 
 ## Relationships
 

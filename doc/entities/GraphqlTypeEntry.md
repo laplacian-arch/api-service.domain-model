@@ -12,6 +12,13 @@ An entity describing a graphql_type_entry.
 ### name: `String`
 The name of this graphql_type_entry.
 
+### group: `String`
+The group of this graphql_type_entry.
+- **Default Value:**
+  ```kotlin
+  "root"
+  ```
+
 ## Relationships
 
 ### service: `Service`

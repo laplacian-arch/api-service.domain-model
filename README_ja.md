@@ -176,6 +176,8 @@ An entity describing a term_query_predicate.
 An entity describing a terms_query_predicate.
 - [**GraphqlFieldFetcher**](<./doc/entities/GraphqlFieldFetcher.md>)
 An entity describing a graphql_field_fetcher.
+- [**GraphqlFieldLink**](<./doc/entities/GraphqlFieldLink.md>)
+An entity describing a graphql_field_link.
 - [**StaticDataFetcher**](<./doc/entities/StaticDataFetcher.md>)
 An entity describing a static_data_fetcher.
 - [**GraphqlCompositeField**](<./doc/entities/GraphqlCompositeField.md>)
@@ -347,6 +349,7 @@ An entity describing a configuration_binding.
 - [src/model/entities/elasticsearch/predicate/term-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/term-query-predicate.yaml>)
 - [src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml>)
 - [src/model/entities/graphql-type/graphql-field-fetcher/graphql-field-fetcher.yaml](<./src/model/entities/graphql-type/graphql-field-fetcher/graphql-field-fetcher.yaml>)
+- [src/model/entities/graphql-type/graphql-field-fetcher/graphql-field-link.yaml](<./src/model/entities/graphql-type/graphql-field-fetcher/graphql-field-link.yaml>)
 - [src/model/entities/graphql-type/graphql-field-fetcher/static-data-fetcher.yaml](<./src/model/entities/graphql-type/graphql-field-fetcher/static-data-fetcher.yaml>)
 - [src/model/entities/graphql-type/graphql-field/graphql-composite-field.yaml](<./src/model/entities/graphql-type/graphql-field/graphql-composite-field.yaml>)
 - [src/model/entities/graphql-type/graphql-field/graphql-field.yaml](<./src/model/entities/graphql-type/graphql-field/graphql-field.yaml>)
