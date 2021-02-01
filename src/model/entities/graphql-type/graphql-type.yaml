@@ -48,39 +48,39 @@ entities:
     reference_entity_namespace: laplacian.arch.api.service.graphql
     cardinality: '*'
     snippet: |
-      fields.filter{ !it.rootField && it.operationType == "query" }
+      fields.filter{ it.operationType == "query" }
 
   - name: root_query_fields
     reference_entity_name: graphql_field
     reference_entity_namespace: laplacian.arch.api.service.graphql
     cardinality: '*'
     snippet: |
-      fields.filter{ it.rootField && it.operationType == "query" }
+      queryFields.filter{ it.rootField }
 
   - name: mutation_fields
     reference_entity_name: graphql_field
     reference_entity_namespace: laplacian.arch.api.service.graphql
     cardinality: '*'
     snippet: |
-      fields.filter{ !it.rootField && it.operationType == "mutation" }
+      fields.filter{ it.operationType == "mutation" }
 
   - name: root_mutation_fields
     reference_entity_name: graphql_field
     reference_entity_namespace: laplacian.arch.api.service.graphql
     cardinality: '*'
     snippet: |
-      fields.filter{ it.rootField && it.operationType == "mutation" }
+      mutationFields.filter{ it.rootField }
 
   - name: subscription_fields
     reference_entity_name: graphql_field
     reference_entity_namespace: laplacian.arch.api.service.graphql
     cardinality: '*'
     snippet: |
-      fields.filter{ !it.rootField && it.operationType == "subscription" }
+      fields.filter{ it.operationType == "subscription" }
 
   - name: root_subscription_fields
     reference_entity_name: graphql_field
     reference_entity_namespace: laplacian.arch.api.service.graphql
     cardinality: '*'
     snippet: |
-      fields.filter{ it.rootField && it.operationType == "subscription" }
+      subscriptionFields.filter{ it.rootField }

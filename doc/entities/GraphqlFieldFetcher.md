@@ -12,8 +12,8 @@ An entity describing a graphql_field_fetcher.
 ### type: `String`
 The type of this graphql_field_fetcher.
 
-### filter: `String`
-The filter of this graphql_field_fetcher.
+### result_filter: `String`
+The result_filter of this graphql_field_fetcher.
 
 ### cache_policy_name: `String`
 The cache_policy_name of this graphql_field_fetcher.

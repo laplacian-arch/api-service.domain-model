@@ -7,6 +7,12 @@ entities:
     type: string
     primary_key: true
 
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      "The ${name} field."
+
   - name: field_type
     type: string
     subtype_key: true

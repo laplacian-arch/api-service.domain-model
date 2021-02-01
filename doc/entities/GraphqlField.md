@@ -13,6 +13,13 @@ An entity describing a graphql_field.
 The name of this graphql_field.
 - **Attributes:** *PK*
 
+### description: `String`
+The description of this graphql_field.
+- **Default Value:**
+  ```kotlin
+  "The ${name} field."
+  ```
+
 ### field_type: `String`
 The field_type of this graphql_field.
 

@@ -45,7 +45,7 @@ The query_fields of this graphql_type.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  fields.filter{ !it.rootField && it.operationType == "query" }
+  fields.filter{ it.operationType == "query" }
   ```
 
 ### root_query_fields: `List<GraphqlField>`
@@ -53,7 +53,7 @@ The root_query_fields of this graphql_type.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  fields.filter{ it.rootField && it.operationType == "query" }
+  queryFields.filter{ it.rootField }
   ```
 
 ### mutation_fields: `List<GraphqlField>`
@@ -61,7 +61,7 @@ The mutation_fields of this graphql_type.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  fields.filter{ !it.rootField && it.operationType == "mutation" }
+  fields.filter{ it.operationType == "mutation" }
   ```
 
 ### root_mutation_fields: `List<GraphqlField>`
@@ -69,7 +69,7 @@ The root_mutation_fields of this graphql_type.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  fields.filter{ it.rootField && it.operationType == "mutation" }
+  mutationFields.filter{ it.rootField }
   ```
 
 ### subscription_fields: `List<GraphqlField>`
@@ -77,7 +77,7 @@ The subscription_fields of this graphql_type.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  fields.filter{ !it.rootField && it.operationType == "subscription" }
+  fields.filter{ it.operationType == "subscription" }
   ```
 
 ### root_subscription_fields: `List<GraphqlField>`
@@ -85,5 +85,5 @@ The root_subscription_fields of this graphql_type.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  fields.filter{ it.rootField && it.operationType == "subscription" }
+  subscriptionFields.filter{ it.rootField }
   ```

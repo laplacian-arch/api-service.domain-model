@@ -7,7 +7,7 @@ entities:
     type: string
     subtype_key: true
 
-  - name: filter
+  - name: result_filter
     type: string
     optional: true
 

@@ -4386,8 +4386,8 @@
             ],
             "type": "string"
           },
-          "filter": {
-            "description": "The filter of this graphql_field_fetcher.",
+          "result_filter": {
+            "description": "The result_filter of this graphql_field_fetcher.",
             "type": "string"
           },
           "cache_policy_name": {
@@ -4421,8 +4421,8 @@
             ],
             "type": "string"
           },
-          "filter": {
-            "description": "The filter of this graphql_field_fetcher.",
+          "result_filter": {
+            "description": "The result_filter of this graphql_field_fetcher.",
             "type": "string"
           },
           "cache_policy_name": {
@@ -4471,8 +4471,8 @@
             ],
             "type": "string"
           },
-          "filter": {
-            "description": "The filter of this graphql_field_fetcher.",
+          "result_filter": {
+            "description": "The result_filter of this graphql_field_fetcher.",
             "type": "string"
           },
           "cache_policy_name": {
@@ -4493,6 +4493,10 @@
           "_class_": { "const": "graphql_composite_field" },
           "name": {
             "description": "The name of this graphql_field.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_field.",
             "type": "string"
           },
           "field_type": {
@@ -4560,6 +4564,10 @@
             "description": "The name of this graphql_field.",
             "type": "string"
           },
+          "description": {
+            "description": "The description of this graphql_field.",
+            "type": "string"
+          },
           "field_type": {
             "description": "The field_type of this graphql_field.",
             "enum":[
@@ -4619,6 +4627,10 @@
           "_class_": { "const": "graphql_scalar_field" },
           "name": {
             "description": "The name of this graphql_field.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_field.",
             "type": "string"
           },
           "field_type": {
@@ -4685,6 +4697,10 @@
           "_class_": { "const": "graphql_type_reference" },
           "name": {
             "description": "The name of this graphql_field.",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_field.",
             "type": "string"
           },
           "field_type": {
@@ -4796,8 +4812,8 @@
             ],
             "type": "string"
           },
-          "filter": {
-            "description": "The filter of this graphql_field_fetcher.",
+          "result_filter": {
+            "description": "The result_filter of this graphql_field_fetcher.",
             "type": "string"
           },
           "cache_policy_name": {
@@ -4853,8 +4869,8 @@
             ],
             "type": "string"
           },
-          "filter": {
-            "description": "The filter of this graphql_field_fetcher.",
+          "result_filter": {
+            "description": "The result_filter of this graphql_field_fetcher.",
             "type": "string"
           },
           "cache_policy_name": {
