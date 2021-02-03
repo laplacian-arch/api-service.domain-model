@@ -7,6 +7,12 @@ entities:
     type: string
     subtype_key: true
 
+  - name: description
+    type: string
+    optional: true
+    default_value: |
+      "The data fetcher for the ${graphqlField.name} field."
+
   - name: result_filter
     type: string
     optional: true

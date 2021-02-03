@@ -12,6 +12,13 @@ An entity describing a graphql_field_fetcher.
 ### type: `String`
 The type of this graphql_field_fetcher.
 
+### description: `String`
+The description of this graphql_field_fetcher.
+- **Default Value:**
+  ```kotlin
+  "The data fetcher for the ${graphqlField.name} field."
+  ```
+
 ### result_filter: `String`
 The result_filter of this graphql_field_fetcher.
 

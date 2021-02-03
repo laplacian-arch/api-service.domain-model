@@ -30,6 +30,20 @@ The data_model_name of this graphql_type.
 ### data_model_namespace: `String`
 The data_model_namespace of this graphql_type.
 
+### depends_on_mybatis: `Boolean`
+Defines this graphql_type is depends_on_mybatis or not.
+- **Code:**
+  ```kotlin
+  fields.any{ it.fetcher?.type == "mybatis" ?: false }
+  ```
+
+### fqn: `String`
+The fqn of this graphql_type.
+- **Code:**
+  ```kotlin
+  "${if (group != null) "${group!!.lowerUnderscorize()}." else ""}${name.lowerUnderscorize()}"
+  ```
+
 ## Relationships
 
 ### data_model: `Entity?`
@@ -86,4 +100,26 @@ The root_subscription_fields of this graphql_type.
 - **Code:**
   ```kotlin
   subscriptionFields.filter{ it.rootField }
+  ```
+
+### referencing_graphql_types: `List<GraphqlType>`
+The referencing_graphql_types of this graphql_type.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  fields
+  .filterIsInstance<GraphqlTypeReference>()
+  .map{ it.referencingGraphqlType }
+  .filter{ it != this }
+  .distinct()
+  ```
+
+### mybatis_field_fetchers: `List<MybatisFetcher>`
+The mybatis_field_fetchers of this graphql_type.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  fields
+  .mapNotNull{ it.fetcher }
+  .filterIsInstance<MybatisFetcher>()
   ```

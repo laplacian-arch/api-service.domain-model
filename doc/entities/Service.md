@@ -62,7 +62,7 @@ Defines this service is depends_on_redis_cache or not.
 Defines this service is depends_on_mybatis or not.
 - **Code:**
   ```kotlin
-  mybatisFetchers.isNotEmpty()
+  graphqlTypes.any{ it.dependsOnMybatis }
   ```
 
 ### depends_on_postgres_jdbc: `Boolean`
@@ -132,14 +132,6 @@ The graphql_field_fetchers of this service.
 - **Code:**
   ```kotlin
   graphqlFields.map{ it.fetcher }.filterNotNull()
-  ```
-
-### mybatis_fetchers: `List<MybatisFetcher>`
-The mybatis_fetchers of this service.
-- **Cardinality:** `*`
-- **Code:**
-  ```kotlin
-  graphqlFieldFetchers.filterIsInstance<MybatisFetcher>()
   ```
 
 ### cache_policies: `List<CachePolicy>`

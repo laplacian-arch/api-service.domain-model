@@ -26,6 +26,16 @@ entities:
     type: string
     optional: true
 
+  - name: depends_on_mybatis
+    type: boolean
+    snippet: |
+      fields.any{ it.fetcher?.type == "mybatis" ?: false }
+
+  - name: fqn
+    type: string
+    snippet: |
+      "${if (group != null) "${group!!.lowerUnderscorize()}." else ""}${name.lowerUnderscorize()}"
+
   relationships:
   - name: data_model
     reference_entity_name: entity
@@ -84,3 +94,23 @@ entities:
     cardinality: '*'
     snippet: |
       subscriptionFields.filter{ it.rootField }
+
+  - name: referencing_graphql_types
+    reference_entity_name: graphql_type
+    reference_entity_namespace: laplacian.arch.api.service.graphql
+    cardinality: '*'
+    snippet: |
+      fields
+      .filterIsInstance<GraphqlTypeReference>()
+      .map{ it.referencingGraphqlType }
+      .filter{ it != this }
+      .distinct()
+
+  - name: mybatis_field_fetchers
+    reference_entity_name: mybatis_fetcher
+    reference_entity_namespace: laplacian.arch.api.service.mybatis
+    cardinality: '*'
+    snippet: |
+      fields
+      .mapNotNull{ it.fetcher }
+      .filterIsInstance<MybatisFetcher>()

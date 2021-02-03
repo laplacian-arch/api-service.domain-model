@@ -4386,6 +4386,10 @@
             ],
             "type": "string"
           },
+          "description": {
+            "description": "The description of this graphql_field_fetcher.",
+            "type": "string"
+          },
           "result_filter": {
             "description": "The result_filter of this graphql_field_fetcher.",
             "type": "string"
@@ -4419,6 +4423,10 @@
               "mybatis",
               "rest_api"
             ],
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_field_fetcher.",
             "type": "string"
           },
           "result_filter": {
@@ -4469,6 +4477,10 @@
               "mybatis",
               "rest_api"
             ],
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_field_fetcher.",
             "type": "string"
           },
           "result_filter": {
@@ -4812,24 +4824,16 @@
             ],
             "type": "string"
           },
+          "description": {
+            "description": "The description of this graphql_field_fetcher.",
+            "type": "string"
+          },
           "result_filter": {
             "description": "The result_filter of this graphql_field_fetcher.",
             "type": "string"
           },
           "cache_policy_name": {
             "description": "The cache_policy_name of this graphql_field_fetcher.",
-            "type": "string"
-          },
-          "name": {
-            "allOf": [{
-            "description": "The name of this mybatis_fetcher.",
-            "type": "string"
-            }, {
-            "$ref": "#/definitions/value_domain_types/identifier"
-            }]
-          },
-          "description": {
-            "description": "The description of this mybatis_fetcher.",
             "type": "string"
           },
           "statement_type": {
@@ -4867,6 +4871,10 @@
               "mybatis",
               "rest_api"
             ],
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_field_fetcher.",
             "type": "string"
           },
           "result_filter": {

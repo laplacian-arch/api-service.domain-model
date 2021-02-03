@@ -46,7 +46,7 @@ entities:
   - name: depends_on_mybatis
     type: boolean
     snippet: |
-      mybatisFetchers.isNotEmpty()
+      graphqlTypes.any{ it.dependsOnMybatis }
 
   - name: depends_on_postgres_jdbc
     type: boolean
@@ -110,13 +110,6 @@ entities:
     cardinality: '*'
     snippet: |
       graphqlFields.map{ it.fetcher }.filterNotNull()
-
-  - name: mybatis_fetchers
-    reference_entity_name: mybatis_fetcher
-    reference_entity_namespace: laplacian.arch.api.service.mybatis
-    cardinality: '*'
-    snippet: |
-      graphqlFieldFetchers.filterIsInstance<MybatisFetcher>()
 
   - name: cache_policies
     reference_entity_name: cache_policy

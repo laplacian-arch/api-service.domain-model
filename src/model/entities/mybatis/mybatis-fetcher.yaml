@@ -6,17 +6,6 @@ entities:
   subtype_key_value: mybatis
 
   properties:
-  - name: name
-    type: string
-    domain_type_name: identifier
-    primary_key: true
-
-  - name: description
-    type: string
-    optional: true
-    default_value: |
-      "${type}: ${name}"
-
   - name: statement_type
     type: string
     domain:

@@ -39,6 +39,10 @@ Defines this graphql_field is optional or not.
 
 ### operation_type: `String`
 The operation_type of this graphql_field.
+- **Default Value:**
+  ```kotlin
+  "query"
+  ```
 
 ### record_type: `String`
 The record_type of this graphql_field.
@@ -54,12 +58,26 @@ The return_type of this graphql_field.
   if (multiple) "List<${recordType}>" else recordType
   ```
 
+### return_type_in_gql: `String`
+The return_type_in_gql of this graphql_field.
+- **Code:**
+  ```kotlin
+  if (multiple) "[${recordType}]" else recordType
+  ```
+
 ### root_field: `Boolean`
 Specifies whether this field is shown in the root query object.
 
 - **Default Value:**
   ```kotlin
   false
+  ```
+
+### fqn: `String`
+The fqn of this graphql_field.
+- **Code:**
+  ```kotlin
+  "${graphqlType.fqn}.${name.lowerUnderscorize()}"
   ```
 
 ## Relationships

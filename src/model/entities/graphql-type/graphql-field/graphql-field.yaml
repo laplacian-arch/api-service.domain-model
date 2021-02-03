@@ -32,6 +32,8 @@ entities:
   - name: operation_type
     type: string
     optional: true
+    default_value: |
+      "query"
     domain:
       choices:
       - value: query
@@ -48,6 +50,11 @@ entities:
     snippet: |
       if (multiple) "List<${recordType}>" else recordType
 
+  - name: return_type_in_gql
+    type: string
+    snippet: |
+      if (multiple) "[${recordType}]" else recordType
+
   - name: root_field
     description: |
       Specifies whether this field is shown in the root query object.
@@ -55,6 +62,11 @@ entities:
     optional: true
     default_value: |
       false
+
+  - name: fqn
+    type: string
+    snippet: |
+      "${graphqlType.fqn}.${name.lowerUnderscorize()}"
 
   relationships:
   - name: graphql_type
