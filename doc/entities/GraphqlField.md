@@ -44,11 +44,32 @@ The operation_type of this graphql_field.
   "query"
   ```
 
+### context_data_model_name: `String`
+The context_data_model_name of this graphql_field.
+
+### context_type: `String`
+The context_type of this graphql_field.
+- **Code:**
+  ```kotlin
+  when {
+      rootField -> null
+      (contextDataModelName == null) -> graphqlType.name
+      else -> contextDataModelName
+  }?.upperCamelize()
+  ```
+
 ### record_type: `String`
 The record_type of this graphql_field.
 - **Code:**
   ```kotlin
   "Any"
+  ```
+
+### record_type_in_gql: `String`
+The record_type_in_gql of this graphql_field.
+- **Code:**
+  ```kotlin
+  recordType
   ```
 
 ### return_type: `String`
@@ -62,7 +83,7 @@ The return_type of this graphql_field.
 The return_type_in_gql of this graphql_field.
 - **Code:**
   ```kotlin
-  if (multiple) "[${recordType}]" else recordType
+  if (multiple) "[${recordTypeInGql}]" else recordTypeInGql
   ```
 
 ### root_field: `Boolean`

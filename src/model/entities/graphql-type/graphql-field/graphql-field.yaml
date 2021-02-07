@@ -40,10 +40,29 @@ entities:
       - value: mutation
       - value: subscription
 
+  - name: context_data_model_name
+    type: string
+    optional: true
+
+  - name: context_type
+    type: string
+    optional: true
+    snippet: |
+      when {
+          rootField -> null
+          (contextDataModelName == null) -> graphqlType.name
+          else -> contextDataModelName
+      }?.upperCamelize()
+
   - name: record_type
     type: string
     snippet: |
       "Any"
+
+  - name: record_type_in_gql
+    type: string
+    snippet: |
+      recordType
 
   - name: return_type
     type: string
@@ -53,7 +72,7 @@ entities:
   - name: return_type_in_gql
     type: string
     snippet: |
-      if (multiple) "[${recordType}]" else recordType
+      if (multiple) "[${recordTypeInGql}]" else recordTypeInGql
 
   - name: root_field
     description: |
@@ -86,4 +105,3 @@ entities:
     reference_entity_namespace: laplacian.arch.api.service
     cardinality: '*'
     aggregate: true
-

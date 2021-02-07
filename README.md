@@ -83,6 +83,10 @@ An entity describing a cache_policy.
 An entity describing a heap_memory_cache_policy.
 - [**RedisCachePolicy**](<./doc/entities/RedisCachePolicy.md>)
 An entity describing a redis_cache_policy.
+- [**DataFileFetcher**](<./doc/entities/DataFileFetcher.md>)
+A graphql field fetcher retrieving the value from a file located in the container.
+- [**DataFile**](<./doc/entities/DataFile.md>)
+An entity describing a data_file.
 - [**Datasource**](<./doc/entities/Datasource.md>)
 A *DataSource* represents an interface through which a client application access to a data store.
 This includes the following models.
@@ -177,8 +181,6 @@ An entity describing a terms_query_predicate.
 An entity describing a graphql_field_fetcher.
 - [**GraphqlFieldLink**](<./doc/entities/GraphqlFieldLink.md>)
 An entity describing a graphql_field_link.
-- [**StaticDataFetcher**](<./doc/entities/StaticDataFetcher.md>)
-An entity describing a static_data_fetcher.
 - [**GraphqlCompositeField**](<./doc/entities/GraphqlCompositeField.md>)
 An entity describing a graphql_composite_field.
 - [**GraphqlField**](<./doc/entities/GraphqlField.md>)
@@ -327,6 +329,8 @@ An entity describing a configuration_binding.
 - [src/model/entities/cache-policy/cache-policy.yaml](<./src/model/entities/cache-policy/cache-policy.yaml>)
 - [src/model/entities/cache-policy/heap-memory-cache-configuration.yaml](<./src/model/entities/cache-policy/heap-memory-cache-configuration.yaml>)
 - [src/model/entities/cache-policy/redis-cache-policy.yaml](<./src/model/entities/cache-policy/redis-cache-policy.yaml>)
+- [src/model/entities/data_file/data-file-fetcher.yaml](<./src/model/entities/data_file/data-file-fetcher.yaml>)
+- [src/model/entities/data_file/data-file.yaml](<./src/model/entities/data_file/data-file.yaml>)
 - [src/model/entities/datasource/datasource_entry.yaml](<./src/model/entities/datasource/datasource_entry.yaml>)
 - [src/model/entities/datasource/datasource.yaml](<./src/model/entities/datasource/datasource.yaml>)
 - [src/model/entities/datasource/postgres-jdbc-datasource.yaml](<./src/model/entities/datasource/postgres-jdbc-datasource.yaml>)
@@ -357,7 +361,6 @@ An entity describing a configuration_binding.
 - [src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml](<./src/model/entities/elasticsearch/predicate/terms-query-predicate.yaml>)
 - [src/model/entities/graphql-type/graphql-field-fetcher/graphql-field-fetcher.yaml](<./src/model/entities/graphql-type/graphql-field-fetcher/graphql-field-fetcher.yaml>)
 - [src/model/entities/graphql-type/graphql-field-fetcher/graphql-field-link.yaml](<./src/model/entities/graphql-type/graphql-field-fetcher/graphql-field-link.yaml>)
-- [src/model/entities/graphql-type/graphql-field-fetcher/static-data-fetcher.yaml](<./src/model/entities/graphql-type/graphql-field-fetcher/static-data-fetcher.yaml>)
 - [src/model/entities/graphql-type/graphql-field/graphql-composite-field.yaml](<./src/model/entities/graphql-type/graphql-field/graphql-composite-field.yaml>)
 - [src/model/entities/graphql-type/graphql-field/graphql-field.yaml](<./src/model/entities/graphql-type/graphql-field/graphql-field.yaml>)
 - [src/model/entities/graphql-type/graphql-field/graphql-scalar-field.yaml](<./src/model/entities/graphql-type/graphql-field/graphql-scalar-field.yaml>)
@@ -372,6 +375,7 @@ An entity describing a configuration_binding.
 - [src/model/entities/service/graphql_type_entry.yaml](<./src/model/entities/service/graphql_type_entry.yaml>)
 - [src/model/entities/service/service_configuration.yaml](<./src/model/entities/service/service_configuration.yaml>)
 - [src/model/entities/service.yml](<./src/model/entities/service.yml>)
+- [src/model/value_domain_types/file_path.yaml](<./src/model/value_domain_types/file_path.yaml>)
 - [src/model/value_domain_types/http_method_for_rest.yaml](<./src/model/value_domain_types/http_method_for_rest.yaml>)
 - [src/model/value_domain_types/integer_or_placeholder.yaml](<./src/model/value_domain_types/integer_or_placeholder.yaml>)
 - [src/model/value_domain_types/service_configuration_name.yaml](<./src/model/value_domain_types/service_configuration_name.yaml>)

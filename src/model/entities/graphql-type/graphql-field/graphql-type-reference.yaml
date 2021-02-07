@@ -18,7 +18,12 @@ entities:
   - name: record_type
     type: string
     snippet: |
-      graphqlTypeName.upperCamelize()
+      referencingGraphqlType.name.upperCamelize()
+
+  - name: record_type_in_gql
+    type: string
+    snippet: |
+      referencingGraphqlType.graphqlTypeName
 
   relationships:
   - name: referencing_graphql_type

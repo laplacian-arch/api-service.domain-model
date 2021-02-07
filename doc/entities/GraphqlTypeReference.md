@@ -23,7 +23,14 @@ The graphql_type_group of this graphql_type_reference.
 The record_type of this graphql_type_reference.
 - **Code:**
   ```kotlin
-  graphqlTypeName.upperCamelize()
+  referencingGraphqlType.name.upperCamelize()
+  ```
+
+### record_type_in_gql: `String`
+The record_type_in_gql of this graphql_type_reference.
+- **Code:**
+  ```kotlin
+  referencingGraphqlType.graphqlTypeName
   ```
 
 ## Relationships

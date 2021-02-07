@@ -201,6 +201,14 @@
       }
     }
     ,
+    "data_files": {
+      "description": "An entity describing a data_file.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entities/laplacian.arch.api.service.data_file.DataFile"
+      }
+    }
+    ,
     "datasources": {
       "description": "A *DataSource* represents an interface through which a client application access to a data store.\nThis includes the following models.\n- The entity that the datastore exposes to the client\n- Statement issued by the client to the datastore",
       "type": "array",
@@ -608,6 +616,11 @@
       "namespace": {
         "description": "名前空間",
         "pattern": "^[_a-zA-Z][_$a-zA-Z0-9]*(\\.[_a-zA-Z][_$a-zA-Z0-9]*)*$",
+        "type": "string"
+      },
+      "file_path": {
+        "description": "file_path",
+        "pattern": "^^(.+)\\/([^\\/]+)$$",
         "type": "string"
       },
       "http_method_for_rest": {
@@ -2464,6 +2477,84 @@
             }
           }
         }
+        }
+      },
+      "laplacian.arch.api.service.data_file.DataFileFetcher": {
+        "description": "A graphql field fetcher retrieving the value from a file located in the container.",
+        "if": { "properties": {
+          "type": { "const": "data_file" }
+        }},
+        "then": {
+        "additionalProperties": false,
+        "properties": {
+          "_class_": { "const": "data_file_fetcher" },
+          "type": {
+            "description": "The type of this graphql_field_fetcher.",
+            "enum":[
+              "data_file",
+              "graphql_field_link",
+              "mybatis",
+              "rest_api"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_field_fetcher.",
+            "type": "string"
+          },
+          "result_filter": {
+            "description": "The result_filter of this graphql_field_fetcher.",
+            "type": "string"
+          },
+          "cache_policy_name": {
+            "description": "The cache_policy_name of this graphql_field_fetcher.",
+            "type": "string"
+          },
+          "data_file": {
+            "description": "The data_file of this data_file_fetcher.",
+            "$ref": "#/definitions/entities/laplacian.arch.api.service.data_file.DataFile"
+          }
+        }
+        }
+      },
+      "laplacian.arch.api.service.data_file.DataFile": {
+        "description": "An entity describing a data_file.",
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "_class_": { "const": "data_file" },
+          "name": {
+            "allOf": [{
+            "description": "The name of this data_file.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/identifier"
+            }]
+          },
+          "description": {
+            "description": "The description of this data_file.",
+            "type": "string"
+          },
+          "format": {
+            "description": "The format of this data_file.",
+            "enum":[
+              "json",
+              "yaml",
+              "csv"
+            ],
+            "type": "string"
+          },
+          "default_path": {
+            "allOf": [{
+            "description": "The default_path of this data_file.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/file_path"
+            }]
+          }
         }
       },
       "laplacian.arch.api.service.datasource.Datasource": {
@@ -4379,8 +4470,8 @@
           "type": {
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
+              "data_file",
               "graphql_field_link",
-              "static_data",
               "mybatis",
               "rest_api"
             ],
@@ -4400,8 +4491,8 @@
           }
         },
         "allOf": [
+          { "$ref": "#/definitions/entities/laplacian.arch.api.service.data_file.DataFileFetcher" },
           { "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.GraphqlFieldLink" },
-          { "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.StaticDataFetcher" },
           { "$ref": "#/definitions/entities/laplacian.arch.api.service.mybatis.MybatisFetcher" },
           { "$ref": "#/definitions/entities/laplacian.arch.api.service.rest.RestApiFetcher" }
         ]
@@ -4418,8 +4509,8 @@
           "type": {
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
+              "data_file",
               "graphql_field_link",
-              "static_data",
               "mybatis",
               "rest_api"
             ],
@@ -4456,40 +4547,6 @@
             }, {
             "$ref": "#/definitions/value_domain_types/identifier"
             }]
-          }
-        }
-        }
-      },
-      "laplacian.arch.api.service.graphql.StaticDataFetcher": {
-        "description": "An entity describing a static_data_fetcher.",
-        "if": { "properties": {
-          "type": { "const": "static_data" }
-        }},
-        "then": {
-        "additionalProperties": false,
-        "properties": {
-          "_class_": { "const": "static_data_fetcher" },
-          "type": {
-            "description": "The type of this graphql_field_fetcher.",
-            "enum":[
-              "graphql_field_link",
-              "static_data",
-              "mybatis",
-              "rest_api"
-            ],
-            "type": "string"
-          },
-          "description": {
-            "description": "The description of this graphql_field_fetcher.",
-            "type": "string"
-          },
-          "result_filter": {
-            "description": "The result_filter of this graphql_field_fetcher.",
-            "type": "string"
-          },
-          "cache_policy_name": {
-            "description": "The cache_policy_name of this graphql_field_fetcher.",
-            "type": "string"
           }
         }
         }
@@ -4535,6 +4592,10 @@
               "mutation",
               "subscription"
             ],
+            "type": "string"
+          },
+          "context_data_model_name": {
+            "description": "The context_data_model_name of this graphql_field.",
             "type": "string"
           },
           "root_field": {
@@ -4606,6 +4667,10 @@
             ],
             "type": "string"
           },
+          "context_data_model_name": {
+            "description": "The context_data_model_name of this graphql_field.",
+            "type": "string"
+          },
           "root_field": {
             "description": "Specifies whether this field is shown in the root query object.",
             "type": "boolean"
@@ -4669,6 +4734,10 @@
               "mutation",
               "subscription"
             ],
+            "type": "string"
+          },
+          "context_data_model_name": {
+            "description": "The context_data_model_name of this graphql_field.",
             "type": "string"
           },
           "root_field": {
@@ -4739,6 +4808,10 @@
               "mutation",
               "subscription"
             ],
+            "type": "string"
+          },
+          "context_data_model_name": {
+            "description": "The context_data_model_name of this graphql_field.",
             "type": "string"
           },
           "root_field": {
@@ -4817,8 +4890,8 @@
           "type": {
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
+              "data_file",
               "graphql_field_link",
-              "static_data",
               "mybatis",
               "rest_api"
             ],
@@ -4866,8 +4939,8 @@
           "type": {
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
+              "data_file",
               "graphql_field_link",
-              "static_data",
               "mybatis",
               "rest_api"
             ],
@@ -5302,6 +5375,9 @@
         }, {
         "if": { "properties": { "_class_": { "const": "cache_policy" } }},
           "then": { "$ref": "#/definitions/entities/laplacian.arch.api.service.cache.CachePolicy" }
+        }, {
+        "if": { "properties": { "_class_": { "const": "data_file" } }},
+          "then": { "$ref": "#/definitions/entities/laplacian.arch.api.service.data_file.DataFile" }
         }, {
         "if": { "properties": { "_class_": { "const": "datasource" } }},
           "then": { "$ref": "#/definitions/entities/laplacian.arch.api.service.datasource.Datasource" }

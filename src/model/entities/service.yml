@@ -38,6 +38,11 @@ entities:
     snippet: |
       cachePolicies.isNotEmpty()
 
+  - name: depends_on_data_file
+    type: boolean
+    snippet: |
+      dataFiles.isNotEmpty()
+
   - name: depends_on_redis_cache
     type: boolean
     snippet: |
@@ -84,6 +89,13 @@ entities:
     snippet: |
       graphqlTypeEntries.map{ it.graphqlType }.distinct()
 
+  - name: root_graphql_types
+    cardinality: '*'
+    reference_entity_name: graphql_type
+    reference_entity_namespace: laplacian.arch.api.service.graphql
+    snippet: |
+      graphqlTypes.filter{ it.group == null }
+
   - name: elasticsearch_indexes
     reference_entity_name: elasticsearch_index
     reference_entity_namespace: laplacian.arch.api.service.elasticsearch
@@ -125,3 +137,16 @@ entities:
     snippet: |
       cachePolicies.filterIsInstance<RedisCachePolicy>()
 
+  - name: data_file_fetchers
+    reference_entity_name: data_file_fetcher
+    reference_entity_namespace: laplacian.arch.api.service.data_file
+    cardinality: '*'
+    snippet: |
+      graphqlFieldFetchers.filterIsInstance<DataFileFetcher>()
+
+  - name: data_files
+    reference_entity_name: data_file
+    reference_entity_namespace: laplacian.arch.api.service.data_file
+    cardinality: '*'
+    snippet: |
+      dataFileFetchers.map{ it.dataFile }.distinct()

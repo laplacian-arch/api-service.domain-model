@@ -36,6 +36,11 @@ entities:
     snippet: |
       "${if (group != null) "${group!!.lowerUnderscorize()}." else ""}${name.lowerUnderscorize()}"
 
+  - name: graphql_type_name
+    type: string
+    snippet: |
+      fqn.upperCamelize()
+
   relationships:
   - name: data_model
     reference_entity_name: entity

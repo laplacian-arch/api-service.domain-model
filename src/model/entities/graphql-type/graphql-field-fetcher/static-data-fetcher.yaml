@@ -1,7 +1,0 @@
-entities:
-- name: static_data_fetcher
-  namespace: laplacian.arch.api.service.graphql
-  supertype_name: graphql_field_fetcher
-  supertype_namespace: laplacian.arch.api.service.graphql
-  subtype_key_value: static_data
-

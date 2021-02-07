@@ -44,6 +44,13 @@ The fqn of this graphql_type.
   "${if (group != null) "${group!!.lowerUnderscorize()}." else ""}${name.lowerUnderscorize()}"
   ```
 
+### graphql_type_name: `String`
+The graphql_type_name of this graphql_type.
+- **Code:**
+  ```kotlin
+  fqn.upperCamelize()
+  ```
+
 ## Relationships
 
 ### data_model: `Entity?`

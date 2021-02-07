@@ -51,6 +51,13 @@ Defines this service is depends_on_cache or not.
   cachePolicies.isNotEmpty()
   ```
 
+### depends_on_data_file: `Boolean`
+Defines this service is depends_on_data_file or not.
+- **Code:**
+  ```kotlin
+  dataFiles.isNotEmpty()
+  ```
+
 ### depends_on_redis_cache: `Boolean`
 Defines this service is depends_on_redis_cache or not.
 - **Code:**
@@ -105,6 +112,14 @@ The graphql_types of this service.
   graphqlTypeEntries.map{ it.graphqlType }.distinct()
   ```
 
+### root_graphql_types: `List<GraphqlType>`
+The root_graphql_types of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlTypes.filter{ it.group == null }
+  ```
+
 ### elasticsearch_indexes: `List<ElasticsearchIndex>`
 The elasticsearch_indexes of this service.
 - **Cardinality:** `*`
@@ -148,4 +163,20 @@ The redis_cache_policies of this service.
 - **Code:**
   ```kotlin
   cachePolicies.filterIsInstance<RedisCachePolicy>()
+  ```
+
+### data_file_fetchers: `List<DataFileFetcher>`
+The data_file_fetchers of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlFieldFetchers.filterIsInstance<DataFileFetcher>()
+  ```
+
+### data_files: `List<DataFile>`
+The data_files of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  dataFileFetchers.map{ it.dataFile }.distinct()
   ```
