@@ -61,6 +61,10 @@ The data_model of this graphql_type.
 The fields of this graphql_type.
 - **Cardinality:** `*`
 
+### configurations: `List<ConfigurationBinding>`
+The configurations of this graphql_type.
+- **Cardinality:** `*`
+
 ### query_fields: `List<GraphqlField>`
 The query_fields of this graphql_type.
 - **Cardinality:** `*`

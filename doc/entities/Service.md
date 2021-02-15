@@ -128,10 +128,6 @@ The elasticsearch_indexes of this service.
   listOf<ElasticsearchIndex>()
   ```
 
-### configuration_categories: `List<ServiceConfigurationCategory>`
-The configuration_categories of this service.
-- **Cardinality:** `*`
-
 ### graphql_fields: `List<GraphqlField>`
 The graphql_fields of this service.
 - **Cardinality:** `*`
@@ -179,4 +175,31 @@ The data_files of this service.
 - **Code:**
   ```kotlin
   dataFileFetchers.map{ it.dataFile }.distinct()
+  ```
+
+### rest_api_fetchers: `List<RestApiFetcher>`
+The rest_api_fetchers of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  graphqlFieldFetchers.filterIsInstance<RestApiFetcher>()
+  ```
+
+### rest_resources: `List<RestResource>`
+The rest_resources of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  restApiFetchers.map{ it.restResource }.distinct()
+  ```
+
+### configurations: `List<ServiceConfiguration>`
+The configurations of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  ( restResources.flatMap{ it.configurations } + graphqlTypes.flatMap{ it.configurations } )
+  .map {
+      it.definition
+  }.distinct()
   ```

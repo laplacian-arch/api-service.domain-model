@@ -26,13 +26,6 @@ The description of this rest_operation.
   "${method} ${path}"
   ```
 
-### response_model_name: `String`
-The response_model_name of this rest_operation.
-- **Default Value:**
-  ```kotlin
-  restResource.resourceModelName!!
-  ```
-
 ## Relationships
 
 ### arguments: `List<ApiCallArgument>`
@@ -51,10 +44,10 @@ The query_parameters of this rest_operation.
 The http_headers of this rest_operation.
 - **Cardinality:** `*`
 
-### response_model: `Entity`
-The response_model of this rest_operation.
-- **Cardinality:** `1`
-
 ### rest_resource: `RestResource`
 The rest_resource of this rest_operation.
+- **Cardinality:** `1`
+
+### response: `RestOperationResponse`
+The response of this rest_operation.
 - **Cardinality:** `1`

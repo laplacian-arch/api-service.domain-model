@@ -28,3 +28,7 @@ The rest_operation of this rest_api_fetcher.
   ```kotlin
   restResource.operations.find{ it.name == restOperationName }!!
   ```
+
+### argument_assignments: `List<ArgumentAssignment>`
+The argument_assignments of this rest_api_fetcher.
+- **Cardinality:** `*`

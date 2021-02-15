@@ -196,8 +196,20 @@ An entity describing a graphql_type.
 An entity describing a mybatis_fetcher.
 - [**RestApiFetcher**](<./doc/entities/RestApiFetcher.md>)
 An entity describing a rest_api_fetcher.
+- [**ArgumentAssignment**](<./doc/entities/ArgumentAssignment.md>)
+An entity describing a argument_assignment.
+- [**ArgumentAssignmentValue**](<./doc/entities/ArgumentAssignmentValue.md>)
+An entity describing a argument_assignment_value.
+- [**ArgumentAssignmentValueFetcherArgument**](<./doc/entities/ArgumentAssignmentValueFetcherArgument.md>)
+An entity describing a argument_assignment_value_fetcher_argument.
+- [**ArgumentAssignmentValueGraphqlTypeConfig**](<./doc/entities/ArgumentAssignmentValueGraphqlTypeConfig.md>)
+An entity describing a argument_assignment_value_graphql_type_config.
+- [**ArgumentAssignmentValueExpression**](<./doc/entities/ArgumentAssignmentValueExpression.md>)
+An entity describing a argument_assignment_value_expression.
 - [**RestOperation**](<./doc/entities/RestOperation.md>)
 An entity describing a rest_operation.
+- [**RestOperationResponse**](<./doc/entities/RestOperationResponse.md>)
+An entity describing a rest_operation_response.
 - [**RestRequestParameter**](<./doc/entities/RestRequestParameter.md>)
 An entity describing a rest_request_parameter.
 - [**RestResource**](<./doc/entities/RestResource.md>)
@@ -210,8 +222,6 @@ An entity describing a elastic_search_client.
 An entity describing a graphql_type_entry.
 - [**ServiceConfiguration**](<./doc/entities/ServiceConfiguration.md>)
 An entity describing a service_configuration.
-- [**ServiceConfigurationCategory**](<./doc/entities/ServiceConfigurationCategory.md>)
-An entity describing a service_configuration_category.
 - [**ConfigurationBinding**](<./doc/entities/ConfigurationBinding.md>)
 An entity describing a configuration_binding.
 ### スクリプト一覧

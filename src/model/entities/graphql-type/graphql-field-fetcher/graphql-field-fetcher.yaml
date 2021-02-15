@@ -17,6 +17,12 @@ entities:
     type: string
     optional: true
 
+  - name: result_mapper
+    type: string
+    optional: true
+    default_value: |
+      "${graphqlField.recordType}.from(result)"
+
   - name: cache_policy_name
     type: string
     optional: true

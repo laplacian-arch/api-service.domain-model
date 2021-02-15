@@ -58,6 +58,12 @@ entities:
     cardinality: '*'
     aggregate: true
 
+  - name: configurations
+    reference_entity_name: configuration_binding
+    reference_entity_namespace: laplacian.arch.api.service
+    cardinality: '*'
+    aggregate: true
+
   - name: query_fields
     reference_entity_name: graphql_field
     reference_entity_namespace: laplacian.arch.api.service.graphql

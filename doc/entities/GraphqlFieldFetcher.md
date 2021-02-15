@@ -22,6 +22,13 @@ The description of this graphql_field_fetcher.
 ### result_filter: `String`
 The result_filter of this graphql_field_fetcher.
 
+### result_mapper: `String`
+The result_mapper of this graphql_field_fetcher.
+- **Default Value:**
+  ```kotlin
+  "${graphqlField.recordType}.from(result)"
+  ```
+
 ### cache_policy_name: `String`
 The cache_policy_name of this graphql_field_fetcher.
 

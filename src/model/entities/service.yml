@@ -103,11 +103,6 @@ entities:
     snippet: |
       listOf<ElasticsearchIndex>()
 
-  - name: configuration_categories
-    reference_entity_name: service_configuration_category
-    cardinality: '*'
-    aggregate: true
-
   - name: graphql_fields
     reference_entity_name: graphql_field
     reference_entity_namespace: laplacian.arch.api.service.graphql
@@ -150,3 +145,28 @@ entities:
     cardinality: '*'
     snippet: |
       dataFileFetchers.map{ it.dataFile }.distinct()
+
+  - name: rest_api_fetchers
+    reference_entity_name: rest_api_fetcher
+    reference_entity_namespace: laplacian.arch.api.service.rest
+    cardinality: '*'
+    snippet: |
+      graphqlFieldFetchers.filterIsInstance<RestApiFetcher>()
+
+  - name: rest_resources
+    reference_entity_name: rest_resource
+    reference_entity_namespace: laplacian.arch.api.service.rest
+    cardinality: '*'
+    snippet: |
+      restApiFetchers.map{ it.restResource }.distinct()
+
+  - name: configurations
+    reference_entity_name: service_configuration
+    reference_entity_namespace: laplacian.arch.api.service
+    cardinality: '*'
+    snippet: |
+      ( restResources.flatMap{ it.configurations } + graphqlTypes.flatMap{ it.configurations } )
+      .map {
+          it.definition
+      }.distinct()
+

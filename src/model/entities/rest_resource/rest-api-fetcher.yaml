@@ -27,3 +27,65 @@ entities:
     cardinality: '1'
     snippet: |
       restResource.operations.find{ it.name == restOperationName }!!
+
+  - name: argument_assignments
+    reference_entity_name: argument_assignment
+    reference_entity_namespace: laplacian.arch.api.service.rest
+    cardinality: '*'
+    aggregate: true
+
+- name: argument_assignment
+  namespace: laplacian.arch.api.service.rest
+
+  properties:
+  - name: key
+    type: string
+    domain_type_name: identifier
+    primary_key: true
+
+  relationships:
+  - name: value
+    reference_entity_name: argument_assignment_value
+    reference_entity_namespace: laplacian.arch.api.service.rest
+    cardinality: '1'
+    aggregate: true
+
+- name: argument_assignment_value
+  namespace: laplacian.arch.api.service.rest
+
+  properties:
+  - name: from
+    type: string
+    subtype_key: true
+
+- name: argument_assignment_value_fetcher_argument
+  namespace: laplacian.arch.api.service.rest
+  supertype_name: argument_assignment_value
+  supertype_namespace: laplacian.arch.api.service.rest
+  subtype_key_value: fetcher_argument
+
+  properties:
+  - name: name
+    type: string
+    domain_type_name: identifier
+
+- name: argument_assignment_value_graphql_type_config
+  namespace: laplacian.arch.api.service.rest
+  supertype_name: argument_assignment_value
+  supertype_namespace: laplacian.arch.api.service.rest
+  subtype_key_value: graphql_type_config
+
+  properties:
+  - name: name
+    type: string
+    domain_type_name: service_configuration_name
+
+- name: argument_assignment_value_expression
+  namespace: laplacian.arch.api.service.rest
+  supertype_name: argument_assignment_value
+  supertype_namespace: laplacian.arch.api.service.rest
+  subtype_key_value: expression
+
+  properties:
+  - name: expression
+    type: string

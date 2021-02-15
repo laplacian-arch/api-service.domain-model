@@ -37,22 +37,6 @@ entities:
     default_value: |
       "${key.upperUnderscorize()}"
 
-
-- name: service_configuration_category
-  namespace: laplacian.arch.api.service
-  properties:
-  - name: name
-    type: string
-    primary_key: true
-
-  relationships:
-  - name: configurations
-    reference_entity_name: service_configuration
-    cardinality: '*'
-    mappings:
-    - from: name
-      to: category
-
 - name: configuration_binding
   namespace: laplacian.arch.api.service
 
@@ -89,6 +73,3 @@ entities:
       to: name
     - from: category
       to: category
-
-
-
