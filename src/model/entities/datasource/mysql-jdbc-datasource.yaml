@@ -1,0 +1,12 @@
+entities:
+- name: mysql_jdbc_datasource
+  namespace: laplacian.arch.api.service.datasource
+  supertype_name: datasource
+  supertype_namespace: laplacian.arch.api.service.datasource
+  subtype_key_value: mysql_jdbc
+
+  properties:
+  - name: driver_class_name
+    type: string
+    snippet: |
+      "com.mysql.jdbc.Driver"

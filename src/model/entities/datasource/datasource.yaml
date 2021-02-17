@@ -12,6 +12,7 @@ entities:
     type: string
     optional: true
     primary_key: true
+    domain_type_name: identifier
 
   - name: description
     type: string

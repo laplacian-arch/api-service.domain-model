@@ -94,6 +94,8 @@ This includes the following models.
 - Statement issued by the client to the datastore
 - [**DatasourceEntry**](<./doc/entities/DatasourceEntry.md>)
 An entity describing a datasource_entry.
+- [**MysqlJdbcDatasource**](<./doc/entities/MysqlJdbcDatasource.md>)
+An entity describing a mysql_jdbc_datasource.
 - [**PostgresJdbcDatasource**](<./doc/entities/PostgresJdbcDatasource.md>)
 An entity describing a postgres_jdbc_datasource.
 - [**Duration**](<./doc/entities/Duration.md>)
@@ -343,6 +345,7 @@ An entity describing a configuration_binding.
 - [src/model/entities/data_file/data-file.yaml](<./src/model/entities/data_file/data-file.yaml>)
 - [src/model/entities/datasource/datasource_entry.yaml](<./src/model/entities/datasource/datasource_entry.yaml>)
 - [src/model/entities/datasource/datasource.yaml](<./src/model/entities/datasource/datasource.yaml>)
+- [src/model/entities/datasource/mysql-jdbc-datasource.yaml](<./src/model/entities/datasource/mysql-jdbc-datasource.yaml>)
 - [src/model/entities/datasource/postgres-jdbc-datasource.yaml](<./src/model/entities/datasource/postgres-jdbc-datasource.yaml>)
 - [src/model/entities/duration.yaml](<./src/model/entities/duration.yaml>)
 - [src/model/entities/elasticsearch/aggregate/avg-bucket-aggregate.yaml](<./src/model/entities/elasticsearch/aggregate/avg-bucket-aggregate.yaml>)

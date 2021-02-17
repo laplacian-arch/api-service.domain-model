@@ -2596,8 +2596,12 @@
         "properties": {
           "_class_": { "const": "datasource" },
           "name": {
+            "allOf": [{
             "description": "The name of this datasource.",
             "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/identifier"
+            }]
           },
           "description": {
             "description": "The description of this datasource.",
@@ -2606,12 +2610,14 @@
           "type": {
             "description": "The type of this datasource.",
             "enum":[
+              "mysql_jdbc",
               "postgres_jdbc"
             ],
             "type": "string"
           }
         },
         "allOf": [
+          { "$ref": "#/definitions/entities/laplacian.arch.api.service.datasource.MysqlJdbcDatasource" },
           { "$ref": "#/definitions/entities/laplacian.arch.api.service.datasource.PostgresJdbcDatasource" }
         ]
       },
@@ -2630,6 +2636,40 @@
           }
         }
       },
+      "laplacian.arch.api.service.datasource.MysqlJdbcDatasource": {
+        "description": "An entity describing a mysql_jdbc_datasource.",
+        "if": { "properties": {
+          "type": { "const": "mysql_jdbc" }
+        }},
+        "then": {
+        "required": [
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "_class_": { "const": "mysql_jdbc_datasource" },
+          "name": {
+            "allOf": [{
+            "description": "The name of this datasource.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/identifier"
+            }]
+          },
+          "description": {
+            "description": "The description of this datasource.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of this datasource.",
+            "enum":[
+              "mysql_jdbc",
+              "postgres_jdbc"
+            ],
+            "type": "string"
+          }
+        }
+        }
+      },
       "laplacian.arch.api.service.datasource.PostgresJdbcDatasource": {
         "description": "An entity describing a postgres_jdbc_datasource.",
         "if": { "properties": {
@@ -2642,8 +2682,12 @@
         "properties": {
           "_class_": { "const": "postgres_jdbc_datasource" },
           "name": {
+            "allOf": [{
             "description": "The name of this datasource.",
             "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/identifier"
+            }]
           },
           "description": {
             "description": "The description of this datasource.",
@@ -2652,6 +2696,7 @@
           "type": {
             "description": "The type of this datasource.",
             "enum":[
+              "mysql_jdbc",
               "postgres_jdbc"
             ],
             "type": "string"
@@ -5030,6 +5075,7 @@
         }},
         "then": {
         "required": [
+          "datasource_name",
           "statement_type",
           "statement"
         ],
@@ -5061,6 +5107,14 @@
           "cache_policy_name": {
             "description": "The cache_policy_name of this graphql_field_fetcher.",
             "type": "string"
+          },
+          "datasource_name": {
+            "allOf": [{
+            "description": "The datasource_name of this mybatis_fetcher.",
+            "type": "string"
+            }, {
+            "$ref": "#/definitions/value_domain_types/identifier"
+            }]
           },
           "statement_type": {
             "description": "The statement_type of this mybatis_fetcher.",

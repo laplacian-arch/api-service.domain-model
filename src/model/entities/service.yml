@@ -58,6 +58,11 @@ entities:
     snippet: |
       datasources.any { it.type == "postgres_jdbc" }
 
+  - name: depends_on_mysql_jdbc
+    type: boolean
+    snippet: |
+      datasources.any { it.type == "mysql_jdbc" }
+
   - name: depends_on_oracle_jdbc
     type: boolean
     snippet: |

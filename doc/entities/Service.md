@@ -79,6 +79,13 @@ Defines this service is depends_on_postgres_jdbc or not.
   datasources.any { it.type == "postgres_jdbc" }
   ```
 
+### depends_on_mysql_jdbc: `Boolean`
+Defines this service is depends_on_mysql_jdbc or not.
+- **Code:**
+  ```kotlin
+  datasources.any { it.type == "mysql_jdbc" }
+  ```
+
 ### depends_on_oracle_jdbc: `Boolean`
 Defines this service is depends_on_oracle_jdbc or not.
 - **Code:**
