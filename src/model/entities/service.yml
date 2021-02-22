@@ -53,20 +53,20 @@ entities:
     snippet: |
       graphqlTypes.any{ it.dependsOnMybatis }
 
-  - name: depends_on_postgres_jdbc
+  - name: depends_on_blocking_postgres_datasource
     type: boolean
     snippet: |
-      datasources.any { it.type == "postgres_jdbc" }
+      blockingDatasources.any { it.dbType == "postgres" }
 
-  - name: depends_on_mysql_jdbc
+  - name: depends_on_blocking_mysql_datasource
     type: boolean
     snippet: |
-      datasources.any { it.type == "mysql_jdbc" }
+      blockingDatasources.any { it.dbType == "mysql" }
 
-  - name: depends_on_oracle_jdbc
+  - name: depends_on_blocking_oracle_datasource
     type: boolean
     snippet: |
-      datasources.any { it.type == "oracle_jdbc" }
+      blockingDatasources.any { it.dbType == "oracle" }
 
   relationships:
   - name: datasource_entries
@@ -80,7 +80,21 @@ entities:
     reference_entity_name: datasource
     reference_entity_namespace: laplacian.arch.api.service.datasource
     snippet: |
-      datasourceEntries.map{ it.datasource }
+      datasourceEntries.map{ it.datasource }.distinct()
+
+  - name: blocking_datasources
+    cardinality: '*'
+    reference_entity_name: datasource
+    reference_entity_namespace: laplacian.arch.api.service.datasource
+    snippet: |
+      datasources.filter{ !it.nonBlocking }
+
+  - name: non_blocking_datasources
+    cardinality: '*'
+    reference_entity_name: datasource
+    reference_entity_namespace: laplacian.arch.api.service.datasource
+    snippet: |
+      datasources.filter{ it.nonBlocking }
 
   - name: graphql_type_entries
     cardinality: '*'

@@ -1,3 +1,5 @@
+
+
 # **ConfigurationBinding**
 **namespace:** laplacian.arch.api.service
 

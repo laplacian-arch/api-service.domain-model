@@ -1,3 +1,5 @@
+
+
 # **GraphqlFieldFetcher**
 **namespace:** laplacian.arch.api.service.graphql
 
@@ -19,8 +21,15 @@ The description of this graphql_field_fetcher.
   "The data fetcher for the ${graphqlField.name} field."
   ```
 
-### result_filter: `String`
-The result_filter of this graphql_field_fetcher.
+### is_batch: `Boolean`
+Defines this graphql_field_fetcher is is_batch or not.
+- **Default Value:**
+  ```kotlin
+  false
+  ```
+
+### result_selector: `String`
+The result_selector of this graphql_field_fetcher.
 
 ### result_mapper: `String`
 The result_mapper of this graphql_field_fetcher.

@@ -1,3 +1,5 @@
+
+
 # **ExistsQueryPredicate**
 **namespace:** laplacian.arch.api.service.elasticsearch.query
 

@@ -1,3 +1,5 @@
+
+
 # **TermsQueryPredicate**
 **namespace:** laplacian.arch.api.service.elasticsearch.query
 

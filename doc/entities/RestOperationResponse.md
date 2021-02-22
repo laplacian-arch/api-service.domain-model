@@ -1,3 +1,5 @@
+
+
 # **RestOperationResponse**
 **namespace:** laplacian.arch.api.service.rest
 

@@ -1,3 +1,5 @@
+
+
 # **ArgumentAssignmentValueGraphqlTypeConfig**
 **namespace:** laplacian.arch.api.service.rest
 

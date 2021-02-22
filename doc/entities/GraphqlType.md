@@ -1,3 +1,5 @@
+
+
 # **GraphqlType**
 **namespace:** laplacian.arch.api.service.graphql
 

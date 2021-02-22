@@ -13,7 +13,13 @@ entities:
     default_value: |
       "The data fetcher for the ${graphqlField.name} field."
 
-  - name: result_filter
+  - name: is_batch
+    type: boolean
+    optional: true
+    default_value: |
+      false
+
+  - name: result_selector
     type: string
     optional: true
 

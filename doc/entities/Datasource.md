@@ -1,3 +1,5 @@
+
+
 # **Datasource**
 **namespace:** laplacian.arch.api.service.datasource
 
@@ -24,7 +26,10 @@ The description of this datasource.
   name
   ```
 
-### type: `String`
-The type of this datasource.
+### db_type: `String`
+The db_type of this datasource.
+
+### non_blocking: `Boolean`
+Defines this datasource is non_blocking or not.
 
 ## Relationships

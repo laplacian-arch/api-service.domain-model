@@ -20,6 +20,13 @@ entities:
     default_value: |
       name
 
-  - name: type
+  - name: db_type
     type: string
-    subtype_key: true
+    domain:
+      choices:
+      - value: postgres
+      - value: mysql
+      - value: oracle
+
+  - name: non_blocking
+    type: boolean

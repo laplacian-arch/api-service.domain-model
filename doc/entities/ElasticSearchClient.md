@@ -1,3 +1,5 @@
+
+
 # **ElasticSearchClient**
 **namespace:** laplacian.arch.api.service
 

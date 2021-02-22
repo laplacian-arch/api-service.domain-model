@@ -1,3 +1,5 @@
+
+
 # **ElasticsearchQuery**
 **namespace:** laplacian.arch.api.service.elasticsearch
 

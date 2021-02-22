@@ -1,3 +1,5 @@
+
+
 # **Service**
 **namespace:** laplacian.arch.api.service
 
@@ -72,25 +74,25 @@ Defines this service is depends_on_mybatis or not.
   graphqlTypes.any{ it.dependsOnMybatis }
   ```
 
-### depends_on_postgres_jdbc: `Boolean`
-Defines this service is depends_on_postgres_jdbc or not.
+### depends_on_blocking_postgres_datasource: `Boolean`
+Defines this service is depends_on_blocking_postgres_datasource or not.
 - **Code:**
   ```kotlin
-  datasources.any { it.type == "postgres_jdbc" }
+  blockingDatasources.any { it.dbType == "postgres" }
   ```
 
-### depends_on_mysql_jdbc: `Boolean`
-Defines this service is depends_on_mysql_jdbc or not.
+### depends_on_blocking_mysql_datasource: `Boolean`
+Defines this service is depends_on_blocking_mysql_datasource or not.
 - **Code:**
   ```kotlin
-  datasources.any { it.type == "mysql_jdbc" }
+  blockingDatasources.any { it.dbType == "mysql" }
   ```
 
-### depends_on_oracle_jdbc: `Boolean`
-Defines this service is depends_on_oracle_jdbc or not.
+### depends_on_blocking_oracle_datasource: `Boolean`
+Defines this service is depends_on_blocking_oracle_datasource or not.
 - **Code:**
   ```kotlin
-  datasources.any { it.type == "oracle_jdbc" }
+  blockingDatasources.any { it.dbType == "oracle" }
   ```
 
 ## Relationships
@@ -104,7 +106,23 @@ The datasources of this service.
 - **Cardinality:** `*`
 - **Code:**
   ```kotlin
-  datasourceEntries.map{ it.datasource }
+  datasourceEntries.map{ it.datasource }.distinct()
+  ```
+
+### blocking_datasources: `List<Datasource>`
+The blocking_datasources of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  datasources.filter{ !it.nonBlocking }
+  ```
+
+### non_blocking_datasources: `List<Datasource>`
+The non_blocking_datasources of this service.
+- **Cardinality:** `*`
+- **Code:**
+  ```kotlin
+  datasources.filter{ it.nonBlocking }
   ```
 
 ### graphql_type_entries: `List<GraphqlTypeEntry>`

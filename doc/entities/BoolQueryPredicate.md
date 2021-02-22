@@ -1,3 +1,5 @@
+
+
 # **BoolQueryPredicate**
 **namespace:** laplacian.arch.api.service.elasticsearch.query
 

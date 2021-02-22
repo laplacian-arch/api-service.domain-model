@@ -1,3 +1,5 @@
+
+
 # **Duration**
 **namespace:** laplacian.arch.api.service
 

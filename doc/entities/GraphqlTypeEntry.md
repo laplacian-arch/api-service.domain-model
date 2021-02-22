@@ -1,3 +1,5 @@
+
+
 # **GraphqlTypeEntry**
 **namespace:** laplacian.arch.api.service
 
