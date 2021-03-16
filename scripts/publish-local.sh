@@ -85,7 +85,7 @@ pluginManagement {
             url '${REMOTE_REPO_PATH}'
         }
         gradlePluginPortal()
-        jcenter()
+        mavenCentral()
     }
 }
 rootProject.name = "laplacian-arch.api-service.domain-model"
@@ -110,7 +110,7 @@ repositories {
     maven {
         url '${REMOTE_REPO_PATH}'
     }
-    jcenter()
+    mavenCentral()
 }
 
 task moduleJar(type: Jar) {

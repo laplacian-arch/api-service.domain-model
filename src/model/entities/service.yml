@@ -68,6 +68,11 @@ entities:
     snippet: |
       blockingDatasources.any { it.dbType == "oracle" }
 
+  - name: has_custom_logic
+    type: boolean
+    snippet: |
+      graphqlFieldFetchers.any{ it.type == "custom" }
+
   relationships:
   - name: datasource_entries
     cardinality: '*'
@@ -188,4 +193,3 @@ entities:
       .map {
           it.definition
       }.distinct()
-

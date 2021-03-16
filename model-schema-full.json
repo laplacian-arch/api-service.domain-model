@@ -2521,6 +2521,7 @@
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
               "data_file",
+              "custom",
               "graphql_field_link",
               "mybatis",
               "rest_api"
@@ -4562,6 +4563,55 @@
         }
         }
       },
+      "laplacian.arch.api.service.graphql.CustomFetcher": {
+        "description": "An entity describing a custom_fetcher.",
+        "if": { "properties": {
+          "type": { "const": "custom" }
+        }},
+        "then": {
+        "required": [
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "_class_": { "const": "custom_fetcher" },
+          "type": {
+            "description": "The type of this graphql_field_fetcher.",
+            "enum":[
+              "data_file",
+              "custom",
+              "graphql_field_link",
+              "mybatis",
+              "rest_api"
+            ],
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of this graphql_field_fetcher.",
+            "type": "string"
+          },
+          "is_batch": {
+            "description": "Defines this graphql_field_fetcher is is_batch or not.",
+            "type": "boolean"
+          },
+          "result_selector": {
+            "description": "The result_selector of this graphql_field_fetcher.",
+            "type": "string"
+          },
+          "result_mapper": {
+            "description": "The result_mapper of this graphql_field_fetcher.",
+            "type": "string"
+          },
+          "cache_policy_name": {
+            "description": "The cache_policy_name of this graphql_field_fetcher.",
+            "type": "string"
+          },
+          "async": {
+            "description": "Defines this custom_fetcher is async or not.",
+            "type": "boolean"
+          }
+        }
+        }
+      },
       "laplacian.arch.api.service.graphql.GraphqlFieldFetcher": {
         "description": "An entity describing a graphql_field_fetcher.",
         "type": "object",
@@ -4574,6 +4624,7 @@
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
               "data_file",
+              "custom",
               "graphql_field_link",
               "mybatis",
               "rest_api"
@@ -4603,6 +4654,7 @@
         },
         "allOf": [
           { "$ref": "#/definitions/entities/laplacian.arch.api.service.data_file.DataFileFetcher" },
+          { "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.CustomFetcher" },
           { "$ref": "#/definitions/entities/laplacian.arch.api.service.graphql.GraphqlFieldLink" },
           { "$ref": "#/definitions/entities/laplacian.arch.api.service.mybatis.MybatisFetcher" },
           { "$ref": "#/definitions/entities/laplacian.arch.api.service.rest.RestApiFetcher" }
@@ -4625,6 +4677,7 @@
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
               "data_file",
+              "custom",
               "graphql_field_link",
               "mybatis",
               "rest_api"
@@ -5036,6 +5089,7 @@
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
               "data_file",
+              "custom",
               "graphql_field_link",
               "mybatis",
               "rest_api"
@@ -5105,6 +5159,7 @@
             "description": "The type of this graphql_field_fetcher.",
             "enum":[
               "data_file",
+              "custom",
               "graphql_field_link",
               "mybatis",
               "rest_api"

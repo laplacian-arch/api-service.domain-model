@@ -95,6 +95,13 @@ Defines this service is depends_on_blocking_oracle_datasource or not.
   blockingDatasources.any { it.dbType == "oracle" }
   ```
 
+### has_custom_logic: `Boolean`
+Defines this service is has_custom_logic or not.
+- **Code:**
+  ```kotlin
+  graphqlFieldFetchers.any{ it.type == "custom" }
+  ```
+
 ## Relationships
 
 ### datasource_entries: `List<DatasourceEntry>`

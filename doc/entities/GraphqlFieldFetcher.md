@@ -41,6 +41,27 @@ The result_mapper of this graphql_field_fetcher.
 ### cache_policy_name: `String`
 The cache_policy_name of this graphql_field_fetcher.
 
+### java_interface: `String`
+The java_interface of this graphql_field_fetcher.
+- **Code:**
+  ```kotlin
+  if (isBatch) "${javaInterfaceName}<${graphqlField.contextType}, ${graphqlField.recordType}>"
+  else "${javaInterfaceName}<${graphqlField.recordType}>"
+  ```
+
+### java_interface_name: `String`
+The java_interface_name of this graphql_field_fetcher.
+- **Code:**
+  ```kotlin
+  when {
+    (isBatch && graphqlField.multiple) -> "ListValueFieldBatchFetcher"
+    (isBatch && !graphqlField.multiple) -> "FieldBatchFetcher"
+    (!isBatch && graphqlField.multiple) -> "ListValueFieldFetcher"
+    (!isBatch && !graphqlField.multiple) -> "FieldFetcher"
+    else -> ""
+  }
+  ```
+
 ## Relationships
 
 ### graphql_field: `GraphqlField`

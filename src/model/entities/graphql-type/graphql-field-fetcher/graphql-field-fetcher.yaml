@@ -33,6 +33,23 @@ entities:
     type: string
     optional: true
 
+  - name: java_interface
+    type: string
+    snippet: |
+      if (isBatch) "${javaInterfaceName}<${graphqlField.contextType}, ${graphqlField.recordType}>"
+      else "${javaInterfaceName}<${graphqlField.recordType}>"
+
+  - name: java_interface_name
+    type: string
+    snippet: |
+      when {
+        (isBatch && graphqlField.multiple) -> "ListValueFieldBatchFetcher"
+        (isBatch && !graphqlField.multiple) -> "FieldBatchFetcher"
+        (!isBatch && graphqlField.multiple) -> "ListValueFieldFetcher"
+        (!isBatch && !graphqlField.multiple) -> "FieldFetcher"
+        else -> ""
+      }
+
   relationships:
   - name: graphql_field
     reference_entity_name: graphql_field
